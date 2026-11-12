@@ -1,8 +1,10 @@
 # WasteWise VN
 
-WasteWise VN nhận ảnh rác, phát hiện vị trí và nhóm vật liệu **Nhựa, Giấy, Kim loại**, rồi đưa ra hướng dẫn phân loại và xử lý bằng tiếng Việt. Người dùng có thể sửa kết quả, tra cứu vật liệu khác và hỏi trợ lý dựa trên cơ sở tri thức của ứng dụng.
+**WasteWise VN** là đồ án Project 1 xây dựng giao diện trực quan để hỗ trợ phân loại rác thải sinh hoạt. Người dùng chỉ cần chụp hoặc tải một bức ảnh: ứng dụng khoanh vùng những vật dụng nhận diện được, gợi ý nhóm vật liệu và hiển thị hướng dẫn **nên làm, tránh làm, lưu ý khi thu gom tại Việt Nam**. Một ảnh có thể chứa nhiều món rác, chẳng hạn chai và nắp nhựa, ống hút, giấy vụn, thùng carton, lon nước hoặc nắp kim loại.
 
-Mô hình chính là **YOLO26s** được fine-tune trên SWiM3; **YOLO26n** là bản đối chứng nhẹ. Sau khi train, mô hình được kiểm tra trên ảnh ngoài SWiM3, ưu tiên ảnh rác tại Việt Nam; nếu cần, fine-tune tiếp với ảnh Việt Nam đã gắn nhãn. [Quy trình và metric](docs/training.md).
+Ngoài kết quả trên ảnh, người dùng có thể sửa nhóm được gợi ý, tra cứu cách xử lý pin, thủy tinh, rác hữu cơ và hỏi trợ lý tra cứu bằng tiếng Việt. Những mục này được ghi rõ là **tra cứu thủ công** khi mô hình chưa nhận diện được; ứng dụng không coi một bức ảnh là đủ để kết luận chắc chắn vật có tái chế được hay không.
+
+Phần nhận diện dùng **YOLO26s** theo quy trình fine-tune từ checkpoint pretrained trên ảnh SWiM3 có gắn khung, nhằm dự đoán vị trí và nhóm vật liệu. Phạm vi nhãn của detector là nhựa, giấy/bìa và kim loại; chất lượng trên ảnh thực tế ở Việt Nam sẽ được kiểm tra riêng trước khi sử dụng rộng rãi. [Cách train và đánh giá](docs/training.md).
 
 ## Cài và chạy từ repo mới tải về
 
