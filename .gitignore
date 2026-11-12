@@ -9,8 +9,10 @@ __pycache__/
 datasets/
 runs/
 outputs/
+/weights/
 *.pt
 *.zip
+*.part
 *.onnx
 bus.jpg
 *.db

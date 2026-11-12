@@ -86,6 +86,6 @@ def test_scan_contract_consumed_by_frontend() -> None:
     assert scan["detections"][0]["category_id"] == "plastic"
     assert scan["detections"][0]["bbox_xyxy"] == [1.0, 2.0, 31.0, 30.0]
     assert scan["detections"][0]["origin"] == "ai"
-    assert scan["summary"] == [{"category_id": "plastic", "material_id": "plastic", "name": "Nhựa", "estimated_count": 1}]
+    assert scan["summary"] == [{"category_id": "plastic", "material_id": "plastic", "advice_id": "plastic", "name": "Nhựa", "estimated_count": 1}]
     assert scan["advice"][0]["id"] in material_ids
     assert scan["advice"][0]["do"] and scan["advice"][0]["caution"]

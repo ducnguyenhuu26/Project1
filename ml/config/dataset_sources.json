@@ -1,36 +1,303 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
+  "taxonomy_version": "2026-11-12.3",
+  "classes": [
+    "plastic",
+    "metal",
+    "glass",
+    "cigarette_litter"
+  ],
+  "seed": 42,
+  "split": {
+    "train": 0.8,
+    "val": 0.1,
+    "test": 0.1
+  },
   "sources": [
     {
-      "id": "taco",
+      "id": "taco_odbl",
       "url": "https://github.com/pedropro/TACO",
-      "license_status": "repository declares MIT; verify image-level rights and original dataset terms before redistribution",
-      "task": "instance segmentation with COCO annotations; bounding boxes derivable from masks/COCO bbox",
-      "scene": "litter in outdoor real-world contexts",
-      "coverage": "mixed litter categories; many fine-grained labels are sparse",
-      "suitable_for_training": "candidate; only explicitly reviewed class mappings; not Vietnam household validation",
-      "download": "manual/official project tooling; no credentials supplied"
-    },
-    {
-      "id": "swim3",
-      "url": "https://github.com/Burhan-Ahmed/SWiM3-Dataset",
-      "license_status": "unverified in this checkout; upstream README points to a license but rights must be checked before redistribution",
-      "task": "object detection bounding boxes; YOLO and Faster R-CNN formats",
-      "scene": "households, parks, public spaces",
-      "coverage": "legacy 3-class baseline Plastic/Paper/Metal, with included subclasses",
-      "suitable_for_training": "baseline only until license and per-source annotation scope are confirmed",
-      "download": "existing local clean split remains untouched"
+      "annotations": "datasets/taco/raw/annotations.json",
+      "image_dir": "datasets/taco/raw",
+      "license_reviewed": true,
+      "license_status": "TACO annotations CC BY 4.0; use only images explicitly marked ODBL (c) OpenLitterMap & Contributors. The TACO annotation file marks 715 images with no license, 319 as generic CC, and 466 ODbL. Other image licenses are excluded.",
+      "license_allowlist": [
+        "ODBL (c) OpenLitterMap & Contributors"
+      ],
+      "mapping_reviewed": true,
+      "fully_annotated": true,
+      "mapping": {
+        "Aerosol": {
+          "decision": "exclude",
+          "reason": "not one of the selected four material groups; contents and residue are not inferred"
+        },
+        "Aluminium blister pack": {
+          "decision": "needs_review",
+          "reason": "composite medication packaging; do not infer a single material or handling stream"
+        },
+        "Aluminium foil": {
+          "decision": "map",
+          "category_id": "metal",
+          "reason": "explicit aluminium material annotation"
+        },
+        "Battery": {
+          "decision": "needs_review",
+          "reason": "hazardous object; preserve image for specialist review, not a material-only guess"
+        },
+        "Broken glass": {
+          "decision": "map",
+          "category_id": "glass",
+          "reason": "explicit glass annotation; advice must retain broken-glass safety warning"
+        },
+        "Carded blister pack": {
+          "decision": "needs_review",
+          "reason": "composite packaging; not paper or plastic by assumption"
+        },
+        "Cigarette": {
+          "decision": "map",
+          "category_id": "cigarette_litter",
+          "reason": "specific cigarette-butt litter object; advice is residual waste, never cigarette recycling"
+        },
+        "Clear plastic bottle": {
+          "decision": "map",
+          "category_id": "plastic",
+          "reason": "explicit plastic bottle annotation"
+        },
+        "Corrugated carton": {
+          "decision": "exclude",
+          "reason": "paper/cardboard has only 19 boxes after license and ambiguity filtering; excluded from this run rather than forced into a weak fifth-class head"
+        },
+        "Crisp packet": {
+          "decision": "needs_review",
+          "reason": "often multilayer; do not infer recyclable plastic from appearance or name"
+        },
+        "Disposable food container": {
+          "decision": "needs_review",
+          "reason": "container composition may be composite or unknown"
+        },
+        "Disposable plastic cup": {
+          "decision": "map",
+          "category_id": "plastic",
+          "reason": "explicit plastic object annotation; material label is not a recycling guarantee"
+        },
+        "Drink can": {
+          "decision": "map",
+          "category_id": "metal",
+          "reason": "explicit can object; advice remains conditional on residue/local collection"
+        },
+        "Drink carton": {
+          "decision": "needs_review",
+          "reason": "composite or lined paper object; excluded from this model and not forced into a weak class"
+        },
+        "Egg carton": {
+          "decision": "exclude",
+          "reason": "paper/cardboard is out of scope for this 4-class run due insufficient reviewed boxes"
+        },
+        "Foam cup": {
+          "decision": "map",
+          "category_id": "plastic",
+          "reason": "explicit foam polymer cup annotation; no recycling claim"
+        },
+        "Foam food container": {
+          "decision": "map",
+          "category_id": "plastic",
+          "reason": "explicit foam polymer annotation; no recycling claim"
+        },
+        "Food Can": {
+          "decision": "map",
+          "category_id": "metal",
+          "reason": "explicit metal can object; contents/residue not inferred"
+        },
+        "Food waste": {
+          "decision": "exclude",
+          "reason": "known non-target category; organic material is outside this four-class dataset"
+        },
+        "Garbage bag": {
+          "decision": "needs_review",
+          "reason": "bag composition and layers are not specified"
+        },
+        "Glass bottle": {
+          "decision": "map",
+          "category_id": "glass",
+          "reason": "explicit glass bottle annotation"
+        },
+        "Glass cup": {
+          "decision": "map",
+          "category_id": "glass",
+          "reason": "explicit glass object annotation"
+        },
+        "Glass jar": {
+          "decision": "map",
+          "category_id": "glass",
+          "reason": "explicit glass object annotation"
+        },
+        "Magazine paper": {
+          "decision": "exclude",
+          "reason": "paper is out of scope for this run due insufficient reviewed boxes"
+        },
+        "Meal carton": {
+          "decision": "needs_review",
+          "reason": "composite or lined paper object; excluded from this model and not forced into a weak class"
+        },
+        "Metal bottle cap": {
+          "decision": "map",
+          "category_id": "metal",
+          "reason": "explicit metal material annotation"
+        },
+        "Metal lid": {
+          "decision": "map",
+          "category_id": "metal",
+          "reason": "explicit metal material annotation"
+        },
+        "Normal paper": {
+          "decision": "exclude",
+          "reason": "paper is out of scope for this run due insufficient reviewed boxes"
+        },
+        "Other carton": {
+          "decision": "needs_review",
+          "reason": "composite or lined paper object; excluded from this model and not forced into a weak class"
+        },
+        "Other plastic": {
+          "decision": "map",
+          "category_id": "plastic",
+          "reason": "source explicitly annotates plastic material; no object-specific recycling claim"
+        },
+        "Other plastic bottle": {
+          "decision": "map",
+          "category_id": "plastic",
+          "reason": "explicit plastic bottle annotation"
+        },
+        "Other plastic container": {
+          "decision": "map",
+          "category_id": "plastic",
+          "reason": "source explicitly annotates plastic material; handling remains conditional"
+        },
+        "Other plastic cup": {
+          "decision": "map",
+          "category_id": "plastic",
+          "reason": "source explicitly annotates plastic material"
+        },
+        "Other plastic wrapper": {
+          "decision": "needs_review",
+          "reason": "wrapper may be multilayer; don't assume single-material recycling"
+        },
+        "Paper bag": {
+          "decision": "exclude",
+          "reason": "paper is out of scope for this run due insufficient reviewed boxes; multilayer-plastified bag is never assumed to be paper"
+        },
+        "Paper cup": {
+          "decision": "needs_review",
+          "reason": "composite or lined paper object; excluded from this model and not forced into a weak class"
+        },
+        "Paper straw": {
+          "decision": "exclude",
+          "reason": "paper is out of scope for this run due insufficient reviewed boxes"
+        },
+        "Pizza box": {
+          "decision": "needs_review",
+          "reason": "paper/cardboard may be food-contaminated; image label alone cannot establish handling"
+        },
+        "Plastic bottle cap": {
+          "decision": "map",
+          "category_id": "plastic",
+          "reason": "explicit plastic material annotation"
+        },
+        "Plastic film": {
+          "decision": "map",
+          "category_id": "plastic",
+          "reason": "source explicitly annotates plastic film; material label is not a recycling guarantee"
+        },
+        "Plastic glooves": {
+          "decision": "exclude",
+          "reason": "known non-target protective item; no recycling stream inferred"
+        },
+        "Plastic lid": {
+          "decision": "map",
+          "category_id": "plastic",
+          "reason": "explicit plastic material annotation"
+        },
+        "Plastic straw": {
+          "decision": "map",
+          "category_id": "plastic",
+          "reason": "explicit plastic material annotation"
+        },
+        "Plastic utensils": {
+          "decision": "map",
+          "category_id": "plastic",
+          "reason": "explicit plastic material annotation; no recycling guarantee"
+        },
+        "Plastified paper bag": {
+          "decision": "needs_review",
+          "reason": "composite or lined paper object; excluded from this model and not forced into a weak class"
+        },
+        "Polypropylene bag": {
+          "decision": "map",
+          "category_id": "plastic",
+          "reason": "explicit polypropylene material annotation; local acceptance still varies"
+        },
+        "Pop tab": {
+          "decision": "map",
+          "category_id": "metal",
+          "reason": "explicit metal object annotation"
+        },
+        "Rope & strings": {
+          "decision": "exclude",
+          "reason": "fiber/composition is unspecified; excluded instead of guessing rubber or plastic"
+        },
+        "Scrap metal": {
+          "decision": "map",
+          "category_id": "metal",
+          "reason": "explicit metal material annotation"
+        },
+        "Shoe": {
+          "decision": "exclude",
+          "reason": "shoe is a composite object; do not classify every shoe as rubber"
+        },
+        "Single-use carrier bag": {
+          "decision": "needs_review",
+          "reason": "bag composition/layers are not specified"
+        },
+        "Six pack rings": {
+          "decision": "map",
+          "category_id": "plastic",
+          "reason": "explicit plastic packaging object annotation"
+        },
+        "Spread tub": {
+          "decision": "map",
+          "category_id": "plastic",
+          "reason": "explicit plastic container annotation"
+        },
+        "Squeezable tube": {
+          "decision": "needs_review",
+          "reason": "tube may be composite packaging"
+        },
+        "Styrofoam piece": {
+          "decision": "map",
+          "category_id": "plastic",
+          "reason": "explicit expanded-polystyrene material annotation"
+        },
+        "Tissues": {
+          "decision": "exclude",
+          "reason": "used tissue has sanitary handling considerations; not ordinary recyclable paper"
+        },
+        "Toilet tube": {
+          "decision": "exclude",
+          "reason": "paper is out of scope for this run due insufficient reviewed boxes"
+        },
+        "Tupperware": {
+          "decision": "map",
+          "category_id": "plastic",
+          "reason": "explicit plastic object annotation; no recycling guarantee"
+        },
+        "Unlabeled litter": {
+          "decision": "needs_review",
+          "reason": "target material cannot be established; drop any image containing this label"
+        },
+        "Wrapping paper": {
+          "decision": "exclude",
+          "reason": "paper is out of scope for this run due insufficient reviewed boxes"
+        }
+      }
     }
-  ],
-  "class_mapping_review": [
-    {"source":"SWiM3", "source_class":"plastic bottle / bottlecap / straw / cup", "category_id":"plastic", "handling_group":"plastic", "decision":"needs_review", "reason":"legacy grouped detector class; retain only in its own baseline until annotation semantics are audited"},
-    {"source":"SWiM3", "source_class":"carton / crumpled paper", "category_id":"paper", "handling_group":"paper", "decision":"needs_review", "reason":"cartons may be composite; SWiM3 paper also includes wood and must not be treated as uniform paper"},
-    {"source":"SWiM3", "source_class":"wood", "category_id":null, "handling_group":null, "decision":"exclude", "reason":"object type is wood, not paper; no automatic remap"},
-    {"source":"TACO", "source_class":"clear_plastic_bottle / plastic_bottle_cap / plastic_straw / disposable_plastic_cup", "category_id":"plastic", "handling_group":"plastic", "decision":"needs_review", "reason":"candidate object labels; audit image rights, annotation completeness, and class counts before inclusion"},
-    {"source":"TACO", "source_class":"drink_can / metal_bottle_cap", "category_id":"metal", "handling_group":"metal", "decision":"needs_review", "reason":"candidate object labels; review hazardous residue and can subtypes"},
-    {"source":"TACO", "source_class":"corrugated_carton / normal_paper", "category_id":"paper", "handling_group":"paper", "decision":"needs_review", "reason":"review coating, contamination, and complete scene annotation"},
-    {"source":"TACO", "source_class":"glass_bottle", "category_id":"glass", "handling_group":"glass", "decision":"needs_review", "reason":"detection evidence exists but source-specific boxes, license, and coverage require audit before phase A"},
-    {"source":"TACO", "source_class":"unlabeled_litter / other", "category_id":null, "handling_group":null, "decision":"unmappable", "reason":"not a defined household object category; never collapse into Other"},
-    {"source":"classification datasets", "source_class":"image-level class", "category_id":null, "handling_group":null, "decision":"exclude", "reason":"no bounding box; do not synthesize a full-image box"}
   ]
 }

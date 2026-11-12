@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-12.1",
+  "version": "2026-11-12.3",
   "categories": [
     {
       "id": "plastic",
@@ -79,15 +79,40 @@
       ],
       "parent_group": "container",
       "material_id": "glass",
-      "detection_supported": false,
-      "model_names": [],
-      "source": "manual taxonomy; no approved box dataset",
+      "detection_supported": true,
+      "model_names": [
+        "Glass"
+      ],
+      "source": "TACO ODbL image subset; glass bottle/cup/jar and broken-glass labels only",
       "advice_id": "glass",
       "handling_stream": "separate_collection_if_available",
       "object_type_id": null,
       "classification_level": "material_group",
       "handling_group": "separate_collection_if_available",
-      "training_readiness": "manual_only"
+      "training_readiness": "ready_for_training"
+    },
+    {
+      "id": "cigarette_litter",
+      "name_vi": "Đầu lọc thuốc lá",
+      "name_en": "Cigarette butt litter",
+      "synonyms": [
+        "đầu lọc thuốc lá",
+        "tàn thuốc",
+        "mẩu thuốc lá"
+      ],
+      "parent_group": "residual",
+      "material_id": "cigarette_litter",
+      "detection_supported": true,
+      "model_names": [
+        "Cigarette_litter"
+      ],
+      "source": "TACO ODbL subset; specific Cigarette labels only",
+      "advice_id": "cigarette_litter",
+      "handling_stream": "residual_waste",
+      "object_type_id": "cigarette_butt",
+      "classification_level": "object_type",
+      "handling_group": "residual_waste",
+      "training_readiness": "ready_for_training"
     },
     {
       "id": "organic",
@@ -99,15 +124,17 @@
       ],
       "parent_group": "organic",
       "material_id": "organic",
-      "detection_supported": false,
-      "model_names": [],
+      "detection_supported": true,
+      "model_names": [
+        "Glass"
+      ],
       "source": "manual taxonomy; no approved box dataset",
       "advice_id": "organic",
       "handling_stream": "organic_collection_if_available",
       "object_type_id": "food_waste",
       "classification_level": "object_type",
       "handling_group": "organic_collection_if_available",
-      "training_readiness": "manual_only"
+      "training_readiness": "ready_for_training"
     },
     {
       "id": "textile",

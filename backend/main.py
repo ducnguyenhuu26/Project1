@@ -22,6 +22,7 @@ class DetectionResponse(BaseModel):
     category_id: str | None
     label: str
     material_id: str | None
+    advice_id: str | None = None
     confidence: float | None
     bbox_xyxy: list[float]
     origin: str
@@ -32,6 +33,7 @@ class DetectionResponse(BaseModel):
 class SummaryResponse(BaseModel):
     category_id: str
     material_id: str
+    advice_id: str | None = None
     name: str
     estimated_count: int
 
@@ -68,7 +70,9 @@ def build_app(mode: str | None = None, detector=None) -> FastAPI:
             "ready" if getattr(provider, "model", None) is not None else "missing_checkpoint")
         return {"status": "ok", "mode": provider.mode,
                 "model_status": model_status,
-                "model_version": provider.model_version}
+                "model_version": provider.model_version,
+                "supported_category_ids": getattr(provider, "supported_category_ids",
+                    [item["id"] for item in TAXONOMY["categories"] if item["detection_supported"]])}
 
     @app.get("/api/v1/waste-types")
     def waste_types():
@@ -116,7 +120,7 @@ def build_app(mode: str | None = None, detector=None) -> FastAPI:
         return {"mode": provider.mode, "model_version": provider.model_version,
                 "image_width": picture.width, "image_height": picture.height,
                 "detections": [d.as_dict() for d in detections], "summary": summary,
-                "advice": [MATERIALS[row["material_id"]] for row in summary if row["material_id"] in MATERIALS],
+                "advice": [MATERIALS[row["advice_id"]] for row in summary if row.get("advice_id") in MATERIALS],
                 "taxonomy_version": TAXONOMY["version"],
                 "supported_category_ids": getattr(provider, "supported_category_ids",
                                                    [item["id"] for item in TAXONOMY["categories"] if item["detection_supported"]]),

@@ -1,25 +1,325 @@
 {
   "updated_at": "2026-11-12",
-  "sources": ["https://cttdt.danangportal.gov.vn/vi/web/dng/w/huong-dan-phan-loai-chat-thai-ran-sinh-hoat-khac-nguy-hai-tai-nguon-i", "https://chinhphu.vn/?docid=212099&pageid=27160", "https://cspl-tnmt.monre.gov.vn/upload/81732/fck/files/59728d487ba47e4e0040c49e48ca5415.pdf"],
+  "sources": [
+    "https://cttdt.danangportal.gov.vn/vi/web/dng/w/huong-dan-phan-loai-chat-thai-ran-sinh-hoat-khac-nguy-hai-tai-nguon-i",
+    "https://chinhphu.vn/?docid=212099&pageid=27160",
+    "https://cspl-tnmt.monre.gov.vn/upload/81732/fck/files/59728d487ba47e4e0040c49e48ca5415.pdf"
+  ],
   "materials": [
-    {"id":"plastic","name":"Nhựa","ai_class":0,"examples":["chai nhựa","nắp chai","ống hút","ly nhựa"],"description":"Đồ làm từ nhựa; ảnh không cho biết chính xác mã nhựa hoặc mức độ sạch.","do":["Làm rỗng, tráng sạch nếu thuận tiện và để khô.","Tách riêng chai và nắp nếu nơi thu gom yêu cầu."],"avoid":["Không đốt nhựa hoặc bỏ lẫn với rác hữu cơ."],"caution":"Bao bì bẩn, nhiều lớp hoặc dính hóa chất cần xử lý theo hướng dẫn địa phương.","vn_tip":"Hỏi đơn vị thu gom tại nơi ở về loại nhựa họ nhận."},
-    {"id":"paper","name":"Giấy / bìa","ai_class":1,"examples":["thùng carton","giấy vụn","bìa giấy"],"description":"Nhóm giấy, bìa; mô hình có thể nhầm vật liệu phủ nhựa hoặc hộp nhiều lớp.","do":["Giữ giấy khô, gấp gọn và tách khỏi rác ướt."],"avoid":["Không khẳng định mọi ly giấy, hộp sữa đều tái chế như giấy thường."],"caution":"Giấy dính dầu mỡ, tráng phủ hoặc hộp nhiều lớp cần kiểm tra trước khi phân loại.","vn_tip":"Ưu tiên gom giấy sạch riêng, theo quy định thu gom tại địa phương."},
-    {"id":"metal","name":"Kim loại","ai_class":2,"examples":["lon nước","nắp kim loại","vỏ hộp"],"description":"Vật thể trông như kim loại; ảnh không xác định thành phần hay chất tồn dư.","do":["Làm rỗng lon thông thường; gom riêng nếu nơi thu gom chấp nhận."],"avoid":["Không đục, ép hoặc đốt bình xịt và hộp còn áp suất."],"caution":"Mép sắc có thể gây đứt tay; bình xịt, hộp hóa chất cần xử lý riêng.","vn_tip":"Hỏi nơi thu gom về lon, sắt vụn và vật chứa nguy hại."},
-    {"id":"battery","name":"Pin / ắc quy","ai_class":null,"examples":["pin tiểu","pin sạc"],"description":"Chỉ tra cứu thủ công; AI hiện không nhận diện loại này.","do":["Giữ nguyên vỏ, che hai cực pin rời nếu cần và mang tới điểm tiếp nhận phù hợp."],"avoid":["Không đốt, tháo hoặc bỏ chung với rác sinh hoạt."],"caution":"Pin hỏng, phồng, rò rỉ cần tránh tiếp xúc trực tiếp.","vn_tip":"Tìm điểm thu hồi pin được công bố tại địa phương."},
-    {"id":"glass","name":"Thủy tinh","ai_class":null,"examples":["chai thủy tinh","mảnh kính"],"description":"Chỉ tra cứu thủ công; AI hiện không nhận diện loại này.","do":["Bọc và ghi chú vật sắc vỡ trước khi chuyển giao."],"avoid":["Không để mảnh vỡ lẫn trong túi rác không đánh dấu."],"caution":"Có thể gây thương tích khi thu gom.","vn_tip":"Kiểm tra nơi thu gom có nhận thủy tinh hay không."},
-    {"id":"organic","name":"Rác hữu cơ","ai_class":null,"examples":["thức ăn thừa","vỏ trái cây"],"description":"Chỉ tra cứu thủ công; AI hiện không nhận diện loại này.","do":["Tách riêng khi địa phương có tuyến thu gom phù hợp."],"avoid":["Không trộn với vật sắc hoặc hóa chất."],"caution":"Giữ kín để hạn chế mùi và côn trùng.","vn_tip":"Làm theo lịch và cách phân loại tại nơi ở."},
-    {"id":"textile","name":"Vải / quần áo","ai_class":null,"examples":["quần áo cũ","vải vụn"],"description":"Ảnh không xác định chắc thành phần sợi hoặc tình trạng sử dụng.","do":["Nếu còn dùng được, cân nhắc sửa chữa, cho tặng hoặc trao đổi."],"avoid":["Không bỏ vào dòng tái chế giấy/nhựa nếu chưa được tiếp nhận."],"caution":"Vải ẩm/mốc cần đóng gói phù hợp; không có bảo đảm nơi thu gom nhận vải.","vn_tip":"Hỏi chương trình thu gom tại địa phương trước khi chuyển giao."},
-    {"id":"rubber","name":"Cao su","ai_class":null,"examples":["lốp xe","đế cao su"],"description":"Không thể suy ra thành phần hoặc khả năng tái chế chỉ từ hình ảnh.","do":["Giữ riêng và hỏi đơn vị thu gom về tuyến tiếp nhận phù hợp."],"avoid":["Không đốt cao su."],"caution":"Lốp xe cồng kềnh có thể cần dịch vụ chuyên biệt.","vn_tip":"Không giả định điểm thu gom địa phương nhận mọi loại cao su."},
-    {"id":"e_waste","name":"Rác điện tử","ai_class":null,"examples":["điện thoại hỏng","sạc hỏng","thiết bị điện tử"],"description":"Thiết bị có thể chứa pin và linh kiện nguy hại; ảnh không xác định được tình trạng bên trong.","do":["Giữ nguyên thiết bị; chuyển tới chương trình thu hồi hoặc đơn vị có thẩm quyền được công bố."],"avoid":["Không tháo, nghiền, đốt hoặc bỏ cùng rác sinh hoạt."],"caution":"Pin phồng, rò rỉ hoặc thiết bị nóng cần tránh tiếp xúc và xử lý theo hướng dẫn chuyên môn.","vn_tip":"Kiểm tra thông tin chương trình thu hồi chính thức tại địa phương; ứng dụng không cung cấp địa điểm chưa xác minh."},
-    {"id":"composite_packaging","name":"Bao bì nhiều lớp / hỗn hợp","ai_class":null,"examples":["hộp sữa","hộp giấy tráng nhựa","bao bì nhiều lớp"],"description":"Không thể xác định cấu tạo lớp vật liệu chỉ từ ảnh.","do":["Làm rỗng nếu an toàn và kiểm tra hướng dẫn của đơn vị thu gom."],"avoid":["Không mặc định hộp nhiều lớp là giấy tái chế thông thường."],"caution":"Khả năng tiếp nhận phụ thuộc cấu tạo bao bì và hạ tầng địa phương.","vn_tip":"Nếu chưa có hướng dẫn tiếp nhận rõ ràng, phân loại theo quy định rác còn lại tại nơi ở."},
-    {"id":"sanitary_waste","name":"Khẩu trang / tã / đồ vệ sinh","ai_class":null,"examples":["khẩu trang đã dùng","tã bỉm"],"description":"Tra cứu thủ công; vật đã sử dụng có thể cần xử lý vệ sinh riêng.","do":["Gói kín để hạn chế tiếp xúc và bỏ theo dòng rác còn lại tại địa phương."],"avoid":["Không bỏ vào tái chế hoặc hữu cơ."],"caution":"Nếu nghi nhiễm hóa chất/sinh học đặc biệt, làm theo hướng dẫn của cơ quan y tế.","vn_tip":"Tuân thủ yêu cầu thu gom tại nơi ở."},
-    {"id":"ceramic","name":"Gốm / sứ","ai_class":null,"examples":["bát vỡ","gạch men"],"description":"Gốm sứ không đồng nghĩa với thủy tinh tái chế.","do":["Bọc chắc vật vỡ và ghi chú để tránh làm bị thương người thu gom."],"avoid":["Không bỏ chung vào thùng thu hồi chai lọ thủy tinh."],"caution":"Mảnh vỡ có thể gây đứt tay.","vn_tip":"Hỏi quy định rác cồng kềnh/rác còn lại tại địa phương."},
-    {"id":"wood","name":"Gỗ","ai_class":null,"examples":["mảnh gỗ","đũa gỗ"],"description":"Không gộp gỗ vào giấy; gỗ xử lý sơn/phủ có thể cần phân loại riêng.","do":["Tái sử dụng nếu còn an toàn; hỏi đơn vị thu gom với vật cồng kềnh."],"avoid":["Không đốt gỗ sơn hoặc không rõ hóa chất phủ."],"caution":"Ảnh không xác định được lớp phủ hoặc chất bảo quản.","vn_tip":"Làm theo hướng dẫn thu gom gỗ cồng kềnh tại nơi ở."},
-    {"id":"sharps","name":"Vật sắc nhọn","ai_class":null,"examples":["kim tiêm","lưỡi lam","mảnh kính nhọn"],"description":"Không chạm tay trần; vật có nguy cơ y tế cần hướng dẫn chuyên môn.","do":["Nếu là mảnh vỡ sinh hoạt, dùng dụng cụ gắp và hộp cứng chống đâm thủng; ghi nhãn rõ."],"avoid":["Không bỏ vật sắc rời vào túi mềm hoặc ép rác bằng tay."],"caution":"Kim tiêm/vật nghi nhiễm phải theo hướng dẫn cơ sở y tế hoặc cơ quan địa phương.","vn_tip":"Không có một tuyến thu gom duy nhất áp dụng mọi địa phương."},
-    {"id":"chemical_container","name":"Vật chứa hóa chất","ai_class":null,"examples":["chai hóa chất","vỏ thuốc trừ sâu","bình xịt"],"description":"Không thể nhận biết chất còn lại hoặc độ độc qua ảnh.","do":["Giữ kín nếu an toàn và chuyển tới điểm/đơn vị tiếp nhận chất thải nguy hại được xác minh."],"avoid":["Không đổ tồn dư xuống cống, trộn hóa chất, đục hoặc đốt bình chứa."],"caution":"Tránh tiếp xúc và làm theo nhãn sản phẩm hoặc hướng dẫn cơ quan chuyên môn.","vn_tip":"Không tự súc rửa bao bì hóa chất; tra cứu hướng dẫn chính thức tại địa phương."}
+    {
+      "id": "plastic",
+      "name": "Nhựa",
+      "ai_class": 0,
+      "examples": [
+        "chai nhựa",
+        "nắp chai",
+        "ống hút",
+        "ly nhựa"
+      ],
+      "description": "Đồ làm từ nhựa; ảnh không cho biết chính xác mã nhựa hoặc mức độ sạch.",
+      "do": [
+        "Làm rỗng, tráng sạch nếu thuận tiện và để khô.",
+        "Tách riêng chai và nắp nếu nơi thu gom yêu cầu."
+      ],
+      "avoid": [
+        "Không đốt nhựa hoặc bỏ lẫn với rác hữu cơ."
+      ],
+      "caution": "Bao bì bẩn, nhiều lớp hoặc dính hóa chất cần xử lý theo hướng dẫn địa phương.",
+      "vn_tip": "Hỏi đơn vị thu gom tại nơi ở về loại nhựa họ nhận."
+    },
+    {
+      "id": "paper",
+      "name": "Giấy / bìa",
+      "ai_class": 1,
+      "examples": [
+        "thùng carton",
+        "giấy vụn",
+        "bìa giấy"
+      ],
+      "description": "Nhóm giấy, bìa; mô hình có thể nhầm vật liệu phủ nhựa hoặc hộp nhiều lớp.",
+      "do": [
+        "Giữ giấy khô, gấp gọn và tách khỏi rác ướt."
+      ],
+      "avoid": [
+        "Không khẳng định mọi ly giấy, hộp sữa đều tái chế như giấy thường."
+      ],
+      "caution": "Giấy dính dầu mỡ, tráng phủ hoặc hộp nhiều lớp cần kiểm tra trước khi phân loại.",
+      "vn_tip": "Ưu tiên gom giấy sạch riêng, theo quy định thu gom tại địa phương."
+    },
+    {
+      "id": "metal",
+      "name": "Kim loại",
+      "ai_class": 2,
+      "examples": [
+        "lon nước",
+        "nắp kim loại",
+        "vỏ hộp"
+      ],
+      "description": "Vật thể trông như kim loại; ảnh không xác định thành phần hay chất tồn dư.",
+      "do": [
+        "Làm rỗng lon thông thường; gom riêng nếu nơi thu gom chấp nhận."
+      ],
+      "avoid": [
+        "Không đục, ép hoặc đốt bình xịt và hộp còn áp suất."
+      ],
+      "caution": "Mép sắc có thể gây đứt tay; bình xịt, hộp hóa chất cần xử lý riêng.",
+      "vn_tip": "Hỏi nơi thu gom về lon, sắt vụn và vật chứa nguy hại."
+    },
+    {
+      "id": "cigarette_litter",
+      "name": "Đầu lọc thuốc lá",
+      "ai_class": null,
+      "examples": [
+        "đầu lọc thuốc lá",
+        "tàn thuốc đã tắt",
+        "mẩu thuốc lá"
+      ],
+      "synonyms": [
+        "đầu lọc",
+        "tàn thuốc",
+        "mẩu thuốc lá"
+      ],
+      "description": "Mô hình chỉ nhận diện vật thể có hình dạng giống đầu lọc thuốc lá; không xác định được vật còn cháy hay nhiệt độ bên trong.",
+      "do": [
+        "Chỉ nhặt khi chắc chắn đầu lọc đã tắt và nguội; dùng dụng cụ hoặc găng phù hợp nếu cần.",
+        "Bỏ vào rác còn lại theo hướng dẫn thu gom tại địa phương."
+      ],
+      "avoid": [
+        "Không chạm đầu lọc đang cháy hoặc còn nóng.",
+        "Không bỏ vào cống, bồn cầu, đất trồng hay thùng tái chế giấy/nhựa."
+      ],
+      "caution": "Đầu lọc có thể giữ nhiệt và chứa chất bẩn; hình ảnh không xác nhận được trạng thái an toàn.",
+      "vn_tip": "Nếu còn nghi ngờ đang âm ỉ, giữ khoảng cách và xử lý theo hướng dẫn an toàn tại nơi đó."
+    },
+    {
+      "id": "battery",
+      "name": "Pin / ắc quy",
+      "ai_class": null,
+      "examples": [
+        "pin tiểu",
+        "pin sạc"
+      ],
+      "description": "Chỉ tra cứu thủ công; AI hiện không nhận diện loại này.",
+      "do": [
+        "Giữ nguyên vỏ, che hai cực pin rời nếu cần và mang tới điểm tiếp nhận phù hợp."
+      ],
+      "avoid": [
+        "Không đốt, tháo hoặc bỏ chung với rác sinh hoạt."
+      ],
+      "caution": "Pin hỏng, phồng, rò rỉ cần tránh tiếp xúc trực tiếp.",
+      "vn_tip": "Tìm điểm thu hồi pin được công bố tại địa phương."
+    },
+    {
+      "id": "glass",
+      "name": "Thủy tinh",
+      "ai_class": null,
+      "examples": [
+        "chai thủy tinh",
+        "mảnh kính"
+      ],
+      "description": "Chỉ tra cứu thủ công; AI hiện không nhận diện loại này.",
+      "do": [
+        "Bọc và ghi chú vật sắc vỡ trước khi chuyển giao."
+      ],
+      "avoid": [
+        "Không để mảnh vỡ lẫn trong túi rác không đánh dấu."
+      ],
+      "caution": "Có thể gây thương tích khi thu gom.",
+      "vn_tip": "Kiểm tra nơi thu gom có nhận thủy tinh hay không."
+    },
+    {
+      "id": "organic",
+      "name": "Rác hữu cơ",
+      "ai_class": null,
+      "examples": [
+        "thức ăn thừa",
+        "vỏ trái cây"
+      ],
+      "description": "Chỉ tra cứu thủ công; AI hiện không nhận diện loại này.",
+      "do": [
+        "Tách riêng khi địa phương có tuyến thu gom phù hợp."
+      ],
+      "avoid": [
+        "Không trộn với vật sắc hoặc hóa chất."
+      ],
+      "caution": "Giữ kín để hạn chế mùi và côn trùng.",
+      "vn_tip": "Làm theo lịch và cách phân loại tại nơi ở."
+    },
+    {
+      "id": "textile",
+      "name": "Vải / quần áo",
+      "ai_class": null,
+      "examples": [
+        "quần áo cũ",
+        "vải vụn"
+      ],
+      "description": "Ảnh không xác định chắc thành phần sợi hoặc tình trạng sử dụng.",
+      "do": [
+        "Nếu còn dùng được, cân nhắc sửa chữa, cho tặng hoặc trao đổi."
+      ],
+      "avoid": [
+        "Không bỏ vào dòng tái chế giấy/nhựa nếu chưa được tiếp nhận."
+      ],
+      "caution": "Vải ẩm/mốc cần đóng gói phù hợp; không có bảo đảm nơi thu gom nhận vải.",
+      "vn_tip": "Hỏi chương trình thu gom tại địa phương trước khi chuyển giao."
+    },
+    {
+      "id": "rubber",
+      "name": "Cao su",
+      "ai_class": null,
+      "examples": [
+        "lốp xe",
+        "đế cao su"
+      ],
+      "description": "Không thể suy ra thành phần hoặc khả năng tái chế chỉ từ hình ảnh.",
+      "do": [
+        "Giữ riêng và hỏi đơn vị thu gom về tuyến tiếp nhận phù hợp."
+      ],
+      "avoid": [
+        "Không đốt cao su."
+      ],
+      "caution": "Lốp xe cồng kềnh có thể cần dịch vụ chuyên biệt.",
+      "vn_tip": "Không giả định điểm thu gom địa phương nhận mọi loại cao su."
+    },
+    {
+      "id": "e_waste",
+      "name": "Rác điện tử",
+      "ai_class": null,
+      "examples": [
+        "điện thoại hỏng",
+        "sạc hỏng",
+        "thiết bị điện tử"
+      ],
+      "description": "Thiết bị có thể chứa pin và linh kiện nguy hại; ảnh không xác định được tình trạng bên trong.",
+      "do": [
+        "Giữ nguyên thiết bị; chuyển tới chương trình thu hồi hoặc đơn vị có thẩm quyền được công bố."
+      ],
+      "avoid": [
+        "Không tháo, nghiền, đốt hoặc bỏ cùng rác sinh hoạt."
+      ],
+      "caution": "Pin phồng, rò rỉ hoặc thiết bị nóng cần tránh tiếp xúc và xử lý theo hướng dẫn chuyên môn.",
+      "vn_tip": "Kiểm tra thông tin chương trình thu hồi chính thức tại địa phương; ứng dụng không cung cấp địa điểm chưa xác minh."
+    },
+    {
+      "id": "composite_packaging",
+      "name": "Bao bì nhiều lớp / hỗn hợp",
+      "ai_class": null,
+      "examples": [
+        "hộp sữa",
+        "hộp giấy tráng nhựa",
+        "bao bì nhiều lớp"
+      ],
+      "description": "Không thể xác định cấu tạo lớp vật liệu chỉ từ ảnh.",
+      "do": [
+        "Làm rỗng nếu an toàn và kiểm tra hướng dẫn của đơn vị thu gom."
+      ],
+      "avoid": [
+        "Không mặc định hộp nhiều lớp là giấy tái chế thông thường."
+      ],
+      "caution": "Khả năng tiếp nhận phụ thuộc cấu tạo bao bì và hạ tầng địa phương.",
+      "vn_tip": "Nếu chưa có hướng dẫn tiếp nhận rõ ràng, phân loại theo quy định rác còn lại tại nơi ở."
+    },
+    {
+      "id": "sanitary_waste",
+      "name": "Khẩu trang / tã / đồ vệ sinh",
+      "ai_class": null,
+      "examples": [
+        "khẩu trang đã dùng",
+        "tã bỉm"
+      ],
+      "description": "Tra cứu thủ công; vật đã sử dụng có thể cần xử lý vệ sinh riêng.",
+      "do": [
+        "Gói kín để hạn chế tiếp xúc và bỏ theo dòng rác còn lại tại địa phương."
+      ],
+      "avoid": [
+        "Không bỏ vào tái chế hoặc hữu cơ."
+      ],
+      "caution": "Nếu nghi nhiễm hóa chất/sinh học đặc biệt, làm theo hướng dẫn của cơ quan y tế.",
+      "vn_tip": "Tuân thủ yêu cầu thu gom tại nơi ở."
+    },
+    {
+      "id": "ceramic",
+      "name": "Gốm / sứ",
+      "ai_class": null,
+      "examples": [
+        "bát vỡ",
+        "gạch men"
+      ],
+      "description": "Gốm sứ không đồng nghĩa với thủy tinh tái chế.",
+      "do": [
+        "Bọc chắc vật vỡ và ghi chú để tránh làm bị thương người thu gom."
+      ],
+      "avoid": [
+        "Không bỏ chung vào thùng thu hồi chai lọ thủy tinh."
+      ],
+      "caution": "Mảnh vỡ có thể gây đứt tay.",
+      "vn_tip": "Hỏi quy định rác cồng kềnh/rác còn lại tại địa phương."
+    },
+    {
+      "id": "wood",
+      "name": "Gỗ",
+      "ai_class": null,
+      "examples": [
+        "mảnh gỗ",
+        "đũa gỗ"
+      ],
+      "description": "Không gộp gỗ vào giấy; gỗ xử lý sơn/phủ có thể cần phân loại riêng.",
+      "do": [
+        "Tái sử dụng nếu còn an toàn; hỏi đơn vị thu gom với vật cồng kềnh."
+      ],
+      "avoid": [
+        "Không đốt gỗ sơn hoặc không rõ hóa chất phủ."
+      ],
+      "caution": "Ảnh không xác định được lớp phủ hoặc chất bảo quản.",
+      "vn_tip": "Làm theo hướng dẫn thu gom gỗ cồng kềnh tại nơi ở."
+    },
+    {
+      "id": "sharps",
+      "name": "Vật sắc nhọn",
+      "ai_class": null,
+      "examples": [
+        "kim tiêm",
+        "lưỡi lam",
+        "mảnh kính nhọn"
+      ],
+      "description": "Không chạm tay trần; vật có nguy cơ y tế cần hướng dẫn chuyên môn.",
+      "do": [
+        "Nếu là mảnh vỡ sinh hoạt, dùng dụng cụ gắp và hộp cứng chống đâm thủng; ghi nhãn rõ."
+      ],
+      "avoid": [
+        "Không bỏ vật sắc rời vào túi mềm hoặc ép rác bằng tay."
+      ],
+      "caution": "Kim tiêm/vật nghi nhiễm phải theo hướng dẫn cơ sở y tế hoặc cơ quan địa phương.",
+      "vn_tip": "Không có một tuyến thu gom duy nhất áp dụng mọi địa phương."
+    },
+    {
+      "id": "chemical_container",
+      "name": "Vật chứa hóa chất",
+      "ai_class": null,
+      "examples": [
+        "chai hóa chất",
+        "vỏ thuốc trừ sâu",
+        "bình xịt"
+      ],
+      "description": "Không thể nhận biết chất còn lại hoặc độ độc qua ảnh.",
+      "do": [
+        "Giữ kín nếu an toàn và chuyển tới điểm/đơn vị tiếp nhận chất thải nguy hại được xác minh."
+      ],
+      "avoid": [
+        "Không đổ tồn dư xuống cống, trộn hóa chất, đục hoặc đốt bình chứa."
+      ],
+      "caution": "Tránh tiếp xúc và làm theo nhãn sản phẩm hoặc hướng dẫn cơ quan chuyên môn.",
+      "vn_tip": "Không tự súc rửa bao bì hóa chất; tra cứu hướng dẫn chính thức tại địa phương."
+    }
   ],
   "faq": [
-    {"question":"Ảnh có biết vật này tái chế được không?","answer":"Không. Ảnh chỉ gợi ý nhóm vật liệu. Khả năng tái chế còn phụ thuộc độ sạch, cấu tạo và hệ thống thu gom."},
-    {"question":"Có nên đốt rác không?","answer":"Không tự đốt rác sinh hoạt, nhựa hoặc rác hỗn hợp. Hãy phân loại và chuyển cho đơn vị thu gom phù hợp."}
+    {
+      "question": "Ảnh có biết vật này tái chế được không?",
+      "answer": "Không. Ảnh chỉ gợi ý nhóm vật liệu. Khả năng tái chế còn phụ thuộc độ sạch, cấu tạo và hệ thống thu gom."
+    },
+    {
+      "question": "Có nên đốt rác không?",
+      "answer": "Không tự đốt rác sinh hoạt, nhựa hoặc rác hỗn hợp. Hãy phân loại và chuyển cho đơn vị thu gom phù hợp."
+    }
   ]
 }

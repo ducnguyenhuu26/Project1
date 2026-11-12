@@ -32,6 +32,7 @@ class Detection:
         return {"id": f"det-{id(self):x}", "class_id": self.class_id,
                 "category_id": category_id, "label": self.label or (item["name_vi"] if item else "Chưa xác định"),
                 "material_id": (item.get("material_id") if item else None) or category_id,
+                "advice_id": (item.get("advice_id") if item else None) or category_id,
                 "confidence": self.confidence, "bbox_xyxy": self.bbox_xyxy,
                 "origin": self.origin, "status": self.status if item else "unsupported",
                 "model_version": self.model_version}
@@ -145,6 +146,7 @@ def summarize(detections: list[Detection], corrections: dict[str, str] | None = 
         if category_id in TAXONOMY_ITEMS:
             counts[category_id] = counts.get(category_id, 0) + 1
     return [{"category_id": category_id, "material_id": TAXONOMY_ITEMS[category_id].get("material_id") or category_id,
+             "advice_id": TAXONOMY_ITEMS[category_id].get("advice_id") or category_id,
              "name": TAXONOMY_ITEMS[category_id]["name_vi"], "estimated_count": count}
             for category_id, count in counts.items()]
 
