@@ -1,10 +1,10 @@
 # YOLO26 training and deployment on Vast.ai
 
-This procedure starts a real four-class YOLO26 detector from the audited TACO ODbL dataset. It does not use the SWiM3 optimizer or overwrite its weights. The local CPU run is a smoke test only; the full run below is intended for a separately approved paid GPU session.
+This procedure starts the current four-class YOLO26 detector from the audited `multiclass_v3` dataset (TACO ODbL subset plus Vietnam KNR-PET-7). It preserves the SWiM3 baseline and the older `multiclass_v2` corpus. The local CPU run is a smoke test only; the full run below is for a paid GPU session and does not start automatically.
 
 ## What to transfer
 
-The audited dataset is `datasets/multiclass_v2/` (about 1.24 GB in this checkout), and the initialization checkpoint is `yolo26s.pt`. Transfer the repository revision containing this runbook and scripts as well. Do not transfer the raw TACO images unless the full raw archive is needed for future remapping.
+The audited merged dataset is `datasets/multiclass_v3/` (about 5.4k images and 5.6k boxes in this checkout), and the initialization checkpoint is `yolo26s.pt`. `datasets/` is git-ignored, so transfer the built v3 folder explicitly; a Git clone alone will not contain it. Transfer the repository revision containing this runbook and scripts as well. The v3 manifest identifies per-image source and license. Provide the required CC BY 4.0 attribution for KNR-PET-7 and follow the ODbL-marked TACO image terms.
 
 Example from a local shell after the GPU instance is reachable over SSH:
 
@@ -12,7 +12,7 @@ Example from a local shell after the GPU instance is reachable over SSH:
 REMOTE=root@YOUR_VAST_SSH_HOST
 VAST_PORT=YOUR_VAST_SSH_PORT
 ssh -p "$VAST_PORT" "$REMOTE" 'mkdir -p ~/wastewise/datasets ~/wastewise/weights'
-rsync -av --partial --progress -e "ssh -p $VAST_PORT" datasets/multiclass_v2/ "$REMOTE:~/wastewise/datasets/multiclass_v2/"
+rsync -av --partial --progress -e "ssh -p $VAST_PORT" datasets/multiclass_v3/ "$REMOTE:~/wastewise/datasets/multiclass_v3/"
 rsync -av --partial --progress -e "ssh -p $VAST_PORT" yolo26s.pt "$REMOTE:~/wastewise/weights/yolo26s.pt"
 ```
 
@@ -28,9 +28,9 @@ python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
-export DATA="$PWD/datasets/multiclass_v2/data.yaml"
+export DATA="$PWD/datasets/multiclass_v3/data.yaml"
 export MODEL="$PWD/weights/yolo26s.pt"
-export NAME="wastewise-taco-odbl-yolo26s-v2"
+export NAME="wastewise-vietnam-pet7-taco-yolo26s-v3"
 export PROJECT="$PWD/runs/multiclass"
 export DEVICE=0 EPOCHS=80 BATCH=8 IMGSZ=640 WORKERS=4 SEED=42 PATIENCE=15 MIN_FREE_GB=20 MIN_RAM_GB=16 MIN_VRAM_GB=12
 bash scripts/vast_preflight.sh
@@ -66,14 +66,14 @@ On the deployment checkout, extract the artifact and install into a new versione
 
 ```bash
 mkdir -p imported-model
-tar -xzf wastewise-taco-odbl-yolo26s-v2.tar.gz -C imported-model
+tar -xzf wastewise-vietnam-pet7-taco-yolo26s-v3.tar.gz -C imported-model
 python scripts/install_model.py \
-  --checkpoint imported-model/wastewise-taco-odbl-yolo26s-v2/weights/best.pt \
-  --manifest imported-model/wastewise-taco-odbl-yolo26s-v2/weights/model_manifest.json
+  --checkpoint imported-model/wastewise-vietnam-pet7-taco-yolo26s-v3/weights/best.pt \
+  --manifest imported-model/wastewise-vietnam-pet7-taco-yolo26s-v3/weights/model_manifest.json
 ```
 
 Set the printed `MODEL_PATH` plus `DETECTOR_MODE=real` and `INFERENCE_DEVICE=cpu` in `.env`, then restart the FastAPI service. Confirm `/api/v1/health` returns `model_status: ready` and four `supported_category_ids`; upload a test image through the frontend and verify the response taxonomy version and class names. Keep the prior `.env` and model directory for rollback.
 
 ## Data and model limitations
 
-The current training corpus is a strict ODbL-marked subset of TACO, an outdoor litter dataset. It has substantial class imbalance, especially glass and cigarette litter; it does not establish household-waste or Vietnam-specific accuracy. The annotation file is CC BY 4.0, while image rights vary; the builder allowlists only the exact ODbL image license string. Follow the source attribution and share-alike terms, and keep this academic/non-commercial unless rights are reviewed for another use.
+The training corpus combines a strict ODbL-marked TACO subset with Vietnam PET-bottle images licensed CC BY 4.0. The PET source uses controlled industrial imaging and increases only `plastic`; it does not represent varied household multi-waste scenes. The merged corpus still has severe class imbalance: glass has 9 train images and only 2 validation/test images each; cigarette litter has 18 train, 2 validation and 3 test images. The held-out test remains untouched until model selection is frozen. These data do not establish reliable household-waste accuracy, detection of banana peels/clothes, or production quality. Keep attribution and source terms in the artifact manifest; review the intended deployment and rights before distributing trained weights.

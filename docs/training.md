@@ -1,8 +1,12 @@
 # Training và Kaggle GPU
 
-## Dataset đa lớp v2 (pipeline chuẩn bị, chưa được train)
+## Trạng thái hiện tại: detector đa lớp v3
 
-`ml/config/dataset_sources.json` là source inventory và bảng mapping đề xuất. TACO repository mô tả dữ liệu litter ngoài trời có segmentation/COCO; repo khai báo MIT, nhưng cần kiểm tra quyền của ảnh và nguồn gốc trước khi phân phối lại. SWiM3 tiếp tục làm baseline hiện tại; license chưa xác minh trong checkout và nhãn Paper gộp carton/wood nên không tự đưa sang taxonomy mới. Không có dữ liệu đa lớp được tải hoặc built sẵn.
+`datasets/multiclass_v3/` đã được build từ TACO ODbL và KNR-PET-7 (ảnh chai PET chụp tại Việt Nam), audit nhãn và preflight CPU. Không có GPU training nào chạy. Dataset `multiclass_v2` vẫn được giữ nguyên để tái lập kết quả cũ. Để chuẩn bị phiên Vast.ai, transfer `datasets/multiclass_v3/` và làm theo [Vast.ai runbook](vast-runbook.md); `scripts/vast_preflight.sh` và `scripts/vast_train.sh` hiện mặc định trỏ đến v3. Dataset chưa được push lên GitHub vì thư mục `datasets/` được git-ignored.
+
+## Dataset đa lớp v2 (bản cũ, giữ để tái lập)
+
+`ml/config/dataset_sources.json` là source inventory và bảng mapping TACO dùng để build `multiclass_v2`. TACO là ảnh litter ngoài trời; chỉ ảnh ghi rõ ODbL được giữ trong bản train cũ. SWiM3 tiếp tục là baseline độc lập; không thay đổi weights hay labels của baseline.
 
 Sau khi kiểm tra license, tải nguồn thủ công và chuẩn bị COCO JSON cùng ảnh, viết config JSON cho `build_multisource.py`: classes theo thứ tự taxonomy, source paths, `license_reviewed: true`, `mapping_reviewed: true`, `fully_annotated`, và mapping từng source class với quyết định `map`/`exclude`/`needs_review`/`unmappable`. Script bỏ ảnh có mapping chưa rõ để tránh hidden target objects làm nhãn âm; dữ liệu chưa xác định thì không thể train bằng cách coi là background. Split group theo `scene_id` nếu có; nếu không, ảnh có SHA-256 riêng. Audit/provenance được ghi vào output và output có sẵn sẽ làm lệnh fail.
 
@@ -13,7 +17,7 @@ Sau khi kiểm tra license, tải nguồn thủ công và chuẩn bị COCO JSON
 
 Xem `audit_report.json` và spot-check labels/visualizations thủ công trước khi cho phép GPU run. `train_multiclass.py` kiểm tra các split/classes/labels/taxonomy/GPU/disk, dùng pretrained `yolo26s.pt` hoặc `yolo26n.pt` cho **run mới**, lưu `run_config.json`, và tạo manifest cạnh weights. Nó không có chế độ resume/transferring optimizer từ baseline. `evaluate.py` báo per-class metric theo tên từ data YAML. Chỉ bật category trong detector class map sau khi có dữ liệu annotation hợp lệ, checkpoint đã train và validation; lớp trong taxonomy đơn thuần không phải bằng chứng nhận diện.
 
-**Phạm vi kết luận:** run hiện tại chỉ đánh giá trong miền SWiM3. Kế hoạch tìm và xây tập ảnh Việt Nam được ghi ở [vietnam-data-strategy.md](vietnam-data-strategy.md); hiện chưa có tập VN có box được xác minh trong repo.
+**Lịch sử:** các kết luận và lệnh Kaggle/SWiM3 bên dưới là workflow baseline/legacy. Dataset Vietnam PET mới và số liệu audit nằm trong [vietnam-dataset-expansion.md](vietnam-dataset-expansion.md); chúng không chứng minh năng lực phát hiện rác sinh hoạt ngoài các loại có box.
 
 ## Trước khi chạy
 

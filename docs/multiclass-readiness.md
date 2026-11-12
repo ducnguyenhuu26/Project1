@@ -2,6 +2,8 @@
 
 Updated 2026-11-12. This report records the local preparation and CPU smoke run. No paid GPU training was started. It is an engineering readiness check, not an accuracy claim.
 
+Vietnam-source dataset expansion and the preserved `multiclass_v2` → `multiclass_v3` CPU preflight are recorded in [vietnam-dataset-expansion.md](vietnam-dataset-expansion.md).
+
 ## Source and label policy
 
 - Source: TACO (Trash Annotations in Context), manually labeled outdoor litter images in COCO format. TACO describes 1,500 images, 60 sparse categories, and warns that many source categories have few annotations; see the [official TACO repository](https://github.com/pedropro/TACO).
