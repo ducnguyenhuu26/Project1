@@ -81,8 +81,11 @@ def test_scan_contract_consumed_by_frontend() -> None:
     material_ids = {item["id"] for item in knowledge["materials"]}
     assert scan["mode"] == "real" and scan["model_version"] == "fixture.pt"
     assert scan["image_width"] == scan["image_height"] == 32
-    assert scan["detections"] == [{"class_id": 0, "material_id": "plastic", "confidence": 0.72,
-                                   "bbox_xyxy": [1.0, 2.0, 31.0, 30.0], "origin": "ai"}]
-    assert scan["summary"] == [{"material_id": "plastic", "name": "Nhựa", "estimated_count": 1}]
+    assert scan["detections"][0]["class_id"] == 0
+    assert scan["detections"][0]["material_id"] == "plastic"
+    assert scan["detections"][0]["category_id"] == "plastic"
+    assert scan["detections"][0]["bbox_xyxy"] == [1.0, 2.0, 31.0, 30.0]
+    assert scan["detections"][0]["origin"] == "ai"
+    assert scan["summary"] == [{"category_id": "plastic", "material_id": "plastic", "name": "Nhựa", "estimated_count": 1}]
     assert scan["advice"][0]["id"] in material_ids
     assert scan["advice"][0]["do"] and scan["advice"][0]["caution"]

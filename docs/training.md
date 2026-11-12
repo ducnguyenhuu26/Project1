@@ -1,5 +1,18 @@
 # Training và Kaggle GPU
 
+## Dataset đa lớp v2 (pipeline chuẩn bị, chưa được train)
+
+`ml/config/dataset_sources.json` là source inventory và bảng mapping đề xuất. TACO repository mô tả dữ liệu litter ngoài trời có segmentation/COCO; repo khai báo MIT, nhưng cần kiểm tra quyền của ảnh và nguồn gốc trước khi phân phối lại. SWiM3 tiếp tục làm baseline hiện tại; license chưa xác minh trong checkout và nhãn Paper gộp carton/wood nên không tự đưa sang taxonomy mới. Không có dữ liệu đa lớp được tải hoặc built sẵn.
+
+Sau khi kiểm tra license, tải nguồn thủ công và chuẩn bị COCO JSON cùng ảnh, viết config JSON cho `build_multisource.py`: classes theo thứ tự taxonomy, source paths, `license_reviewed: true`, `mapping_reviewed: true`, `fully_annotated`, và mapping từng source class với quyết định `map`/`exclude`/`needs_review`/`unmappable`. Script bỏ ảnh có mapping chưa rõ để tránh hidden target objects làm nhãn âm; dữ liệu chưa xác định thì không thể train bằng cách coi là background. Split group theo `scene_id` nếu có; nếu không, ảnh có SHA-256 riêng. Audit/provenance được ghi vào output và output có sẵn sẽ làm lệnh fail.
+
+```powershell
+.\.venv\Scripts\python.exe ml\scripts\build_multisource.py --config reviewed_sources.json --out datasets\multiclass_v2
+.\.venv\Scripts\python.exe ml\scripts\train_multiclass.py --data datasets\multiclass_v2\data.yaml --name waste_v2_preflight --device 0 --preflight-only
+```
+
+Xem `audit_report.json` và spot-check labels/visualizations thủ công trước khi cho phép GPU run. `train_multiclass.py` kiểm tra các split/classes/labels/taxonomy/GPU/disk, dùng pretrained `yolo26s.pt` hoặc `yolo26n.pt` cho **run mới**, lưu `run_config.json`, và tạo manifest cạnh weights. Nó không có chế độ resume/transferring optimizer từ baseline. `evaluate.py` báo per-class metric theo tên từ data YAML. Chỉ bật category trong detector class map sau khi có dữ liệu annotation hợp lệ, checkpoint đã train và validation; lớp trong taxonomy đơn thuần không phải bằng chứng nhận diện.
+
 **Phạm vi kết luận:** run hiện tại chỉ đánh giá trong miền SWiM3. Kế hoạch tìm và xây tập ảnh Việt Nam được ghi ở [vietnam-data-strategy.md](vietnam-data-strategy.md); hiện chưa có tập VN có box được xác minh trong repo.
 
 ## Trước khi chạy

@@ -17,8 +17,14 @@ def main() -> None:
     if not args.model.is_file() or not args.data.is_file():
         p.error("model and data must exist")
     model = YOLO(str(args.model.resolve()))
-    if list(model.names.values()) != ["Plastic", "Paper", "Metal"]:
-        p.error("checkpoint is not the fine-tuned 3-class waste detector")
+    configured = __import__("yaml").safe_load(args.data.read_text(encoding="utf-8-sig"))
+    names = configured.get("names", [])
+    if isinstance(names, dict):
+        names = [names.get(i, names.get(str(i))) for i in range(len(names))]
+    model_names = model.names
+    model_names = [model_names[i] for i in range(len(model_names))] if isinstance(model_names, dict) else list(model_names)
+    if names != model_names:
+        p.error(f"checkpoint classes {model_names} do not match dataset classes {names}")
     result = model.val(data=str(args.data.resolve()), split=args.split, imgsz=args.imgsz,
                        device=args.device, plots=True, project=str(args.out.parent.resolve()), name=args.split)
     per_class = {}
@@ -26,7 +32,7 @@ def main() -> None:
         per_class[model.names[int(class_id)]] = {
             "precision": float(result.box.p[index]), "recall": float(result.box.r[index]),
             "map50": float(result.box.ap50[index]), "map50_95": float(result.box.ap[index])}
-    metrics = {"model": str(args.model), "split": args.split, "map50": float(result.box.map50),
+    metrics = {"model": str(args.model), "split": args.split, "classes": model_names, "map50": float(result.box.map50),
                "map50_95": float(result.box.map), "precision": float(result.box.mp),
                "recall": float(result.box.mr), "per_class": per_class}
     args.out.parent.mkdir(parents=True, exist_ok=True)

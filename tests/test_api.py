@@ -74,3 +74,30 @@ def test_real_detector_uses_configured_device(monkeypatch):
     monkeypatch.setenv("INFERENCE_DEVICE", "0")
     build_app(mode="real")
     assert configured == [(Path("weights/best.pt"), 0.25, "0")]
+
+
+def test_scan_rejects_invalid_detector_boxes():
+    class InvalidDetector:
+        mode = "real"
+        model_version = "bad-fixture"
+
+        def predict(self, image, filename):
+            from backend.services import Detection
+            return [Detection(0, .5, [-2, 1, image.width, image.height])]
+
+    client = TestClient(build_app(detector=InvalidDetector()))
+    response = client.post("/api/v1/scans", files={"image": ("photo.png", png(), "image/png")})
+    assert response.status_code == 502
+    assert response.json()["detail"]["code"] == "INVALID_DETECTION"
+
+
+def test_invalid_model_manifest_is_reported_as_not_ready(tmp_path):
+    checkpoint = tmp_path / "best.pt"
+    checkpoint.write_bytes(b"placeholder")
+    (tmp_path / "model_manifest.json").write_text('{"taxonomy_version":"wrong","class_map":[]}')
+    detector = RealYOLODetector(checkpoint)
+    client = TestClient(build_app(detector=detector))
+    assert client.get("/api/v1/health").json()["model_status"] == "invalid_manifest"
+    response = client.post("/api/v1/scans", files={"image": ("ok.png", png(), "image/png")})
+    assert response.status_code == 503
+    assert "taxonomy_version" in response.json()["detail"]["message"]

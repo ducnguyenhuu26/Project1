@@ -1,0 +1,318 @@
+{
+  "version": "2026-11-12.1",
+  "categories": [
+    {
+      "id": "plastic",
+      "name_vi": "Nhựa",
+      "name_en": "Plastic packaging/object",
+      "synonyms": [
+        "chai nhựa",
+        "nắp chai",
+        "ống hút",
+        "ly nhựa"
+      ],
+      "parent_group": "packaging",
+      "material_id": "plastic",
+      "detection_supported": true,
+      "model_names": [
+        "Plastic"
+      ],
+      "source": "SWiM3 legacy class map",
+      "advice_id": "plastic",
+      "handling_stream": "recycling_if_accepted",
+      "object_type_id": null,
+      "classification_level": "material_group",
+      "handling_group": "recycling_if_accepted",
+      "training_readiness": "ready_for_training"
+    },
+    {
+      "id": "paper",
+      "name_vi": "Giấy / bìa",
+      "name_en": "Paper or cardboard object",
+      "synonyms": [
+        "giấy vụn",
+        "thùng carton"
+      ],
+      "parent_group": "packaging",
+      "material_id": "paper",
+      "detection_supported": true,
+      "model_names": [
+        "Paper"
+      ],
+      "source": "SWiM3 legacy class map",
+      "advice_id": "paper",
+      "handling_stream": "recycling_if_clean_and_accepted",
+      "object_type_id": null,
+      "classification_level": "material_group",
+      "handling_group": "recycling_if_clean_and_accepted",
+      "training_readiness": "ready_for_training"
+    },
+    {
+      "id": "metal",
+      "name_vi": "Kim loại",
+      "name_en": "Metal object",
+      "synonyms": [
+        "lon nước",
+        "nắp kim loại"
+      ],
+      "parent_group": "packaging",
+      "material_id": "metal",
+      "detection_supported": true,
+      "model_names": [
+        "Metal"
+      ],
+      "source": "SWiM3 legacy class map",
+      "advice_id": "metal",
+      "handling_stream": "recycling_if_safe_and_accepted",
+      "object_type_id": null,
+      "classification_level": "material_group",
+      "handling_group": "recycling_if_safe_and_accepted",
+      "training_readiness": "ready_for_training"
+    },
+    {
+      "id": "glass",
+      "name_vi": "Thủy tinh",
+      "name_en": "Glass object",
+      "synonyms": [
+        "chai thủy tinh",
+        "mảnh kính"
+      ],
+      "parent_group": "container",
+      "material_id": "glass",
+      "detection_supported": false,
+      "model_names": [],
+      "source": "manual taxonomy; no approved box dataset",
+      "advice_id": "glass",
+      "handling_stream": "separate_collection_if_available",
+      "object_type_id": null,
+      "classification_level": "material_group",
+      "handling_group": "separate_collection_if_available",
+      "training_readiness": "manual_only"
+    },
+    {
+      "id": "organic",
+      "name_vi": "Rác hữu cơ / thức ăn thừa",
+      "name_en": "Organic food waste",
+      "synonyms": [
+        "thức ăn thừa",
+        "vỏ trái cây"
+      ],
+      "parent_group": "organic",
+      "material_id": "organic",
+      "detection_supported": false,
+      "model_names": [],
+      "source": "manual taxonomy; no approved box dataset",
+      "advice_id": "organic",
+      "handling_stream": "organic_collection_if_available",
+      "object_type_id": "food_waste",
+      "classification_level": "object_type",
+      "handling_group": "organic_collection_if_available",
+      "training_readiness": "manual_only"
+    },
+    {
+      "id": "textile",
+      "name_vi": "Vải / quần áo",
+      "name_en": "Textile or clothing",
+      "synonyms": [
+        "quần áo cũ",
+        "vải vụn"
+      ],
+      "parent_group": "household_goods",
+      "material_id": "textile",
+      "detection_supported": false,
+      "model_names": [],
+      "source": "manual taxonomy; no approved box dataset",
+      "advice_id": "textile",
+      "handling_stream": "reuse_or_special_collection",
+      "object_type_id": "clothing",
+      "classification_level": "object_type",
+      "handling_group": "reuse_or_special_collection",
+      "training_readiness": "manual_only"
+    },
+    {
+      "id": "rubber",
+      "name_vi": "Cao su",
+      "name_en": "Rubber object",
+      "synonyms": [
+        "lốp xe",
+        "đế cao su"
+      ],
+      "parent_group": "household_goods",
+      "material_id": "rubber",
+      "detection_supported": false,
+      "model_names": [],
+      "source": "manual taxonomy; no approved box dataset",
+      "advice_id": "rubber",
+      "handling_stream": "special_collection_if_available",
+      "object_type_id": "rubber_object",
+      "classification_level": "object_type",
+      "handling_group": "special_collection_if_available",
+      "training_readiness": "manual_only"
+    },
+    {
+      "id": "e_waste",
+      "name_vi": "Rác điện tử",
+      "name_en": "Electronic waste",
+      "synonyms": [
+        "điện thoại hỏng",
+        "sạc hỏng",
+        "thiết bị điện tử"
+      ],
+      "parent_group": "hazardous",
+      "material_id": "mixed",
+      "detection_supported": false,
+      "model_names": [],
+      "source": "manual taxonomy; no approved box dataset",
+      "advice_id": "e_waste",
+      "handling_stream": "hazardous_separate_collection",
+      "object_type_id": "electronic_device",
+      "classification_level": "object_type",
+      "handling_group": "hazardous_separate_collection",
+      "training_readiness": "manual_only"
+    },
+    {
+      "id": "battery",
+      "name_vi": "Pin / ắc quy",
+      "name_en": "Battery",
+      "synonyms": [
+        "pin tiểu",
+        "pin sạc",
+        "ắc quy"
+      ],
+      "parent_group": "hazardous",
+      "material_id": "mixed",
+      "detection_supported": false,
+      "model_names": [],
+      "source": "manual taxonomy; no approved box dataset",
+      "advice_id": "battery",
+      "handling_stream": "hazardous_separate_collection",
+      "object_type_id": "battery",
+      "classification_level": "object_type",
+      "handling_group": "hazardous_separate_collection",
+      "training_readiness": "manual_only"
+    },
+    {
+      "id": "composite_packaging",
+      "name_vi": "Bao bì nhiều lớp / hỗn hợp",
+      "name_en": "Composite packaging",
+      "synonyms": [
+        "hộp sữa",
+        "hộp giấy tráng nhựa",
+        "bao bì nhiều lớp"
+      ],
+      "parent_group": "packaging",
+      "material_id": "mixed",
+      "detection_supported": false,
+      "model_names": [],
+      "source": "manual taxonomy; no approved box dataset",
+      "advice_id": "composite_packaging",
+      "handling_stream": "check_local_collection",
+      "object_type_id": "composite_packaging",
+      "classification_level": "object_type",
+      "handling_group": "check_local_collection",
+      "training_readiness": "manual_only"
+    },
+    {
+      "id": "sanitary_waste",
+      "name_vi": "Khẩu trang / tã / đồ vệ sinh",
+      "name_en": "Sanitary waste",
+      "synonyms": [
+        "khẩu trang đã dùng",
+        "tã bỉm"
+      ],
+      "parent_group": "residual",
+      "material_id": "mixed",
+      "detection_supported": false,
+      "model_names": [],
+      "source": "manual taxonomy; no approved box dataset",
+      "advice_id": "sanitary_waste",
+      "handling_stream": "residual_waste",
+      "object_type_id": "sanitary_product",
+      "classification_level": "object_type",
+      "handling_group": "residual_waste",
+      "training_readiness": "manual_only"
+    },
+    {
+      "id": "ceramic",
+      "name_vi": "Gốm / sứ",
+      "name_en": "Ceramic",
+      "synonyms": [
+        "bát vỡ",
+        "gạch men"
+      ],
+      "parent_group": "inert",
+      "material_id": "ceramic",
+      "detection_supported": false,
+      "model_names": [],
+      "source": "manual taxonomy; no approved box dataset",
+      "advice_id": "ceramic",
+      "handling_stream": "residual_or_special_collection",
+      "object_type_id": "ceramic_object",
+      "classification_level": "object_type",
+      "handling_group": "residual_or_special_collection",
+      "training_readiness": "manual_only"
+    },
+    {
+      "id": "wood",
+      "name_vi": "Gỗ",
+      "name_en": "Wood object",
+      "synonyms": [
+        "mảnh gỗ",
+        "đũa gỗ"
+      ],
+      "parent_group": "household_goods",
+      "material_id": "wood",
+      "detection_supported": false,
+      "model_names": [],
+      "source": "manual taxonomy; SWiM3 paper class includes wood; excluded from paper mapping",
+      "advice_id": "wood",
+      "handling_stream": "special_collection_if_available",
+      "object_type_id": "wood_object",
+      "classification_level": "object_type",
+      "handling_group": "special_collection_if_available",
+      "training_readiness": "manual_only"
+    },
+    {
+      "id": "sharps",
+      "name_vi": "Vật sắc nhọn",
+      "name_en": "Sharp object",
+      "synonyms": [
+        "kim tiêm",
+        "lưỡi lam",
+        "mảnh kính nhọn"
+      ],
+      "parent_group": "hazardous",
+      "material_id": "mixed",
+      "detection_supported": false,
+      "model_names": [],
+      "source": "manual taxonomy; no approved box dataset",
+      "advice_id": "sharps",
+      "handling_stream": "safe_wrapping_and_separate_collection",
+      "object_type_id": "sharp_object",
+      "classification_level": "object_type",
+      "handling_group": "safe_wrapping_and_separate_collection",
+      "training_readiness": "manual_only"
+    },
+    {
+      "id": "chemical_container",
+      "name_vi": "Vật chứa hóa chất",
+      "name_en": "Chemical container",
+      "synonyms": [
+        "chai hóa chất",
+        "vỏ thuốc trừ sâu",
+        "bình xịt"
+      ],
+      "parent_group": "hazardous",
+      "material_id": "mixed",
+      "detection_supported": false,
+      "model_names": [],
+      "source": "manual taxonomy; image cannot identify chemical contents",
+      "advice_id": "chemical_container",
+      "handling_stream": "hazardous_separate_collection",
+      "object_type_id": "chemical_container",
+      "classification_level": "object_type",
+      "handling_group": "hazardous_separate_collection",
+      "training_readiness": "manual_only"
+    }
+  ]
+}

@@ -4,7 +4,7 @@
 
 Ngoài kết quả trên ảnh, người dùng có thể sửa nhóm được gợi ý, tra cứu cách xử lý pin, thủy tinh, rác hữu cơ và hỏi trợ lý tra cứu bằng tiếng Việt. Những mục này được ghi rõ là **tra cứu thủ công** khi mô hình chưa nhận diện được; ứng dụng không coi một bức ảnh là đủ để kết luận chắc chắn vật có tái chế được hay không.
 
-Phần nhận diện dùng **YOLO26s** theo quy trình fine-tune từ checkpoint pretrained trên ảnh SWiM3 có gắn khung, nhằm dự đoán vị trí và nhóm vật liệu. Phạm vi nhãn của detector là nhựa, giấy/bìa và kim loại; chất lượng trên ảnh thực tế ở Việt Nam sẽ được kiểm tra riêng trước khi sử dụng rộng rãi. [Cách train và đánh giá](docs/training.md).
+Phần nhận diện dùng **YOLO26s** theo quy trình fine-tune từ checkpoint pretrained trên ảnh SWiM3 có gắn khung. Detector hiện hành chỉ có ba lớp baseline nhựa, giấy/bìa và kim loại. Taxonomy tra cứu thủ công bao phủ thêm các loại rác khác nhưng không có nghĩa model đã học/nhận diện chúng. [Cách train và đánh giá](docs/training.md).
 
 ## Cài và chạy từ repo mới tải về
 
@@ -61,10 +61,23 @@ MODEL_PATH=weights/best.pt
 INFERENCE_DEVICE=cpu
 ```
 
-Đặt checkpoint vào đường dẫn đã khai báo rồi **khởi động lại API**. Nếu thiếu checkpoint, API trả lỗi rõ ràng; checkpoint COCO chưa fine-tune không được nhận làm detector rác. Chỉ triển khai nhận diện cho người dùng thật sau khi kiểm tra trên ảnh Việt Nam độc lập.
+Đặt checkpoint vào đường dẫn đã khai báo rồi **khởi động lại API**. Checkpoint SWiM3 legacy vẫn dùng map 0=Plastic, 1=Paper, 2=Metal. Checkpoint tổng quát cần có `model_manifest.json` cạnh checkpoint với `taxonomy_version` và `class_map` khớp; API xác thực manifest khi load. Nếu thiếu checkpoint, API trả lỗi rõ ràng. Chỉ triển khai nhận diện cho người dùng thật sau khi kiểm tra trên ảnh Việt Nam độc lập.
 Đặt `INFERENCE_DEVICE=0` để suy luận trên GPU CUDA đầu tiên.
 
-## Chuẩn bị dữ liệu và train
+## Train đa lớp (chuẩn bị, chưa chạy GPU)
+
+Builder COCO chỉ nhận mapping khai báo tường minh, ghi provenance/audit và dừng nếu output đã tồn tại. Không tự tải dataset và không chuyển nhãn ảnh classification thành box.
+
+```powershell
+.\.venv\Scripts\python.exe ml\scripts\build_multisource.py --config path\to\reviewed_config.json --out datasets\multiclass_v2
+.\.venv\Scripts\python.exe ml\scripts\train_multiclass.py --data datasets\multiclass_v2\data.yaml --name waste_v2_preflight --device 0 --preflight-only
+.\.venv\Scripts\python.exe ml\scripts\train_multiclass.py --data datasets\multiclass_v2\data.yaml --name waste_v2 --model yolo26s.pt --device 0
+.\.venv\Scripts\python.exe ml\scripts\evaluate.py --model runs\multiclass\waste_v2\weights\best.pt --data datasets\multiclass_v2\data.yaml --split val
+```
+
+Không chạy command train trong phiên này. Trước khi lập config cần chốt license, annotation coverage/partial labels và mapping theo `ml/config/dataset_sources.json`. Hiện chưa đủ căn cứ để dùng lớp ngoài baseline trong một training run.
+
+## Chuẩn bị dữ liệu và train baseline
 
 Để train, đặt thư mục SWiM3 đã giải nén tại `datasets/swim3/Splitted_Dataset` theo cấu trúc `train/valid/test`, mỗi split có `images` và `labels`. Bộ dữ liệu có thể lấy từ [nguồn SWiM3](https://github.com/Burhan-Ahmed/SWiM3-Dataset); kiểm tra quyền sử dụng trước khi tải hoặc chia sẻ. Không train trực tiếp trên split gốc vì kiểm toán phát hiện ảnh trùng qua các split.
 

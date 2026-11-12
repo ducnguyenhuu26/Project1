@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "sources": [
+    {
+      "id": "taco",
+      "url": "https://github.com/pedropro/TACO",
+      "license_status": "repository declares MIT; verify image-level rights and original dataset terms before redistribution",
+      "task": "instance segmentation with COCO annotations; bounding boxes derivable from masks/COCO bbox",
+      "scene": "litter in outdoor real-world contexts",
+      "coverage": "mixed litter categories; many fine-grained labels are sparse",
+      "suitable_for_training": "candidate; only explicitly reviewed class mappings; not Vietnam household validation",
+      "download": "manual/official project tooling; no credentials supplied"
+    },
+    {
+      "id": "swim3",
+      "url": "https://github.com/Burhan-Ahmed/SWiM3-Dataset",
+      "license_status": "unverified in this checkout; upstream README points to a license but rights must be checked before redistribution",
+      "task": "object detection bounding boxes; YOLO and Faster R-CNN formats",
+      "scene": "households, parks, public spaces",
+      "coverage": "legacy 3-class baseline Plastic/Paper/Metal, with included subclasses",
+      "suitable_for_training": "baseline only until license and per-source annotation scope are confirmed",
+      "download": "existing local clean split remains untouched"
+    }
+  ],
+  "class_mapping_review": [
+    {"source":"SWiM3", "source_class":"plastic bottle / bottlecap / straw / cup", "category_id":"plastic", "handling_group":"plastic", "decision":"needs_review", "reason":"legacy grouped detector class; retain only in its own baseline until annotation semantics are audited"},
+    {"source":"SWiM3", "source_class":"carton / crumpled paper", "category_id":"paper", "handling_group":"paper", "decision":"needs_review", "reason":"cartons may be composite; SWiM3 paper also includes wood and must not be treated as uniform paper"},
+    {"source":"SWiM3", "source_class":"wood", "category_id":null, "handling_group":null, "decision":"exclude", "reason":"object type is wood, not paper; no automatic remap"},
+    {"source":"TACO", "source_class":"clear_plastic_bottle / plastic_bottle_cap / plastic_straw / disposable_plastic_cup", "category_id":"plastic", "handling_group":"plastic", "decision":"needs_review", "reason":"candidate object labels; audit image rights, annotation completeness, and class counts before inclusion"},
+    {"source":"TACO", "source_class":"drink_can / metal_bottle_cap", "category_id":"metal", "handling_group":"metal", "decision":"needs_review", "reason":"candidate object labels; review hazardous residue and can subtypes"},
+    {"source":"TACO", "source_class":"corrugated_carton / normal_paper", "category_id":"paper", "handling_group":"paper", "decision":"needs_review", "reason":"review coating, contamination, and complete scene annotation"},
+    {"source":"TACO", "source_class":"glass_bottle", "category_id":"glass", "handling_group":"glass", "decision":"needs_review", "reason":"detection evidence exists but source-specific boxes, license, and coverage require audit before phase A"},
+    {"source":"TACO", "source_class":"unlabeled_litter / other", "category_id":null, "handling_group":null, "decision":"unmappable", "reason":"not a defined household object category; never collapse into Other"},
+    {"source":"classification datasets", "source_class":"image-level class", "category_id":null, "handling_group":null, "decision":"exclude", "reason":"no bounding box; do not synthesize a full-image box"}
+  ]
+}
