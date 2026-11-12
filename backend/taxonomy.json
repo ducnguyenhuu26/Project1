@@ -124,17 +124,15 @@
       ],
       "parent_group": "organic",
       "material_id": "organic",
-      "detection_supported": true,
-      "model_names": [
-        "Glass"
-      ],
+      "detection_supported": false,
+      "model_names": [],
       "source": "manual taxonomy; no approved box dataset",
       "advice_id": "organic",
       "handling_stream": "organic_collection_if_available",
       "object_type_id": "food_waste",
       "classification_level": "object_type",
       "handling_group": "organic_collection_if_available",
-      "training_readiness": "ready_for_training"
+      "training_readiness": "manual_only"
     },
     {
       "id": "textile",

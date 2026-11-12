@@ -26,6 +26,8 @@ Image split: train 210, validation 28, test 27. All four classes occur in every 
 
 **Readiness:** ready for a controlled training run and artifact pipeline; not ready to claim balanced or field-quality performance. Glass has only 9 training images and 2 validation/test images each; cigarette litter has only 18 training images and 2/3 validation/test images. Glass validation’s 27 boxes are concentrated in two images. The test split is reserved and has not been used for model selection.
 
+The 45 glass boxes in this final set are 35 `Broken glass` and 10 `Glass bottle`; there are 0 `Glass cup` boxes. Organic food waste and textile/clothing have no trained classes and are manual lookup entries.
+
 Re-fetch the strict-license image subset and rebuild it locally with:
 
 ```powershell
