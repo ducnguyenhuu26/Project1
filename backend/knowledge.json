@@ -1,0 +1,16 @@
+{
+  "updated_at": "2026-11-12",
+  "sources": ["https://cspl-tnmt.monre.gov.vn/upload/81732/fck/files/59728d487ba47e4e0040c49e48ca5415.pdf"],
+  "materials": [
+    {"id":"plastic","name":"Nhựa","ai_class":0,"examples":["chai nhựa","nắp chai","ống hút","ly nhựa"],"description":"Đồ làm từ nhựa; ảnh không cho biết chính xác mã nhựa hoặc mức độ sạch.","do":["Làm rỗng, tráng sạch nếu thuận tiện và để khô.","Tách riêng chai và nắp nếu nơi thu gom yêu cầu."],"avoid":["Không đốt nhựa hoặc bỏ lẫn với rác hữu cơ."],"caution":"Bao bì bẩn, nhiều lớp hoặc dính hóa chất cần xử lý theo hướng dẫn địa phương.","vn_tip":"Hỏi đơn vị thu gom tại nơi ở về loại nhựa họ nhận."},
+    {"id":"paper","name":"Giấy / bìa","ai_class":1,"examples":["thùng carton","giấy vụn","bìa giấy"],"description":"Nhóm giấy, bìa; mô hình có thể nhầm vật liệu phủ nhựa hoặc hộp nhiều lớp.","do":["Giữ giấy khô, gấp gọn và tách khỏi rác ướt."],"avoid":["Không khẳng định mọi ly giấy, hộp sữa đều tái chế như giấy thường."],"caution":"Giấy dính dầu mỡ, tráng phủ hoặc hộp nhiều lớp cần kiểm tra trước khi phân loại.","vn_tip":"Ưu tiên gom giấy sạch riêng, theo quy định thu gom tại địa phương."},
+    {"id":"metal","name":"Kim loại","ai_class":2,"examples":["lon nước","nắp kim loại","vỏ hộp"],"description":"Vật thể trông như kim loại; ảnh không xác định thành phần hay chất tồn dư.","do":["Làm rỗng lon thông thường; gom riêng nếu nơi thu gom chấp nhận."],"avoid":["Không đục, ép hoặc đốt bình xịt và hộp còn áp suất."],"caution":"Mép sắc có thể gây đứt tay; bình xịt, hộp hóa chất cần xử lý riêng.","vn_tip":"Hỏi nơi thu gom về lon, sắt vụn và vật chứa nguy hại."},
+    {"id":"battery","name":"Pin / ắc quy","ai_class":null,"examples":["pin tiểu","pin sạc"],"description":"Chỉ tra cứu thủ công; AI hiện không nhận diện loại này.","do":["Giữ nguyên vỏ, che hai cực pin rời nếu cần và mang tới điểm tiếp nhận phù hợp."],"avoid":["Không đốt, tháo hoặc bỏ chung với rác sinh hoạt."],"caution":"Pin hỏng, phồng, rò rỉ cần tránh tiếp xúc trực tiếp.","vn_tip":"Tìm điểm thu hồi pin được công bố tại địa phương."},
+    {"id":"glass","name":"Thủy tinh","ai_class":null,"examples":["chai thủy tinh","mảnh kính"],"description":"Chỉ tra cứu thủ công; AI hiện không nhận diện loại này.","do":["Bọc và ghi chú vật sắc vỡ trước khi chuyển giao."],"avoid":["Không để mảnh vỡ lẫn trong túi rác không đánh dấu."],"caution":"Có thể gây thương tích khi thu gom.","vn_tip":"Kiểm tra nơi thu gom có nhận thủy tinh hay không."},
+    {"id":"organic","name":"Rác hữu cơ","ai_class":null,"examples":["thức ăn thừa","vỏ trái cây"],"description":"Chỉ tra cứu thủ công; AI hiện không nhận diện loại này.","do":["Tách riêng khi địa phương có tuyến thu gom phù hợp."],"avoid":["Không trộn với vật sắc hoặc hóa chất."],"caution":"Giữ kín để hạn chế mùi và côn trùng.","vn_tip":"Làm theo lịch và cách phân loại tại nơi ở."}
+  ],
+  "faq": [
+    {"question":"Ảnh có biết vật này tái chế được không?","answer":"Không. Ảnh chỉ gợi ý nhóm vật liệu. Khả năng tái chế còn phụ thuộc độ sạch, cấu tạo và hệ thống thu gom."},
+    {"question":"Có nên đốt rác không?","answer":"Không tự đốt rác sinh hoạt, nhựa hoặc rác hỗn hợp. Hãy phân loại và chuyển cho đơn vị thu gom phù hợp."}
+  ]
+}

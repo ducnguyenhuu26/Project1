@@ -1,2 +1,84 @@
-# Project1
-Project 1 kỳ 20261
+# WasteWise VN
+
+WasteWise VN nhận ảnh rác, phát hiện vị trí và nhóm vật liệu **Nhựa, Giấy, Kim loại**, rồi đưa ra hướng dẫn phân loại và xử lý bằng tiếng Việt. Người dùng có thể sửa kết quả, tra cứu vật liệu khác và hỏi trợ lý dựa trên cơ sở tri thức của ứng dụng.
+
+Mô hình chính là **YOLO26s** được fine-tune trên SWiM3; **YOLO26n** là bản đối chứng nhẹ. Sau khi train, mô hình được kiểm tra trên ảnh ngoài SWiM3, ưu tiên ảnh rác tại Việt Nam; nếu cần, fine-tune tiếp với ảnh Việt Nam đã gắn nhãn. [Quy trình và metric](docs/training.md).
+
+## Cài và chạy từ repo mới tải về
+
+Cần **Python 3.11+**, **Node.js 20.19+**, npm và Git. Dữ liệu SWiM3 và checkpoint không nằm trong Git; **chế độ minh họa chạy được ngay sau khi cài**.
+
+### Windows PowerShell
+
+```powershell
+git clone https://github.com/ducnguyenhuu26/Project1.git
+cd Project1
+py -3.11 -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+Copy-Item .env.example .env
+cd frontend
+npm ci
+cd ..
+```
+
+Mở **hai cửa sổ PowerShell** tại thư mục `Project1`:
+
+```powershell
+# Cửa sổ API
+.\.venv\Scripts\python.exe -m uvicorn backend.main:app --host 127.0.0.1 --port 8000
+```
+
+```powershell
+# Cửa sổ giao diện
+cd frontend
+npm run dev -- --host 127.0.0.1 --port 5173
+```
+
+### macOS / Linux
+
+```bash
+git clone https://github.com/ducnguyenhuu26/Project1.git
+cd Project1
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
+cp .env.example .env
+cd frontend && npm ci && cd ..
+```
+
+Chạy API bằng `.venv/bin/python -m uvicorn backend.main:app --host 127.0.0.1 --port 8000`; ở terminal khác, chạy `cd frontend && npm run dev -- --host 127.0.0.1 --port 5173`.
+
+Mở [giao diện](http://127.0.0.1:5173) và [tài liệu API](http://127.0.0.1:8000/docs). Chọn **ảnh mẫu** để xem luồng demo. Khung trên ảnh mẫu được ghi rõ là minh họa; ảnh khác trong demo không được gán kết quả AI giả.
+
+## Dùng checkpoint thật
+
+Sau khi có `best.pt` đã fine-tune đúng các lớp `Plastic`, `Paper`, `Metal`, sửa `.env`:
+
+```dotenv
+DETECTOR_MODE=real
+MODEL_PATH=weights/best.pt
+```
+
+Đặt checkpoint vào đường dẫn đã khai báo rồi **khởi động lại API**. Nếu thiếu checkpoint, API trả lỗi rõ ràng; checkpoint COCO chưa fine-tune không được nhận làm detector rác. Chỉ triển khai nhận diện cho người dùng thật sau khi kiểm tra trên ảnh Việt Nam độc lập.
+
+## Chuẩn bị dữ liệu và train
+
+Để train, đặt thư mục SWiM3 đã giải nén tại `datasets/swim3/Splitted_Dataset` theo cấu trúc `train/valid/test`, mỗi split có `images` và `labels`. Bộ dữ liệu có thể lấy từ [nguồn SWiM3](https://github.com/Burhan-Ahmed/SWiM3-Dataset); kiểm tra quyền sử dụng trước khi tải hoặc chia sẻ. Không train trực tiếp trên split gốc vì kiểm toán phát hiện ảnh trùng qua các split.
+
+```powershell
+.\.venv\Scripts\python.exe ml\scripts\prepare_clean_split.py
+.\.venv\Scripts\python.exe ml\scripts\audit_dataset.py --root datasets\swim3_clean --hash-images --out outputs\clean_audit.json
+.\.venv\Scripts\python.exe ml\scripts\train.py --data datasets\swim3_clean\data.yaml --model yolo26s.pt --device 0 --name waste_yolo26s
+.\.venv\Scripts\python.exe ml\scripts\evaluate.py --model runs\train\waste_yolo26s\weights\best.pt --data datasets\swim3_clean\data.yaml --split val
+```
+
+Lệnh train trên yêu cầu GPU CUDA. Với Kaggle, cách chuẩn bị bundle, submit và tải checkpoint ở [docs/training.md](docs/training.md). Bước Cross-domain Test và Domain Adaptation với ảnh Việt Nam ở [docs/vietnam-data-strategy.md](docs/vietnam-data-strategy.md).
+
+## Kiểm tra cài đặt
+
+```powershell
+.\.venv\Scripts\python.exe -m pytest -q
+cd frontend
+npm run build
+```
+
+Tài liệu thêm: [kiến trúc](docs/architecture-overview.md) · [kiểm toán dữ liệu](docs/data-audit.md) · [trạng thái triển khai](docs/implementation-status.md).
