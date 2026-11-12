@@ -83,7 +83,7 @@ def main():
     a.out.mkdir(parents=True,exist_ok=True)
     source=Path(__file__).parents[1]
     shutil.copy2(source/"kaggle"/"kernel.py",a.out/"kernel.py")
-    for name in ("audit_dataset.py","prepare_clean_split.py","train.py","evaluate.py"):
+    for name in ("audit_dataset.py","perceptual_hash.py","prepare_clean_split.py","train.py","evaluate.py"):
         shutil.copy2(source/"scripts"/name,a.out/name)
     slug=f"wastewise-{a.model.removesuffix('.pt')}"
     metadata={"id":f"{a.username}/{slug}","title":slug,"code_file":"kernel.py",

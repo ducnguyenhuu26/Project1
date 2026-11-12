@@ -72,10 +72,11 @@ def main():
     run("-m", "pip", "install", "ultralytics==8.4.210")
     clean = WORK / "swim3_clean"
     run(HERE / "prepare_clean_split.py", "--source", source, "--out", clean)
-    run(HERE / "audit_dataset.py", "--root", clean, "--hash-images",
+    run(HERE / "audit_dataset.py", "--root", clean, "--hash-images", "--perceptual",
         "--out", WORK / "clean_audit.json")
     audit = json.loads((WORK / "clean_audit.json").read_text(encoding="utf-8"))
-    if (audit["issues"] or audit["family_overlap"] or audit["exact_overlap"]
+    if (audit["issues"] or audit["family_overlap"] or audit["exact_overlap"] or audit["perceptual_overlap"]
+            or audit["perceptual_near_count"]
             or any(row["unlabeled_images"] for row in audit["splits"].values())):
         raise RuntimeError("Clean dataset audit failed; see /kaggle/working/clean_audit.json")
     run(HERE / "train.py", "--data", clean / "data.yaml", "--model", config["model"],

@@ -1,9 +1,13 @@
 from io import BytesIO
+from pathlib import Path
+from threading import Lock
+from types import SimpleNamespace
 
 from fastapi.testclient import TestClient
 from PIL import Image
 
 from backend.main import build_app
+from backend.services import RealYOLODetector
 
 
 def png(width=80, height=60):
@@ -45,3 +49,28 @@ def test_knowledge_and_grounded_chat():
     assert "Không tự đốt" in client.post("/api/v1/chat", json={"message": "Có nên đốt nhựa không?"}).json()["answer"]
     unknown = client.post("/api/v1/chat", json={"message": "Cho tôi biết lượng khí thải carbon chính xác?"}).json()["answer"]
     assert "chưa có" in unknown
+
+
+def test_real_detector_uses_configured_device(monkeypatch):
+    calls = []
+
+    class FakeModel:
+        def predict(self, image, **kwargs):
+            calls.append(kwargs)
+            return [SimpleNamespace(boxes=[])]
+
+    detector = RealYOLODetector(Path("missing.pt"), device="0")
+    detector.model = FakeModel()
+    assert detector.predict(Image.new("RGB", (16, 16)), "photo.png") == []
+    assert calls[0]["device"] == "0"
+
+    configured = []
+
+    def fake_detector(path, confidence, device):
+        configured.append((path, confidence, device))
+        return detector
+
+    monkeypatch.setattr("backend.main.RealYOLODetector", fake_detector)
+    monkeypatch.setenv("INFERENCE_DEVICE", "0")
+    build_app(mode="real")
+    assert configured == [(Path("weights/best.pt"), 0.25, "0")]

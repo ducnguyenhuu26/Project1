@@ -13,6 +13,7 @@ from pathlib import Path
 import shutil
 
 from audit_dataset import IMAGE_EXT, family
+from perceptual_hash import dhash, distance
 
 
 def clean_box(line: str):
@@ -60,6 +61,22 @@ def prepare(source: Path, out: Path, seed: int = 42) -> dict:
     for indices in by_hash.values():
         first=next(iter(indices))
         for i in indices: union(first,i)
+    # Identical visual fingerprints catch recompressed/resized copies even if
+    # filenames and file bytes differ. Near matches are audited separately.
+    seen_visual={}
+    visual=[]
+    for i, (_, image, _) in enumerate(records):
+        fingerprint=dhash(image)
+        visual.append(fingerprint)
+        if fingerprint in seen_visual: union(i,seen_visual[fingerprint])
+        else: seen_visual[fingerprint]=i
+    # Group very near fingerprints as well. This keeps alternate frames of the
+    # same staged scene together; the audit reports any remaining candidates.
+    unique_hashes=list(seen_visual)
+    for offset, left in enumerate(unique_hashes):
+        for right in unique_hashes[offset+1:]:
+            if distance(left,right) <= 2:
+                union(seen_visual[left],seen_visual[right])
     groups=defaultdict(list)
     for i,record in enumerate(records): groups[root(i)].append(record)
     report={"seed":seed,"source":str(source.resolve()),"groups":len(groups),"splits":Counter(),"label_changes":Counter(),"dropped_augmented_eval":0,"manifest":[]}

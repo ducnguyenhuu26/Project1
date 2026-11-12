@@ -51,9 +51,12 @@ class ModelNotReady(RuntimeError):
 class RealYOLODetector:
     mode = "real"
 
-    def __init__(self, model_path: Path, confidence: float = 0.25):
+    def __init__(self, model_path: Path, confidence: float = 0.25, device: str = "cpu"):
+        if device != "cpu" and not device.isdigit():
+            raise ValueError("INFERENCE_DEVICE must be cpu or a CUDA device index")
         self.model_path = model_path
         self.confidence = confidence
+        self.device = device
         self.model_version = model_path.name if model_path.is_file() else None
         self.model = None
         self._predict_lock = Lock()
@@ -68,7 +71,7 @@ class RealYOLODetector:
         if self.model is None:
             raise ModelNotReady("Chưa có checkpoint rác 3 lớp. Hãy đặt MODEL_PATH sau khi train.")
         with self._predict_lock:
-            result = self.model.predict(image, conf=self.confidence, imgsz=640, device="cpu", verbose=False)[0]
+            result = self.model.predict(image, conf=self.confidence, imgsz=640, device=self.device, verbose=False)[0]
         return [Detection(int(b.cls.item()), float(b.conf.item()),
                           [float(v) for v in b.xyxy[0].tolist()]) for b in result.boxes]
 

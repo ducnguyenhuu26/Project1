@@ -20,7 +20,8 @@ def build_app(mode: str | None = None, detector=None) -> FastAPI:
     if selected_mode not in {"demo", "real"}:
         raise ValueError("DETECTOR_MODE must be demo or real")
     provider = detector or (DemoDetector() if selected_mode == "demo" else RealYOLODetector(
-        Path(os.getenv("MODEL_PATH", "weights/best.pt")), float(os.getenv("CONFIDENCE", "0.25"))))
+        Path(os.getenv("MODEL_PATH", "weights/best.pt")), float(os.getenv("CONFIDENCE", "0.25")),
+        os.getenv("INFERENCE_DEVICE", "cpu")))
     app = FastAPI(title="WasteWise VN", version="0.1.0")
     app.state.detector = provider
     app.add_middleware(CORSMiddleware, allow_origins=os.getenv("CORS_ORIGINS", "http://localhost:5173").split(","),

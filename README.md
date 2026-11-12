@@ -58,9 +58,11 @@ Sau khi có `best.pt` đã fine-tune đúng các lớp `Plastic`, `Paper`, `Meta
 ```dotenv
 DETECTOR_MODE=real
 MODEL_PATH=weights/best.pt
+INFERENCE_DEVICE=cpu
 ```
 
 Đặt checkpoint vào đường dẫn đã khai báo rồi **khởi động lại API**. Nếu thiếu checkpoint, API trả lỗi rõ ràng; checkpoint COCO chưa fine-tune không được nhận làm detector rác. Chỉ triển khai nhận diện cho người dùng thật sau khi kiểm tra trên ảnh Việt Nam độc lập.
+Đặt `INFERENCE_DEVICE=0` để suy luận trên GPU CUDA đầu tiên.
 
 ## Chuẩn bị dữ liệu và train
 
@@ -68,7 +70,7 @@ MODEL_PATH=weights/best.pt
 
 ```powershell
 .\.venv\Scripts\python.exe ml\scripts\prepare_clean_split.py
-.\.venv\Scripts\python.exe ml\scripts\audit_dataset.py --root datasets\swim3_clean --hash-images --out outputs\clean_audit.json
+.\.venv\Scripts\python.exe ml\scripts\audit_dataset.py --root datasets\swim3_clean --hash-images --perceptual --out outputs\clean_audit.json
 .\.venv\Scripts\python.exe ml\scripts\train.py --data datasets\swim3_clean\data.yaml --model yolo26s.pt --device 0 --name waste_yolo26s
 .\.venv\Scripts\python.exe ml\scripts\evaluate.py --model runs\train\waste_yolo26s\weights\best.pt --data datasets\swim3_clean\data.yaml --split val
 ```
