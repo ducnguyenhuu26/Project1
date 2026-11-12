@@ -1,6 +1,6 @@
 # WasteWise VN
 
-**WasteWise VN** là đồ án Project 1 xây dựng giao diện trực quan để hỗ trợ phân loại rác thải sinh hoạt. Người dùng chỉ cần chụp hoặc tải một bức ảnh: ứng dụng khoanh vùng những vật dụng nhận diện được, gợi ý nhóm vật liệu và hiển thị hướng dẫn **nên làm, tránh làm, lưu ý khi thu gom tại Việt Nam**. Một ảnh có thể chứa nhiều món rác, chẳng hạn chai và nắp nhựa, ống hút, giấy vụn, thùng carton, lon nước hoặc nắp kim loại.
+**WasteWise VN** là dự án Project 1 xây dựng giao diện trực quan để hỗ trợ phân loại rác thải sinh hoạt. Người dùng chỉ cần chụp hoặc tải một bức ảnh: ứng dụng khoanh vùng những vật dụng nhận diện được, gợi ý nhóm vật liệu và hiển thị hướng dẫn **nên làm, tránh làm, lưu ý khi thu gom tại Việt Nam**. Một ảnh có thể chứa nhiều món rác, chẳng hạn chai và nắp nhựa, ống hút, giấy vụn, thùng carton, lon nước hoặc nắp kim loại.
 
 Ngoài kết quả trên ảnh, người dùng có thể sửa nhóm được gợi ý, tra cứu cách xử lý pin, thủy tinh, rác hữu cơ và hỏi trợ lý tra cứu bằng tiếng Việt. Những mục này được ghi rõ là **tra cứu thủ công** khi mô hình chưa nhận diện được; ứng dụng không coi một bức ảnh là đủ để kết luận chắc chắn vật có tái chế được hay không.
 
