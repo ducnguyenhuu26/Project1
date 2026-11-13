@@ -12,6 +12,7 @@ from dotenv import load_dotenv
 
 from .services import (KNOWLEDGE, MATERIALS, TAXONOMY, TAXONOMY_ITEMS, DemoDetector,
                        ModelNotReady, RealYOLODetector, answer_chat, summarize)
+from .recommendation_api import recommendation_router
 
 load_dotenv()
 
@@ -60,6 +61,8 @@ def build_app(mode: str | None = None, detector=None) -> FastAPI:
         os.getenv("INFERENCE_DEVICE", "cpu")))
     app = FastAPI(title="WasteWise VN", version="0.1.0")
     app.state.detector = provider
+    # Keep the original waste-type and chat APIs stable; v2 guidance is additive.
+    app.include_router(recommendation_router)
     app.add_middleware(CORSMiddleware, allow_origins=os.getenv("CORS_ORIGINS", "http://localhost:5173").split(","),
                        allow_methods=["GET", "POST"], allow_headers=["*"])
 

@@ -105,6 +105,7 @@ class RealYOLODetector:
         if model_path.is_file():
             try:
                 self.manifest = load_model_manifest(model_path, manifest_path)
+                self.model_version = self.manifest.get("model_id") or model_path.stem
                 self.class_map = {int(row["class_id"]): row["category_id"] for row in self.manifest["class_map"]}
                 self.supported_category_ids = list(self.class_map.values())
                 from ultralytics import YOLO

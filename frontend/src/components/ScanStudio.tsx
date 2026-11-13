@@ -3,8 +3,10 @@ import { ArrowRight, ImagePlus, LoaderCircle, RotateCcw, ScanLine, ShieldCheck, 
 import type { Detection, Material, Scan } from '../types';
 import { useReveal } from '../lib/useReveal';
 import { useLanguage } from '../lib/language';
+import { RecommendationWizard } from './RecommendationWizard';
 
 const palette:Record<string,string>={plastic:'#d91e35',paper:'#d5a829',metal:'#389783',glass:'#629cb4',organic:'#5a9470',battery:'#a95d57',textile:'#9878a0',e_waste:'#756a98'};
+const modelName=(version:string)=>version.match(/yolo\d+[a-z]?/i)?.[0]?.toUpperCase()??'YOLO26S';
 type Props={file:File|null;preview:string;scan:Scan|null;materials:Material[];supportedIds:string[];busy:boolean;error:string;onChoose:(file:File)=>void;onAnalyze:()=>void;onDemo:()=>void;onCorrect:(d:Detection,id:string)=>void;onExclude:(id:string)=>void;onSelect:(id:string)=>void;selected:string|null;onManual:(id:string)=>void;active:string[];manual:string[];corrections:Record<string,string>;excluded:string[]};
 
 export function ScanStudio(p:Props){
@@ -15,6 +17,9 @@ export function ScanStudio(p:Props){
   function boxKey(e:KeyboardEvent<SVGGElement>,id:string){if(e.key==='Enter'||e.key===' '){e.preventDefault();p.onSelect(id);}}
   const presentDetections=p.scan?.detections.filter(d=>!p.excluded.includes(d.id))??[];
   const current=material(p.selected??'');
+  const selectedDetection=presentDetections.find(d=>(p.corrections[d.id]??d.category_id)===p.selected);
+  const detectedCategoryId=selectedDetection?.category_id??'';
+  const recommendationSource=selectedDetection?(p.corrections[selectedDetection.id]?'corrected':'detected'):'manual';
   const warnings=(p.scan?.warnings??[]).map(w=>p.scan?.mode==='demo'&&/minh họa/i.test(w)?'Ảnh mẫu trình diễn quy trình nhận diện với các khung vật thể minh họa.':w);
   return <section ref={section} className="section" id="studio" aria-labelledby="studio-title"><div className="wrap">
     <div className="section-head reveal"><div><div className="section-n">02 / INTERACTIVE SCAN EXPERIENCE</div><h2 className="section-title" id="studio-title">SCAN STUDIO</h2></div><p className="section-sub">{t('Tải ảnh để phân tích qua FastAPI hoặc chạy ảnh mẫu trong chế độ demo.','Upload an image for FastAPI analysis, or run the sample in demo mode.')}</p></div>
@@ -39,7 +44,7 @@ export function ScanStudio(p:Props){
       <div className="results" aria-live="polite">
         <h3 className="results-title">{p.busy?'ĐANG PHÂN TÍCH…':p.scan?`KẾT QUẢ (${presentDetections.length})`:'KẾT QUẢ PHÂN TÍCH'}</h3>
         {p.scan?<>
-          <div className="result-meta"><span className={`badge ${p.scan.mode==='demo'?'demo':''}`}>{p.scan.mode==='demo'?'DEMO · ẢNH MẪU':'AI · KẾT QUẢ MÔ HÌNH'}</span>{p.scan.mode==='demo'?<span className="badge">TRÌNH DIỄN API</span>:p.scan.model_version&&<span className="badge">{p.scan.model_version}</span>}</div>
+          <div className="result-meta"><span className={`badge ${p.scan.mode==='demo'?'demo':''}`}>{p.scan.mode==='demo'?'DEMO · ẢNH MẪU':'AI · KẾT QUẢ MÔ HÌNH'}</span>{p.scan.mode==='demo'?<span className="badge">TRÌNH DIỄN API</span>:p.scan.model_version&&<span className="badge">{modelName(p.scan.model_version)}</span>}</div>
           <div className="results-note">Taxonomy {p.scan.taxonomy_version} · {p.scan.supported_category_ids.length} lớp được API hỗ trợ.</div>
           {warnings.map((w,i)=><p className="result-warning" role="status" key={i}>{w}</p>)}
           {p.scan.mode==='real'&&!p.scan.detections.length&&<p className="result-warning">{t('Không có phát hiện thuộc lớp mô hình đang hỗ trợ. Hãy thử tra cứu hoặc thêm nhãn thủ công.','No objects matched the model’s supported classes. Try the library or add a manual label.')}</p>}
@@ -52,6 +57,7 @@ export function ScanStudio(p:Props){
           <label className="manual-field">THÊM NHÓM VẬT LIỆU THỦ CÔNG<select value="" onChange={e=>e.target.value&&p.onManual(e.target.value)}><option value="">+ Chọn để tra cứu</option>{p.materials.filter(m=>!p.active.includes(m.id)).map(m=><option key={m.id} value={m.id}>{m.name}{p.supportedIds.includes(m.id)?' · model hỗ trợ':' · chỉ tra cứu'}</option>)}</select></label>
           {p.active.length>0&&<div className="result-summary">{p.active.map(id=>{const m=material(id);return m?<p key={id}><b>{m.name}:</b> {m.do[0]} {m.caution}</p>:null})}</div>}
           {current&&<div className="feedback"><b>{current.name.toLocaleUpperCase('vi')} / HƯỚNG DẪN</b><br/><p>{current.description}</p><strong>✓ NÊN LÀM</strong><p>{current.do.join(' ')}</p><strong>! LƯU Ý</strong><p>{current.avoid.join(' ')} {current.caution} {current.vn_tip}</p></div>}
+          <RecommendationWizard categoryId={p.selected??''} detectedCategoryId={detectedCategoryId} source={recommendationSource}/>
         </>:<>
           <div className="results-note">Kết quả có confidence, lớp và hướng dẫn theo từng vật thể.</div>
           <div className="result-empty">{p.busy?'Đang chờ phản hồi FastAPI.':'Chọn ảnh để bắt đầu. Ảnh mẫu chạy qua API và kết quả hiển thị theo chế độ demo.'}</div>

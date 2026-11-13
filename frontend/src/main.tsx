@@ -68,7 +68,7 @@ function App(){
     <StorySection/><MissionSection/>
     <ScanStudio file={file} preview={preview} scan={scan} materials={materials} supportedIds={supportedIds} busy={busy} error={error} onChoose={choose} onAnalyze={analyze} onDemo={runDemo} onCorrect={correctObject} onExclude={excludeObject} onSelect={setSelected} selected={selected} onManual={toggleManual} active={active} manual={manual} corrections={corrections} excluded={excluded}/>
     {libraryError&&<p className="connection-notice" role="status">{t('Không tải được thư viện kiến thức từ API. Hãy kiểm tra kết nối để tra cứu.','Could not load the knowledge library from the API. Check your connection to browse it.')}</p>}
-    <TechnologySection health={healthError?null:health} knowledge={knowledge} scan={scan} supportedIds={supportedIds}/>
+    <TechnologySection health={healthError?null:health} scan={scan} supportedIds={supportedIds}/>
     <KnowledgeSections knowledge={knowledge} supportedIds={supportedIds}/><TeamSection/><ClosingSection/>
   </main><SiteFooter history={history} materials={materials} onClear={clearHistory}/><ChatAssistant messages={chat} busy={chatBusy} onAsk={ask}/></>;
 }

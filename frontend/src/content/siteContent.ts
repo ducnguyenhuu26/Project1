@@ -31,7 +31,7 @@ export const siteContent = {
     kicker: '01 / OUR PURPOSE',
     title: 'Không chỉ nhận diện',
     accent: 'Mà còn để hiểu và hành động',
-    copy: 'SOICTERRA là Đồ án 1 của sinh viên Trường Công nghệ Thông tin và Truyền thông, Đại học Bách khoa Hà Nội. Hệ thống kết hợp object detection, kỹ thuật dữ liệu và giao diện web để biến ảnh rác thải thành kết quả nhận diện, nhãn vật liệu và hướng dẫn xử lý.',
+    copy: 'SOICTERRA là dự án trong khuôn khổ môn Project 1 của sinh viên Trường Công nghệ Thông tin và Truyền thông, Đại học Bách khoa Hà Nội. Hệ thống kết hợp object detection, kỹ thuật dữ liệu và giao diện web để biến ảnh rác thải thành kết quả nhận diện, nhãn vật liệu và hướng dẫn xử lý.',
     goals: [
       { title: 'NHÌN RÕ TỪNG VẬT THỂ', body: 'Phát hiện nhiều vật thể trong cùng ảnh, hiển thị vị trí và các lớp vật liệu được API hỗ trợ.' },
       { title: 'CHỦ ĐỘNG KIỂM SOÁT KẾT QUẢ', body: 'Xem lại từng phát hiện, điều chỉnh nhãn và loại bỏ vật thể ngay trong Scan Studio.' },
@@ -67,7 +67,7 @@ export const siteContent = {
   },
   closing: {
     eyebrow: 'FROM THE CLASSROOM TO EVERYDAY LIFE',
-    title: 'THỬ MỘT TẤM ẢNH. KHÁM PHÁ MỘT CÁCH NHÌN MỚI.',
+    title: 'Thử một tấm ảnh, khám phá một góc nhìn mới',
     description: 'Bắt đầu từ những vật thể quen thuộc. Cùng khám phá cách dự án biến mỗi lần phân loại thành hành động có ý thức.',
     action: 'TRẢI NGHIỆM SCAN STUDIO',
   },

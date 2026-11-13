@@ -50,13 +50,19 @@ npm ci
 cd ..
 ```
 
-**Terminal 1 — FastAPI** (chạy từ thư mục gốc `Project1`):
+**Windows:** sau khi cấu hình `.env` theo hướng dẫn ở dưới, khởi động FastAPI và giao diện cùng lúc bằng:
+
+```powershell
+.\dev.ps1
+```
+
+Script dùng FastAPI ở cổng `8001` và giao diện ở cổng `5175`, đồng thời nối giao diện tới đúng API model thật. Mở [http://127.0.0.1:5175](http://127.0.0.1:5175); tài liệu API ở [http://127.0.0.1:8001/docs](http://127.0.0.1:8001/docs).
+
+Nếu chạy thủ công ở chế độ demo, dùng hai terminal:
 
 ```powershell
 .\.venv\Scripts\python.exe -m uvicorn backend.main:app --host 127.0.0.1 --port 8000
 ```
-
-**Terminal 2 — giao diện** (chạy từ thư mục gốc `Project1`):
 
 ```powershell
 cd frontend
@@ -101,18 +107,26 @@ Mở giao diện tại [http://127.0.0.1:5173](http://127.0.0.1:5173). Tài li�
 3. API trả về các khung minh họa cho ảnh mẫu. Ảnh khác trong chế độ demo vẫn đi qua API nhưng không được gán dự đoán giả.
 4. Tải ảnh của bạn lên để thử luồng giao diện. Muốn nhận dự đoán từ model thật, cần cài checkpoint theo mục bên dưới.
 
-## Dùng checkpoint YOLO thật (tùy chọn)
+## Dùng checkpoint YOLO thật
 
-Checkpoint không được lưu trong Git. Tạo thư mục `weights`, đặt checkpoint bạn được phép sử dụng vào đó, ví dụ `weights/best.pt`, rồi sửa file `.env`:
+Checkpoint không được lưu trong Git. Với gói model `wastewise_yolo26s_v7_50ep`, giải nén `best.pt` và `model_manifest.json` rồi cài bằng helper để xác minh SHA-256, taxonomy và class order trước khi đưa model vào API:
+
+```powershell
+.\.venv\Scripts\python.exe scripts\install_model.py `
+  --checkpoint C:\path\to\wastewise_yolo26s_v7_50ep\weights\best.pt `
+  --manifest C:\path\to\wastewise_yolo26s_v7_50ep\model_manifest.json
+```
+
+Helper cài model theo phiên bản trong `weights/models/` và không ghi đè model đã có. Cấu hình `.env` theo đường dẫn được lệnh in ra:
 
 ```dotenv
 DETECTOR_MODE=real
-MODEL_PATH=weights/best.pt
+MODEL_PATH=weights/models/wastewise_yolo26s_v7_50ep/best.pt
 INFERENCE_DEVICE=cpu
 CONFIDENCE=0.25
 ```
 
-Khởi động lại API sau khi đổi cấu hình. Nếu checkpoint cần manifest, đặt `model_manifest.json` cùng thư mục và đảm bảo `taxonomy_version` cùng `class_map` khớp với `backend/taxonomy.json`. Baseline legacy hỗ trợ các lớp Plastic, Paper và Metal. API báo trạng thái model tại `/api/v1/health`; khi thiếu hoặc sai checkpoint, phần nhận diện trả lỗi thay vì âm thầm chạy demo.
+Model v7 nhận diện sáu nhóm: nhựa, giấy, kim loại, thủy tinh, hữu cơ và vải. Khởi động lại API sau khi đổi cấu hình. API báo trạng thái model và các lớp đang hỗ trợ tại `/api/v1/health`; khi thiếu hoặc sai checkpoint, phần nhận diện trả lỗi thay vì âm thầm chạy demo. Manifest hiện ghi `test_evaluated: false`, nên các chỉ số đi kèm là trên validation, chưa phải đánh giá cuối trên test.
 
 Để dùng GPU CUDA, cài PyTorch phù hợp với máy theo hướng dẫn chính thức của PyTorch, rồi đặt `INFERENCE_DEVICE=0`. Cấu hình GPU phụ thuộc phiên bản CUDA và driver trên máy.
 

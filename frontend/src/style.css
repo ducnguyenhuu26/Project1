@@ -91,3 +91,10 @@ body{background:var(--cream)}
 .footer-contact{margin-top:28px}.footer-contact>b{display:block;color:#ffd35c;font-size:10px;letter-spacing:.16em;margin-bottom:12px}.footer-contact>div{display:flex;flex-wrap:wrap;gap:9px}.contact-button{display:inline-flex;align-items:center;gap:8px;border:1px solid #ffffff55;border-radius:999px;padding:10px 14px;color:#fff;font-size:12px;font-weight:700;transition:background .2s,border-color .2s,transform .2s}.contact-button[href]:hover{background:#ffffff1b;border-color:#fff;transform:translateY(-2px)}.contact-button.unconfigured{color:#ffffffa8;border-style:dashed;cursor:default}.contact-add{font-size:16px;line-height:10px;color:#ffd35c}.footer-contact>small{display:block;margin-top:10px;color:#ffffff9c;font-size:10px}
 @media(min-width:761px) and (max-width:1120px){.navlinks{gap:clamp(10px,1.35vw,16px);font-size:10px}.nav-cta{padding:12px}.brand{gap:12px}.language-toggle{padding:7px 8px}}
 @media(max-width:760px){.language-toggle{justify-content:center}.footer-contact>div{gap:7px}.contact-button{padding:9px 12px}}
+.tech .stats .stat{min-width:0;min-height:136px}.tech .stats .stat .stat-value{font-size:clamp(20px,2.2vw,29px);line-height:1.28;overflow-wrap:normal;word-break:normal;hyphens:none}.tech .stats .stat-classes small{max-width:100%;overflow-wrap:normal;word-break:keep-all}.flow-step{min-width:0}.flow-step b{line-height:1.35;overflow-wrap:normal;word-break:keep-all}.flow-step small{display:block;line-height:1.55}
+.tech .stats{grid-template-columns:repeat(3,minmax(0,1fr))}.tech .stats .stat .stat-value{font-size:clamp(24px,2.4vw,32px);line-height:1.25;text-transform:uppercase}@media(max-width:760px){.tech .stats{grid-template-columns:1fr}}
+/* Softer corners for interactive controls */
+.nav-cta,.btn,.choose,.catbtn,.library-filters button,.chat-presets button,.chat-panel form button{border-radius:12px}
+.result-actions button{border-radius:999px}
+
+.team-head{align-items:start}.team-head p{margin:0}

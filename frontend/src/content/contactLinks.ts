@@ -2,7 +2,7 @@
 // Email example format: mailto:team@example.com
 export const contactLinks = {
   facebook: '',
-  github: '',
+  github: 'https://github.com/ducnguyenhuu26/Project1/tree/main',
   email: '',
   linkedin: '',
   youtube: '',
