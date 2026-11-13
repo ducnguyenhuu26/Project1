@@ -13,7 +13,7 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
       413: 'Ảnh vượt giới hạn dung lượng hoặc 24 megapixel. Hãy chọn ảnh nhỏ hơn.',
       415: 'Định dạng ảnh chưa hỗ trợ. Hãy dùng JPEG, PNG hoặc WebP.',
       422: 'Máy chủ không đọc được ảnh này. Hãy thử xuất lại dưới dạng JPEG hoặc PNG.',
-      503: 'Mô hình nhận diện chưa sẵn sàng. Bạn vẫn có thể tra cứu và xác nhận thủ công.',
+      503: 'Dịch vụ nhận diện hiện tạm ngưng. Mở thư viện SOICTERRA để tiếp tục tra cứu.',
     };
     throw new Error(message || fallback[response.status] || `Máy chủ trả về lỗi ${response.status}. Hãy thử lại.`);
   }
