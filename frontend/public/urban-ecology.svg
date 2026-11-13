@@ -1,19 +1,30 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 620" fill="none">
-  <path fill="#E5EADB" d="M0 0h1000v620H0z"/>
-  <circle cx="804" cy="122" r="66" fill="#F3D7A5"/>
-  <path fill="#C7D5BE" d="M0 414c125-42 214-35 330 0s205 51 325 5 229-40 345 3v198H0z"/>
-  <path fill="#F8F5EE" d="M0 486h1000v134H0z"/>
-  <path fill="#D7C7A7" d="M92 248h184v236H92z"/><path fill="#B86446" d="M76 247h216l-18-38H94z"/>
-  <path fill="#F0E6D2" d="M104 273h38v46h-38zm59 0h38v46h-38zm59 0h38v46h-38zM104 340h38v46h-38zm59 0h38v46h-38zm59 0h38v46h-38z"/>
-  <path fill="#A9B89D" d="M324 218h192v266H324z"/><path fill="#687F69" d="M307 218h226l-18-39H326z"/>
-  <path fill="#EAE2D2" d="M343 246h48v49h-48zm70 0h48v49h-48zm70 0h14v49h-14zm-140 75h48v49h-48zm70 0h48v49h-48zm70 0h14v49h-14z"/>
-  <path fill="#D6B99B" d="M554 291h146v193H554z"/><path fill="#A8573D" d="M540 291h174l-20-37H558z"/>
-  <path fill="#F7F0E4" d="M574 316h40v43h-40zm64 0h40v43h-40zm-64 65h40v43h-40zm64 0h40v43h-40z"/>
-  <path stroke="#8E9D7F" stroke-width="8" d="M286 484h492"/>
-  <path fill="#66836A" d="M773 367c-28-38-16-81 19-92 8 34 4 59-19 92zm3-4c5-44 36-71 69-56-12 34-34 51-69 56zm-8-5c-37-30-40-70-9-91 19 27 23 54 9 91z"/>
-  <path stroke="#66836A" stroke-width="8" d="M776 375v109"/>
-  <path fill="#347E58" d="M754 473h51l-6 51h-39z"/><path fill="#A8C2A4" d="M748 466h63v12h-63z"/>
-  <path fill="#CD784F" d="M846 459h102v13H846z"/><circle cx="866" cy="484" r="16" fill="#315442"/><circle cx="929" cy="484" r="16" fill="#315442"/>
-  <path fill="#52775D" d="M855 421h71l20 38h-91z"/><path fill="#D7E0CC" d="M870 428h27v23h-27z"/>
-  <path stroke="#B5C1AB" stroke-dasharray="5 11" stroke-linecap="round" stroke-width="3" d="M41 550h918"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 720" fill="none">
+  <defs>
+    <linearGradient id="sky" x1="500" y1="0" x2="500" y2="720" gradientUnits="userSpaceOnUse"><stop stop-color="#DDE2D2"/><stop offset="1" stop-color="#EEE9D9"/></linearGradient>
+    <linearGradient id="road" x1="480" y1="500" x2="520" y2="720" gradientUnits="userSpaceOnUse"><stop stop-color="#D5D0C3"/><stop offset="1" stop-color="#BFC4B5"/></linearGradient>
+    <pattern id="grid" width="38" height="38" patternUnits="userSpaceOnUse"><path d="M38 0H0v38" stroke="#5C7164" stroke-opacity=".08"/></pattern>
+  </defs>
+  <path fill="url(#sky)" d="M0 0h1000v720H0z"/><path fill="url(#grid)" d="M0 0h1000v720H0z"/>
+  <circle cx="810" cy="112" r="72" fill="#D7B879" fill-opacity=".7"/><circle cx="810" cy="112" r="93" stroke="#A48E5D" stroke-opacity=".35" stroke-dasharray="2 8"/>
+  <!-- Hà Nội rooflines and narrow shop houses -->
+  <path fill="#869581" d="M0 345h152v235H0z"/><path fill="#A35E47" d="M-12 346l85-69 90 69z"/><path fill="#E5DDC9" d="M20 377h39v58H20zm67 0h38v58H87zm-67 85h39v61H20zm67 0h38v61H87z"/>
+  <path fill="#B8AA8D" d="M145 317h180v263H145z"/><path fill="#D2A56B" d="M130 319l24-48h166l28 48z"/><path fill="#4F6557" d="M164 285h130v34H164z"/><path fill="#EDE5D3" d="M165 350h45v55h-45zm77 0h45v55h-45zm-77 83h45v57h-45zm77 0h45v57h-45z"/>
+  <path fill="#718373" d="M325 276h205v304H325z"/><path fill="#455B4D" d="M309 278l31-57h171l31 57z"/><path fill="#D8D5C4" d="M350 309h48v59h-48zm91 0h48v59h-48zm-91 87h48v59h-48zm91 0h48v59h-48zm-91 87h48v59h-48zm91 0h48v59h-48z"/><path fill="#A8B39E" d="M397 506h54v74h-54z"/>
+  <path fill="#C2A48A" d="M530 345h177v235H530z"/><path fill="#9A5342" d="M512 347l28-54h157l28 54z"/><path fill="#E9E1D1" d="M556 377h45v56h-45zm78 0h45v56h-45zm-78 82h45v59h-45zm78 0h45v59h-45z"/>
+  <path fill="#899988" d="M711 385h138v195H711z"/><path fill="#566B58" d="M697 387l24-42h121l23 42z"/><path fill="#E9E3D4" d="M737 413h35v46h-35zm55 0h35v46h-35zm-55 69h35v47h-35zm55 0h35v47h-35z"/>
+  <!-- Balcony plants and sidewalk trees -->
+  <path stroke="#5A705B" stroke-width="8" d="M75 516v130m737-162v148"/><path fill="#5F7C62" d="M47 481c-20-34 0-69 29-70 8 33-3 57-29 70zm29-5c6-45 39-65 67-46-15 32-37 47-67 46zm-33-9c-34-13-42-47-19-68 23 21 30 42 19 68zm689-25c-28-36-10-75 24-78 11 33 5 57-24 78zm26-7c11-42 48-57 75-33-19 30-45 42-75 33z"/><path fill="#4F6A55" d="M42 641h68l-8 31H50zm700-5h75l-9 35h-59z"/>
+  <!-- Urban street and a bicycle silhouette -->
+  <path fill="url(#road)" d="M0 580h1000v140H0z"/><path stroke="#857D6D" stroke-opacity=".52" stroke-dasharray="3 12" stroke-linecap="round" stroke-width="3" d="M30 634h940"/>
+  <circle cx="248" cy="632" r="28" stroke="#52695A" stroke-width="5"/><circle cx="346" cy="632" r="28" stroke="#52695A" stroke-width="5"/><path stroke="#52695A" stroke-linecap="round" stroke-linejoin="round" stroke-width="6" d="m248 632 31-47 27 47h-58l26-34 35-19m-41 0h22m43 0h-24"/>
+  <!-- Discarded objects: bottle, folded carton, and can -->
+  <g transform="translate(557 560)"><path fill="#78917D" d="M28 0h22v18l10 12v91c0 10-8 18-18 18H22c-10 0-18-8-18-18V30l10-12V0h14z"/><path stroke="#D5E0CF" stroke-width="3" d="M15 18h31M9 75h46"/><path fill="#D7B879" d="M22 42h24v25H22z"/><path stroke="#DCE2D5" stroke-width="2" d="m28 52 6 6 8-11"/></g>
+  <g transform="translate(647 574)"><path fill="#C79858" d="m0 19 30-18 33 18v60L32 99 0 79z"/><path fill="#E3BC7B" d="m0 19 30 18v62L0 79z"/><path fill="#B78348" d="m30 37 33-18v60L32 99z"/><path stroke="#F0E0BC" stroke-width="3" d="m12 26 19-11 18 10M13 38v28m28-20v35"/></g>
+  <g transform="translate(750 586)"><path fill="#A9694F" d="M7 12h43v71c0 7-6 12-12 12H19c-7 0-12-5-12-12z"/><ellipse cx="28.5" cy="12" fill="#E2D6BE" rx="21.5" ry="7"/><ellipse cx="28.5" cy="83" fill="#785142" rx="21.5" ry="7"/><path stroke="#E7D3AF" stroke-width="4" d="M15 32h27"/></g>
+  <!-- Computer vision field markers -->
+  <path stroke="#9B303A" stroke-width="2" d="M538 548h75v134h-75z"/><path stroke="#9B303A" stroke-width="2" d="M634 564h76v118h-76z"/><path stroke="#9B303A" stroke-width="2" d="M738 575h68v101h-68z"/>
+  <path fill="#26372E" d="M542 531h73v16h-73z"/><text x="548" y="542" fill="#F4F0E4" font-family="Arial,sans-serif" font-size="7" letter-spacing=".7">VECTOR / PET</text>
+  <path fill="#26372E" d="M638 547h73v16h-73z"/><text x="644" y="558" fill="#F4F0E4" font-family="Arial,sans-serif" font-size="7" letter-spacing=".7">VECTOR / PAPER</text>
+  <path fill="#26372E" d="M742 558h65v16h-65z"/><text x="748" y="569" fill="#F4F0E4" font-family="Arial,sans-serif" font-size="7" letter-spacing=".7">VECTOR / METAL</text>
+  <path stroke="#758477" stroke-opacity=".7" stroke-dasharray="3 7" d="M30 33h26m-26 0v26m940-26h-26m26 0v26M30 690h26m-26 0v-26m940 26h-26m26 0v-26"/>
 </svg>

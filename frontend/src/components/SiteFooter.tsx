@@ -1,0 +1,2 @@
+import { ArrowUpRight } from 'lucide-react';
+export function SiteFooter() { return <footer className="site-footer"><a className="wordmark footer-wordmark" href="#top"><span className="wordmark-symbol">W<span>·</span></span><span><b>WASTEWISE</b><small>HÀ NỘI · FUTURE LAB</small></span></a><p>Dự án sinh viên Project 1 · Computer Vision × Urban Ecology</p><a href="#top">LÊN ĐẦU TRANG <ArrowUpRight size={14}/></a><small className="footer-disclaimer">Dự án học thuật độc lập, không phải ứng dụng chính thức của Đại học Bách khoa Hà Nội.</small></footer>; }
