@@ -68,7 +68,10 @@ def inspect_dataset(path: Path) -> tuple[dict, list[str], dict[str, Path]]:
                     raise ValueError(f"Invalid label {label}:{line_no}")
                 if len(values) != 5 or not 0 <= class_id < len(names) or any(not 0 <= v <= 1 for v in values[1:]) or values[3] <= 0 or values[4] <= 0:
                     raise ValueError(f"Invalid YOLO box/class at {label}:{line_no}")
-    tax_path = path.parent / "taxonomy.json"
+    taxonomy_value = config.get("taxonomy", "taxonomy.json")
+    tax_path = Path(taxonomy_value)
+    if not tax_path.is_absolute():
+        tax_path = (path.parent / tax_path).resolve()
     if not tax_path.is_file():
         raise ValueError("taxonomy.json beside data.yaml is required for category mapping")
     taxonomy = json.loads(tax_path.read_text(encoding="utf-8"))
@@ -102,7 +105,10 @@ def audit_dataset(data_path: Path, names: list[str], paths: dict[str, Path]) -> 
                 class_id = int(row.split()[0])
                 boxes[class_id] += 1
         per_split[split] = {"images": len(images), "boxes": dict(sorted(boxes.items())), "unlabeled_images": unlabeled}
-    manifest_path = data_path.parent / "dataset_manifest.json"
+    dataset_root = paths["train"].parent.parent if paths["train"].is_dir() else data_path.parent
+    manifest_path = dataset_root / "dataset_manifest.json"
+    if not manifest_path.is_file():
+        manifest_path = data_path.parent / "dataset_manifest.json"
     manifest_hash = None
     if manifest_path.is_file():
         manifest_bytes = manifest_path.read_bytes()
@@ -110,7 +116,7 @@ def audit_dataset(data_path: Path, names: list[str], paths: dict[str, Path]) -> 
         manifest = json.loads(manifest_bytes)
         for row in manifest.get("images", []):
             group_splits.setdefault(f"{row.get('source')}:{row.get('group')}", set()).add(row.get("split"))
-            manifest_image = (data_path.parent / row["image"]).resolve()
+            manifest_image = (manifest_path.parent / row["image"]).resolve()
             if image_hashes.get(manifest_image) != row.get("sha256"):
                 raise ValueError(f"Dataset image hash does not match manifest: {manifest_image}")
     exact_leakage = [key for key, splits in image_hash_splits.items() if len(splits) > 1]

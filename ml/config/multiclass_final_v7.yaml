@@ -1,0 +1,8 @@
+# Local checkout paths. The uploaded dataset uses its own portable data.yaml.
+path: ../../datasets/multiclass_final_v7
+taxonomy: ../../datasets/multiclass_final_v7/taxonomy.json
+train: train/images
+val: val/images
+test: test/images
+nc: 6
+names: [plastic, paper, metal, glass, organic, textile]

@@ -1,0 +1,203 @@
+{
+  "dataset_id": "multiclass_final_v7",
+  "classes": [
+    "plastic",
+    "paper",
+    "metal",
+    "glass",
+    "organic",
+    "textile"
+  ],
+  "taxonomy_version": "2026-11-13.3",
+  "dataset_manifest_sha256": "a92e916ae3f9019ffb52cd20fea48defabae20c8b52cf8a22f4e7b4c954983b7",
+  "images": 16855,
+  "splits": {
+    "train": {
+      "images": 13341,
+      "boxes": {
+        "plastic": 8888,
+        "metal": 4767,
+        "glass": 6103,
+        "organic": 35509,
+        "paper": 7185,
+        "textile": 827
+      },
+      "class_images": {
+        "plastic": 5394,
+        "metal": 1550,
+        "glass": 2151,
+        "organic": 1828,
+        "paper": 2590,
+        "textile": 722
+      },
+      "unlabeled_images": 16
+    },
+    "val": {
+      "images": 1745,
+      "boxes": {
+        "plastic": 1182,
+        "metal": 512,
+        "glass": 850,
+        "paper": 1014,
+        "organic": 4830,
+        "textile": 160
+      },
+      "class_images": {
+        "plastic": 691,
+        "metal": 195,
+        "glass": 268,
+        "paper": 320,
+        "organic": 228,
+        "textile": 147
+      },
+      "unlabeled_images": 1
+    },
+    "test": {
+      "images": 1769,
+      "boxes": {
+        "plastic": 1309,
+        "glass": 892,
+        "metal": 638,
+        "organic": 5029,
+        "paper": 870,
+        "textile": 177
+      },
+      "class_images": {
+        "plastic": 703,
+        "glass": 271,
+        "metal": 193,
+        "organic": 229,
+        "paper": 322,
+        "textile": 159
+      },
+      "unlabeled_images": 1
+    }
+  },
+  "source_images_by_split": {
+    "train": {
+      "taco_odbl": 192,
+      "knr_pet7_v2": 4080,
+      "roboflow_garbage_classification_3_v2": 8347,
+      "mrs_trash_detection_textile_only": 722
+    },
+    "val": {
+      "taco_odbl": 26,
+      "knr_pet7_v2": 527,
+      "roboflow_garbage_classification_3_v2": 1045,
+      "mrs_trash_detection_textile_only": 147
+    },
+    "test": {
+      "taco_odbl": 24,
+      "knr_pet7_v2": 539,
+      "roboflow_garbage_classification_3_v2": 1047,
+      "mrs_trash_detection_textile_only": 159
+    }
+  },
+  "all_images_decoded": true,
+  "decode_errors": [],
+  "all_images_have_label_files": true,
+  "missing_labels": [],
+  "valid_yolo_boxes": true,
+  "invalid_boxes": [],
+  "all_manifest_image_hashes_match": true,
+  "manifest_hash_errors": [],
+  "exact_cross_split_duplicate_pairs": 0,
+  "cross_split_group_leaks": 0,
+  "dhash_screen_hamming_threshold": 2,
+  "cross_split_dhash_candidate_hash_pairs": 13037,
+  "dhash_candidate_examples": [
+    [
+      "val/images/knr_pet7_B1_000876.jpg",
+      "train/images/knr_pet7_B1_000426.jpg"
+    ],
+    [
+      "val/images/knr_pet7_B1_000876.jpg",
+      "train/images/knr_pet7_B1_000676.jpg"
+    ],
+    [
+      "val/images/knr_pet7_B1_000878.jpg",
+      "train/images/knr_pet7_B1_000426.jpg"
+    ],
+    [
+      "val/images/knr_pet7_B1_000878.jpg",
+      "train/images/knr_pet7_B1_000676.jpg"
+    ],
+    [
+      "test/images/knr_pet7_B1_000029.jpg",
+      "train/images/knr_pet7_B1_000426.jpg"
+    ],
+    [
+      "test/images/knr_pet7_B1_000029.jpg",
+      "train/images/knr_pet7_B1_000676.jpg"
+    ],
+    [
+      "test/images/knr_pet7_B1_000075.jpg",
+      "train/images/knr_pet7_B1_000426.jpg"
+    ],
+    [
+      "test/images/knr_pet7_B1_000075.jpg",
+      "train/images/knr_pet7_B1_000676.jpg"
+    ],
+    [
+      "val/images/knr_pet7_B1_000876.jpg",
+      "train/images/knr_pet7_B1_000100.jpg"
+    ],
+    [
+      "val/images/knr_pet7_B1_000876.jpg",
+      "train/images/knr_pet7_B1_000296.jpg"
+    ],
+    [
+      "val/images/knr_pet7_B1_000876.jpg",
+      "train/images/knr_pet7_B1_000305.jpg"
+    ],
+    [
+      "val/images/knr_pet7_B1_000876.jpg",
+      "train/images/knr_pet7_B1_000417.jpg"
+    ],
+    [
+      "val/images/knr_pet7_B1_000876.jpg",
+      "train/images/knr_pet7_B3_000176.jpg"
+    ],
+    [
+      "val/images/knr_pet7_B1_000876.jpg",
+      "train/images/knr_pet7_B6_000754.jpg"
+    ],
+    [
+      "val/images/knr_pet7_B1_000878.jpg",
+      "train/images/knr_pet7_B1_000100.jpg"
+    ],
+    [
+      "val/images/knr_pet7_B1_000878.jpg",
+      "train/images/knr_pet7_B1_000296.jpg"
+    ],
+    [
+      "val/images/knr_pet7_B1_000878.jpg",
+      "train/images/knr_pet7_B1_000305.jpg"
+    ],
+    [
+      "val/images/knr_pet7_B1_000878.jpg",
+      "train/images/knr_pet7_B1_000417.jpg"
+    ],
+    [
+      "val/images/knr_pet7_B1_000878.jpg",
+      "train/images/knr_pet7_B3_000176.jpg"
+    ],
+    [
+      "val/images/knr_pet7_B1_000878.jpg",
+      "train/images/knr_pet7_B6_000754.jpg"
+    ]
+  ],
+  "foreground_phash_hamming_threshold": 4,
+  "cross_split_foreground_phash_pairs_by_class": {
+    "plastic": 0,
+    "metal": 0,
+    "glass": 0,
+    "organic": 0,
+    "paper": 0,
+    "textile": 0
+  },
+  "cross_split_foreground_phash_candidate_hash_pairs": 0,
+  "near_duplicate_examples": [],
+  "all_classes_present_each_split": true,
+  "pass": true
+}

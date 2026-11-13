@@ -1,8 +1,15 @@
-# Training và Kaggle GPU
+# Training WasteWise VN — Kaggle GPU
 
-## Trạng thái hiện tại: detector đa lớp v5, chưa train GPU
+## Trạng thái hiện tại: dataset sáu lớp đã chốt, chưa train GPU
 
-Dataset chuẩn bị train mới nhất là `datasets/multiclass_v5/`: 16,923 ảnh, 80,886 box, bảy lớp; gồm v4 đã audit và 1,034 ảnh chỉ có nhãn Textile sau khi loại ảnh trùng của MRS Trash Detection Apache 2.0. Báo cáo chi tiết ở [v5 audit](multiclass-v5-data.md); v4 audit vẫn ở [đây](multiclass-v4-data.md). SWiM3, v2, v3, v4 được giữ nguyên. Vast.ai scripts mặc định dùng v5; CPU preflight phải pass trước khi chạy lệnh GPU. Chưa có GPU training nào được khởi chạy. `datasets/` bị git-ignore nên không nằm trong GitHub; cần chuyển thư mục v5 riêng sang instance.
+Quy trình hiện hành dùng duy nhất [Kaggle notebook](../ml/notebooks/wastewise_final_kaggle.ipynb) với `datasets/multiclass_final_v7/`: sáu lớp, 16,855 ảnh. Báo cáo cuối, quyết định loại Cigarette Litter, near-duplicate exclusions, chính sách train/resume và các giới hạn nằm trong [FINAL_TRAINING_READINESS.md](FINAL_TRAINING_READINESS.md). Tập gốc v5, SWiM3, Knowledge Base và frontend được giữ lại. Các Vast.ai scripts/runbook là tài liệu lịch sử, không thuộc luồng train hiện tại. Chưa có GPU training nào được khởi chạy. `datasets/` bị git-ignore nên người dùng phải upload dataset riêng lên Kaggle.
+
+Tạo dataset sáu lớp và kiểm toán đầy đủ trước khi upload:
+
+```powershell
+.\.venv\Scripts\python.exe ml\scripts\build_multiclass_final.py
+.\.venv\Scripts\python.exe ml\scripts\audit_multiclass_final.py --root datasets\multiclass_final_v7
+```
 
 ## Dataset đa lớp v2 (bản cũ, giữ để tái lập)
 

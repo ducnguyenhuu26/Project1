@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "policy": "Exclude both images in every manually reviewed cross-split foreground-pHash candidate before sealing final split. This is conservative: some images are similar product templates rather than confirmed exact duplicates.",
+  "hamming_threshold": 4,
+  "pairs": [
+    ["test/images/knr_pet7_B21_000030.jpg", "train/images/knr_pet7_B21_000652.jpg"],
+    ["test/images/knr_pet7_B5_000028.jpg", "train/images/knr_pet7_B5_000098.jpg"],
+    ["train/images/knr_pet7_B21_000854.jpg", "test/images/knr_pet7_B21_000095.jpg"],
+    ["train/images/knr_pet7_B22_000788.jpg", "test/images/knr_pet7_B22_000038.jpg"],
+    ["val/images/knr_pet7_B21_001091.jpg", "train/images/knr_pet7_B21_000842.jpg"],
+    ["val/images/knr_pet7_B4_000187.jpg", "test/images/knr_pet7_B4_000004.jpg"],
+    ["val/images/knr_pet7_B4_000193.jpg", "train/images/knr_pet7_B4_000164.jpg"],
+    ["val/images/9ef67db46296a8ea.jpg", "train/images/79c3888072dbed45.jpg"],
+    ["train/images/6932283caff58839.jpg", "test/images/15b57b2a6983d7b6.jpg"],
+    ["train/images/cfcdcbf68f779f2f.jpg", "test/images/0e96c105232a5fda.jpg"],
+    ["val/images/ccde96f8e4d47f5f.jpg", "train/images/8fa340dd4eeea9df.jpg"],
+    ["val/images/9e947e86cf98638e.jpg", "train/images/c06d87d2c2188c68.jpg"],
+    ["val/images/9e947e86cf98638e.jpg", "train/images/b2918f15c3874788.jpg"],
+    ["train/images/195815d13b6b27d6.jpg", "val/images/4ad15685add2a831.jpg"],
+    ["test/images/d79e0e697f0b21ef.jpg", "train/images/c64530214dd6be70.jpg"],
+    ["train/images/34ed69cdd1ee2f74.jpg", "val/images/dc49f16aa8c12c3d.jpg"],
+    ["test/images/30cc9a071fe48079.jpg", "train/images/6f6822d716365fe8.jpg"],
+    ["train/images/707993d39457b3a9.jpg", "val/images/1f8688b567fe2ea9.jpg"],
+    ["val/images/81369037fe3155c0.jpg", "train/images/776169264a0f636d.jpg"],
+    ["val/images/8fc261e8e486c5ab.jpg", "train/images/dce9875b1c4b3874.jpg"],
+    ["val/images/mrs_textile_30deacf7c72db6dd.jpg", "train/images/mrs_textile_6d1c67a0effaf785.jpg"],
+    ["test/images/mrs_textile_8aeb2f4f191903f0.jpg", "train/images/mrs_textile_d889a98d05dccf4e.jpg"],
+    ["test/images/mrs_textile_66f2b98d0d4afe99.jpg", "train/images/mrs_textile_94e7a46f6db1c5dc.jpg"]
+  ]
+}

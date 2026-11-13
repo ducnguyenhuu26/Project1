@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-13.2",
+  "version": "2026-11-13.3",
   "categories": [
     {
       "id": "plastic",
@@ -102,17 +102,15 @@
       ],
       "parent_group": "residual",
       "material_id": "cigarette_litter",
-      "detection_supported": true,
-      "model_names": [
-        "Cigarette_litter"
-      ],
+      "detection_supported": false,
+      "model_names": [],
       "source": "TACO ODbL subset; specific Cigarette labels only",
       "advice_id": "cigarette_litter",
       "handling_stream": "residual_waste",
       "object_type_id": "cigarette_butt",
       "classification_level": "object_type",
       "handling_group": "residual_waste",
-      "training_readiness": "ready_for_training"
+      "training_readiness": "manual_lookup_only"
     },
     {
       "id": "organic",
