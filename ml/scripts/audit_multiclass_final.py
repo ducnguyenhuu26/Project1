@@ -7,6 +7,7 @@ from io import BytesIO
 import json
 import math
 import sys
+import time
 from collections import Counter, defaultdict
 from pathlib import Path
 
@@ -39,27 +40,52 @@ def cross_split_near_pairs(hash_rows: dict[int, list[tuple[str, str]]], max_dist
         for band in range(8):
             bands[(band, (value >> (band * 8)) & 0xff)].add(value)
     pairs = set(); examples = []
-    for value, entries in samples.items():
+    for value in sorted(samples):
+        entries = samples[value]
         candidates = set()
         for band in range(8):
             candidates.update(bands[(band, (value >> (band * 8)) & 0xff)])
-        for neighbor in candidates:
+        for neighbor in sorted(candidates):
             if neighbor < value or (value ^ neighbor).bit_count() > max_distance:
                 continue
             different = [(paths, samples[neighbor][other_split])
                          for split, paths in entries.items()
-                         for other_split in samples[neighbor] if split != other_split]
+                         for other_split in sorted(samples[neighbor]) if split != other_split]
             if different:
                 pairs.add((value, neighbor))
+                # The report is capped at 100 examples. Avoid walking the full
+                # Cartesian product of duplicate paths after that cap is met.
                 for left_paths, right_paths in different:
                     for left in left_paths:
                         for right in right_paths:
-                            if len(examples) < 100:
-                                examples.append([left, right])
+                            examples.append([left, right])
+                            if len(examples) == 100:
+                                break
+                        if len(examples) == 100:
+                            break
+                    if len(examples) == 100:
+                        break
     return len(pairs), examples
 
 
-def audit(root: Path, max_distance: int = 4) -> dict:
+def _progress(stream, stage: str, done: int, total: int, started: float, timings=None) -> None:
+    elapsed = time.perf_counter() - started
+    rate = done / elapsed if elapsed > 0 else 0.0
+    remaining = max(total - done, 0)
+    eta = remaining / rate if rate > 0 else 0.0
+    breakdown = ""
+    if timings:
+        breakdown = (f"; read {timings['image_read_seconds']:.1f}s, SHA {timings['sha256_seconds']:.1f}s, "
+                     f"decode {timings['decode_seconds']:.1f}s, dHash {timings['dhash_seconds']:.1f}s, "
+                     f"pHash {timings['phash_seconds']:.1f}s, labels {timings['label_validation_seconds']:.1f}s")
+    print(f"[full-audit] {stage}: {done:,}/{total:,} ({rate:.1f} images/s, "
+          f"elapsed {elapsed:.1f}s, ETA {eta:.1f}s{breakdown})", file=stream, flush=True)
+
+
+def audit(root: Path, max_distance: int = 4, progress_every: int = 250, progress_stream=None) -> dict:
+    started = time.perf_counter()
+    if progress_stream is None:
+        progress_stream = sys.stdout
     root = root.resolve()
     manifest_path = root / "dataset_manifest.json"
     taxonomy_path = root / "taxonomy.json"
@@ -85,9 +111,14 @@ def audit(root: Path, max_distance: int = 4) -> dict:
     rows_by_split = defaultdict(list)
     for row in manifest.get("images", []):
         rows_by_split[row["split"]].append(row)
+    total_images = sum(len(rows) for rows in rows_by_split.values())
+    _progress(progress_stream, "manifest loaded", 0, total_images, started)
     listed_paths = {row["image"] for row in manifest["images"]}
+    inventory_started = time.perf_counter()
     image_paths = {p.relative_to(root).as_posix() for split in ("train", "val", "test")
                    for p in (root / split / "images").rglob("*") if p.is_file() and p.suffix.lower() in IMAGE_SUFFIXES}
+    inventory_seconds = time.perf_counter() - inventory_started
+    print(f"[full-audit] image inventory: {len(image_paths):,} files in {inventory_seconds:.1f}s", file=progress_stream, flush=True)
     if image_paths != listed_paths:
         raise ValueError(f"Manifest/image path mismatch: unlisted={len(image_paths-listed_paths)}, missing={len(listed_paths-image_paths)}")
     class_rows = {name: {} for name in names}
@@ -97,32 +128,51 @@ def audit(root: Path, max_distance: int = 4) -> dict:
     per_split = {}
     decode_errors = []; missing_labels = []; bad_boxes = []; manifest_hash_errors = []
     count_by_source = defaultdict(Counter)
+    timings = defaultdict(float)
+    processed_images = 0
     for split in ("train", "val", "test"):
         rows = rows_by_split[split]
         box_counts = Counter(); class_images = Counter(); unlabeled = 0
         for row in rows:
+            processed_images += 1
             rel_image = row["image"]; rel_label = row["label"]
             if Path(rel_image).parts[0] != split or Path(rel_label).parts[0] != split:
                 raise ValueError(f"Manifest split/path mismatch: {split} {rel_image} {rel_label}")
             image = root / Path(rel_image); label = root / Path(rel_label)
             if not image.is_file() or not label.is_file():
-                missing_labels.append(rel_image); continue
+                missing_labels.append(rel_image)
+                if progress_every > 0 and processed_images % progress_every == 0:
+                    _progress(progress_stream, "image integrity/decode/hash pass", processed_images, total_images, started, timings)
+                continue
             try:
+                stage_started = time.perf_counter()
                 raw = image.read_bytes()
+                timings["image_read_seconds"] += time.perf_counter() - stage_started
+                stage_started = time.perf_counter()
                 digest = hashlib.sha256(raw).hexdigest()
+                timings["sha256_seconds"] += time.perf_counter() - stage_started
+                stage_started = time.perf_counter()
                 with Image.open(BytesIO(raw)) as source_image:
-                    im = ImageOps.exif_transpose(source_image).copy()
+                    im = ImageOps.exif_transpose(source_image)
                     im.load()
                     width, height = im.size
                     if width < 1 or height < 1: raise ValueError("empty image")
-                    hash_rows[dhash_image(im)].append((split, rel_image))
+                timings["decode_seconds"] += time.perf_counter() - stage_started
+                stage_started = time.perf_counter()
+                if width < 1 or height < 1: raise ValueError("empty image")
+                hash_rows[dhash_image(im, exif_transpose=False)].append((split, rel_image))
+                timings["dhash_seconds"] += time.perf_counter() - stage_started
             except Exception as exc:
-                decode_errors.append({"image": rel_image, "error": str(exc)}); continue
+                decode_errors.append({"image": rel_image, "error": str(exc)})
+                if progress_every > 0 and processed_images % progress_every == 0:
+                    _progress(progress_stream, "image integrity/decode/hash pass", processed_images, total_images, started, timings)
+                continue
             if row.get("sha256") != digest:
                 manifest_hash_errors.append(rel_image)
             exact_splits[digest].add(split)
             group_splits[f"{row.get('source')}:{row.get('group')}"] .add(split)
             count_by_source[split][row.get("source", "unknown")] += 1
+            stage_started = time.perf_counter()
             lines = [line.strip() for line in label.read_text(encoding="utf-8-sig").splitlines() if line.strip()]
             expected = row.get("boxes", [])
             if len(lines) != len(expected):
@@ -144,22 +194,40 @@ def audit(root: Path, max_distance: int = 4) -> dict:
                     raise ValueError(f"Manifest class mapping mismatch: {rel_image} box {i}")
                 box_counts[category] += 1; seen.add(category)
                 foreground_boxes.append((w * h, class_id, x, y, w, h))
+            timings["label_validation_seconds"] += time.perf_counter() - stage_started
             if foreground_boxes:
                 _, class_id, x, y, w, h = max(foreground_boxes)
                 pad_x, pad_y = w * 0.05, h * 0.05
                 crop = im.crop((max(0, int((x-w/2-pad_x)*width)), max(0, int((y-h/2-pad_y)*height)),
                                 min(width, int((x+w/2+pad_x)*width)), min(height, int((y+h/2+pad_y)*height))))
-                phash_rows_by_class[names[class_id]][phash_image(crop)].append((split, rel_image))
+                phash_started = time.perf_counter()
+                phash_rows_by_class[names[class_id]][phash_image(crop, exif_transpose=False)].append((split, rel_image))
+                timings["phash_seconds"] += time.perf_counter() - phash_started
             for category in seen: class_images[category] += 1
             if not lines: unlabeled += 1
+            if progress_every > 0 and processed_images % progress_every == 0:
+                _progress(progress_stream, "image integrity/decode/hash pass", processed_images, total_images, started, timings)
         per_split[split] = {"images": len(rows), "boxes": dict(box_counts), "class_images": dict(class_images),
                             "unlabeled_images": unlabeled}
+    if processed_images % max(progress_every, 1):
+        _progress(progress_stream, "image integrity/decode/hash pass", processed_images, total_images, started, timings)
     exact_leaks = [digest for digest, splits in exact_splits.items() if len(splits) > 1]
     group_leaks = [group for group, splits in group_splits.items() if len(splits) > 1]
+    print(f"[full-audit] comparing {len(hash_rows):,} unique dHashes across splits", file=progress_stream, flush=True)
+    pairs_started = time.perf_counter()
     dhash_pairs, dhash_examples = cross_split_near_pairs(hash_rows, 2)
+    timings["dhash_cross_split_comparison_seconds"] = time.perf_counter() - pairs_started
+    print(f"[full-audit] dHash comparison finished in {timings['dhash_cross_split_comparison_seconds']:.1f}s; "
+          f"candidate hash pairs={dhash_pairs:,}", file=progress_stream, flush=True)
+    print(f"[full-audit] comparing foreground pHashes across {len(phash_rows_by_class):,} classes", file=progress_stream, flush=True)
+    pairs_started = time.perf_counter()
     phash_class_reports = {name: cross_split_near_pairs(rows, max_distance) for name, rows in phash_rows_by_class.items()}
+    timings["phash_cross_split_comparison_seconds"] = time.perf_counter() - pairs_started
     phash_pairs = sum(count for count, _ in phash_class_reports.values())
     phash_examples = [item for _, examples in phash_class_reports.values() for item in examples]
+    print(f"[full-audit] foreground pHash comparison finished in "
+          f"{timings['phash_cross_split_comparison_seconds']:.1f}s; candidate hash pairs={phash_pairs:,}",
+          file=progress_stream, flush=True)
     report = {
         "dataset_id": manifest.get("dataset_id"), "classes": names,
         "taxonomy_version": taxonomy.get("version"), "dataset_manifest_sha256": manifest_hash,
@@ -176,9 +244,12 @@ def audit(root: Path, max_distance: int = 4) -> dict:
         "cross_split_foreground_phash_pairs_by_class": {name: count for name, (count, _) in phash_class_reports.items()},
         "cross_split_foreground_phash_candidate_hash_pairs": phash_pairs,
         "near_duplicate_examples": phash_examples[:100],
+        "profile": {"directory_inventory_seconds": inventory_seconds, **dict(timings),
+                    "total_seconds": time.perf_counter() - started},
         "all_classes_present_each_split": all(all(per_split[s]["boxes"].get(name, 0) for name in names) for s in per_split),
         "pass": not (decode_errors or missing_labels or bad_boxes or manifest_hash_errors or exact_leaks or group_leaks or phash_pairs),
     }
+    _progress(progress_stream, "near-duplicate comparisons complete", total_images, total_images, started)
     return report
 
 

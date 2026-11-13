@@ -1,7 +1,8 @@
 """Kaggle-only final YOLO26s training runner for WasteWise VN multiclass_final_v7.
 
-Training is never started unless the full local dataset audit, CUDA preflight,
-dependency checks, and a short training smoke test pass.
+Training is never started unless the reviewed-manifest Kaggle fast preflight,
+CUDA preflight, dependency checks, and a short training smoke test pass. The
+full image/hash/near-duplicate audit remains a separate local workflow.
 """
 from __future__ import annotations
 
@@ -162,12 +163,16 @@ def assert_runtime(commit: str) -> None:
     return
 
 
-def run_dataset_audit(data: Path) -> dict:
+def run_dataset_preflight(data: Path) -> dict:
     WORKING_ROOT.mkdir(parents=True, exist_ok=True)
     sys.path.insert(0, str(ROOT / "ml" / "scripts"))
-    from audit_multiclass_final import audit
-    report = audit(data, max_distance=4)
-    (WORKING_ROOT / "dataset_audit.json").write_text(json.dumps(report, indent=2), encoding="utf-8")
+    from preflight_multiclass_final import fast_preflight
+    report = fast_preflight(data)
+    if (report.get("pass") is not True
+            or report.get("audit_mode") != "fast_preflight_manifest_pinned_not_full_audit"
+            or report.get("full_audit_equivalent") is not False):
+        raise RuntimeError("Kaggle fast preflight returned an unexpected audit mode")
+    (WORKING_ROOT / "dataset_preflight.json").write_text(json.dumps(report, indent=2), encoding="utf-8")
     return report
 
 
@@ -257,7 +262,7 @@ def validate_and_package(data: Path, runtime_data: Path, best: Path, last: Path,
     (artifact_dir / "model_manifest.json").write_text(json.dumps(output, indent=2), encoding="utf-8")
     files = [best, last, results_csv, run_dir / "run_config.json", run_dir / "args.yaml",
              run_dir / "model_manifest.json", best.parent / "model_manifest.json",
-             Path("/kaggle/working/dataset_audit.json")]
+             WORKING_ROOT / "dataset_preflight.json"]
     files.extend(p for p in run_dir.rglob("*") if p.is_file() and p.suffix.lower() in {".png", ".csv"})
     for candidate in run_dir.parent.glob(f"{run_dir.name}_validation*"):
         if candidate.is_file(): files.append(candidate)
@@ -313,7 +318,7 @@ def main() -> None:
     assert_runtime(commit)
     data = find_data()
     print(f"Git commit: {commit}\nDataset: {data}")
-    report = run_dataset_audit(data)
+    report = run_dataset_preflight(data)
     if not report.get("pass"):
         raise RuntimeError("Final dataset audit did not pass")
     runtime_data = prepare_runtime_data(data)

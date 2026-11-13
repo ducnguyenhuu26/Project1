@@ -4,28 +4,41 @@ import numpy as np
 
 from PIL import Image, ImageOps
 
+_PHASH_SIZE = 32
+_PHASH_COS = np.cos(
+    np.pi / _PHASH_SIZE
+    * (np.arange(_PHASH_SIZE, dtype=np.float32) + 0.5)[:, None]
+    * np.arange(_PHASH_SIZE, dtype=np.float32)[None, :]
+)
+
 
 def dhash(path: Path) -> int:
     with Image.open(path) as source:
         return dhash_image(source)
 
 
-def dhash_image(source: Image.Image) -> int:
-    image = ImageOps.exif_transpose(source).convert("L").resize((9, 8), Image.Resampling.LANCZOS)
-    return sum((image.getpixel((x, y)) > image.getpixel((x + 1, y))) << (y * 8 + x)
-               for y in range(8) for x in range(8))
+def dhash_image(source: Image.Image, exif_transpose: bool = True) -> int:
+    oriented = ImageOps.exif_transpose(source) if exif_transpose else source
+    image = oriented.convert("L").resize((9, 8), Image.Resampling.LANCZOS)
+    pixels = np.asarray(image, dtype=np.uint8)
+    bits = np.packbits(pixels[:, :-1] > pixels[:, 1:], axis=1, bitorder="little")[:, 0]
+    return sum(int(value) << (row * 8) for row, value in enumerate(bits))
 
 
 def distance(left: int, right: int) -> int:
     return (left ^ right).bit_count()
 
 
-def phash_image(image: Image.Image) -> int:
+def phash_image(image: Image.Image, exif_transpose: bool = True) -> int:
     """64-bit low-frequency DCT hash; less sensitive than dHash to a shared flat background."""
-    pixels = np.asarray(ImageOps.exif_transpose(image).convert("L").resize((32, 32, ), Image.Resampling.LANCZOS), dtype=np.float32)
-    n = 32
-    cos = np.cos(np.pi / n * (np.arange(n, dtype=np.float32) + 0.5)[:, None] * np.arange(n, dtype=np.float32)[None, :])
-    dct = cos.T @ pixels @ cos
+    oriented = ImageOps.exif_transpose(image) if exif_transpose else image
+    pixels = np.asarray(
+        oriented.convert("L").resize((_PHASH_SIZE, _PHASH_SIZE), Image.Resampling.LANCZOS),
+        dtype=np.float32,
+    )
+    # The basis is constant; precomputing it preserves the original DCT/hash
+    # while avoiding two 32x32 cosine allocations for every foreground crop.
+    dct = _PHASH_COS.T @ pixels @ _PHASH_COS
     low = dct[:8, :8].reshape(-1)[1:]
     median = float(np.median(low))
     bits = low > median
