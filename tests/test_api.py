@@ -72,6 +72,9 @@ def test_real_detector_uses_configured_device(monkeypatch):
 
     monkeypatch.setattr("backend.main.RealYOLODetector", fake_detector)
     monkeypatch.setenv("INFERENCE_DEVICE", "0")
+    # The developer's .env may select an installed v7 checkpoint; isolate this
+    # device-wiring test from machine-local model configuration.
+    monkeypatch.setenv("MODEL_PATH", "weights/best.pt")
     build_app(mode="real")
     assert configured == [(Path("weights/best.pt"), 0.25, "0")]
 

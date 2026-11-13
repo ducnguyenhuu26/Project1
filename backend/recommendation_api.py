@@ -12,9 +12,10 @@ class EvaluationRequest(BaseModel):
     detected_category_id: str | None = Field(default=None, max_length=100)
 
 @recommendation_router.get('/catalog')
-def get_catalog(q: str = Query('', max_length=120), category_id: str | None = None,
+def get_catalog(q: str = Query('', max_length=120), category_id: str | None = Query(None, max_length=100),
                 limit: int = Query(100, ge=1, le=200)):
-    return {'version': KB['version'], 'items': catalog(q, category_id, limit), 'count': len(catalog(q, category_id, limit))}
+    items = catalog(q, category_id, limit)
+    return {'version': KB['version'], 'items': items, 'count': len(items), 'total_count': len(KB['objects'])}
 
 @recommendation_router.get('/objects/{object_id}')
 def get_object(object_id: str):

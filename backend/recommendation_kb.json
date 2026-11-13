@@ -92,7 +92,7 @@
         },
         {
           "id": "no",
-          "label": "Không rõ / đã được bảo vệ"
+          "label": "Không lộ cạnh sắc / đã được bảo vệ"
         }
       ]
     },
@@ -110,11 +110,19 @@
       ]
     },
     "battery_state": {
-      "label": "Pin có bị phồng, rò rỉ, nóng hoặc hư hại không?",
+      "label": "Pin có đang nóng/bốc khói, bị phồng/rò rỉ/hư hại, hoặc bạn không rõ tình trạng không?",
       "options": [
         {
+          "id": "active_incident",
+          "label": "Đang nóng bất thường, bốc khói hoặc cháy"
+        },
+        {
           "id": "damaged",
-          "label": "Có / không chắc"
+          "label": "Phồng, rò rỉ hoặc hư hại nhưng chưa nóng/bốc khói"
+        },
+        {
+          "id": "unknown",
+          "label": "Không rõ tình trạng"
         },
         {
           "id": "normal",
@@ -473,8 +481,8 @@
         "bình aerosol"
       ],
       "default_stream": "hazardous",
-      "base_advice": "Giữ nguyên bình, tránh nhiệt và hỏi điểm thu gom phù hợp với bình có áp suất.",
-      "avoid": "Không đục, đốt, ép hoặc tháo van.",
+      "base_advice": "Giữ nguyên bình, tránh nguồn nhiệt và hỏi đơn vị tiếp nhận về cách bàn giao theo tình trạng áp suất/nội dung còn lại. Chỉ coi là hết khi nhãn hoặc hướng dẫn có thẩm quyền xác nhận.",
+      "avoid": "Không đục thủng, ép, đốt, tháo van hoặc bỏ gần nguồn nhiệt.",
       "caution": "Ngay cả khi tưởng đã hết, bình vẫn có thể còn áp suất hoặc chất dễ cháy.",
       "question_ids": [
         "pressure"
@@ -492,11 +500,12 @@
       ],
       "default_stream": "recyclable",
       "base_advice": "Nếu còn nguyên, cân nhắc tái sử dụng; nếu loại bỏ, làm rỗng và gom theo điểm nhận thủy tinh.",
-      "avoid": "Không trộn thủy tinh vỡ vào túi rác mềm không ghi nhãn.",
+      "avoid": "Không cầm mảnh nứt/vỡ bằng tay trần hoặc bỏ kính vỡ vào túi rác mềm.",
       "caution": "Tách nắp và phân loại theo yêu cầu của nơi tiếp nhận.",
       "question_ids": [
         "condition",
-        "contamination"
+        "contamination",
+        "sharp"
       ],
       "evidence_level": "general_guidance_requires_local_verification"
     },
@@ -511,11 +520,12 @@
       ],
       "default_stream": "recyclable",
       "base_advice": "Rửa nhẹ khi thuận tiện, để khô và tái sử dụng hoặc chuyển tới điểm nhận thủy tinh.",
-      "avoid": "Không dùng lại lọ từng chứa hóa chất không rõ loại cho thực phẩm.",
+      "avoid": "Không dùng lại lọ nứt/vỡ; không cầm mảnh vỡ bằng tay trần hoặc bỏ vào túi rác mềm.",
       "caution": "Thủy tinh chịu nhiệt, pha lê và gốm không nhất thiết thuộc cùng dòng tái chế.",
       "question_ids": [
         "condition",
-        "contamination"
+        "contamination",
+        "sharp"
       ],
       "evidence_level": "general_guidance_requires_local_verification"
     },
@@ -716,8 +726,8 @@
         "pin cúc áo"
       ],
       "default_stream": "hazardous",
-      "base_advice": "Giữ nguyên vỏ, tránh chập cực và chuyển tới điểm thu hồi pin được xác minh.",
-      "avoid": "Không đốt, nghiền, tháo, chọc thủng hoặc bỏ vào rác tái chế thông thường.",
+      "base_advice": "Pin nguyên vẹn: giữ nguyên vỏ, tránh chập cực và hỏi điểm thu hồi pin có xác nhận tiếp nhận. Pin hư hại: không tự tháo hoặc sạc; làm theo hướng dẫn an toàn cho đúng tình trạng pin.",
+      "avoid": "Không đốt, nghiền, tháo, chọc thủng, sạc pin hư hại hoặc bỏ pin vào rác tái chế thông thường.",
       "caution": "Pin phồng, nóng, rò rỉ cần tránh thao tác và hỏi đơn vị chuyên trách.",
       "question_ids": [
         "battery_state"
@@ -735,7 +745,7 @@
       ],
       "default_stream": "ewaste",
       "base_advice": "Nếu còn hoạt động, sao lưu/xóa dữ liệu trước khi chuyển giao; nếu bỏ đi, đưa tới nơi nhận rác điện tử.",
-      "avoid": "Không tháo pin tích hợp hoặc đốt thiết bị.",
+      "avoid": "Không tự tháo pin tích hợp. Không tiếp tục sạc/sử dụng khi pin phồng, nóng, rò rỉ hoặc có dấu hiệu hư hại.",
       "caution": "Pin có thể hỏng/phồng; xử lý dữ liệu cá nhân trước khi chuyển giao.",
       "question_ids": [
         "condition",
@@ -862,7 +872,7 @@
       ],
       "default_stream": "medical",
       "base_advice": "Không chạm hoặc đậy lại đầu kim bằng tay; liên hệ cơ sở y tế hoặc đơn vị có hướng dẫn tiếp nhận vật sắc y tế.",
-      "avoid": "Không bỏ kim rời vào rác sinh hoạt và không tự tháo kim.",
+      "avoid": "Không chạm tay trần, không đậy lại nắp bằng tay, không bẻ/tháo kim và không bỏ kim rời vào túi mềm hoặc rác sinh hoạt.",
       "caution": "Vật có nguy cơ phơi nhiễm: hướng xử lý cần theo cơ sở y tế, không hướng dẫn thao tác nguy hiểm.",
       "question_ids": [
         "sharp"
