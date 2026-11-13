@@ -3,9 +3,9 @@ set -Eeuo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT"
-DATA="${DATA:-datasets/multiclass_v3/data.yaml}"
+DATA="${DATA:-datasets/multiclass_v5/data.yaml}"
 MODEL="${MODEL:-yolo26s.pt}"
-NAME="${NAME:-wastewise_vietnam_multiclass_v3}"
+NAME="${NAME:-wastewise_vietnam_multiclass_v5}"
 PROJECT="${PROJECT:-runs/multiclass}"
 DEVICE="${DEVICE:-0}"
 EPOCHS="${EPOCHS:-80}"

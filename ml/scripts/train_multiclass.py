@@ -58,6 +58,8 @@ def inspect_dataset(path: Path) -> tuple[dict, list[str], dict[str, Path]]:
             if not label.is_file():
                 raise ValueError(f"Missing {split} label: {label}")
             for line_no, line in enumerate(label.read_text(encoding="utf-8").splitlines(), 1):
+                if not line.strip():
+                    continue
                 fields = line.split()
                 try:
                     values = [float(value) for value in fields]

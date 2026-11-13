@@ -1,8 +1,8 @@
 # Training và Kaggle GPU
 
-## Trạng thái hiện tại: detector đa lớp v3
+## Trạng thái hiện tại: detector đa lớp v5, chưa train GPU
 
-`datasets/multiclass_v3/` đã được build từ TACO ODbL và KNR-PET-7 (ảnh chai PET chụp tại Việt Nam), audit nhãn và preflight CPU. Không có GPU training nào chạy. Dataset `multiclass_v2` vẫn được giữ nguyên để tái lập kết quả cũ. Để chuẩn bị phiên Vast.ai, transfer `datasets/multiclass_v3/` và làm theo [Vast.ai runbook](vast-runbook.md); `scripts/vast_preflight.sh` và `scripts/vast_train.sh` hiện mặc định trỏ đến v3. Dataset chưa được push lên GitHub vì thư mục `datasets/` được git-ignored.
+Dataset chuẩn bị train mới nhất là `datasets/multiclass_v5/`: 16,923 ảnh, 80,886 box, bảy lớp; gồm v4 đã audit và 1,034 ảnh chỉ có nhãn Textile sau khi loại ảnh trùng của MRS Trash Detection Apache 2.0. Báo cáo chi tiết ở [v5 audit](multiclass-v5-data.md); v4 audit vẫn ở [đây](multiclass-v4-data.md). SWiM3, v2, v3, v4 được giữ nguyên. Vast.ai scripts mặc định dùng v5; CPU preflight phải pass trước khi chạy lệnh GPU. Chưa có GPU training nào được khởi chạy. `datasets/` bị git-ignore nên không nằm trong GitHub; cần chuyển thư mục v5 riêng sang instance.
 
 ## Dataset đa lớp v2 (bản cũ, giữ để tái lập)
 

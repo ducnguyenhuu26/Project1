@@ -15,6 +15,8 @@ from backend.services import Detection, MATERIALS, answer_chat, load_model_manif
 from backend.main import build_app
 from fastapi.testclient import TestClient
 
+TAXONOMY_VERSION = json.loads((ROOT / "backend" / "taxonomy.json").read_text(encoding="utf-8"))["version"]
+
 
 def test_legacy_map_and_object_level_corrections():
     first = Detection(0, .8, [0, 0, 10, 10], category_id="plastic")
@@ -33,7 +35,7 @@ def test_manifest_validation_rejects_version_and_unknown_class(tmp_path):
     manifest_file.write_text(json.dumps(manifest))
     with pytest.raises(ValueError, match="taxonomy_version"):
         load_model_manifest(checkpoint)
-    manifest["taxonomy_version"] = "2026-11-12.3"
+    manifest["taxonomy_version"] = TAXONOMY_VERSION
     manifest["class_map"] = [{"class_id": 0, "category_id": "battery"}]
     manifest_file.write_text(json.dumps(manifest))
     with pytest.raises(ValueError, match="unsupported category"):
@@ -63,7 +65,7 @@ def test_coco_box_conversion_and_synthetic_builder(tmp_path):
         annotations.append({"id": i, "image_id": i, "category_id": 1, "bbox": [2, 1, 8, 4]})
     coco = {"images": image_rows, "annotations": annotations, "categories": [{"id": 1, "name": "plastic bottle"}]}
     ann_path = tmp_path / "coco.json"; ann_path.write_text(json.dumps(coco))
-    config = {"taxonomy_version": "2026-11-12.3", "classes": ["plastic"], "seed": 19,
+    config = {"taxonomy_version": TAXONOMY_VERSION, "classes": ["plastic"], "seed": 19,
               "sources": [{"id": "fixture", "annotations": str(ann_path), "image_dir": str(images), "license_reviewed": True,
                            "mapping_reviewed": True,
                            "url": "fixture", "license_status": "synthetic", "fully_annotated": True,
@@ -131,7 +133,7 @@ def test_builder_normalizes_noncanonical_jpeg_tail_before_manifesting(tmp_path):
             "annotations": [{"id": 1, "image_id": 1, "category_id": 1, "bbox": [2, 1, 8, 4]}],
             "categories": [{"id": 1, "name": "plastic bottle"}]}
     annotations = tmp_path / "annotations.json"; annotations.write_text(json.dumps(coco))
-    config = {"taxonomy_version": "2026-11-12.3", "classes": ["plastic"],
+    config = {"taxonomy_version": TAXONOMY_VERSION, "classes": ["plastic"],
               "sources": [{"id": "fixture", "annotations": str(annotations), "image_dir": str(images),
                            "license_reviewed": True, "mapping_reviewed": True, "fully_annotated": True,
                            "mapping": {"plastic bottle": {"decision": "map", "category_id": "plastic"}}}]}

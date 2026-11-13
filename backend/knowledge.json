@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-12",
+  "updated_at": "2026-11-13",
   "sources": [
     "https://cttdt.danangportal.gov.vn/vi/web/dng/w/huong-dan-phan-loai-chat-thai-ran-sinh-hoat-khac-nguy-hai-tai-nguon-i",
     "https://chinhphu.vn/?docid=212099&pageid=27160",
@@ -150,18 +150,21 @@
       "name": "Vải / quần áo",
       "ai_class": null,
       "examples": [
+        "áo khoác cũ",
         "quần áo cũ",
-        "vải vụn"
+        "vải vụn",
+        "chăn gối vải"
       ],
-      "description": "Ảnh không xác định chắc thành phần sợi hoặc tình trạng sử dụng.",
+      "description": "Đồ vải và một số vật dụng có bề mặt dệt; ảnh không xác định được tình trạng vệ sinh hay khả năng tái sử dụng.",
       "do": [
-        "Nếu còn dùng được, cân nhắc sửa chữa, cho tặng hoặc trao đổi."
+        "Nếu còn sạch và dùng được, cân nhắc giặt sạch, sửa chữa hoặc chuyển tới điểm nhận đồ cũ đã xác minh.",
+        "Đồ vải bẩn hoặc rách không thể tái sử dụng nên để riêng và hỏi đơn vị thu gom địa phương."
       ],
       "avoid": [
-        "Không bỏ vào dòng tái chế giấy/nhựa nếu chưa được tiếp nhận."
+        "Không mặc hoặc cho tặng đồ nghi nhiễm hóa chất, nấm mốc hay dịch cơ thể."
       ],
-      "caution": "Vải ẩm/mốc cần đóng gói phù hợp; không có bảo đảm nơi thu gom nhận vải.",
-      "vn_tip": "Hỏi chương trình thu gom tại địa phương trước khi chuyển giao."
+      "caution": "Nhãn Textile có thể gồm thú nhồi bông hoặc vật có thành phần vải; mô hình không xác định chính xác thành phần hay mức độ sạch.",
+      "vn_tip": "Điểm thu gom quần áo và vải vụn khác nhau theo địa phương; xác nhận trước khi mang tới."
     },
     {
       "id": "rubber",

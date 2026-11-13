@@ -2,6 +2,8 @@
 
 Updated 2026-11-12. This report records the local preparation and CPU smoke run. No paid GPU training was started. It is an engineering readiness check, not an accuracy claim.
 
+**Current training input is `multiclass_v5`, with seven classes and 16,923 images / 80,886 boxes.** Its counts, Textile-only source selection, license, split audit, and limits are in [multiclass-v5-data.md](multiclass-v5-data.md). The v4 counts and mapping remain in [multiclass-v4-data.md](multiclass-v4-data.md); the report below is the historical v3 audit. v2/v3/v4 and the SWiM3 baseline were preserved.
+
 Vietnam-source dataset expansion and the preserved `multiclass_v2` → `multiclass_v3` CPU preflight are recorded in [vietnam-dataset-expansion.md](vietnam-dataset-expansion.md).
 
 ## Source and label policy

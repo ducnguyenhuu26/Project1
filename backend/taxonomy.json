@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-12.3",
+  "version": "2026-11-13.2",
   "categories": [
     {
       "id": "plastic",
@@ -124,15 +124,17 @@
       ],
       "parent_group": "organic",
       "material_id": "organic",
-      "detection_supported": false,
-      "model_names": [],
-      "source": "manual taxonomy; no approved box dataset",
+      "detection_supported": true,
+      "model_names": [
+        "Organic"
+      ],
+      "source": "Roboflow Garbage Classification 3 v2; biodegradable/food-waste labels",
       "advice_id": "organic",
       "handling_stream": "organic_collection_if_available",
       "object_type_id": "food_waste",
       "classification_level": "object_type",
       "handling_group": "organic_collection_if_available",
-      "training_readiness": "manual_only"
+      "training_readiness": "ready_for_training"
     },
     {
       "id": "textile",
@@ -144,15 +146,17 @@
       ],
       "parent_group": "household_goods",
       "material_id": "textile",
-      "detection_supported": false,
-      "model_names": [],
-      "source": "manual taxonomy; no approved box dataset",
+      "detection_supported": true,
+      "model_names": [
+        "Textile"
+      ],
+      "source": "MRS Trash Detection; Textile-only annotated images, Apache License 2.0",
       "advice_id": "textile",
       "handling_stream": "reuse_or_special_collection",
       "object_type_id": "clothing",
       "classification_level": "object_type",
       "handling_group": "reuse_or_special_collection",
-      "training_readiness": "manual_only"
+      "training_readiness": "ready_for_training"
     },
     {
       "id": "rubber",

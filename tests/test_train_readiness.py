@@ -11,6 +11,7 @@ sys.path.insert(0, str(ROOT / "ml" / "kaggle"))
 from kaggle_prepare import inspect_archive
 from kernel import extract_source
 from train import choose_weights, validate_data
+from train_multiclass import inspect_dataset
 
 
 def test_train_data_preflight_rejects_wrong_classes(tmp_path: Path) -> None:
@@ -26,6 +27,22 @@ def test_train_data_preflight_rejects_wrong_classes(tmp_path: Path) -> None:
     data.write_text(data.read_text(encoding="utf-8").replace("Paper", "Glass"), encoding="utf-8")
     with pytest.raises(ValueError, match="0=Plastic"):
         validate_data(data)
+
+
+def test_dataset_inspection_accepts_empty_negative_label_files(tmp_path: Path) -> None:
+    for split in ("train", "val", "test"):
+        image_dir = tmp_path / split / "images"
+        label_dir = tmp_path / split / "labels"
+        image_dir.mkdir(parents=True)
+        label_dir.mkdir()
+        (image_dir / "negative.jpg").touch()
+        (label_dir / "negative.txt").write_text("\n", encoding="utf-8")
+    data = tmp_path / "data.yaml"
+    data.write_text("path: .\ntrain: train/images\nval: val/images\ntest: test/images\n"
+                    "nc: 3\nnames: [Plastic, Paper, Metal]\n", encoding="utf-8")
+    (tmp_path / "taxonomy.json").write_text(
+        '{"version":"test","classes":["plastic","paper","metal"]}', encoding="utf-8")
+    assert inspect_dataset(data)[1] == ["Plastic", "Paper", "Metal"]
 
 
 def test_archive_preflight_and_windows_separator_extraction(tmp_path: Path) -> None:

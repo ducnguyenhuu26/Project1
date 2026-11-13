@@ -1,10 +1,10 @@
 # YOLO26 training and deployment on Vast.ai
 
-This procedure starts the current four-class YOLO26 detector from the audited `multiclass_v3` dataset (TACO ODbL subset plus Vietnam KNR-PET-7). It preserves the SWiM3 baseline and the older `multiclass_v2` corpus. The local CPU run is a smoke test only; the full run below is for a paid GPU session and does not start automatically.
+This procedure uses the seven-class `multiclass_v5` dataset: audited v4 plus 1,041 Textile-only images from MRS Trash Detection. It preserves SWiM3, v4, v3, and v2. Local preflight checks do not start training; start the paid GPU session only when ready.
 
 ## What to transfer
 
-The audited merged dataset is `datasets/multiclass_v3/` (about 5.4k images and 5.6k boxes in this checkout), and the initialization checkpoint is `yolo26s.pt`. `datasets/` is git-ignored, so transfer the built v3 folder explicitly; a Git clone alone will not contain it. Transfer the repository revision containing this runbook and scripts as well. The v3 manifest identifies per-image source and license. Provide the required CC BY 4.0 attribution for KNR-PET-7 and follow the ODbL-marked TACO image terms.
+The audited dataset is `datasets/multiclass_v5/` (16,923 images and 80,886 boxes), and the initialization checkpoint is `yolo26s.pt`. Classes, in model order, are `plastic`, `paper`, `metal`, `glass`, `organic`, `textile`, `cigarette_litter`. `datasets/` is git-ignored, so transfer the built v5 folder explicitly; a Git clone alone will not contain it. Transfer the repository revision containing this runbook and scripts as well. The manifest retains per-image source, license, hashes, source classes, and mapping. Preserve CC BY 4.0 attribution for KNR-PET-7 and Roboflow, Apache 2.0 terms for MRS, and follow the ODbL-marked TACO image terms.
 
 Example from a local shell after the GPU instance is reachable over SSH:
 
@@ -12,7 +12,7 @@ Example from a local shell after the GPU instance is reachable over SSH:
 REMOTE=root@YOUR_VAST_SSH_HOST
 VAST_PORT=YOUR_VAST_SSH_PORT
 ssh -p "$VAST_PORT" "$REMOTE" 'mkdir -p ~/wastewise/datasets ~/wastewise/weights'
-rsync -av --partial --progress -e "ssh -p $VAST_PORT" datasets/multiclass_v3/ "$REMOTE:~/wastewise/datasets/multiclass_v3/"
+rsync -av --partial --progress -e "ssh -p $VAST_PORT" datasets/multiclass_v5/ "$REMOTE:~/wastewise/datasets/multiclass_v5/"
 rsync -av --partial --progress -e "ssh -p $VAST_PORT" yolo26s.pt "$REMOTE:~/wastewise/weights/yolo26s.pt"
 ```
 
@@ -28,9 +28,9 @@ python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
-export DATA="$PWD/datasets/multiclass_v3/data.yaml"
+export DATA="$PWD/datasets/multiclass_v5/data.yaml"
 export MODEL="$PWD/weights/yolo26s.pt"
-export NAME="wastewise-vietnam-pet7-taco-yolo26s-v3"
+export NAME="wastewise-vietnam-multisource-yolo26s-v5"
 export PROJECT="$PWD/runs/multiclass"
 export DEVICE=0 EPOCHS=80 BATCH=8 IMGSZ=640 WORKERS=4 SEED=42 PATIENCE=15 MIN_FREE_GB=20 MIN_RAM_GB=16 MIN_VRAM_GB=12
 bash scripts/vast_preflight.sh
@@ -62,18 +62,18 @@ The script rejects a resume when its run directory, dataset YAML, or taxonomy ve
 
 ## Install and serve the selected checkpoint
 
-On the deployment checkout, extract the artifact and install into a new versioned directory. Existing model versions are never replaced.
+On the deployment checkout, extract the artifact and install into a new versioned directory. Existing model versions are never replaced. The installed model manifest must show the seven v5 classes and taxonomy `2026-11-13.2` before enabling real inference.
 
 ```bash
 mkdir -p imported-model
-tar -xzf wastewise-vietnam-pet7-taco-yolo26s-v3.tar.gz -C imported-model
+tar -xzf wastewise-vietnam-multisource-yolo26s-v5.tar.gz -C imported-model
 python scripts/install_model.py \
-  --checkpoint imported-model/wastewise-vietnam-pet7-taco-yolo26s-v3/weights/best.pt \
-  --manifest imported-model/wastewise-vietnam-pet7-taco-yolo26s-v3/weights/model_manifest.json
+  --checkpoint imported-model/wastewise-vietnam-multisource-yolo26s-v5/weights/best.pt \
+  --manifest imported-model/wastewise-vietnam-multisource-yolo26s-v5/weights/model_manifest.json
 ```
 
-Set the printed `MODEL_PATH` plus `DETECTOR_MODE=real` and `INFERENCE_DEVICE=cpu` in `.env`, then restart the FastAPI service. Confirm `/api/v1/health` returns `model_status: ready` and four `supported_category_ids`; upload a test image through the frontend and verify the response taxonomy version and class names. Keep the prior `.env` and model directory for rollback.
+Set the printed `MODEL_PATH` plus `DETECTOR_MODE=real` and `INFERENCE_DEVICE=cpu` in `.env`, then restart the FastAPI service. Confirm `/api/v1/health` returns `model_status: ready` and seven `supported_category_ids`; upload a test image through the frontend and verify the response taxonomy version and class names. Keep the prior `.env` and model directory for rollback.
 
 ## Data and model limitations
 
-The training corpus combines a strict ODbL-marked TACO subset with Vietnam PET-bottle images licensed CC BY 4.0. The PET source uses controlled industrial imaging and increases only `plastic`; it does not represent varied household multi-waste scenes. The merged corpus still has severe class imbalance: glass has 9 train images and only 2 validation/test images each; cigarette litter has 18 train, 2 validation and 3 test images. The held-out test remains untouched until model selection is frozen. These data do not establish reliable household-waste accuracy, detection of banana peels/clothes, or production quality. Keep attribution and source terms in the artifact manifest; review the intended deployment and rights before distributing trained weights.
+The new sources are not Vietnam-specific, and the audit includes sampled visual checks rather than manual reannotation of all boxes. `biodegradable` maps to `organic` and includes ordinary produce; it does not teach the detector whether an item is discarded or establish banana-peel performance. MRS `Textile` includes plush toys, pillows and fabric household objects as well as clothes, so it is not a discarded-jacket benchmark. `cigarette_litter` remains a small class (18/2/3 images in train/validation/test). The held-out test remains untouched until model selection is frozen. This dataset is a ready, auditable training input, not evidence of production quality or Vietnam-specific accuracy. Retain source attribution and license terms in any model artifact.
