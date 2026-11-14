@@ -1,0 +1,35 @@
+.environment-news{margin:22px 0 20px;color:#292722}
+.environment-news-head{position:relative;display:flex;align-items:center;justify-content:center;margin:0 0 18px;min-height:36px}
+.environment-news-head h3{margin:0;text-align:center;font-size:clamp(22px,2.5vw,31px);line-height:1.2;letter-spacing:.02em;font-weight:650}
+.environment-news-tools{position:absolute;right:0;top:50%;display:flex;align-items:center;gap:12px;transform:translateY(-50%)}
+.environment-news-autorefresh{display:flex;align-items:center;gap:7px;color:#6b675f;font-size:8px;font-weight:750;letter-spacing:.6px;white-space:nowrap}
+.environment-news-autorefresh i{width:7px;height:7px;border-radius:50%;background:#4e8a5b;box-shadow:0 0 0 3px #4e8a5b1c}
+.environment-news-tools button{display:inline-flex;align-items:center;gap:6px;padding:7px 10px;border:1px solid #d5cec3;border-radius:8px;background:#fffdfa;color:#393630;font-size:10px;font-weight:700;cursor:pointer}
+.environment-news-tools button:disabled{opacity:.55;cursor:wait}
+.environment-news-tools .spinning{animation:environment-news-spin 1s linear infinite}
+.environment-news-meta{display:flex;justify-content:space-between;gap:14px;min-height:16px;margin-bottom:10px;color:#777168;font-size:9px}
+.environment-news-meta span{color:#8b5633}
+.environment-news-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px 22px}
+.environment-news-card{display:flex;min-width:0;flex-direction:column;color:inherit;text-decoration:none;border-radius:3px;transition:transform .18s}
+.environment-news-card:hover{transform:translateY(-2px)}
+.environment-news-image{position:relative;overflow:hidden;aspect-ratio:1.78;background:#dedbd3}
+.environment-news-image img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .25s}
+.environment-news-card:hover .environment-news-image img{transform:scale(1.035)}
+.environment-news-image-fallback{display:none;width:100%;height:100%;place-content:center;justify-items:center;gap:10px;background:linear-gradient(135deg,#133c3a,#245d50 58%,#baa66e);color:#fff;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.environment-news-image-fallback.is-visible{display:grid}
+.environment-news-badge{position:absolute;bottom:0;left:0;padding:8px 13px;background:#cf101a;color:#fff;font-size:12px;font-weight:800;letter-spacing:.03em}
+.environment-news-card-body{display:flex;flex:1;flex-direction:column;padding-top:11px}
+.environment-news-card-meta{display:flex;align-items:center;justify-content:space-between;gap:7px;color:#777168;font-size:9px}
+.environment-news-card-meta span{overflow:hidden;color:#a30e25;font-weight:800;text-overflow:ellipsis;white-space:nowrap}
+.environment-news-card-meta time{flex:none}
+.environment-news-card h4{display:flex;align-items:flex-start;gap:7px;margin:8px 0;font-size:clamp(12px,1.08vw,15px);line-height:1.4;font-weight:700}
+.environment-news-card h4 svg{flex:none;margin-top:2px;color:#9f1930}
+.environment-news-card>div>p{display:-webkit-box;overflow:hidden;margin:0 0 9px;color:#69665f;font-size:11px;line-height:1.55;-webkit-box-orient:vertical;-webkit-line-clamp:3}
+.environment-news-topics{display:flex;flex-wrap:wrap;gap:5px;margin-top:auto}
+.environment-news-topics span{padding:3px 7px;border-radius:999px;background:#f2eee6;color:#6b5940;font-size:8px}
+.environment-news-empty{padding:16px;border:1px dashed #d7d0c8;border-radius:10px;color:#716b62;font-size:11px;line-height:1.6}
+.environment-news-footnote{margin:10px 0 0;color:#827c72;font-size:9px;line-height:1.5}
+@keyframes environment-news-spin{to{transform:rotate(360deg)}}
+@media(max-width:900px){.environment-news-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.environment-news-head{padding-bottom:36px}.environment-news-tools{top:auto;right:auto;bottom:0;transform:none}}
+@media(max-width:560px){.environment-news{margin:18px 0 16px}.environment-news-grid{grid-template-columns:1fr;gap:16px}.environment-news-image{aspect-ratio:1.78}.environment-news-card h4{font-size:15px}.environment-news-tools{position:static;justify-content:center;transform:none}.environment-news-head{flex-direction:column;gap:10px;padding-bottom:0;margin-bottom:14px}.environment-news-autorefresh{font-size:8px}}
+@media(prefers-reduced-motion:reduce){.environment-news-card,.environment-news-image img,.environment-news-tools .spinning{animation:none;transition:none}}

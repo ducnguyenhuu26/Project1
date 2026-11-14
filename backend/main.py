@@ -13,6 +13,7 @@ from dotenv import load_dotenv
 from .services import (KNOWLEDGE, MATERIALS, TAXONOMY, TAXONOMY_ITEMS, DemoDetector,
                        ModelNotReady, RealYOLODetector, answer_chat, summarize)
 from .recommendation_api import recommendation_router
+from .environment_news import environment_news
 
 load_dotenv()
 
@@ -76,6 +77,10 @@ def build_app(mode: str | None = None, detector=None) -> FastAPI:
                 "model_version": provider.model_version,
                 "supported_category_ids": getattr(provider, "supported_category_ids",
                     [item["id"] for item in TAXONOMY["categories"] if item["detection_supported"]])}
+
+    @app.get("/api/v1/news/environment")
+    async def environment_articles(refresh: bool = False):
+        return await run_in_threadpool(environment_news.get_news, refresh)
 
     @app.get("/api/v1/waste-types")
     def waste_types():
