@@ -21,6 +21,7 @@ REFRESH_SECONDS = 24 * 60 * 60
 MAX_ITEMS = 36
 MAX_FEED_BYTES = 2_000_000
 USER_AGENT = 'SOICTERRA-Environment-News/1.0 (RSS headlines and excerpts; opens original publisher pages)'
+PAGE_USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36'
 
 NEWS_QUERY = '(môi trường OR rác thải OR chất thải OR tái chế OR ô nhiễm OR khí hậu OR phát thải) when:7d'
 FEEDS = (
@@ -167,7 +168,7 @@ def _image_url(entry: ElementTree.Element) -> str | None:
 
 def _article_image(url: str) -> str | None:
     try:
-        request = Request(url, headers={'User-Agent': USER_AGENT, 'Accept': 'text/html'})
+        request = Request(url, headers={'User-Agent': PAGE_USER_AGENT, 'Accept': 'text/html,application/xhtml+xml'})
         with urlopen(request, timeout=5) as response:
             html = response.read(500_000).decode('utf-8', errors='replace')
         parser = _SocialImage()
