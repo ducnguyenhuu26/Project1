@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { ArrowRight, BookOpenCheck, Search, ShieldAlert } from 'lucide-react';
 import '../recommendations.css';
 import { useLanguage } from '../lib/language';
+import { API_BASE } from '../lib/apiBase';
 import type { ItemSession } from '../types';
 
 type Item = { id: string; name_vi: string; category_id: string; aliases_vi: string[] };
@@ -10,7 +11,7 @@ type Question = { id: string; label: string; options: Choice[] };
 type Detail = { id: string; name_vi: string; category_id: string; questions: Question[]; notice: string; headline?: string; review_status?: string };
 type CatalogResponse = { items: Item[]; count: number; total_count: number };
 type Props = { categoryId?: string; detectedCategoryId?: string; source?: 'manual' | 'detected' | 'corrected'; session: ItemSession; onSessionChange: (next: ItemSession) => void };
-const API = (import.meta as ImportMeta & { env: { VITE_API_URL?: string } }).env.VITE_API_URL || '';
+const API = API_BASE;
 
 export function RecommendationWizard({ categoryId = '', detectedCategoryId = '', source = 'manual', session, onSessionChange }: Props) {
   const { t } = useLanguage();

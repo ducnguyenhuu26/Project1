@@ -2,9 +2,10 @@ import { ArrowUp, MessageCircle, X } from 'lucide-react';
 import { useEffect, useState, type FormEvent } from 'react';
 import type { ChatMessage } from '../types';
 import { useLanguage } from '../lib/language';
+import { API_BASE } from '../lib/apiBase';
 
 type ChatStatus = { configured: boolean; provider: string; model: string };
-const API = (import.meta as ImportMeta & { env: { VITE_API_URL?: string } }).env.VITE_API_URL || '';
+const API = API_BASE;
 
 export function ChatAssistant({ messages, busy, onAsk }: { messages: ChatMessage[]; busy: boolean; onAsk: (message:string)=>void }) {
   const {t}=useLanguage();

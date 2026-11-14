@@ -1,0 +1,15 @@
+**
+!Dockerfile
+!requirements-production.txt
+!backend/
+!backend/*.py
+!backend/*.json
+!backend/data/
+!backend/data/environment_news.json
+**/__pycache__/
+**/*.pyc
+**/.env*
+**/*.pt
+**/*.pth
+**/*.onnx
+**/*.safetensors

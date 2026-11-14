@@ -1,6 +1,7 @@
 import type { ChatMessage, Health, Knowledge, Scan } from '../types';
+import { API_BASE } from './apiBase';
 
-const API = (import.meta as ImportMeta & { env: { VITE_API_URL?: string } }).env.VITE_API_URL || '';
+const API = API_BASE;
 
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
   const response = await fetch(`${API}${path}`, init);

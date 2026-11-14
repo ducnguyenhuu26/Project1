@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Camera, ChevronLeft, ChevronRight, ExternalLink, Flame, Recycle, RefreshCw, Trash2, Waves, Wind } from 'lucide-react';
 import { useLanguage } from '../lib/language';
+import { API_BASE } from '../lib/apiBase';
 import '../environmentNews.css';
 
 type NewsItem = {
@@ -22,7 +23,7 @@ type NewsResponse = {
   partial_failure: boolean;
   available: boolean;
 };
-const API = (import.meta as ImportMeta & { env: { VITE_API_URL?: string } }).env.VITE_API_URL || '';
+const API = API_BASE;
 const REFRESH_MS = 24 * 60 * 60 * 1000;
 
 function TopicIcon({ topics, title }: { topics: string[]; title: string }) {

@@ -94,6 +94,13 @@ def build_app(mode: str | None = None, detector=None) -> FastAPI:
                 "supported_category_ids": getattr(provider, "supported_category_ids",
                     [item["id"] for item in TAXONOMY["categories"] if item["detection_supported"]])}
 
+    @app.get("/api/v1/ready")
+    def ready():
+        """Deployment readiness: a real, loaded detector and the imported KB catalog."""
+        if provider.mode != "real" or getattr(provider, "model", None) is None:
+            raise HTTPException(503, detail={"code": "MODEL_NOT_READY", "message": "Real detector is not ready"})
+        return {"status": "ready", "mode": "real", "model_version": provider.model_version}
+
     @app.get("/api/v1/news/environment")
     async def environment_articles(request: Request, refresh: bool = False):
         if refresh:
