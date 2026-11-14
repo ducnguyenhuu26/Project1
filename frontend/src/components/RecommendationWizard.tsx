@@ -6,9 +6,10 @@ import { useLanguage } from '../lib/language';
 type Item = { id: string; name_vi: string; category_id: string; aliases_vi: string[] };
 type Choice = { id: string; label: string };
 type Question = { id: string; label: string; options: Choice[] };
-type Detail = { id: string; name_vi: string; category_id: string; questions: Question[]; notice: string };
+type Detail = { id: string; name_vi: string; category_id: string; questions: Question[]; notice: string; headline?: string; review_status?: string };
 type CatalogResponse = { items: Item[]; count: number; total_count: number };
-type Result = { status: string; stream_label?: string; recommendation?: string; avoid?: string[]; cautions?: string[]; reasons?: string[]; notice?: string };
+type SourceRef = { id: string; title: string; scope: string; url: string };
+type Result = { status: string; stream_label?: string; headline?: string; assessment?: string; recommendation?: string; context_response?: string; practical_steps?: string[]; why?: string; next_step?: string; review_status?: string; sources?: SourceRef[]; avoid?: string[]; cautions?: string[]; reasons?: string[]; notice?: string };
 type Props = { categoryId?: string; detectedCategoryId?: string; source?: 'manual' | 'detected' | 'corrected'; scanContextKey?: string };
 const API = (import.meta as ImportMeta & { env: { VITE_API_URL?: string } }).env.VITE_API_URL || '';
 
@@ -52,6 +53,7 @@ export function RecommendationWizard({ categoryId = '', detectedCategoryId = '',
   useEffect(() => {
     const controller = new AbortController();
     const params = new URLSearchParams();
+    params.set('limit', '200');
     if (query.trim()) params.set('q', query.trim());
     if (categoryOnly && categoryId) params.set('category_id', categoryId);
     setLoadingCatalog(true);
@@ -173,13 +175,22 @@ export function RecommendationWizard({ categoryId = '', detectedCategoryId = '',
     {evaluationError && <p role="alert" className="recommend-error"><ShieldAlert size={16}/>{evaluationError}</p>}
     {result?.status === 'complete' && <article className="recommend-result" aria-live="polite">
       <span>{t('HƯỚNG XỬ LÝ ĐỀ XUẤT', 'SUGGESTED HANDLING')}</span>
-      <h4>{result.stream_label}</h4><p>{result.recommendation}</p>
+      <h4>{result.headline || result.stream_label}</h4>
+      {result.assessment && <p>{result.assessment}</p>}
+      <p><strong>{result.stream_label}</strong></p>
+      <p>{result.context_response || result.recommendation}</p>
       <div className="recommend-result-grid">
         <div><strong>{t('CẦN TRÁNH', 'AVOID')}</strong><ul>{result.avoid?.map((x, i) => <li key={i}>{x}</li>)}</ul></div>
         <div><strong>{t('LƯU Ý AN TOÀN', 'SAFETY NOTES')}</strong><ul>{result.cautions?.map((x, i) => <li key={i}>{x}</li>)}</ul></div>
       </div>
+      {!!result.practical_steps?.length && <details className="recommend-reasons"><summary>{t('Xem các bước thực hiện và giải thích', 'Steps and explanation')}</summary>
+        <ol>{result.practical_steps.map((x, i) => <li key={i}>{x}</li>)}</ol>
+        {result.why && <p>{result.why}</p>}{result.next_step && <p><strong>{t('Tiếp theo:', 'Next:')}</strong> {result.next_step}</p>}
+        {!!result.sources?.length && <><p>{t('Nguồn nguyên tắc chung; chưa xác minh tuyến thu gom tại địa phương:', 'General-principle references; local collection is not verified:')}</p>
+          <ul>{result.sources.map(source => <li key={source.id}><a href={source.url} target="_blank" rel="noreferrer">{source.id} · {source.title}</a> ({source.scope})</li>)}</ul></>}
+      </details>}
       {!!result.reasons?.length && <details className="recommend-reasons"><summary>{t('Vì sao hệ thống đưa ra gợi ý này?', 'Why this suggestion?')}</summary><ul>{result.reasons.map((x, i) => <li key={i}>{x}</li>)}</ul></details>}
-      <p className="recommend-disclaimer">{result.notice}</p>
+      <p className="recommend-disclaimer">{result.notice} {result.review_status === 'pending_human_review' && t('Nội dung đang chờ rà soát chuyên môn; đây là hướng dẫn tham khảo.', 'Content is pending expert review and is provided as general guidance.')}</p>
     </article>}
   </section>;
 }

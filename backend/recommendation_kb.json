@@ -1,5 +1,5 @@
 {
-  "version": "2.0.0-draft",
+  "version": "2026-11-14.1",
   "review_status": "prototype_not_official_local_disposal_policy",
   "locale": "vi-VN",
   "notice": "Đây là hướng dẫn tham khảo theo tình huống, không xác nhận chính xác vật liệu qua ảnh hoặc khả năng tiếp nhận tại một địa điểm cụ thể.",
@@ -177,12 +177,13 @@
   "objects": [
     {
       "id": "plastic_bottle",
-      "name_vi": "Chai nhựa nước uống",
+      "name_vi": "Chai nhựa đựng nước uống",
       "category_id": "plastic",
       "aliases_vi": [
         "chai pet",
         "chai nước suối",
-        "vỏ chai nước"
+        "vỏ chai nước",
+        "chai PET"
       ],
       "default_stream": "recyclable",
       "base_advice": "Đổ hết nước, làm sạch sơ bộ nếu cần, để ráo; gom riêng với nhựa khô và chuyển đến nơi nhận phù hợp.",
@@ -200,7 +201,8 @@
       "category_id": "plastic",
       "aliases_vi": [
         "nắp nước suối",
-        "nắp nhựa"
+        "nắp nhựa",
+        "nắp PET"
       ],
       "default_stream": "recyclable",
       "base_advice": "Gom nắp sạch, khô; hỏi nơi thu gom có nhận nắp rời không.",
@@ -213,7 +215,7 @@
     },
     {
       "id": "plastic_cup",
-      "name_vi": "Ly/cốc nhựa dùng một lần",
+      "name_vi": "Ly nhựa dùng một lần",
       "category_id": "plastic",
       "aliases_vi": [
         "cốc nhựa",
@@ -232,14 +234,16 @@
     },
     {
       "id": "plastic_bag",
-      "name_vi": "Túi nilon",
+      "name_vi": "Túi nilon mua hàng",
       "category_id": "plastic",
       "aliases_vi": [
         "túi nylon",
         "túi ni lông",
-        "túi bóng"
+        "túi bóng",
+        "túi PE",
+        "túi siêu thị"
       ],
-      "default_stream": "recyclable",
+      "default_stream": "special_collection",
       "base_advice": "Tái sử dụng túi còn sạch và nguyên vẹn; nếu bỏ đi hãy giữ khô, hỏi điểm nhận nhựa mềm.",
       "avoid": "Không đốt và không để túi bay ra môi trường.",
       "caution": "Không phải đơn vị thu gom nào cũng nhận màng nhựa mềm.",
@@ -255,7 +259,9 @@
       "category_id": "plastic",
       "aliases_vi": [
         "màng nhựa",
-        "plastic wrap"
+        "plastic wrap",
+        "màng bọc",
+        "wrap đồ ăn"
       ],
       "default_stream": "residual",
       "base_advice": "Nếu đã sử dụng, gom gọn vào rác còn lại theo quy định địa phương.",
@@ -268,12 +274,14 @@
     },
     {
       "id": "foam_box",
-      "name_vi": "Hộp xốp thực phẩm",
+      "name_vi": "Hộp xốp đựng thức ăn",
       "category_id": "plastic",
       "aliases_vi": [
         "hộp xốp",
         "khay xốp",
-        "styrofoam"
+        "styrofoam",
+        "hộp cơm xốp",
+        "EPS thực phẩm"
       ],
       "default_stream": "residual",
       "base_advice": "Đổ bỏ thức ăn thừa và xử lý theo dòng rác còn lại nếu không có chương trình thu hồi xốp riêng.",
@@ -286,11 +294,12 @@
     },
     {
       "id": "straw",
-      "name_vi": "Ống hút",
+      "name_vi": "Ống hút dùng một lần",
       "category_id": "plastic",
       "aliases_vi": [
         "ống hút nhựa",
-        "ống hút dùng một lần"
+        "ống hút dùng một lần",
+        "ống hút trà sữa"
       ],
       "default_stream": "residual",
       "base_advice": "Gom ống hút đã sử dụng theo dòng rác còn lại nếu nơi thu gom không có hướng dẫn khác.",
@@ -303,13 +312,15 @@
     },
     {
       "id": "paper_sheet",
-      "name_vi": "Giấy văn phòng",
+      "name_vi": "Giấy in và giấy viết",
       "category_id": "paper",
       "aliases_vi": [
         "giấy a4",
         "giấy in",
         "giấy viết",
-        "giấy trắng"
+        "giấy trắng",
+        "giấy A4",
+        "giấy photo"
       ],
       "default_stream": "recyclable",
       "base_advice": "Giữ giấy sạch khô, loại ghim nếu nơi nhận yêu cầu, gom riêng với giấy tái chế.",
@@ -328,7 +339,8 @@
       "aliases_vi": [
         "bìa carton",
         "thùng giấy",
-        "hộp carton"
+        "hộp carton",
+        "thùng chuyển nhà"
       ],
       "default_stream": "recyclable",
       "base_advice": "Làm rỗng, gấp phẳng và giữ khô để gom cùng giấy/bìa sạch.",
@@ -342,12 +354,13 @@
     },
     {
       "id": "newspaper",
-      "name_vi": "Báo và tạp chí",
+      "name_vi": "Báo giấy, tạp chí",
       "category_id": "paper",
       "aliases_vi": [
         "báo cũ",
         "tạp chí",
-        "giấy báo"
+        "giấy báo",
+        "tờ rơi"
       ],
       "default_stream": "recyclable",
       "base_advice": "Gom báo sạch khô, buộc hoặc xếp gọn và chuyển tới điểm nhận giấy.",
@@ -361,13 +374,14 @@
     },
     {
       "id": "tissue",
-      "name_vi": "Khăn giấy đã dùng",
+      "name_vi": "Khăn giấy, giấy ăn đã dùng",
       "category_id": "paper",
       "aliases_vi": [
         "giấy ăn",
         "giấy lau",
         "khăn giấy",
-        "giấy vệ sinh"
+        "giấy vệ sinh",
+        "giấy lau mặt"
       ],
       "default_stream": "residual",
       "base_advice": "Bỏ vào rác còn lại và gói kín khi đã dùng cho vệ sinh cá nhân.",
@@ -380,14 +394,14 @@
     },
     {
       "id": "paper_cup",
-      "name_vi": "Ly giấy tráng phủ",
+      "name_vi": "Cốc giấy tráng nhựa",
       "category_id": "composite_packaging",
       "aliases_vi": [
         "cốc giấy",
         "ly cà phê giấy",
         "cốc giấy phủ nhựa"
       ],
-      "default_stream": "residual",
+      "default_stream": "special_collection",
       "base_advice": "Đổ hết chất lỏng; tra cứu nơi thu gom có nhận ly giấy tráng phủ không, nếu không thì theo rác còn lại.",
       "avoid": "Không mặc định là giấy tái chế thông thường.",
       "caution": "Lớp phủ nhựa có thể gây khó xử lý trong dòng giấy.",
@@ -398,12 +412,14 @@
     },
     {
       "id": "milk_carton",
-      "name_vi": "Hộp sữa nhiều lớp",
+      "name_vi": "Hộp sữa giấy nhiều lớp",
       "category_id": "composite_packaging",
       "aliases_vi": [
         "hộp sữa",
         "vỏ hộp sữa",
-        "tetra pak"
+        "tetra pak",
+        "hộp sữa giấy",
+        "hộp nước trái cây"
       ],
       "default_stream": "special_collection",
       "base_advice": "Làm rỗng; nếu có điểm nhận bao bì đa lớp thì chuyển tới đó, còn không theo hướng dẫn địa phương.",
@@ -416,13 +432,15 @@
     },
     {
       "id": "release_liner",
-      "name_vi": "Giấy/màng lót băng keo y tế",
+      "name_vi": "Giấy hoặc màng lót băng keo y tế",
       "category_id": "composite_packaging",
       "aliases_vi": [
         "giấy bóc urgo",
         "lớp lót urgo",
         "giấy dán băng cá nhân",
-        "release liner"
+        "release liner",
+        "giấy bóc Urgo",
+        "giấy lót băng dính"
       ],
       "default_stream": "residual",
       "base_advice": "Giữ riêng khỏi giấy tái chế thông thường; xử lý như rác còn lại khi chưa có nơi tiếp nhận vật liệu phủ chống dính.",
@@ -436,12 +454,13 @@
     },
     {
       "id": "aluminum_can",
-      "name_vi": "Lon nước nhôm",
+      "name_vi": "Lon nước giải khát nhôm",
       "category_id": "metal",
       "aliases_vi": [
         "lon bia",
         "lon nước ngọt",
-        "vỏ lon nhôm"
+        "vỏ lon nhôm",
+        "lon nhôm"
       ],
       "default_stream": "recyclable",
       "base_advice": "Đổ sạch đồ uống, để ráo và gom riêng với lon kim loại thông thường.",
@@ -455,12 +474,14 @@
     },
     {
       "id": "steel_food_can",
-      "name_vi": "Lon đồ hộp",
+      "name_vi": "Vỏ hộp đồ ăn bằng thép",
       "category_id": "metal",
       "aliases_vi": [
         "hộp thiếc",
         "lon sắt",
-        "vỏ hộp thực phẩm"
+        "vỏ hộp thực phẩm",
+        "lon pate",
+        "lon đồ hộp"
       ],
       "default_stream": "recyclable",
       "base_advice": "Làm rỗng và để ráo; cẩn thận cạnh sắc khi gom riêng.",
@@ -473,12 +494,14 @@
     },
     {
       "id": "aerosol_can",
-      "name_vi": "Bình xịt",
+      "name_vi": "Bình xịt áp suất",
       "category_id": "chemical_container",
       "aliases_vi": [
         "chai xịt",
         "bình phun áp suất",
-        "bình aerosol"
+        "bình aerosol",
+        "bình xịt tóc",
+        "bình xịt côn trùng"
       ],
       "default_stream": "hazardous",
       "base_advice": "Giữ nguyên bình, tránh nguồn nhiệt và hỏi đơn vị tiếp nhận về cách bàn giao theo tình trạng áp suất/nội dung còn lại. Chỉ coi là hết khi nhãn hoặc hướng dẫn có thẩm quyền xác nhận.",
@@ -496,7 +519,9 @@
       "aliases_vi": [
         "chai bia thủy tinh",
         "lọ thủy tinh",
-        "chai lọ thuỷ tinh"
+        "chai lọ thuỷ tinh",
+        "chai nước mắm thủy tinh",
+        "chai bia"
       ],
       "default_stream": "recyclable",
       "base_advice": "Nếu còn nguyên, cân nhắc tái sử dụng; nếu loại bỏ, làm rỗng và gom theo điểm nhận thủy tinh.",
@@ -511,12 +536,13 @@
     },
     {
       "id": "glass_jar",
-      "name_vi": "Hũ/lọ thủy tinh",
+      "name_vi": "Hũ thủy tinh thực phẩm",
       "category_id": "glass",
       "aliases_vi": [
         "lọ mứt",
         "lọ thủy tinh",
-        "hũ thuỷ tinh"
+        "hũ thuỷ tinh",
+        "lọ cà phê thủy tinh"
       ],
       "default_stream": "recyclable",
       "base_advice": "Rửa nhẹ khi thuận tiện, để khô và tái sử dụng hoặc chuyển tới điểm nhận thủy tinh.",
@@ -531,12 +557,13 @@
     },
     {
       "id": "broken_glass",
-      "name_vi": "Mảnh kính/thủy tinh vỡ",
+      "name_vi": "Kính hoặc thủy tinh vỡ",
       "category_id": "sharps",
       "aliases_vi": [
         "mảnh chai",
         "kính vỡ",
-        "thủy tinh vỡ"
+        "thủy tinh vỡ",
+        "mảnh kính"
       ],
       "default_stream": "sharps",
       "base_advice": "Tránh tay trần; dùng dụng cụ thu gom, đặt vào hộp cứng chống đâm xuyên và ghi chú vật sắc.",
@@ -549,12 +576,13 @@
     },
     {
       "id": "ceramic_bowl",
-      "name_vi": "Bát/đĩa sứ vỡ",
+      "name_vi": "Bát, đĩa sứ vỡ",
       "category_id": "ceramic",
       "aliases_vi": [
         "bát sứ",
         "đĩa sứ",
-        "gốm vỡ"
+        "gốm vỡ",
+        "đĩa gốm"
       ],
       "default_stream": "sharps",
       "base_advice": "Nếu vỡ, dùng dụng cụ nhặt và bọc trong hộp cứng; làm theo dòng rác còn lại tại nơi ở.",
@@ -586,7 +614,7 @@
     },
     {
       "id": "leftover_food",
-      "name_vi": "Thức ăn thừa",
+      "name_vi": "Thức ăn thừa đã nấu",
       "category_id": "organic",
       "aliases_vi": [
         "cơm thừa",
@@ -609,7 +637,9 @@
       "aliases_vi": [
         "bã cafe",
         "bã trà",
-        "xác trà"
+        "xác trà",
+        "bã phin",
+        "bã espresso"
       ],
       "default_stream": "organic",
       "base_advice": "Tách khỏi túi lọc nhựa và gom theo tuyến hữu cơ hoặc ủ đúng cách nếu phù hợp.",
@@ -627,7 +657,8 @@
       "aliases_vi": [
         "lá rụng",
         "cỏ cắt",
-        "rác vườn"
+        "rác vườn",
+        "lá sân vườn"
       ],
       "default_stream": "organic",
       "base_advice": "Gom riêng để ủ phân hoặc xử lý theo dịch vụ thu gom rác vườn.",
@@ -640,13 +671,14 @@
     },
     {
       "id": "old_tshirt",
-      "name_vi": "Áo/quần cũ",
+      "name_vi": "Quần áo cũ",
       "category_id": "textile",
       "aliases_vi": [
         "áo cũ",
         "quần cũ",
         "quần áo",
-        "áo phông"
+        "áo phông",
+        "áo phông cũ"
       ],
       "default_stream": "reuse",
       "base_advice": "Nếu còn mặc được, giặt sạch và ưu tiên sửa, dùng lại hoặc chuyển cho nơi nhận đồ cũ đã xác minh.",
@@ -660,12 +692,13 @@
     },
     {
       "id": "fabric_scraps",
-      "name_vi": "Vải vụn",
+      "name_vi": "Vải vụn sạch",
       "category_id": "textile",
       "aliases_vi": [
         "vải thừa",
         "mảnh vải",
-        "khăn vải"
+        "khăn vải",
+        "vụn may"
       ],
       "default_stream": "special_collection",
       "base_advice": "Giữ khô, phân loại theo thành phần khi biết và hỏi cơ sở thu hồi vải có tiếp nhận không.",
@@ -679,12 +712,13 @@
     },
     {
       "id": "old_shoes",
-      "name_vi": "Giày/dép cũ",
+      "name_vi": "Giày dép cũ",
       "category_id": "textile",
       "aliases_vi": [
         "giày cũ",
         "dép cũ",
-        "giày thể thao"
+        "giày thể thao",
+        "giày thể thao cũ"
       ],
       "default_stream": "reuse",
       "base_advice": "Nếu còn dùng được, vệ sinh và tìm nơi nhận đồ cũ; nếu hỏng, hỏi tuyến thu gom phù hợp.",
@@ -698,12 +732,14 @@
     },
     {
       "id": "stuffed_toy",
-      "name_vi": "Thú nhồi bông",
+      "name_vi": "Thú nhồi bông cũ",
       "category_id": "textile",
       "aliases_vi": [
         "gấu bông",
         "thú bông",
-        "đồ chơi vải"
+        "đồ chơi vải",
+        "gấu bông cũ",
+        "đồ chơi nhồi bông"
       ],
       "default_stream": "reuse",
       "base_advice": "Nếu còn sạch và an toàn, ưu tiên sử dụng lại hoặc chuyển cho chương trình tiếp nhận phù hợp.",
@@ -717,13 +753,15 @@
     },
     {
       "id": "battery_aa",
-      "name_vi": "Pin tiểu/pin sạc rời",
+      "name_vi": "Pin tiểu, pin sạc rời",
       "category_id": "battery",
       "aliases_vi": [
         "pin aa",
         "pin aaa",
         "pin lithium",
-        "pin cúc áo"
+        "pin cúc áo",
+        "pin AA",
+        "pin AAA"
       ],
       "default_stream": "hazardous",
       "base_advice": "Pin nguyên vẹn: giữ nguyên vỏ, tránh chập cực và hỏi điểm thu hồi pin có xác nhận tiếp nhận. Pin hư hại: không tự tháo hoặc sạc; làm theo hướng dẫn an toàn cho đúng tình trạng pin.",
@@ -736,12 +774,13 @@
     },
     {
       "id": "phone",
-      "name_vi": "Điện thoại cũ/hỏng",
+      "name_vi": "Điện thoại cũ, hỏng",
       "category_id": "e_waste",
       "aliases_vi": [
         "điện thoại hỏng",
         "smartphone cũ",
-        "điện thoại bỏ đi"
+        "điện thoại bỏ đi",
+        "điện thoại vỡ"
       ],
       "default_stream": "ewaste",
       "base_advice": "Nếu còn hoạt động, sao lưu/xóa dữ liệu trước khi chuyển giao; nếu bỏ đi, đưa tới nơi nhận rác điện tử.",
@@ -755,12 +794,13 @@
     },
     {
       "id": "charger",
-      "name_vi": "Củ sạc/dây cáp",
+      "name_vi": "Củ sạc và dây cáp",
       "category_id": "e_waste",
       "aliases_vi": [
         "sạc điện thoại",
         "dây sạc",
-        "cáp usb"
+        "cáp usb",
+        "cáp USB"
       ],
       "default_stream": "ewaste",
       "base_advice": "Nếu còn an toàn, sử dụng lại; nếu hỏng, chuyển tới điểm nhận rác điện tử.",
@@ -773,12 +813,14 @@
     },
     {
       "id": "lightbulb",
-      "name_vi": "Bóng đèn đã hỏng",
+      "name_vi": "Bóng đèn đã sử dụng",
       "category_id": "e_waste",
       "aliases_vi": [
         "bóng đèn led",
         "bóng huỳnh quang",
-        "đèn compact"
+        "đèn compact",
+        "bóng LED",
+        "bóng compact"
       ],
       "default_stream": "hazardous",
       "base_advice": "Giữ nguyên, tránh làm vỡ; kiểm tra loại bóng và chuyển đến tuyến tiếp nhận phù hợp.",
@@ -792,11 +834,12 @@
     },
     {
       "id": "mask",
-      "name_vi": "Khẩu trang đã dùng",
+      "name_vi": "Khẩu trang đã sử dụng",
       "category_id": "sanitary_waste",
       "aliases_vi": [
         "khẩu trang y tế",
-        "khẩu trang dùng một lần"
+        "khẩu trang dùng một lần",
+        "khẩu trang một lần"
       ],
       "default_stream": "residual",
       "base_advice": "Gói gọn và bỏ vào dòng rác còn lại theo hướng dẫn nơi ở.",
@@ -809,12 +852,14 @@
     },
     {
       "id": "diaper",
-      "name_vi": "Tã/bỉm đã sử dụng",
+      "name_vi": "Tã, bỉm đã qua sử dụng",
       "category_id": "sanitary_waste",
       "aliases_vi": [
         "tã trẻ em",
         "bỉm",
-        "tã giấy"
+        "tã giấy",
+        "bỉm em bé",
+        "miếng tã"
       ],
       "default_stream": "residual",
       "base_advice": "Gói kín trước khi bỏ vào rác còn lại theo quy định tại nơi ở.",
@@ -832,7 +877,9 @@
       "aliases_vi": [
         "mẩu thuốc lá",
         "đầu lọc thuốc",
-        "tàn thuốc"
+        "tàn thuốc",
+        "mẩu thuốc",
+        "đầu thuốc lá"
       ],
       "default_stream": "residual",
       "base_advice": "Chỉ thu gom khi chắc chắn đã tắt và nguội; bỏ vào rác còn lại theo hướng dẫn địa phương.",
@@ -850,7 +897,8 @@
       "aliases_vi": [
         "dao lam",
         "lưỡi lam",
-        "dao cạo râu"
+        "dao cạo râu",
+        "lưỡi dao"
       ],
       "default_stream": "sharps",
       "base_advice": "Đặt trong hộp cứng chống đâm xuyên và ghi chú vật sắc trước khi chuyển giao.",
@@ -868,7 +916,8 @@
       "aliases_vi": [
         "kim chích",
         "bơm kim tiêm",
-        "kim tiêm"
+        "kim tiêm",
+        "bơm tiêm"
       ],
       "default_stream": "medical",
       "base_advice": "Không chạm hoặc đậy lại đầu kim bằng tay; liên hệ cơ sở y tế hoặc đơn vị có hướng dẫn tiếp nhận vật sắc y tế.",
@@ -881,12 +930,14 @@
     },
     {
       "id": "chemical_bottle",
-      "name_vi": "Chai/lọ chứa hóa chất",
+      "name_vi": "Chai hoặc lọ từng chứa hóa chất",
       "category_id": "chemical_container",
       "aliases_vi": [
         "chai thuốc trừ sâu",
         "chai tẩy rửa mạnh",
-        "vỏ hóa chất"
+        "vỏ hóa chất",
+        "chai thuốc tẩy",
+        "chai tẩy rửa"
       ],
       "default_stream": "hazardous",
       "base_advice": "Giữ nguyên nhãn và nắp nếu an toàn; hỏi đơn vị tiếp nhận chất thải nguy hại phù hợp.",
@@ -899,12 +950,13 @@
     },
     {
       "id": "paint_can",
-      "name_vi": "Lon sơn và dung môi",
+      "name_vi": "Lon sơn, dung môi thừa",
       "category_id": "chemical_container",
       "aliases_vi": [
         "thùng sơn",
         "vỏ lon sơn",
-        "hộp sơn"
+        "hộp sơn",
+        "lon vecni"
       ],
       "default_stream": "hazardous",
       "base_advice": "Giữ kín và chuyển đến nơi tiếp nhận phù hợp với sơn/dung môi.",
@@ -922,7 +974,9 @@
       "aliases_vi": [
         "dầu chiên",
         "dầu mỡ thừa",
-        "dầu ăn cũ"
+        "dầu ăn cũ",
+        "dầu chiên cũ",
+        "mỡ thải"
       ],
       "default_stream": "special_collection",
       "base_advice": "Để nguội, chứa trong chai có nắp; hỏi chương trình thu gom dầu ăn đã dùng nếu có.",
@@ -935,12 +989,13 @@
     },
     {
       "id": "wood_scraps",
-      "name_vi": "Gỗ vụn/đồ gỗ nhỏ",
+      "name_vi": "Gỗ vụn, đồ gỗ nhỏ",
       "category_id": "wood",
       "aliases_vi": [
         "đũa gỗ",
         "mảnh gỗ",
-        "gỗ thừa"
+        "gỗ thừa",
+        "ván gỗ"
       ],
       "default_stream": "special_collection",
       "base_advice": "Nếu còn an toàn, tái sử dụng; nếu bỏ đi, hỏi nơi nhận rác gỗ hoặc rác cồng kềnh.",
@@ -959,12 +1014,2154 @@
       "aliases_vi": [
         "lốp xe máy",
         "lốp ô tô",
-        "vỏ xe"
+        "vỏ xe",
+        "vỏ xe máy"
       ],
       "default_stream": "special_collection",
       "base_advice": "Chuyển tới garage hoặc điểm thu hồi lốp có xác nhận tiếp nhận.",
       "avoid": "Không đốt hoặc xả ra môi trường.",
       "caution": "Lốp xe cồng kềnh, không nên xử lý như rác sinh hoạt nhỏ.",
+      "question_ids": [
+        "condition"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "pet_food_tub",
+      "name_vi": "Hộp nhựa đựng thức ăn cho thú cưng",
+      "category_id": "plastic",
+      "aliases_vi": [
+        "hộp pate thú cưng",
+        "khay nhựa đồ ăn"
+      ],
+      "default_stream": "recyclable",
+      "base_advice": "Nếu dùng lại để đựng vật khô, hãy bảo đảm khay sạch và không bị nứt.",
+      "avoid": "Không bỏ khay đầy thức ăn vào túi nhựa tái chế.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "plastic_food_container",
+      "name_vi": "Hộp nhựa đựng cơm tái sử dụng",
+      "category_id": "plastic",
+      "aliases_vi": [
+        "hộp cơm nhựa",
+        "hộp đựng thức ăn"
+      ],
+      "default_stream": "reuse",
+      "base_advice": "Nếu hộp còn nguyên, không biến dạng, dùng đúng loại thực phẩm và nhiệt độ theo hướng dẫn nhà sản xuất.",
+      "avoid": "Không tái dùng hộp từng chứa hóa chất cho đồ ăn.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "plastic_bucket",
+      "name_vi": "Xô chậu nhựa hỏng",
+      "category_id": "plastic",
+      "aliases_vi": [
+        "xô nhựa",
+        "chậu nhựa"
+      ],
+      "default_stream": "special_collection",
+      "base_advice": "Nếu xô còn chắc và dùng đúng công năng, có thể sửa quai hoặc chuyển sang chứa dụng cụ khô.",
+      "avoid": "Không tự đốt hoặc dùng xô hóa chất làm đồ chứa nước sinh hoạt.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "plastic_hanger",
+      "name_vi": "Móc áo nhựa",
+      "category_id": "plastic",
+      "aliases_vi": [
+        "mắc áo nhựa",
+        "móc quần áo"
+      ],
+      "default_stream": "reuse",
+      "base_advice": "Nếu còn chắc, giữ dùng hoặc trao đổi cùng quần áo cũ.",
+      "avoid": "Không bỏ móc kim loại/nhựa phức hợp vào luồng chai nhựa mà không kiểm tra.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "plastic_toy",
+      "name_vi": "Đồ chơi nhựa không pin",
+      "category_id": "plastic",
+      "aliases_vi": [
+        "đồ chơi nhựa",
+        "lego cũ"
+      ],
+      "default_stream": "reuse",
+      "base_advice": "Nếu an toàn theo độ tuổi, rửa đúng cách và tặng cho nơi nhận đồ chơi còn sử dụng được.",
+      "avoid": "Không tặng đồ chơi sắc nhọn, mất chi tiết bảo vệ hoặc không rõ độ an toàn.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "plastic_toothbrush",
+      "name_vi": "Bàn chải đánh răng cũ",
+      "category_id": "plastic",
+      "aliases_vi": [
+        "bàn chải nhựa",
+        "bàn chải răng"
+      ],
+      "default_stream": "residual",
+      "base_advice": "Nếu đã hết mục đích vệ sinh răng, chỉ tận dụng để chà rửa vật dụng không nhạy cảm khi phù hợp.",
+      "avoid": "Không chia sẻ bàn chải đã dùng hoặc tái sử dụng cho vệ sinh cá nhân.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "plastic_razor_handle",
+      "name_vi": "Dao cạo nhựa dùng một lần",
+      "category_id": "sharps",
+      "aliases_vi": [
+        "dao cạo râu dùng một lần",
+        "dao cạo nhựa"
+      ],
+      "default_stream": "sharps",
+      "base_advice": "Không cho tặng dao cạo đã qua sử dụng.",
+      "avoid": "Không bẻ lưỡi để tách nhựa bằng tay hoặc vứt rời vào túi mỏng.",
+      "caution": "Trường hợp này cần ưu tiên an toàn và xác minh tuyến chuyên trách; không gợi ý vật chứa nguy hiểm cho vào luồng tái chế chung.",
+      "question_ids": [
+        "sharp"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "plastic_package_blister",
+      "name_vi": "Vỉ nhựa bao bì đồ chơi",
+      "category_id": "plastic",
+      "aliases_vi": [
+        "vỉ nhựa cứng",
+        "blister bao bì"
+      ],
+      "default_stream": "special_collection",
+      "base_advice": "Nếu vỉ còn nguyên, có thể dùng làm hộp đựng đồ khô nếu không có cạnh nguy hiểm.",
+      "avoid": "Không bỏ vỉ mép sắc cạnh cùng đồ có thể gây đâm tay.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "plastic_sachet",
+      "name_vi": "Gói dầu gội hoặc gia vị một lần",
+      "category_id": "composite_packaging",
+      "aliases_vi": [
+        "gói dầu gội",
+        "gói tương ớt"
+      ],
+      "default_stream": "residual",
+      "base_advice": "Không nên tái dùng gói đã cắt để chứa thực phẩm hoặc hóa chất.",
+      "avoid": "Không vứt gói xuống cống hoặc coi là nhôm thuần.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "bubble_wrap",
+      "name_vi": "Màng bong bóng chống sốc",
+      "category_id": "plastic",
+      "aliases_vi": [
+        "bọc bóng khí",
+        "xốp hơi"
+      ],
+      "default_stream": "special_collection",
+      "base_advice": "Nếu còn tốt, dùng tiếp để bảo vệ hàng dễ vỡ khi gửi đồ.",
+      "avoid": "Không đốt hoặc để màng bay ra môi trường.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "foam_packaging",
+      "name_vi": "Xốp EPS chống sốc hàng hóa",
+      "category_id": "plastic",
+      "aliases_vi": [
+        "xốp đóng hàng",
+        "miếng xốp trắng"
+      ],
+      "default_stream": "special_collection",
+      "base_advice": "Nếu còn miếng nguyên, tận dụng bảo vệ thiết bị khi vận chuyển.",
+      "avoid": "Không bẻ vụn để ép thể tích hoặc đốt xốp.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "silicone_spatula",
+      "name_vi": "Muôi hoặc phới silicone hỏng",
+      "category_id": "rubber",
+      "aliases_vi": [
+        "phới silicone",
+        "thìa silicone"
+      ],
+      "default_stream": "residual",
+      "base_advice": "Nếu còn nguyên và đạt yêu cầu tiếp xúc thực phẩm, có thể sử dụng đúng nhiệt độ cho phép.",
+      "avoid": "Không đốt silicone hay dùng dụng cụ đã mục hỏng tiếp xúc đồ ăn.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "plastic_flowerpot",
+      "name_vi": "Chậu cây nhựa",
+      "category_id": "plastic",
+      "aliases_vi": [
+        "chậu nhựa trồng cây",
+        "chậu ươm"
+      ],
+      "default_stream": "reuse",
+      "base_advice": "Nếu còn chắc, vệ sinh và trồng cây tiếp khi phù hợp.",
+      "avoid": "Không đốt chậu hoặc vứt đất trồng lẫn túi tái chế.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "paper_envelope",
+      "name_vi": "Phong bì giấy",
+      "category_id": "paper",
+      "aliases_vi": [
+        "phong bì thư",
+        "bao thư"
+      ],
+      "default_stream": "recyclable",
+      "base_advice": "Phong bì còn dùng được có thể dán nhãn mới và dùng cho tài liệu nội bộ.",
+      "avoid": "Không bỏ nguyên phong bì có tài liệu cá nhân nhạy cảm ra điểm thu gom.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "paper_notebook",
+      "name_vi": "Vở học sinh cũ",
+      "category_id": "paper",
+      "aliases_vi": [
+        "vở cũ",
+        "sổ tay giấy"
+      ],
+      "default_stream": "recyclable",
+      "base_advice": "Phần giấy còn trắng có thể dùng nháp; sách vở còn tốt nên chuyển cho người cần.",
+      "avoid": "Không bỏ thông tin cá nhân hoặc giấy mốc vào luồng giấy sạch.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "paper_book",
+      "name_vi": "Sách giáo khoa, truyện cũ",
+      "category_id": "paper",
+      "aliases_vi": [
+        "sách cũ",
+        "truyện giấy"
+      ],
+      "default_stream": "reuse",
+      "base_advice": "Ưu tiên chia sẻ, bán lại, tặng thư viện/nhóm đọc sách có xác nhận nhu cầu.",
+      "avoid": "Không xé bỏ sách còn tốt chỉ để bán giấy vụn nếu có phương án sử dụng lại.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "paper_pizza_box",
+      "name_vi": "Hộp pizza giấy dính dầu",
+      "category_id": "paper",
+      "aliases_vi": [
+        "hộp pizza",
+        "carton dính mỡ"
+      ],
+      "default_stream": "special_collection",
+      "base_advice": "Không tái sử dụng phần đã tiếp xúc trực tiếp thức ăn hỏng.",
+      "avoid": "Không để thức ăn thừa nguyên hộp trong đống giấy khô.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "paper_receipt",
+      "name_vi": "Hóa đơn giấy in nhiệt",
+      "category_id": "paper",
+      "aliases_vi": [
+        "bill siêu thị",
+        "giấy in nhiệt"
+      ],
+      "default_stream": "residual",
+      "base_advice": "Nếu cần lưu chứng từ, cân nhắc bản điện tử thay vì tích trữ hóa đơn không cần thiết.",
+      "avoid": "Không dùng hóa đơn để gói đồ ăn hoặc ủ compost.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "paper_egg_carton",
+      "name_vi": "Khay trứng giấy ép",
+      "category_id": "paper",
+      "aliases_vi": [
+        "khay đựng trứng giấy",
+        "khay bột giấy"
+      ],
+      "default_stream": "recyclable",
+      "base_advice": "Khay khô sạch còn tốt có thể dùng lại để bảo vệ vật nhỏ không thực phẩm.",
+      "avoid": "Không dùng lại khay bẩn để đựng thực phẩm sống.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "paper_bag",
+      "name_vi": "Túi giấy mua hàng",
+      "category_id": "paper",
+      "aliases_vi": [
+        "túi kraft",
+        "túi shop giấy"
+      ],
+      "default_stream": "reuse",
+      "base_advice": "Túi kraft sạch còn chắc có thể dùng nhiều lần khi đựng đồ khô vừa tải.",
+      "avoid": "Không dùng túi giấy bị mốc để đựng hàng hóa hoặc thức ăn.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "paper_tube",
+      "name_vi": "Lõi giấy vệ sinh và lõi cuộn",
+      "category_id": "paper",
+      "aliases_vi": [
+        "lõi cuộn giấy",
+        "ống bìa carton"
+      ],
+      "default_stream": "recyclable",
+      "base_advice": "Lõi giấy có thể dùng để sắp xếp dây cáp hoặc làm thủ công khi sạch.",
+      "avoid": "Không bỏ lõi ẩm mốc vào giấy sạch.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "paper_gift_wrap",
+      "name_vi": "Giấy gói quà bóng, kim tuyến",
+      "category_id": "composite_packaging",
+      "aliases_vi": [
+        "giấy kim tuyến",
+        "giấy gói quà"
+      ],
+      "default_stream": "residual",
+      "base_advice": "Nếu tờ giấy còn nguyên, gấp phẳng và dùng lại để bọc quà.",
+      "avoid": "Không mặc định giấy có chữ 'paper' đều được tái chế với giấy văn phòng.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "paper_tet_calendar",
+      "name_vi": "Lịch giấy treo tường",
+      "category_id": "paper",
+      "aliases_vi": [
+        "lịch Tết",
+        "lịch block"
+      ],
+      "default_stream": "recyclable",
+      "base_advice": "Nếu lịch còn mặt trắng hoặc bìa tốt, có thể tận dụng để làm đồ thủ công.",
+      "avoid": "Không ném nguyên khung kim loại sắc vào túi giấy mỏng.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "tet_red_envelope",
+      "name_vi": "Bao lì xì giấy phủ nhũ",
+      "category_id": "composite_packaging",
+      "aliases_vi": [
+        "phong bao lì xì",
+        "bao mừng tuổi"
+      ],
+      "default_stream": "residual",
+      "base_advice": "Bao còn đẹp có thể tái sử dụng cho đồ lưu niệm nếu phù hợp.",
+      "avoid": "Không trộn kim tuyến rời với giấy sạch.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "metal_cooking_pan",
+      "name_vi": "Nồi, chảo kim loại cũ",
+      "category_id": "metal",
+      "aliases_vi": [
+        "chảo chống dính",
+        "nồi nhôm"
+      ],
+      "default_stream": "special_collection",
+      "base_advice": "Nếu còn an toàn theo hướng dẫn nhà sản xuất, sửa tay cầm hoặc sử dụng đúng cách.",
+      "avoid": "Không cạo lớp phủ không rõ thành phần để cố bán phế liệu.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "metal_spoon",
+      "name_vi": "Thìa, dĩa kim loại",
+      "category_id": "metal",
+      "aliases_vi": [
+        "muỗng inox",
+        "thìa inox"
+      ],
+      "default_stream": "reuse",
+      "base_advice": "Nếu còn an toàn, có thể vệ sinh và sử dụng tiếp hoặc chuyển cho nơi nhận đồ gia dụng sạch.",
+      "avoid": "Không để mảnh kim loại sắc lẫn trong rác mềm.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "metal_food_lid",
+      "name_vi": "Nắp kim loại lọ thực phẩm",
+      "category_id": "metal",
+      "aliases_vi": [
+        "nắp chai bia",
+        "nắp hũ sắt"
+      ],
+      "default_stream": "recyclable",
+      "base_advice": "Nếu còn vừa đúng lọ và sạch, có thể tiếp tục đóng vật dụng phù hợp.",
+      "avoid": "Không bỏ nắp sắc rời dễ làm đứt tay người thu gom.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "aluminum_foil",
+      "name_vi": "Giấy bạc nướng thực phẩm",
+      "category_id": "metal",
+      "aliases_vi": [
+        "giấy nhôm",
+        "lá nhôm nướng"
+      ],
+      "default_stream": "special_collection",
+      "base_advice": "Phần nhôm sạch chưa dùng có thể cất giữ dùng đúng mục đích.",
+      "avoid": "Không trộn giấy bạc phủ dầu và thực phẩm vào lon khô.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "metal_key",
+      "name_vi": "Chìa khóa kim loại cũ",
+      "category_id": "metal",
+      "aliases_vi": [
+        "chìa khóa hỏng",
+        "chìa khóa cửa"
+      ],
+      "default_stream": "recyclable",
+      "base_advice": "Chìa còn hoạt động nên dự phòng an toàn hoặc giao đúng người có quyền sử dụng.",
+      "avoid": "Không vứt chìa cùng thẻ ghi địa chỉ hoặc số căn hộ.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "metal_wire",
+      "name_vi": "Dây thép, móc kẽm cũ",
+      "category_id": "metal",
+      "aliases_vi": [
+        "móc sắt",
+        "dây kẽm"
+      ],
+      "default_stream": "recyclable",
+      "base_advice": "Nếu móc còn chắc, có thể dùng lại để treo đồ đúng tải trọng.",
+      "avoid": "Không để dây nhọn thò ra khỏi bao rác hoặc đốt lớp bọc.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "metal_spray_cap",
+      "name_vi": "Nắp bình kim loại rời",
+      "category_id": "metal",
+      "aliases_vi": [
+        "nắp hộp xịt",
+        "nắp sơn"
+      ],
+      "default_stream": "special_collection",
+      "base_advice": "Nếu chỉ là nắp sạch và đúng thiết bị, cất giữ để đậy kín khi cần.",
+      "avoid": "Không rửa bằng hóa chất lạ để cố làm sạch.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "glass_cup",
+      "name_vi": "Cốc thủy tinh gia dụng",
+      "category_id": "glass",
+      "aliases_vi": [
+        "ly thủy tinh",
+        "cốc uống nước"
+      ],
+      "default_stream": "reuse",
+      "base_advice": "Nếu còn nguyên, có thể dùng tiếp hoặc chuyển cho người cần sau khi làm sạch.",
+      "avoid": "Không dùng cốc nứt cho đồ nóng hoặc bỏ cạnh sắc trong túi mềm.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "mirror_broken",
+      "name_vi": "Gương soi vỡ",
+      "category_id": "sharps",
+      "aliases_vi": [
+        "mảnh gương",
+        "gương phòng tắm"
+      ],
+      "default_stream": "sharps",
+      "base_advice": "Gương nứt hoặc mẻ không nên tiếp tục dùng ở vị trí dễ rơi vỡ.",
+      "avoid": "Không đập nhỏ gương để bỏ vừa túi mềm.",
+      "caution": "Trường hợp này cần ưu tiên an toàn và xác minh tuyến chuyên trách; không gợi ý vật chứa nguy hiểm cho vào luồng tái chế chung.",
+      "question_ids": [
+        "sharp"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "glass_window",
+      "name_vi": "Kính cửa sổ hỏng",
+      "category_id": "sharps",
+      "aliases_vi": [
+        "tấm kính cửa",
+        "kính xây dựng"
+      ],
+      "default_stream": "sharps",
+      "base_advice": "Nếu còn nguyên nhưng cần tháo khỏi khung, nên dùng thợ có dụng cụ phù hợp.",
+      "avoid": "Không tự tháo kính lớn mất an toàn hoặc nhét mảnh vào rác sinh hoạt.",
+      "caution": "Trường hợp này cần ưu tiên an toàn và xác minh tuyến chuyên trách; không gợi ý vật chứa nguy hiểm cho vào luồng tái chế chung.",
+      "question_ids": [
+        "sharp"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "perfume_bottle",
+      "name_vi": "Chai nước hoa thủy tinh",
+      "category_id": "glass",
+      "aliases_vi": [
+        "lọ nước hoa",
+        "chai mỹ phẩm kính"
+      ],
+      "default_stream": "special_collection",
+      "base_advice": "Nếu còn thơm và an toàn, sử dụng hết đúng mục đích trước khi thải bỏ.",
+      "avoid": "Không đục chai còn áp lực hoặc tự đốt thành phần có cồn.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "ceramic_tile",
+      "name_vi": "Gạch men, gạch lát vỡ",
+      "category_id": "ceramic",
+      "aliases_vi": [
+        "gạch lát nền",
+        "gạch ốp tường"
+      ],
+      "default_stream": "special_collection",
+      "base_advice": "Gạch còn nguyên có thể dự trữ cho sửa chữa hoặc công trình phù hợp.",
+      "avoid": "Không đổ gạch vụn ra lòng đường, đất trống hoặc thùng chai thủy tinh.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "ceramic_mug",
+      "name_vi": "Cốc sứ mẻ",
+      "category_id": "ceramic",
+      "aliases_vi": [
+        "ly sứ",
+        "cốc sứ"
+      ],
+      "default_stream": "reuse",
+      "base_advice": "Nếu cốc chỉ cũ nhưng còn nguyên, tiếp tục dùng theo chức năng; nếu mẻ nhẹ có thể tận dụng đựng bút khi đã loại bỏ cạnh sắc an toàn.",
+      "avoid": "Không tiếp tục dùng cốc mẻ để uống nóng hoặc chà tay lên men nứt.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "organic_veg_scraps",
+      "name_vi": "Rau củ thừa khi sơ chế",
+      "category_id": "organic",
+      "aliases_vi": [
+        "vỏ cà rốt",
+        "cuống rau"
+      ],
+      "default_stream": "organic",
+      "base_advice": "Phần rau còn tươi, an toàn có thể tận dụng cho món ăn hoặc nấu nước dùng phù hợp.",
+      "avoid": "Không đổ rau thừa xuống cống hoặc trộn với dây nhựa.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "banana_peel",
+      "name_vi": "Vỏ chuối",
+      "category_id": "organic",
+      "aliases_vi": [
+        "vỏ chuối chín",
+        "chuối bỏ"
+      ],
+      "default_stream": "organic",
+      "base_advice": "Nếu có thùng ủ phù hợp, vỏ chuối có thể phối trộn cùng vật liệu khô.",
+      "avoid": "Không ném vỏ chuối xuống đường hay bồn cây công cộng.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "eggshell",
+      "name_vi": "Vỏ trứng",
+      "category_id": "organic",
+      "aliases_vi": [
+        "vỏ trứng gà",
+        "vỏ trứng vịt"
+      ],
+      "default_stream": "organic",
+      "base_advice": "Nếu ủ gia đình, có thể làm khô rồi nghiền nhỏ sau khi xử lý vệ sinh phù hợp.",
+      "avoid": "Không rải vỏ trứng bẩn tùy tiện nơi công cộng.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "tea_leaves",
+      "name_vi": "Bã trà, lá trà đã pha",
+      "category_id": "organic",
+      "aliases_vi": [
+        "bã chè",
+        "lá trà"
+      ],
+      "default_stream": "organic",
+      "base_advice": "Bã trà sạch có thể trộn vào compost quy mô gia đình cùng chất khô.",
+      "avoid": "Không đổ bã trà thành cục xuống cống.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "tea_bag",
+      "name_vi": "Túi lọc trà sau sử dụng",
+      "category_id": "composite_packaging",
+      "aliases_vi": [
+        "túi trà",
+        "tea bag"
+      ],
+      "default_stream": "residual",
+      "base_advice": "Nếu vỏ túi rõ ràng là sợi tự nhiên và được chương trình ủ chấp nhận, có thể tách phần lá cho compost.",
+      "avoid": "Không cho mọi túi lọc trà vào compost khi chưa kiểm tra cấu tạo.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "coconut_shell",
+      "name_vi": "Vỏ dừa, gáo dừa",
+      "category_id": "organic",
+      "aliases_vi": [
+        "gáo dừa",
+        "vỏ dừa"
+      ],
+      "default_stream": "organic",
+      "base_advice": "Gáo dừa sạch còn chắc có thể làm chậu trồng hoặc đồ thủ công khi xử lý cạnh an toàn.",
+      "avoid": "Không tự đốt vỏ dừa gần khu dân cư hoặc dùng dao nguy hiểm để băm.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "corn_cob",
+      "name_vi": "Lõi bắp, cùi ngô",
+      "category_id": "organic",
+      "aliases_vi": [
+        "cùi bắp",
+        "lõi ngô"
+      ],
+      "default_stream": "organic",
+      "base_advice": "Nếu có hệ ủ phù hợp, lõi bắp nhỏ có thể làm nguồn hữu cơ thô.",
+      "avoid": "Không đổ lõi bắp xuống cống hoặc vứt ra vườn công cộng.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "fish_bones",
+      "name_vi": "Xương cá và vụn hải sản",
+      "category_id": "organic",
+      "aliases_vi": [
+        "xương cá",
+        "vỏ tôm"
+      ],
+      "default_stream": "organic",
+      "base_advice": "Không tái sử dụng vụn thực phẩm đã hỏng cho người hoặc thú nuôi.",
+      "avoid": "Không bỏ xương sắc rời vào túi dễ thủng hoặc đổ vào cống.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "meat_scraps",
+      "name_vi": "Thịt, đồ động vật thừa",
+      "category_id": "organic",
+      "aliases_vi": [
+        "thịt thừa",
+        "mỡ động vật"
+      ],
+      "default_stream": "organic",
+      "base_advice": "Nếu thực phẩm vẫn bảo đảm vệ sinh và thời hạn, dùng hết đúng cách trước khi thải bỏ.",
+      "avoid": "Không để thịt thừa ngoài trời hoặc cho vào thùng giấy tái chế.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "spoiled_fruit",
+      "name_vi": "Trái cây thối, hỏng",
+      "category_id": "organic",
+      "aliases_vi": [
+        "trái cây hư",
+        "quả thối"
+      ],
+      "default_stream": "organic",
+      "base_advice": "Không cố ăn hoặc cho tặng trái cây đã hỏng, mốc nghiêm trọng.",
+      "avoid": "Không trộn trái cây thối với giấy sạch hoặc đổ nước rỉ xuống nơi công cộng.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "bread_stale",
+      "name_vi": "Bánh mì cũ, mốc",
+      "category_id": "organic",
+      "aliases_vi": [
+        "bánh mì thừa",
+        "vỏ bánh mì"
+      ],
+      "default_stream": "organic",
+      "base_advice": "Nếu bánh chỉ cũ nhưng vẫn an toàn thực phẩm, cân nhắc dùng vào món phù hợp; bánh mốc phải bỏ.",
+      "avoid": "Không cắt phần mốc để ăn phần còn lại khi không bảo đảm an toàn.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "flowers_wilted",
+      "name_vi": "Hoa tươi đã héo",
+      "category_id": "organic",
+      "aliases_vi": [
+        "hoa cắm lọ",
+        "hoa Tết héo"
+      ],
+      "default_stream": "organic",
+      "base_advice": "Nếu hoa còn tươi phần nào, có thể dùng làm trang trí hoặc tận dụng cành phù hợp.",
+      "avoid": "Không bỏ nguyên bó hoa còn dây nhựa vào compost.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "soil_potting",
+      "name_vi": "Đất trồng cây cũ",
+      "category_id": "organic",
+      "aliases_vi": [
+        "đất chậu",
+        "giá thể cũ"
+      ],
+      "default_stream": "special_collection",
+      "base_advice": "Đất sạch có thể cải tạo để tái dùng theo thực hành làm vườn thích hợp.",
+      "avoid": "Không đổ đất nhiễm hóa chất ra cống hoặc đất công cộng.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "sawdust_clean",
+      "name_vi": "Mùn cưa gỗ mộc",
+      "category_id": "wood",
+      "aliases_vi": [
+        "mùn cưa",
+        "mạt gỗ"
+      ],
+      "default_stream": "organic",
+      "base_advice": "Mùn cưa gỗ mộc sạch có thể dùng làm vật liệu khô cho compost theo lượng phù hợp.",
+      "avoid": "Không hít bụi mùn cưa hoặc đốt bụi gỗ nơi kín.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition",
+        "coating"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "old_towel",
+      "name_vi": "Khăn tắm, khăn mặt cũ",
+      "category_id": "textile",
+      "aliases_vi": [
+        "khăn tắm cũ",
+        "khăn bông"
+      ],
+      "default_stream": "reuse",
+      "base_advice": "Khăn sạch còn tốt có thể dùng cho việc lau dọn không nhạy cảm hoặc chuyển nơi nhận đồ phù hợp.",
+      "avoid": "Không dùng khăn mốc tiếp xúc da hoặc tặng như đồ mới.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "bed_sheet",
+      "name_vi": "Ga trải giường cũ",
+      "category_id": "textile",
+      "aliases_vi": [
+        "ga giường",
+        "drap trải giường"
+      ],
+      "default_stream": "reuse",
+      "base_advice": "Ga sạch còn tốt có thể sửa để dùng lại, may túi đựng đồ hoặc cho tặng nơi chấp nhận.",
+      "avoid": "Không chuyển đồ ngủ nhiễm bẩn cho người khác.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "blanket",
+      "name_vi": "Chăn, mền cũ",
+      "category_id": "textile",
+      "aliases_vi": [
+        "chăn bông",
+        "mền cũ"
+      ],
+      "default_stream": "reuse",
+      "base_advice": "Chăn sạch, còn ấm và an toàn có thể giặt đúng nhãn, sửa lại đường may rồi tặng nếu được nhận.",
+      "avoid": "Không cho tặng chăn còn ẩm hoặc không xác định được vệ sinh.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "pillow",
+      "name_vi": "Gối ngủ cũ",
+      "category_id": "textile",
+      "aliases_vi": [
+        "gối bông",
+        "ruột gối"
+      ],
+      "default_stream": "special_collection",
+      "base_advice": "Nếu gối còn an toàn, có thể giặt/vệ sinh theo nhãn và dùng tiếp; phần vỏ có thể thay riêng.",
+      "avoid": "Không dùng gối nấm mốc cho người có vấn đề hô hấp.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "mattress",
+      "name_vi": "Nệm, đệm cũ",
+      "category_id": "textile",
+      "aliases_vi": [
+        "nệm lò xo",
+        "đệm mút"
+      ],
+      "default_stream": "special_collection",
+      "base_advice": "Nếu còn sạch và đủ độ nâng đỡ, có thể sửa phần vỏ hoặc tiếp tục dùng an toàn.",
+      "avoid": "Không bỏ nệm ra vỉa hè khi chưa có lịch tiếp nhận.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "curtain",
+      "name_vi": "Rèm cửa cũ",
+      "category_id": "textile",
+      "aliases_vi": [
+        "màn cửa",
+        "rèm vải"
+      ],
+      "default_stream": "reuse",
+      "base_advice": "Rèm còn sạch có thể giặt, sửa và dùng cho ô cửa khác hoặc làm tấm che.",
+      "avoid": "Không để dây rèm dài nguy hiểm gần trẻ nhỏ.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "backpack",
+      "name_vi": "Ba lô, cặp sách cũ",
+      "category_id": "textile",
+      "aliases_vi": [
+        "cặp học sinh",
+        "balo"
+      ],
+      "default_stream": "reuse",
+      "base_advice": "Nếu còn chắc, sửa khóa hoặc quai rồi tiếp tục dùng, tặng người có nhu cầu sau khi vệ sinh.",
+      "avoid": "Không tặng ba lô đứt quai có nguy cơ rơi đồ nặng.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "wallet_leather",
+      "name_vi": "Ví da cũ",
+      "category_id": "textile",
+      "aliases_vi": [
+        "ví da",
+        "ví giả da"
+      ],
+      "default_stream": "reuse",
+      "base_advice": "Ví còn tốt có thể vệ sinh theo chất liệu, sửa khóa và sử dụng tiếp.",
+      "avoid": "Không bỏ thông tin cá nhân trong ví cũ hoặc đốt giả da.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "helmet",
+      "name_vi": "Mũ bảo hiểm cũ",
+      "category_id": "composite_packaging",
+      "aliases_vi": [
+        "nón bảo hiểm",
+        "mũ xe máy"
+      ],
+      "default_stream": "special_collection",
+      "base_advice": "Chỉ tiếp tục sử dụng khi còn đáp ứng an toàn theo khuyến nghị nhà sản xuất; mũ từng va đập mạnh cần thay dù bên ngoài có thể còn đẹp.",
+      "avoid": "Không cho tặng mũ đã chịu va chạm mạnh như mũ an toàn bình thường.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "umbrella",
+      "name_vi": "Ô, dù hỏng",
+      "category_id": "composite_packaging",
+      "aliases_vi": [
+        "ô gãy",
+        "dù cũ"
+      ],
+      "default_stream": "special_collection",
+      "base_advice": "Nếu chỉ rách vải hoặc hỏng nút bấm có thể sửa tại nơi phù hợp.",
+      "avoid": "Không mở ô có nan nhọn gần người khác.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "leather_belt",
+      "name_vi": "Thắt lưng cũ",
+      "category_id": "textile",
+      "aliases_vi": [
+        "dây nịt",
+        "thắt lưng da"
+      ],
+      "default_stream": "reuse",
+      "base_advice": "Nếu khóa còn tốt, có thể thay dây hoặc chuyển cho người dùng phù hợp.",
+      "avoid": "Không dùng dây mục cho mục đích giữ tải hoặc an toàn.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "carpet",
+      "name_vi": "Thảm trải sàn cũ",
+      "category_id": "textile",
+      "aliases_vi": [
+        "thảm lót chân",
+        "thảm nỉ"
+      ],
+      "default_stream": "special_collection",
+      "base_advice": "Thảm sạch còn chắc có thể vệ sinh chuyên sâu, cắt lại đúng công năng khi an toàn.",
+      "avoid": "Không cho tặng thảm nhiễm mốc hoặc chứa chất lạ.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "battery_button",
+      "name_vi": "Pin cúc áo, pin đồng xu",
+      "category_id": "battery",
+      "aliases_vi": [
+        "pin CR2032",
+        "pin đồng hồ"
+      ],
+      "default_stream": "hazardous",
+      "base_advice": "Không tái sử dụng pin đã hết hoặc pin không rõ tình trạng cho đồ chơi trẻ em.",
+      "avoid": "Không để pin rời nơi trẻ nhỏ với tới hoặc bỏ vào thùng sinh hoạt.",
+      "caution": "Trường hợp này cần ưu tiên an toàn và xác minh tuyến chuyên trách; không gợi ý vật chứa nguy hiểm cho vào luồng tái chế chung.",
+      "question_ids": [
+        "battery_state"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "powerbank",
+      "name_vi": "Sạc dự phòng hỏng",
+      "category_id": "e_waste",
+      "aliases_vi": [
+        "pin dự phòng",
+        "pin sạc điện thoại"
+      ],
+      "default_stream": "ewaste",
+      "base_advice": "Nếu còn an toàn, có thể kiểm tra bảo hành/sửa tại cơ sở có chuyên môn; không tự tháo cell.",
+      "avoid": "Không đâm chọc, sạc pin phồng hoặc vứt vào túi phế liệu kim loại.",
+      "caution": "Trường hợp này cần ưu tiên an toàn và xác minh tuyến chuyên trách; không gợi ý vật chứa nguy hiểm cho vào luồng tái chế chung.",
+      "question_ids": [
+        "condition",
+        "battery_state"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "laptop",
+      "name_vi": "Máy tính xách tay cũ",
+      "category_id": "e_waste",
+      "aliases_vi": [
+        "laptop hỏng",
+        "máy tính cũ"
+      ],
+      "default_stream": "ewaste",
+      "base_advice": "Nếu sửa được an toàn, ưu tiên bảo trì, nâng cấp hoặc chuyển giao sau khi xóa dữ liệu.",
+      "avoid": "Không đổ laptop vào thùng tái chế nhựa kim loại thông thường.",
+      "caution": "Trường hợp này cần ưu tiên an toàn và xác minh tuyến chuyên trách; không gợi ý vật chứa nguy hiểm cho vào luồng tái chế chung.",
+      "question_ids": [
+        "condition",
+        "battery_state"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "keyboard",
+      "name_vi": "Bàn phím máy tính hỏng",
+      "category_id": "e_waste",
+      "aliases_vi": [
+        "bàn phím USB",
+        "bàn phím cơ"
+      ],
+      "default_stream": "ewaste",
+      "base_advice": "Nếu chỉ hỏng một phím hoặc cáp, sửa chữa trước khi bỏ toàn bộ.",
+      "avoid": "Không đốt bàn phím hoặc bỏ pin vào luồng nhựa.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "computer_mouse",
+      "name_vi": "Chuột máy tính hỏng",
+      "category_id": "e_waste",
+      "aliases_vi": [
+        "chuột USB",
+        "chuột không dây"
+      ],
+      "default_stream": "ewaste",
+      "base_advice": "Nếu hỏng nút nhưng còn an toàn, có thể vệ sinh hoặc sửa bởi người có chuyên môn.",
+      "avoid": "Không vứt pin lẫn chuột vào rác hỗn hợp.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "headphones",
+      "name_vi": "Tai nghe hỏng",
+      "category_id": "e_waste",
+      "aliases_vi": [
+        "tai nghe bluetooth",
+        "tai nghe có dây"
+      ],
+      "default_stream": "ewaste",
+      "base_advice": "Nếu tai nghe có dây còn âm thanh tốt, sửa dây hoặc đệm tai khi phù hợp.",
+      "avoid": "Không cạy pin tai nghe TWS nhỏ hoặc đốt thiết bị.",
+      "caution": "Trường hợp này cần ưu tiên an toàn và xác minh tuyến chuyên trách; không gợi ý vật chứa nguy hiểm cho vào luồng tái chế chung.",
+      "question_ids": [
+        "condition",
+        "battery_state"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "remote",
+      "name_vi": "Điều khiển TV hỏng",
+      "category_id": "e_waste",
+      "aliases_vi": [
+        "remote TV",
+        "điều khiển điều hòa"
+      ],
+      "default_stream": "ewaste",
+      "base_advice": "Nếu chỉ hết pin, thay đúng loại; nếu hỏng nhẹ, vệ sinh theo hướng dẫn an toàn.",
+      "avoid": "Không chạm trực tiếp dịch pin rò rỉ hoặc đốt điều khiển.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "router",
+      "name_vi": "Bộ phát Wi-Fi cũ",
+      "category_id": "e_waste",
+      "aliases_vi": [
+        "router cũ",
+        "modem wifi"
+      ],
+      "default_stream": "ewaste",
+      "base_advice": "Nếu còn chạy, khôi phục thiết lập gốc và dùng làm điểm mạng phụ khi an toàn.",
+      "avoid": "Không vứt router còn chứa thông tin đăng nhập hoặc đốt mạch.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "printer_ink",
+      "name_vi": "Hộp mực máy in",
+      "category_id": "e_waste",
+      "aliases_vi": [
+        "cartridge mực",
+        "hộp toner"
+      ],
+      "default_stream": "special_collection",
+      "base_advice": "Nếu hộp có thể nạp lại theo chuẩn nhà sản xuất, tìm dịch vụ phù hợp.",
+      "avoid": "Không hít bụi toner, đốt hộp mực hoặc súc rửa bột mực xuống cống.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "usb_drive",
+      "name_vi": "USB, thẻ nhớ cũ",
+      "category_id": "e_waste",
+      "aliases_vi": [
+        "USB flash",
+        "thẻ SD"
+      ],
+      "default_stream": "ewaste",
+      "base_advice": "Nếu còn hoạt động, có thể dùng tiếp sau khi kiểm tra dữ liệu và nhu cầu.",
+      "avoid": "Không bỏ USB chứa dữ liệu cá nhân nhạy cảm ra thu gom tự do.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "led_strip",
+      "name_vi": "Dây đèn LED trang trí hỏng",
+      "category_id": "e_waste",
+      "aliases_vi": [
+        "đèn led dây",
+        "dây led Tết"
+      ],
+      "default_stream": "ewaste",
+      "base_advice": "Nếu chỉ hỏng nguồn và có dịch vụ an toàn, sửa trước khi thay toàn bộ.",
+      "avoid": "Không cắm thử dây tróc cách điện hoặc đốt dây lấy kim loại.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "rice_cooker",
+      "name_vi": "Nồi cơm điện hỏng",
+      "category_id": "e_waste",
+      "aliases_vi": [
+        "nồi cơm cũ",
+        "nồi điện"
+      ],
+      "default_stream": "ewaste",
+      "base_advice": "Nếu chỉ hỏng phụ kiện thay được, hỏi trung tâm sửa chữa trước khi bỏ.",
+      "avoid": "Không sử dụng nồi có dây chảy, rò điện hoặc đánh tráo với phế liệu kim loại sạch.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "electric_fan",
+      "name_vi": "Quạt điện cũ",
+      "category_id": "e_waste",
+      "aliases_vi": [
+        "quạt bàn",
+        "quạt đứng"
+      ],
+      "default_stream": "ewaste",
+      "base_advice": "Nếu quạt còn an toàn, vệ sinh và thay phụ kiện theo hướng dẫn kỹ thuật phù hợp.",
+      "avoid": "Không chạy quạt thiếu lồng bảo vệ hoặc dây nguồn hở.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "battery_vehicle",
+      "name_vi": "Ắc quy xe máy, ô tô",
+      "category_id": "battery",
+      "aliases_vi": [
+        "ắc quy chì",
+        "ắc quy xe"
+      ],
+      "default_stream": "hazardous",
+      "base_advice": "Ắc quy còn dùng được cần được kiểm tra chuyên môn; không tự sửa chữa bằng phương pháp không rõ.",
+      "avoid": "Không nghiêng đổ axit, tháo lõi hoặc bán cho điểm không đủ điều kiện an toàn.",
+      "caution": "Trường hợp này cần ưu tiên an toàn và xác minh tuyến chuyên trách; không gợi ý vật chứa nguy hiểm cho vào luồng tái chế chung.",
+      "question_ids": [
+        "battery_state"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "medicine_expired",
+      "name_vi": "Thuốc viên quá hạn",
+      "category_id": "chemical_container",
+      "aliases_vi": [
+        "thuốc hết hạn",
+        "thuốc không dùng"
+      ],
+      "default_stream": "hazardous",
+      "base_advice": "Thuốc đã hết hạn hoặc không còn được kê dùng không nên chia cho người khác.",
+      "avoid": "Không đổ thuốc xuống cống hoặc tự chia thuốc cũ cho người khác.",
+      "caution": "Trường hợp này cần ưu tiên an toàn và xác minh tuyến chuyên trách; không gợi ý vật chứa nguy hiểm cho vào luồng tái chế chung.",
+      "question_ids": [
+        "condition"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "medicine_blister",
+      "name_vi": "Vỉ thuốc rỗng",
+      "category_id": "composite_packaging",
+      "aliases_vi": [
+        "vỉ nhôm nhựa",
+        "vỉ thuốc"
+      ],
+      "default_stream": "residual",
+      "base_advice": "Nếu còn thuốc chưa dùng, tách vấn đề xử lý thuốc khỏi bao bì và hỏi dược sĩ.",
+      "avoid": "Không ép vỉ còn thuốc để lấy vật liệu hoặc để trẻ chơi.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "medicine_syrup",
+      "name_vi": "Chai siro thuốc còn dư",
+      "category_id": "chemical_container",
+      "aliases_vi": [
+        "thuốc nước",
+        "chai thuốc ho"
+      ],
+      "default_stream": "hazardous",
+      "base_advice": "Nếu thuốc còn trong chỉ định, sử dụng đúng toa/nhãn và tư vấn y tế, không tự chuyển cho người khác.",
+      "avoid": "Không đổ siro thuốc xuống bồn rửa hoặc trộn với thực phẩm.",
+      "caution": "Trường hợp này cần ưu tiên an toàn và xác minh tuyến chuyên trách; không gợi ý vật chứa nguy hiểm cho vào luồng tái chế chung.",
+      "question_ids": [
+        "chemical_state"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "bandage_used",
+      "name_vi": "Băng gạc y tế đã dùng",
+      "category_id": "sanitary_waste",
+      "aliases_vi": [
+        "băng urgo đã dùng",
+        "gạc bẩn"
+      ],
+      "default_stream": "medical",
+      "base_advice": "Băng gạc dùng một lần không tái sử dụng trên vết thương.",
+      "avoid": "Không bỏ băng dính máu vào giấy tái chế hoặc để trẻ tiếp xúc.",
+      "caution": "Trường hợp này cần ưu tiên an toàn và xác minh tuyến chuyên trách; không gợi ý vật chứa nguy hiểm cho vào luồng tái chế chung.",
+      "question_ids": [
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "cotton_swab",
+      "name_vi": "Tăm bông đã dùng",
+      "category_id": "sanitary_waste",
+      "aliases_vi": [
+        "que ngoáy tai",
+        "tăm bông"
+      ],
+      "default_stream": "residual",
+      "base_advice": "Tăm bông đã dùng không phù hợp để dùng lại cho chăm sóc cá nhân.",
+      "avoid": "Không thả tăm bông xuống bồn cầu hoặc cống.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "wet_wipes",
+      "name_vi": "Khăn ướt đã dùng",
+      "category_id": "sanitary_waste",
+      "aliases_vi": [
+        "khăn lau em bé",
+        "khăn ướt"
+      ],
+      "default_stream": "residual",
+      "base_advice": "Khăn ướt dùng một lần không nên tái sử dụng cho da.",
+      "avoid": "Không xả khăn ướt xuống bồn cầu, kể cả loại quảng cáo dễ phân hủy nếu hệ thống không cho phép.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "sanitary_pad",
+      "name_vi": "Băng vệ sinh đã qua sử dụng",
+      "category_id": "sanitary_waste",
+      "aliases_vi": [
+        "băng vệ sinh",
+        "miếng lót"
+      ],
+      "default_stream": "residual",
+      "base_advice": "Băng vệ sinh dùng một lần sau sử dụng không thể tái dùng.",
+      "avoid": "Không xả băng vệ sinh xuống bồn cầu hoặc bỏ vào tái chế.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "dental_floss",
+      "name_vi": "Chỉ nha khoa đã dùng",
+      "category_id": "sanitary_waste",
+      "aliases_vi": [
+        "chỉ vệ sinh răng",
+        "floss"
+      ],
+      "default_stream": "residual",
+      "base_advice": "Chỉ nha khoa dùng một lần không dùng lại.",
+      "avoid": "Không xả chỉ nha khoa xuống bồn cầu.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "pet_litter",
+      "name_vi": "Cát vệ sinh mèo đã dùng",
+      "category_id": "sanitary_waste",
+      "aliases_vi": [
+        "cát mèo",
+        "cát thú cưng"
+      ],
+      "default_stream": "residual",
+      "base_advice": "Cát đã dính chất thải động vật không phù hợp để tái sử dụng thông thường.",
+      "avoid": "Không xả cát mèo xuống bồn cầu hoặc rải ngoài sân.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "pet_waste",
+      "name_vi": "Phân chó mèo",
+      "category_id": "sanitary_waste",
+      "aliases_vi": [
+        "phân thú cưng",
+        "chất thải vật nuôi"
+      ],
+      "default_stream": "residual",
+      "base_advice": "Không sử dụng phân chó mèo cho compost gia đình phục vụ cây ăn.",
+      "avoid": "Không vứt túi phân ra môi trường hoặc đổ xuống cống.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "paint_brush",
+      "name_vi": "Cọ sơn có dính sơn",
+      "category_id": "chemical_container",
+      "aliases_vi": [
+        "chổi sơn",
+        "con lăn sơn"
+      ],
+      "default_stream": "hazardous",
+      "base_advice": "Cọ còn dùng được có thể được bảo quản và vệ sinh đúng hướng dẫn nhãn sơn tại nơi thích hợp.",
+      "avoid": "Không đổ dung môi rửa cọ xuống cống hoặc đốt cọ.",
+      "caution": "Trường hợp này cần ưu tiên an toàn và xác minh tuyến chuyên trách; không gợi ý vật chứa nguy hiểm cho vào luồng tái chế chung.",
+      "question_ids": [
+        "chemical_state"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "pesticide_bottle",
+      "name_vi": "Vỏ chai thuốc bảo vệ thực vật",
+      "category_id": "chemical_container",
+      "aliases_vi": [
+        "chai thuốc trừ sâu",
+        "bao bì thuốc sâu"
+      ],
+      "default_stream": "hazardous",
+      "base_advice": "Không tái sử dụng chai thuốc bảo vệ thực vật cho bất kỳ mục đích chứa thực phẩm hoặc nước.",
+      "avoid": "Không tự súc rửa, tái sử dụng, đổ xuống ruộng/cống hoặc đốt chai.",
+      "caution": "Trường hợp này cần ưu tiên an toàn và xác minh tuyến chuyên trách; không gợi ý vật chứa nguy hiểm cho vào luồng tái chế chung.",
+      "question_ids": [
+        "chemical_state"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "cleaner_bleach",
+      "name_vi": "Nước tẩy, chất làm sạch còn dư",
+      "category_id": "chemical_container",
+      "aliases_vi": [
+        "nước Javel",
+        "dung dịch tẩy rửa"
+      ],
+      "default_stream": "hazardous",
+      "base_advice": "Nếu sản phẩm vẫn dùng được, dùng theo nhãn, không phối trộn với sản phẩm khác.",
+      "avoid": "Không trộn chất tẩy với hóa chất khác hoặc đổ đồng thời xuống cống.",
+      "caution": "Trường hợp này cần ưu tiên an toàn và xác minh tuyến chuyên trách; không gợi ý vật chứa nguy hiểm cho vào luồng tái chế chung.",
+      "question_ids": [
+        "chemical_state"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "nail_polish",
+      "name_vi": "Lọ sơn móng tay còn dung dịch",
+      "category_id": "chemical_container",
+      "aliases_vi": [
+        "sơn móng tay",
+        "lọ nail"
+      ],
+      "default_stream": "hazardous",
+      "base_advice": "Nếu sản phẩm còn sử dụng được và được phép, cân nhắc sử dụng hết đúng mục đích.",
+      "avoid": "Không đổ sơn xuống bồn rửa, đốt hoặc cố phá chai.",
+      "caution": "Trường hợp này cần ưu tiên an toàn và xác minh tuyến chuyên trách; không gợi ý vật chứa nguy hiểm cho vào luồng tái chế chung.",
+      "question_ids": [
+        "chemical_state"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "perfume_aerosol",
+      "name_vi": "Bình xịt khử mùi cơ thể",
+      "category_id": "chemical_container",
+      "aliases_vi": [
+        "xịt khử mùi",
+        "deodorant aerosol"
+      ],
+      "default_stream": "hazardous",
+      "base_advice": "Sử dụng đúng hướng dẫn nhãn nếu bình còn dùng được và an toàn.",
+      "avoid": "Không đục để lấy kim loại hoặc đốt bình.",
+      "caution": "Trường hợp này cần ưu tiên an toàn và xác minh tuyến chuyên trách; không gợi ý vật chứa nguy hiểm cho vào luồng tái chế chung.",
+      "question_ids": [
+        "pressure"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "insect_spray",
+      "name_vi": "Bình xịt diệt côn trùng",
+      "category_id": "chemical_container",
+      "aliases_vi": [
+        "xịt muỗi",
+        "thuốc xịt gián"
+      ],
+      "default_stream": "hazardous",
+      "base_advice": "Không chuyển giao bình còn thuốc cho người khác nếu không bảo đảm việc sử dụng đúng nhãn.",
+      "avoid": "Không xịt hết vào môi trường chỉ để làm rỗng vỏ.",
+      "caution": "Trường hợp này cần ưu tiên an toàn và xác minh tuyến chuyên trách; không gợi ý vật chứa nguy hiểm cho vào luồng tái chế chung.",
+      "question_ids": [
+        "pressure"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "engine_oil",
+      "name_vi": "Dầu nhớt động cơ đã qua sử dụng",
+      "category_id": "chemical_container",
+      "aliases_vi": [
+        "nhớt xe máy",
+        "dầu máy cũ"
+      ],
+      "default_stream": "hazardous",
+      "base_advice": "Dầu nhớt thải không dùng lại cho mục đích sinh hoạt hay bôi đồ gia dụng.",
+      "avoid": "Không đổ xuống cống, đất, nguồn nước hoặc đốt.",
+      "caution": "Trường hợp này cần ưu tiên an toàn và xác minh tuyến chuyên trách; không gợi ý vật chứa nguy hiểm cho vào luồng tái chế chung.",
+      "question_ids": [
+        "chemical_state"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "old_brake_fluid",
+      "name_vi": "Dầu phanh, dung dịch xe cũ",
+      "category_id": "chemical_container",
+      "aliases_vi": [
+        "dầu thắng",
+        "dầu phanh"
+      ],
+      "default_stream": "hazardous",
+      "base_advice": "Không dùng lại dung dịch phanh đã tháo vì yêu cầu an toàn kỹ thuật.",
+      "avoid": "Không đổ vào cống hoặc tự pha vào chất lỏng khác.",
+      "caution": "Trường hợp này cần ưu tiên an toàn và xác minh tuyến chuyên trách; không gợi ý vật chứa nguy hiểm cho vào luồng tái chế chung.",
+      "question_ids": [
+        "chemical_state"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "adhesive_glue",
+      "name_vi": "Tuýp keo, lọ keo thừa",
+      "category_id": "chemical_container",
+      "aliases_vi": [
+        "keo 502",
+        "keo dán đa năng"
+      ],
+      "default_stream": "hazardous",
+      "base_advice": "Keo còn dùng được có thể sử dụng đúng mục đích, tránh da và mắt theo nhãn.",
+      "avoid": "Không trộn keo với chất lạ, đốt hoặc đổ xuống cống.",
+      "caution": "Trường hợp này cần ưu tiên an toàn và xác minh tuyến chuyên trách; không gợi ý vật chứa nguy hiểm cho vào luồng tái chế chung.",
+      "question_ids": [
+        "chemical_state"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "cosmetic_tube",
+      "name_vi": "Tuýp kem đánh răng, mỹ phẩm",
+      "category_id": "composite_packaging",
+      "aliases_vi": [
+        "tuýp kem đánh răng",
+        "tuýp dưỡng da"
+      ],
+      "default_stream": "special_collection",
+      "base_advice": "Chỉ tiếp tục dùng sản phẩm nếu còn hạn, an toàn và đúng mục đích.",
+      "avoid": "Không cắt tuýp có hóa chất nguy hiểm hoặc đổ lượng lớn mỹ phẩm xuống cống.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "cosmetic_jar",
+      "name_vi": "Hũ mỹ phẩm rỗng",
+      "category_id": "plastic",
+      "aliases_vi": [
+        "hũ kem dưỡng",
+        "hộp mỹ phẩm"
+      ],
+      "default_stream": "special_collection",
+      "base_advice": "Nếu hũ sạch, còn nguyên, có thể dùng chứa đồ khô không thực phẩm.",
+      "avoid": "Không tự pha trộn mỹ phẩm tồn dư hoặc bỏ lọ thủy tinh vào nhựa.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "contact_lens",
+      "name_vi": "Kính áp tròng đã dùng",
+      "category_id": "sanitary_waste",
+      "aliases_vi": [
+        "lens cũ",
+        "kính sát tròng"
+      ],
+      "default_stream": "residual",
+      "base_advice": "Kính áp tròng hết hạn hoặc đã bỏ không nên tái sử dụng, cho tặng.",
+      "avoid": "Không xả kính áp tròng xuống bồn cầu hay chậu rửa.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "contact_solution",
+      "name_vi": "Chai dung dịch kính áp tròng",
+      "category_id": "plastic",
+      "aliases_vi": [
+        "lọ nước ngâm lens",
+        "chai dung dịch lens"
+      ],
+      "default_stream": "recyclable",
+      "base_advice": "Không tái sử dụng chai thuốc/vệ sinh mắt để chứa chất lỏng tự pha dùng cho mắt.",
+      "avoid": "Không đổ dung dịch hết hạn vào mắt hoặc làm giả sản phẩm mới.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "wood_furniture",
+      "name_vi": "Bàn ghế gỗ cũ",
+      "category_id": "wood",
+      "aliases_vi": [
+        "bàn gỗ",
+        "ghế gỗ"
+      ],
+      "default_stream": "reuse",
+      "base_advice": "Nếu kết cấu còn vững, sửa mối nối, đánh giá lớp phủ rồi dùng tiếp hoặc cho tặng đồ còn an toàn.",
+      "avoid": "Không đặt ghế mất cân bằng cho người khác dùng hoặc đốt gỗ phủ.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition",
+        "coating"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "mdf_board",
+      "name_vi": "Tấm ván MDF, ván ép",
+      "category_id": "wood",
+      "aliases_vi": [
+        "ván ép",
+        "ván công nghiệp"
+      ],
+      "default_stream": "special_collection",
+      "base_advice": "Chỉ tận dụng làm đồ khô khi tấm còn chắc và phù hợp công năng.",
+      "avoid": "Không đốt ván ép trong sân hoặc tự nghiền bụi mịn không bảo hộ.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition",
+        "coating"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "bamboo_chopsticks",
+      "name_vi": "Đũa tre, đũa gỗ dùng một lần",
+      "category_id": "wood",
+      "aliases_vi": [
+        "đũa tre",
+        "đũa gỗ"
+      ],
+      "default_stream": "residual",
+      "base_advice": "Đũa một lần đã dùng không nên tiếp tục làm dụng cụ ăn uống cho người khác.",
+      "avoid": "Không đốt đũa trong nhà hoặc bỏ đũa sắc vào túi dễ thủng.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition",
+        "coating"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "broken_wooden_chair",
+      "name_vi": "Ghế gỗ hỏng",
+      "category_id": "wood",
+      "aliases_vi": [
+        "ghế gãy",
+        "chân ghế gỗ"
+      ],
+      "default_stream": "special_collection",
+      "base_advice": "Nếu ghế có thể sửa chắc chắn bởi người có kỹ năng, cân nhắc phục hồi trước khi dùng.",
+      "avoid": "Không tiếp tục ngồi ghế gãy hoặc vứt ghế chắn lối đi.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition",
+        "coating"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "rubber_slippers",
+      "name_vi": "Dép cao su, dép nhựa hỏng",
+      "category_id": "rubber",
+      "aliases_vi": [
+        "dép tổ ong",
+        "dép cao su"
+      ],
+      "default_stream": "special_collection",
+      "base_advice": "Nếu còn an toàn, thay quai hoặc dùng lại phù hợp.",
+      "avoid": "Không cho tặng dép trơn nguy hiểm hoặc đốt.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "rubber_gloves",
+      "name_vi": "Găng tay cao su đã dùng",
+      "category_id": "rubber",
+      "aliases_vi": [
+        "găng rửa bát",
+        "găng cao su"
+      ],
+      "default_stream": "residual",
+      "base_advice": "Nếu găng dùng việc nhẹ, còn nguyên và sạch, có thể tiếp tục đúng công năng; găng bảo hộ hỏng phải thay.",
+      "avoid": "Không dùng găng rách khi tiếp xúc chất ăn mòn hoặc đốt.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "rubber_band",
+      "name_vi": "Dây chun, dây thun",
+      "category_id": "rubber",
+      "aliases_vi": [
+        "dây thun buộc đồ",
+        "dây cao su"
+      ],
+      "default_stream": "residual",
+      "base_advice": "Nếu dây còn đàn hồi, dùng lại để buộc đồ nhẹ phù hợp.",
+      "avoid": "Không bắn dây vào người hoặc thả ra nơi động vật có thể nuốt.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "rubber_mat",
+      "name_vi": "Thảm cao su cũ",
+      "category_id": "rubber",
+      "aliases_vi": [
+        "thảm cao su",
+        "thảm chống trượt"
+      ],
+      "default_stream": "special_collection",
+      "base_advice": "Nếu thảm còn chống trượt và sạch, có thể dùng tiếp đúng mục đích.",
+      "avoid": "Không dùng thảm trơn ở phòng tắm gây nguy cơ ngã.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "cable_insulation",
+      "name_vi": "Vỏ dây điện bọc nhựa",
+      "category_id": "e_waste",
+      "aliases_vi": [
+        "dây điện cũ",
+        "dây điện hỏng"
+      ],
+      "default_stream": "ewaste",
+      "base_advice": "Nếu là dây an toàn đạt chuẩn, dùng đúng công năng; dây nứt hở cần thay.",
+      "avoid": "Không đốt vỏ nhựa để lấy đồng hoặc chạm lõi còn điện.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "fire_extinguisher",
+      "name_vi": "Bình chữa cháy cũ, hết hạn",
+      "category_id": "chemical_container",
+      "aliases_vi": [
+        "bình cứu hỏa",
+        "bình PCCC"
+      ],
+      "default_stream": "hazardous",
+      "base_advice": "Nếu còn đạt yêu cầu kiểm định, tiếp tục sử dụng theo hướng dẫn đơn vị PCCC.",
+      "avoid": "Không đập, cắt, đốt hoặc tự mở van xả bình hỏng.",
+      "caution": "Trường hợp này cần ưu tiên an toàn và xác minh tuyến chuyên trách; không gợi ý vật chứa nguy hiểm cho vào luồng tái chế chung.",
+      "question_ids": [
+        "pressure"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "small_gas_canister",
+      "name_vi": "Bình gas mini đã dùng",
+      "category_id": "chemical_container",
+      "aliases_vi": [
+        "lon gas bếp mini",
+        "bình butane"
+      ],
+      "default_stream": "hazardous",
+      "base_advice": "Bình chỉ tái dùng theo đúng tiêu chuẩn/nhà sản xuất; bình dùng một lần không tự bơm nạp.",
+      "avoid": "Không đục thủng, đốt, thử gas cạnh lửa hoặc nạp lại trái hướng dẫn.",
+      "caution": "Trường hợp này cần ưu tiên an toàn và xác minh tuyến chuyên trách; không gợi ý vật chứa nguy hiểm cho vào luồng tái chế chung.",
+      "question_ids": [
+        "pressure"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "thermometer_mercury",
+      "name_vi": "Nhiệt kế thủy ngân cũ hoặc vỡ",
+      "category_id": "chemical_container",
+      "aliases_vi": [
+        "nhiệt kế thủy ngân",
+        "ống thủy ngân"
+      ],
+      "default_stream": "hazardous",
+      "base_advice": "Nhiệt kế còn nguyên có thể chuyển sang nhiệt kế điện tử an toàn hơn khi cần thay.",
+      "avoid": "Không quét bằng chổi, hút bụi hoặc đổ thủy ngân xuống cống.",
+      "caution": "Trường hợp này cần ưu tiên an toàn và xác minh tuyến chuyên trách; không gợi ý vật chứa nguy hiểm cho vào luồng tái chế chung.",
+      "question_ids": [
+        "condition"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "water_filter_cartridge",
+      "name_vi": "Lõi lọc nước đã qua sử dụng",
+      "category_id": "composite_packaging",
+      "aliases_vi": [
+        "lõi lọc RO",
+        "lõi than hoạt tính"
+      ],
+      "default_stream": "special_collection",
+      "base_advice": "Không dùng lõi quá hạn cho nước uống chỉ vì bên ngoài vẫn đẹp.",
+      "avoid": "Không tháo đập lõi đã chứa tạp chất không rõ hoặc đốt.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "used_air_filter",
+      "name_vi": "Màng lọc không khí cũ",
+      "category_id": "composite_packaging",
+      "aliases_vi": [
+        "lọc máy lạnh",
+        "lọc HEPA"
+      ],
+      "default_stream": "special_collection",
+      "base_advice": "Chỉ vệ sinh và dùng lại với loại filter được nhà sản xuất cho phép, không giặt HEPA dùng một lần tùy tiện.",
+      "avoid": "Không giũ bụi filter nghi nhiễm nguy hiểm trong không gian kín.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "reusable_glass_lunchbox",
+      "name_vi": "Hộp cơm thủy tinh có nắp",
+      "category_id": "glass",
+      "aliases_vi": [
+        "hộp thủy tinh chịu nhiệt",
+        "hộp cơm kính"
+      ],
+      "default_stream": "reuse",
+      "base_advice": "Nếu nguyên, dùng đúng nhiệt độ quy định và thay nắp/gioăng nếu có phụ kiện an toàn.",
+      "avoid": "Không dùng hộp nứt trong lò hoặc đổ nước nóng lên kính không phù hợp.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition",
+        "contamination",
+        "sharp"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "used_mask_cloth",
+      "name_vi": "Khẩu trang vải cũ",
+      "category_id": "textile",
+      "aliases_vi": [
+        "khẩu trang vải",
+        "khẩu trang giặt"
+      ],
+      "default_stream": "reuse",
+      "base_advice": "Nếu còn đáp ứng yêu cầu sử dụng và đã giặt đúng hướng dẫn, tiếp tục dùng phù hợp.",
+      "avoid": "Không dùng khẩu trang mốc hoặc rách làm đồ bảo vệ.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "broken_pen",
+      "name_vi": "Bút bi, bút máy hỏng",
+      "category_id": "composite_packaging",
+      "aliases_vi": [
+        "bút bi cũ",
+        "ruột bút"
+      ],
+      "default_stream": "residual",
+      "base_advice": "Nếu chỉ hết mực và có ruột thay, ưu tiên thay ruột để dùng tiếp.",
+      "avoid": "Không đốt bút hoặc để ruột mực chảy vào giấy sạch.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "tape_roll",
+      "name_vi": "Cuộn băng dính đã sử dụng",
+      "category_id": "composite_packaging",
+      "aliases_vi": [
+        "băng keo",
+        "cuộn băng dính"
+      ],
+      "default_stream": "residual",
+      "base_advice": "Nếu băng còn bám tốt, sử dụng nốt đúng mục đích thay vì bỏ cả cuộn.",
+      "avoid": "Không cho cả cuộn keo vào giấy tái chế.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "cd_dvd",
+      "name_vi": "Đĩa CD, DVD cũ",
+      "category_id": "composite_packaging",
+      "aliases_vi": [
+        "đĩa CD",
+        "đĩa DVD"
+      ],
+      "default_stream": "special_collection",
+      "base_advice": "Nếu còn dữ liệu được phép chia sẻ, có thể dùng tiếp hoặc tặng phù hợp bản quyền.",
+      "avoid": "Không đốt đĩa hoặc bỏ dữ liệu bí mật chưa xử lý.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "old_broom",
+      "name_vi": "Chổi quét nhà hỏng",
+      "category_id": "composite_packaging",
+      "aliases_vi": [
+        "chổi nhựa",
+        "chổi cán gỗ"
+      ],
+      "default_stream": "special_collection",
+      "base_advice": "Nếu chỉ lỏng cán, sửa hoặc thay đầu chổi nếu có phụ kiện.",
+      "avoid": "Không dùng chổi cán gãy dễ đâm tay hoặc đốt sợi nhựa.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "mop_head",
+      "name_vi": "Đầu cây lau nhà cũ",
+      "category_id": "textile",
+      "aliases_vi": [
+        "bông lau sàn",
+        "giẻ lau nhà"
+      ],
+      "default_stream": "special_collection",
+      "base_advice": "Đầu lau sạch còn tốt có thể giặt theo hướng dẫn sản phẩm và dùng tiếp.",
+      "avoid": "Không cho tặng bông lau từng tiếp xúc hóa chất mạnh.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "painted_wood_frame",
+      "name_vi": "Khung tranh gỗ sơn hỏng",
+      "category_id": "wood",
+      "aliases_vi": [
+        "khung ảnh gỗ",
+        "khung tranh"
+      ],
+      "default_stream": "special_collection",
+      "base_advice": "Nếu khung chắc, có thể thay mặt kính hoặc dùng lại cho tranh khác.",
+      "avoid": "Không đốt khung sơn hoặc để đinh nhô ra.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
+      "question_ids": [
+        "condition",
+        "coating"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "old_bicycle_tube",
+      "name_vi": "Ruột xe đạp, ruột xe máy",
+      "category_id": "rubber",
+      "aliases_vi": [
+        "săm xe",
+        "ruột xe"
+      ],
+      "default_stream": "special_collection",
+      "base_advice": "Nếu được thợ xác nhận vá an toàn, có thể sửa để sử dụng đúng công năng.",
+      "avoid": "Không tiếp tục dùng săm phồng nứt gây nguy cơ tai nạn.",
+      "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
       "question_ids": [
         "condition"
       ],

@@ -7,10 +7,13 @@ from pathlib import Path
 from typing import Any
 
 KB_PATH = Path(__file__).with_name('recommendation_kb.json')
+RESPONSE_CATALOG_PATH = Path(__file__).with_name('response_catalog_v21.json')
 TAXONOMY_PATH = Path(__file__).with_name('taxonomy.json')
 KB = json.loads(KB_PATH.read_text(encoding='utf-8'))
+RESPONSE_CATALOG = json.loads(RESPONSE_CATALOG_PATH.read_text(encoding='utf-8'))
 TAXONOMY = json.loads(TAXONOMY_PATH.read_text(encoding='utf-8'))
 OBJECTS = {x['id']: x for x in KB['objects']}
+RESPONSE_OBJECTS = {x['id']: x for x in RESPONSE_CATALOG['objects']}
 QUESTIONS = KB['questions']
 STREAMS = KB['streams']
 
@@ -89,7 +92,38 @@ def validate_knowledge_base(kb: dict[str, Any], taxonomy: dict[str, Any]) -> Non
         raise ValueError(f'Rule engine references undefined questions: {sorted(invalid_rule_questions)}')
 
 
+def validate_response_catalog(catalog: dict[str, Any], kb: dict[str, Any], taxonomy: dict[str, Any]) -> None:
+    """Validate the authored Vietnamese response catalog before serving it."""
+    if catalog.get('schema_version') != '2.1' or not isinstance(catalog.get('objects'), list):
+        raise ValueError('Response catalog schema/version is invalid')
+    ids = [obj.get('id') for obj in catalog['objects'] if isinstance(obj, dict)]
+    if len(ids) != len(catalog['objects']) or len(ids) != len(set(ids)):
+        raise ValueError('Response catalog object IDs must be unique')
+    taxonomy_ids = {row['id'] for row in taxonomy['categories']}
+    kb_ids = {obj['id'] for obj in kb['objects']}
+    source_ids = set(catalog.get('sources', {}))
+    kb_objects = {obj['id']: obj for obj in kb['objects']}
+    for obj in catalog['objects']:
+        if obj.get('category_id') not in taxonomy_ids:
+            raise ValueError(f"Response object {obj.get('id')!r} references an unknown taxonomy category")
+        if obj.get('id') not in kb_ids:
+            raise ValueError(f"Response object {obj.get('id')!r} is missing from the recommendation KB")
+        if set(obj.get('question_ids', [])) - set(kb['questions']):
+            raise ValueError(f"Response object {obj['id']!r} references an unknown question")
+        if obj.get('question_ids') != kb_objects[obj['id']]['question_ids']:
+            raise ValueError(f"Response object {obj['id']!r} question list differs from the recommendation KB")
+        if set(obj.get('source_ids', [])) - source_ids:
+            raise ValueError(f"Response object {obj['id']!r} references an unknown source")
+        guidance = obj.get('guidance', {})
+        if not all(isinstance(guidance.get(key), str) and guidance[key].strip()
+                   for key in ('headline', 'assessment', 'default_action', 'why')):
+            raise ValueError(f"Response object {obj['id']!r} has incomplete Vietnamese guidance")
+        if not isinstance(guidance.get('practical_steps'), list) or not guidance['practical_steps']:
+            raise ValueError(f"Response object {obj['id']!r} has no practical steps")
+
+
 validate_knowledge_base(KB, TAXONOMY)
+validate_response_catalog(RESPONSE_CATALOG, KB, TAXONOMY)
 
 
 def _norm(text: str) -> str:
@@ -116,6 +150,7 @@ def catalog(query: str = '', category_id: str | None = None, limit: int = 100) -
             'id': item['id'], 'name_vi': item['name_vi'],
             'category_id': item['category_id'], 'aliases_vi': item['aliases_vi'],
             'question_ids': item['question_ids'],
+            'review_status': RESPONSE_OBJECTS[item['id']]['review_status'],
         })
     return results[:limit]
 
@@ -129,6 +164,8 @@ def detail(object_id: str) -> dict:
         'category_id': item['category_id'],
         'questions': [{'id': key, **QUESTIONS[key]} for key in item['question_ids']],
         'notice': KB['notice'], 'evidence_level': item['evidence_level'],
+        'headline': RESPONSE_OBJECTS[item['id']]['guidance']['headline'],
+        'review_status': RESPONSE_OBJECTS[item['id']]['review_status'],
     }
 
 
@@ -289,6 +326,44 @@ def recommend(object_id: str, answers: dict[str, str] | None = None,
     if detected_category_id and detected_category_id != item['category_id']:
         cautions.append('Nhóm YOLO khác nhóm của vật thể bạn đã chọn; khuyến nghị dựa trên vật thể bạn chọn, không coi nhãn YOLO là xác nhận.')
 
+    authored = RESPONSE_OBJECTS[object_id]
+    guidance = authored['guidance']
+    # A condition/contamination branch is used as natural-language guidance only
+    # after the deterministic safety rules above have had the final say.
+    safety_override = (
+        contamination in {'hazardous', 'unknown'}
+        or battery_state in {'active_incident', 'damaged', 'unknown'}
+        or answers.get('hot') == 'no'
+        or answers.get('pressure') == 'yes'
+        or answers.get('bulb_type') in {'fluorescent', 'unknown'}
+        or answers.get('chemical_state') == 'yes'
+        or answers.get('coating') == 'yes'
+        or (sharp and object_id in {'glass_bottle', 'glass_jar', 'broken_glass', 'ceramic_bowl', 'razor', 'needle'})
+        or (object_id in {'glass_bottle', 'glass_jar'} and condition in {'damaged', 'unknown'})
+        or item['default_stream'] in FIXED_SAFETY_STREAMS
+    )
+    context_response = recommendation
+    if not safety_override:
+        # Food residue gets its own object-specific branch. If the user also
+        # reported a condition, keep both pieces of guidance together.
+        selected_responses = []
+        if contamination == 'food' and 'food' in guidance['contamination_responses']:
+            selected_responses.append(guidance['contamination_responses']['food'])
+            if condition in guidance['condition_responses']:
+                selected_responses.append(guidance['condition_responses'][condition])
+        elif condition in guidance['condition_responses']:
+            selected_responses.append(guidance['condition_responses'][condition])
+        elif contamination in guidance['contamination_responses']:
+            selected_responses.append(guidance['contamination_responses'][contamination])
+        if condition in guidance['condition_responses'] and condition != 'unknown' and not selected_responses:
+            selected_responses.append(guidance['condition_responses'][condition])
+        if selected_responses:
+            context_response = ' '.join(selected_responses)
+
+    safety_text = guidance['safety'].get('Nếu có vật sắc, hóa chất, mốc nặng hoặc chất bẩn không rõ')
+    if safety_text and contamination not in {'hazardous', 'unknown'} and not safety_override:
+        cautions.append(safety_text)
+
     reasons.append(f"Hướng xử lý tham khảo: {STREAMS[stream]}; chưa xác minh khả năng tiếp nhận tại địa phương.")
     # Preserve order while removing duplicate notices from layered safety rules.
     cautions = list(dict.fromkeys(cautions))
@@ -299,7 +374,15 @@ def recommend(object_id: str, answers: dict[str, str] | None = None,
         'detected_category_id': detected_category_id,
         'answers': answers, 'stream_id': stream, 'stream_label': STREAMS[stream],
         'recommendation': recommendation, 'avoid': avoid, 'cautions': cautions,
+        'context_response': context_response,
         'reasons': reasons, 'evidence_level': item['evidence_level'],
+        'headline': guidance['headline'], 'assessment': guidance['assessment'],
+        'practical_steps': [step['text'] for step in guidance['practical_steps']],
+        'why': guidance['why'], 'next_step': guidance['no_collection'] or guidance['end_of_use'],
+        'source_ids': authored['source_ids'], 'review_status': authored['review_status'],
+        'sources': [{'id': source_id, **RESPONSE_CATALOG['sources'][source_id]}
+                    for source_id in authored['source_ids']],
+        'safety_override': safety_override,
         'local_collection_verified': False,
         'notice': KB['notice'], 'kb_version': KB['version'],
     }

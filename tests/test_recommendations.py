@@ -7,7 +7,21 @@ import pytest
 from fastapi.testclient import TestClient
 
 from backend.main import build_app
-from backend.recommendations import KB, OBJECTS, TAXONOMY, recommend, validate_knowledge_base
+from backend.recommendations import (
+    KB, OBJECTS, RESPONSE_CATALOG, TAXONOMY, recommend,
+    validate_knowledge_base, validate_response_catalog,
+)
+
+
+LEGACY_OBJECT_IDS = (
+    'plastic_bottle', 'plastic_cap', 'plastic_cup', 'plastic_bag', 'plastic_wrap', 'foam_box', 'straw',
+    'paper_sheet', 'cardboard', 'newspaper', 'tissue', 'paper_cup', 'milk_carton', 'release_liner',
+    'aluminum_can', 'steel_food_can', 'aerosol_can', 'glass_bottle', 'glass_jar', 'broken_glass',
+    'ceramic_bowl', 'fruit_peel', 'leftover_food', 'coffee_grounds', 'dry_leaves', 'old_tshirt',
+    'fabric_scraps', 'old_shoes', 'stuffed_toy', 'battery_aa', 'phone', 'charger', 'lightbulb', 'mask',
+    'diaper', 'cigarette_butt', 'razor', 'needle', 'chemical_bottle', 'paint_can', 'cooking_oil',
+    'wood_scraps', 'rubber_tire',
+)
 
 
 @pytest.fixture
@@ -31,7 +45,7 @@ SCENARIOS = [
     ('plastic_cap', {'condition':'usable'}, 'recyclable', 'nắp'),
     ('plastic_cup', {'contamination':'food'}, 'special_collection', 'dư lượng thức ăn'),
     ('plastic_cup', {'contamination':'hazardous'}, 'hazardous', 'Không rửa'),
-    ('plastic_bag', {'condition':'usable','contamination':'clean'}, 'recyclable', 'đơn vị thu gom'),
+    ('plastic_bag', {'condition':'usable','contamination':'clean'}, 'special_collection', 'đơn vị thu gom'),
     ('plastic_bag', {'contamination':'unknown'}, 'special_collection', 'chưa rõ'),
     ('plastic_wrap', {'contamination':'clean'}, 'residual', 'rác còn lại'),
     ('foam_box', {'contamination':'food'}, 'residual', 'địa phương'),
@@ -42,7 +56,7 @@ SCENARIOS = [
     ('cardboard', {'contamination':'unknown'}, 'special_collection', 'chưa rõ'),
     ('newspaper', {'contamination':'clean'}, 'recyclable', 'giấy'),
     ('tissue', {'contamination':'clean'}, 'residual', 'rác còn lại'),
-    ('paper_cup', {'contamination':'clean'}, 'residual', 'tráng phủ'),
+    ('paper_cup', {'contamination':'clean'}, 'special_collection', 'tráng phủ'),
     ('milk_carton', {'contamination':'clean'}, 'special_collection', 'nhiều lớp'),
     ('release_liner', {'material':'unknown','contamination':'clean'}, 'residual', 'chưa xác định'),
     ('release_liner', {'material':'coated_paper','contamination':'clean'}, 'residual', 'chưa xác minh'),
@@ -123,7 +137,24 @@ def test_every_kb_record_returns_a_complete_result_when_answered(object_id):
 
 def test_kb_integrity_and_category_references():
     validate_knowledge_base(KB, TAXONOMY)
-    assert len(OBJECTS) == len(KB['objects']) == 43
+    validate_response_catalog(RESPONSE_CATALOG, KB, TAXONOMY)
+    assert len(OBJECTS) == len(KB['objects']) == 166
+    assert tuple(obj['id'] for obj in KB['objects'][:43]) == LEGACY_OBJECT_IDS
+    assert tuple(obj['id'] for obj in RESPONSE_CATALOG['objects'][:43]) == LEGACY_OBJECT_IDS
+
+
+def test_response_catalog_has_vietnamese_guidance_and_verified_references_for_every_object():
+    catalog_ids = {obj['id'] for obj in RESPONSE_CATALOG['objects']}
+    assert catalog_ids == set(OBJECTS)
+    for obj in RESPONSE_CATALOG['objects']:
+        guidance = obj['guidance']
+        assert obj['review_status'] == 'pending_human_review'
+        assert obj['human_review_requirement'] == 'required_before_public_release'
+        assert guidance['headline'] and guidance['assessment'] and guidance['default_action']
+        assert guidance['practical_steps']
+        assert set(obj['source_ids']) <= set(RESPONSE_CATALOG['sources'])
+        assert obj['question_ids'] == OBJECTS[obj['id']]['question_ids']
+    assert RESPONSE_CATALOG['local_collection_verified'] is False
 
 
 @pytest.mark.parametrize('mutation,match', [
@@ -215,7 +246,7 @@ def test_catalog_and_detail_endpoints(client):
     catalog = client.get('/api/v1/recommendations/catalog?q=urgo')
     assert catalog.status_code == 200
     assert catalog.json()['items'][0]['id'] == 'release_liner'
-    assert catalog.json()['total_count'] == 43
+    assert catalog.json()['total_count'] == 166
     detail = client.get('/api/v1/recommendations/objects/release_liner')
     assert detail.status_code == 200
     assert {q['id'] for q in detail.json()['questions']} == {'material', 'contamination'}
@@ -231,6 +262,9 @@ def test_evaluate_endpoint_happy_path_and_traceability(client):
     assert response.json()['source'] == 'corrected'
     assert response.json()['detected_category_id'] == 'textile'
     assert response.json()['object_id'] == 'paper_sheet'
+    assert response.json()['context_response']
+    assert response.json()['review_status'] == 'pending_human_review'
+    assert response.json()['sources'][0]['url'].startswith('https://')
 
 
 def test_evaluate_endpoint_pending_and_invalid_object(client):
@@ -263,3 +297,63 @@ def test_evaluate_endpoint_rejects_unknown_detector_category(client):
 def test_legacy_knowledge_and_health_routes_remain_available(client):
     assert client.get('/api/v1/health').status_code == 200
     assert client.get('/api/v1/waste-types').status_code == 200
+
+
+def test_new_objects_are_available_for_manual_diacritic_insensitive_lookup(client):
+    response = client.get('/api/v1/recommendations/catalog?q=nhiet ke&limit=200')
+    assert response.status_code == 200
+    assert response.json()['total_count'] == 166
+    assert any(item['id'] == 'thermometer_mercury' for item in response.json()['items'])
+    detail = client.get('/api/v1/recommendations/objects/painted_wood_frame')
+    assert detail.status_code == 200
+    assert detail.json()['review_status'] == 'pending_human_review'
+
+
+def test_condition_aware_natural_language_is_selected_for_ordinary_objects():
+    obj = next(x for x in RESPONSE_CATALOG['objects'] if x['id'] == 'plastic_bottle')
+    expected = obj['guidance']['condition_responses']['usable']
+    result = recommend('plastic_bottle', {'condition': 'usable', 'contamination': 'clean'})
+    assert result['context_response'] == expected
+    assert result['recommendation'] == OBJECTS['plastic_bottle']['base_advice']
+    assert result['headline'] == obj['guidance']['headline']
+    assert result['assessment'] == obj['guidance']['assessment']
+    assert result['practical_steps']
+    assert result['safety_override'] is False
+
+
+def test_food_and_condition_responses_compose_without_dropping_context():
+    obj = next(x for x in RESPONSE_CATALOG['objects'] if x['id'] == 'plastic_bottle')
+    result = recommend('plastic_bottle', {'condition': 'damaged', 'contamination': 'food'})
+    assert obj['guidance']['condition_responses']['damaged'] in result['context_response']
+    assert obj['guidance']['contamination_responses']['food'] in result['context_response']
+
+
+def test_hazardous_contamination_and_special_objects_keep_safety_overrides():
+    hazardous = recommend('plastic_bottle', {'condition': 'usable', 'contamination': 'hazardous'})
+    assert hazardous['stream_id'] == 'hazardous'
+    assert hazardous['safety_override'] is True
+    assert hazardous['recommendation'].startswith('Không rửa, súc, đổ bỏ')
+    assert 'tận dụng ngắn hạn' not in hazardous['context_response']
+
+    hot_battery = recommend('powerbank', {'condition': 'usable', 'battery_state': 'active_incident'})
+    assert hot_battery['stream_id'] == 'hazardous'
+    assert hot_battery['safety_override'] is True
+    assert 'Không chạm, di chuyển, sạc' in hot_battery['recommendation']
+
+    pressure = recommend('aerosol_can', {'pressure': 'yes'})
+    assert pressure['stream_id'] == 'hazardous'
+    assert pressure['safety_override'] is True
+
+    needle = recommend('needle', {'sharp': 'no'})
+    assert needle['stream_id'] == 'medical'
+    assert needle['safety_override'] is True
+    assert 'Không chạm' in needle['recommendation']
+
+
+def test_corrected_yolo_keeps_user_selected_object_and_original_detector_label():
+    result = recommend('release_liner', {'material': 'unknown', 'contamination': 'clean'}, 'corrected', 'textile')
+    assert result['object_id'] == 'release_liner'
+    assert result['category_id'] == 'composite_packaging'
+    assert result['detected_category_id'] == 'textile'
+    assert result['source'] == 'corrected'
+    assert any('YOLO khác nhóm' in caution for caution in result['cautions'])
