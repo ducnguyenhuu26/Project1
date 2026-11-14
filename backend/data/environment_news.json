@@ -1,91 +1,31 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-14T02:55:55Z",
-  "items": [
+  "updated_at": "2026-11-14T03:33:38Z",
+  "latest_items": [
     {
-      "title": "Công an xã Bắc Ruộng tăng cường kiểm tra, tuyên truyền công tác bảo vệ môi trường tại các cơ sở chăn nuôi gia súc.",
-      "summary": "Công an xã Bắc Ruộng tăng cường kiểm tra, tuyên truyền công tác bảo vệ môi trường tại các cơ sở chăn nuôi gia súc. Vietnam.vn",
-      "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPbllJREZDdWdIY1FvS1NnbGNQNTlETkoxNHB5ejZjWnFKYWlERjhsbXlPQ2lGM3BNT0J6bzNWWkpZWlV1V3RoQlR0LXFuUS16TTlYb0xYZGt5d0ZsWXh1VS1BaldodEkyaHpGVDNOSy1FRlRVTHhpcm1HUWc1Q2xJb24tN0pzVnBGR1N4M1E5dTVHcV9yVXRGb1VveGRUTHZvdkwxTFV4NW1PcTRGMjNHekZIUjA1NHRpMjVBYTB3dExfRFpCMnZ1ZmdyZWUzWGFw?oc=5",
-      "publisher": "Vietnam.vn",
-      "publisher_url": "https://www.vietnam.vn",
-      "published_at": "2026-11-14T02:54:41Z",
+      "title": "Chủ tịch Khánh Hòa chỉ đạo xử lý vụ bãi biển ở vịnh Cam Ranh ngập ngụa rác thải",
+      "summary": "Chủ tịch UBND tỉnh Khánh Hòa chỉ đạo các đơn vị liên quan xử lý triệt để tình trạng rác thải nhựa tại bãi biển Bình Lập, xử lý nghiêm các trường hợp vi phạm.",
+      "url": "https://tuoitre.vn/chu-tich-khanh-hoa-chi-dao-xu-ly-vu-bai-bien-o-vinh-cam-ranh-ngap-ngua-rac-thai-10026111409101498.htm",
+      "publisher": "Báo Tuổi Trẻ",
+      "publisher_url": "https://tuoitre.vn/rss.htm",
+      "published_at": "2026-11-14T09:27:00Z",
       "topics": [
-        "thiên nhiên"
+        "rác thải",
+        "nhựa và tái chế"
       ],
-      "image_url": null
+      "image_url": "https://cdn2.tuoitre.vn/thumb_w/1200/471584752817336320/2026/11/14/1793432857651703735985656013176070373598565601317603ffae921f1fc14c35dcba30aef33b2cf-17946217266811321297840-107-0-1707-2560-crop-1794621970582891739712.jpg"
     },
     {
-      "title": "Vé carbon CBAM vào EU: Những thông tin doanh nghiệp cần biết",
-      "summary": "Vé carbon CBAM vào EU: Những thông tin doanh nghiệp cần biết Báo Dân trí",
-      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPQ2pjVmZIenFwcHZ3YUQ4NHdYNmxrenRDczNCNG5iUGtKbUFsMnl2SzhpY2R6TTJNR0hINmxwRUVmWFJUcXFNOWd5bklLaFFQbWg2LXA1YVVXZndpWnVnWE1RV3VKcDA2R0FmRE4xSWlqN0Izdzg5My1kWGVWMlZxWEY2R2FBd0JLU191MFBJVEJLc1lkNXpwdFJMOFRkQkJCbkZqOEdhcUxDTGRfR0tsZ1pPSzY?oc=5",
-      "publisher": "Báo Dân trí",
-      "publisher_url": "https://dantri.com.vn",
-      "published_at": "2026-11-14T02:52:19Z",
-      "topics": [
-        "khí hậu"
-      ],
-      "image_url": null
-    },
-    {
-      "title": "Chủ nhật xanh - xóa “điểm đen” ô nhiễm môi trường",
-      "summary": "Chủ nhật xanh - xóa “điểm đen” ô nhiễm môi trường Vietnam.vn",
-      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9CWGtYUUp5YTMxOUUtanYwY2FVTjJtRFdoZDgyQlJmMXQ5dWlVaXE2MTEwM2FhZ3RBbjhZZWZmZko1VDl1WUlFVzM0WGhPZTI4ZERxZzBCZFlTYjlJTXRCdkpZeEQtdk5Mb2pvQ09Yek1kX3hVQ3U4?oc=5",
-      "publisher": "Vietnam.vn",
-      "publisher_url": "https://www.vietnam.vn",
-      "published_at": "2026-11-14T02:04:23Z",
-      "topics": [
-        "ô nhiễm",
-        "thiên nhiên"
-      ],
-      "image_url": null
-    },
-    {
-      "title": "6 con đường dẫn Việt Nam tới mục tiêu giảm phát thải khí mê-tan",
-      "summary": "6 con đường dẫn Việt Nam tới mục tiêu giảm phát thải khí mê-tan Bnews.vn",
-      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPSWtES1pmSzRkdmRNWl9fSGkwN0haRGJMSnFIbWhxMW5fTzc1WFpWLXJ1T2hJclFDT3lKYzJqQkZKeU51VDBNTTlSRVM4bnhlZTVHVU03eUN3VHhSOWwxZjhzQlRTUUZ6dGNCb09uZmFrZEVidm4wV3RUbTRZdU5JMWZ3ZHNOUGZJOFFCSUtrVUtkQ29QQ1lz?oc=5",
-      "publisher": "Bnews.vn",
-      "publisher_url": "https://bnews.vn",
-      "published_at": "2026-11-14T02:00:00Z",
-      "topics": [
-        "khí hậu"
-      ],
-      "image_url": null
-    },
-    {
-      "title": "Hà Nội mù mịt vì ô nhiễm không khí",
-      "summary": "Hà Nội mù mịt vì ô nhiễm không khí Báo Sức khỏe & Đời sống",
-      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPZGxHUENhWU9EMDQ0TFB1SVo1Z1pLT1hUQWMwUVdwYUNuNHM0WmxpTm42T1l0UEozZ0RoX2MzWE5qVmZmMHBza1R4c3ZoNzIxR0VCMVFOVDNLNDd4YjBabkJWQktiNVU0OUNMTjZCQk9vNVRVWUNWdHJEaFNUeGwyUktpdzBSOHlRbDRv?oc=5",
-      "publisher": "Báo Sức khỏe & Đời sống",
-      "publisher_url": "https://suckhoedoisong.vn",
-      "published_at": "2026-11-14T01:50:00Z",
-      "topics": [
-        "ô nhiễm"
-      ],
-      "image_url": null
-    },
-    {
-      "title": "UBTVQH yêu cầu làm rõ các quy định trong dự thảo Luật Bảo vệ môi trường sửa đổi",
-      "summary": "UBTVQH yêu cầu làm rõ các quy định trong dự thảo Luật Bảo vệ môi trường sửa đổi PetroTimes",
-      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNeUZSY1RXN2luOVQ1THNHUm9TWnhKeXoxYkJ2MHNpeW11Wml1SUFNU1ZRamN4UnhnNFdMbVAxZURVZmF0TUxtTXRXTENsNFViZC1nT2l1SUVoM3ZLZlVad3ZkZE9EV2NIbWp5OUFCX2xQX05IUFQ5LTJxQUt0UjFzVnZUbW85amRRUUJlZXVwQXQtdV9pRlBRYkwtbHRQWGhIR0lmRnVKcTdJNE1HeVY1eGlZdw?oc=5",
-      "publisher": "PetroTimes",
-      "publisher_url": "https://petrotimes.vn",
-      "published_at": "2026-11-14T01:37:51Z",
-      "topics": [
-        "thiên nhiên"
-      ],
-      "image_url": null
-    },
-    {
-      "title": "Quảng Ninh siết quản lý chất thải xây dựng, công khai các điểm tập kết, xử lý",
-      "summary": "Quảng Ninh siết quản lý chất thải xây dựng, công khai các điểm tập kết, xử lý dangcongsan.vn",
-      "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxNTG5ZRFVueWJ4VFIwam5yZy15WHVQNU83TkR2aVNlTk0tald5c2VMN1YzbmcxbjdtR0FqRFhIVVJOWXdoTDd6QmFnaGQydmhRXzNhUmgxR2xsZVFYN1NqdmVRcGRNTkdIY2twZTZLdEp2bkJwOHVQWVVSeWVuNTRBWjRkaWNGUWtTY2FhOHMzN2d6NlZzQUVsU1RRUk5ndlJ6S0c5UDd2TEtCLTBGSzdZZkI3cnJwbTVwbkczN01XNmNoZUp5N1dnNzhpVk1DR21T?oc=5",
-      "publisher": "dangcongsan.vn",
-      "publisher_url": "https://dangcongsan.org.vn",
-      "published_at": "2026-11-14T01:23:27Z",
+      "title": "Cha mẹ cãi vã, xả rác trên đường sẽ cho con mình 'bài học' xấu",
+      "summary": "Đối với con trẻ thì cha mẹ chúng luôn như là một thiên thần, một anh hùng vì nghĩa, chứ không phải là một người hung hãn, hoặc tay 'anh chị'.",
+      "url": "https://tuoitre.vn/cha-me-cai-va-xa-rac-tren-duong-se-chon-con-minh-bai-hoc-xau-100261112100400953.htm",
+      "publisher": "Báo Tuổi Trẻ · Bạn đọc",
+      "publisher_url": "https://tuoitre.vn/rss.htm",
+      "published_at": "2026-11-14T08:38:00Z",
       "topics": [
         "rác thải"
       ],
-      "image_url": null
+      "image_url": "https://cdn2.tuoitre.vn/thumb_w/1200/471584752817336320/2026/11/12/tranh-biem-hoa-lexus-va-cham-giao-thong-danh-nguoi-1739331802132882616285-43-95-803-1310-crop-1794500108823486956264.jpg"
     },
     {
       "title": "Chủ tịch Khánh Hòa chỉ đạo xử lý dứt điểm rác thải nhựa ở Bình Lập sau phản ánh Lao Động",
@@ -101,188 +41,15 @@
       "image_url": null
     },
     {
-      "title": "Chung tay làm đẹp môi trường",
-      "summary": "Chung tay làm đẹp môi trường Báo Quảng Ninh",
-      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE03R1FJTlQ3eVhNZV9wVjlEZ3BxVURkU2FNM2lBRXgxeGtRREdHM0diQWhHRkpQa0NUM3ZZeEY3b2FuUzE1YUJaUWoyTjE4aU9KT3cxa0dxSlRsbVdRaEEzdTBtaTdtN1FnbGpvM0FrYnYzSFR3bldRMQ?oc=5",
-      "publisher": "Báo Quảng Ninh",
-      "publisher_url": "https://baoquangninh.vn",
-      "published_at": "2026-11-14T01:08:00Z",
-      "topics": [
-        "thiên nhiên"
-      ],
-      "image_url": null
-    },
-    {
-      "title": "Từ vườn xanh đến kỹ năng ứng phó biến đổi khí hậu tại Maylaysia",
-      "summary": "Từ vườn xanh đến kỹ năng ứng phó biến đổi khí hậu tại Maylaysia moitruong.net.vn",
-      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQOV9YdTR6MklSQkJBTElzekhVTWxNSUpaNGVMNU9DRlZ0bndlY3ZzMzJCU21zbkZiTlBXUGFhZjhlZGhPMEJDRVU2N2JSWXJNb2puekhmTWJqRE00MzZrY3NXOUgyQTJKQmhXaVd5REpQMFQ2Mk9KZ0tzeGtld1JXWlNKOU4zTHBMeEQ0VTdzazdESWwwWWpaMWpjaDdRV2dSV0E?oc=5",
-      "publisher": "moitruong.net.vn",
-      "publisher_url": "https://moitruong.net.vn",
-      "published_at": "2026-11-14T01:00:01Z",
-      "topics": [
-        "khí hậu"
-      ],
-      "image_url": null
-    },
-    {
-      "title": "Chủ nhật xanh - xóa “điểm đen” ô nhiễm môi trường",
-      "summary": "Chủ nhật xanh - xóa “điểm đen” ô nhiễm môi trường Báo Thanh Hóa",
-      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOLVMwQTFRNlcyOUIyWTQtYXFwZUtCZjJLS0Nram5LdnBIRTRSLW5lajU4NlNNS0VoaWNhejFYMXBEZFRkaHVfdU9ySVVxaWlNNTQ4T09JMHNUQ2hvYmRzUWpUdXFIc1poY25JaE85cTQxQ2FETFJ1U184Y1U1MkhKbkxCVGdWUQ?oc=5",
-      "publisher": "Báo Thanh Hóa",
-      "publisher_url": "https://baothanhhoa.vn",
-      "published_at": "2026-11-14T00:28:37Z",
-      "topics": [
-        "ô nhiễm",
-        "thiên nhiên"
-      ],
-      "image_url": null
-    },
-    {
-      "title": "Ứng dụng công nghệ, nâng cao hiệu quả tái sử dụng phụ phẩm nông nghiệp",
-      "summary": "Ứng dụng công nghệ, nâng cao hiệu quả tái sử dụng phụ phẩm nông nghiệp Báo Phú Thọ",
-      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQOHBjOXZsTDdLVUwzOWFNUzRSSGlMb3dtNGExWlBnUDlWa1NFVEVqX256WFB3SnpHdkVtVDN4ZXJYTXlDd1FLYXJENTNNOXY0RXJIRG5ndXVONUFGQ0QyMGw0U202aU1jYnV5dWhKbXdBSlBMUTFIb3lkNHpfczlJXzB5NXpDS1kyeVRGV2F4LXhxT2VtRkVwbnBibHU4WFFFdGVn?oc=5",
-      "publisher": "Báo Phú Thọ",
-      "publisher_url": "https://baophutho.vn",
-      "published_at": "2026-11-13T23:51:00Z",
-      "topics": [
-        "nhựa và tái chế"
-      ],
-      "image_url": null
-    },
-    {
-      "title": "Mặt trận và các tổ chức chính trị - xã hội: Chung tay xây dựng môi trường xanh, sạch, đẹp",
-      "summary": "Mặt trận và các tổ chức chính trị - xã hội: Chung tay xây dựng môi trường xanh, sạch, đẹp Vietnam.vn",
-      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOUW5qYms0QmlnYnE5eXE3UFBjRHdveTJJME5KcFg5TDBTaTIzc2s2ZzY3cGw4MVF2ZDlGdUlBaElzd3V3cE8xbVVSdGFzay1mclRiUGc4dk5fWDFPeUd5WWg4a3k3ZWQ2NUw4eFhzWWltcm1GZGpFTjZ5SUZpRGl1ekxTVU9fTW9HM3FWV3RISHJEeEI1VHI1MFVwTXAzMHlLWTlxQXVTeFZ6UE0?oc=5",
-      "publisher": "Vietnam.vn",
-      "publisher_url": "https://www.vietnam.vn",
-      "published_at": "2026-11-13T23:08:24Z",
-      "topics": [
-        "thiên nhiên"
-      ],
-      "image_url": null
-    },
-    {
-      "title": "Phát thải metan gia tăng tạo thách thức lớn trong cuộc chiến chống biến đổi khí hậu",
-      "summary": "Phát thải metan gia tăng tạo thách thức lớn trong cuộc chiến chống biến đổi khí hậu moitruong.net.vn",
-      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNOHNyaURfdUo2NnQ2S0FsR2d3eF9jLVRINnFrcXJFZUdSb2ZtTkx0M3IwSV9ROHd4dDNiSlRNQzZ5SHg5LUxKRWdjRVRjM2lNT2VtZGl1eGRCc203RDZwdGNfVzJPemZRd1BnOFNpMFYxQ25UMTJwM29oaERCTm5GelljTVc2VlA4VkYyUXhpZEJ4aFRyRlUzV1kycEEzWTJzVVpZSTR5UmF4Y04xeHdyU2xrRTdfOGZucncyUA?oc=5",
-      "publisher": "moitruong.net.vn",
-      "publisher_url": "https://moitruong.net.vn",
-      "published_at": "2026-11-13T13:30:01Z",
-      "topics": [
-        "khí hậu"
-      ],
-      "image_url": null
-    },
-    {
-      "title": "Hà Nội: Vùng phát thải thấp mở rộng lên 3 khu vực, tổng diện tích khoảng 5,7 km² từ đầu 2027",
-      "summary": "Hà Nội: Vùng phát thải thấp mở rộng lên 3 khu vực, tổng diện tích khoảng 5,7 km² từ đầu 2027 Tạp chí Doanh nghiệp & Kinh tế xanh",
-      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPeEdRTlM0UFYzaGxTWTNETzB3czlZQlhaZ18tOEQwRVBxendYZ2h6SXZZMFpqSDB0M2lnd0QtaUZYZ0xTTFlxQnBrRzJKLUQ0eC02WDNKczJmR3U0VXJoLWI1bWVLNEN0Z1hLcEEzdWtHTTV6OVcwWjRKNHd3cGN3M3BLR0lJM250emljSldEeERuZEg0RzBRVEhlSjdkTWZIa190SGN5R3l6Mm03RnY2NldzejlJc2o3TW1WTXg5VUVBX0psSVdDU1dOc3oyZw?oc=5",
-      "publisher": "Tạp chí Doanh nghiệp & Kinh tế xanh",
-      "publisher_url": "https://doanhnghiepkinhtexanh.vn",
-      "published_at": "2026-11-13T12:36:40Z",
-      "topics": [
-        "khí hậu"
-      ],
-      "image_url": null
-    },
-    {
-      "title": "EU quyết tâm giảm 90% phát thải khí nhà kính vào năm 2040",
-      "summary": "EU quyết tâm giảm 90% phát thải khí nhà kính vào năm 2040 moitruong.net.vn",
-      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPOWJHVFdNZzFHYlZiQnRnLVpxRWx6a3k1X2g5N19HRGJsY2JFZElpWEg4V2VSbzJ5X0JhbnRhZDN0UHYzTXJZTElKeTBIZl9xLXNYakYyemhlRENFMHdxeWZCaHM5OFg5SHVBelppZk1jVFJMYnBaZFRybnJQSVBWaVp2VHV1b05ZWXAzcWIxanZPMmFOYkxadA?oc=5",
-      "publisher": "moitruong.net.vn",
-      "publisher_url": "https://moitruong.net.vn",
-      "published_at": "2026-11-13T12:30:01Z",
-      "topics": [
-        "khí hậu"
-      ],
-      "image_url": null
-    },
-    {
-      "title": "Mỗi ngày phát sinh hơn 941 tấn rác, Quảng Trị tìm giải pháp xử lý các bãi rác quá tải",
-      "summary": "Mỗi ngày phát sinh hơn 941 tấn rác, Quảng Trị tìm giải pháp xử lý các bãi rác quá tải moitruong.net.vn",
-      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPV0FEZjBtYkVod1BjQV9UNEZZZGIzQ0Fab2FGdTI4dUZ2UGpkNlBIMEdMMHNaWHppMlRPdHdNcURqSDJPcXEyLXhFaldtUzgtN3pxcU0weUNYamlSWlI3a01kejgzeC1Kb1h4aFlCTDF0V1NidDRfcUhLSF9kc2U3blhTY1daQ3RZY0xrUG03cjBDZnRLTXNYTV9mcU1vbVAzcTlvQzUyeDN3U29hdTFqUzJFSzhvSFFkSDhrVGpn?oc=5",
-      "publisher": "moitruong.net.vn",
-      "publisher_url": "https://moitruong.net.vn",
-      "published_at": "2026-11-13T11:30:01Z",
-      "topics": [
-        "rác thải"
-      ],
-      "image_url": null
-    },
-    {
-      "title": "Đẩy mạnh chuyển đổi xanh, phát triển kinh tế tuần hoàn, carbon thấp",
-      "summary": "Đẩy mạnh chuyển đổi xanh, phát triển kinh tế tuần hoàn, carbon thấp Tạp Chí Điện Tử Thiên Nhiên Và Môi Trường",
-      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPZHpMejVWVzlrb3gzLTVrYjVVN0dLRFRKemcyNTg4ei1sd09YcHd2SDZ2TlpCdl93Q1R6UVZLX3lsSTRHODFiNjR6RHV2REtrOTBjcENuR0JnTG82Z1NWdXNaMVp4dXptcDN6MEtWYWFoLWt0VE5WdzVPeGxTLXdCeUo2TDkwT0hVOUc5TGVuOWRKbWhtOGo4TmVKczZfcjAyQlhF?oc=5",
-      "publisher": "Tạp Chí Điện Tử Thiên Nhiên Và Môi Trường",
-      "publisher_url": "https://thiennhienmoitruong.vn",
-      "published_at": "2026-11-13T11:11:00Z",
-      "topics": [
-        "nhựa và tái chế",
-        "khí hậu",
-        "thiên nhiên"
-      ],
-      "image_url": null
-    },
-    {
-      "title": "Hà Nội đề xuất mô hình và lộ trình mở rộng thí điểm vùng phát thải thấp",
-      "summary": "Hà Nội đề xuất mô hình và lộ trình mở rộng thí điểm vùng phát thải thấp Vietnam+ (VietnamPlus)",
-      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQTUdLbHB2cWVNbmlvTjlYbmJEalFWSm9OQVlpYzVuTnRmMGFTOEdmbXdveXhZcTZ4U2ZYUktPRV8yZHJDRkNNYnpEVXF4YjR0OThwQ3dYWnV5M1BWdElkT2NjeUxManpVMDJoUE9ZNVhPNDF6NnM5M1hzZV9HS25uTUtScWNUbVBXV05DZEYxNFRZTHo5bUt0eGdlTVFleE82Q1dNdnVwUjZqRklIN0FfcnhlV0w?oc=5",
-      "publisher": "Vietnam+ (VietnamPlus)",
-      "publisher_url": "https://www.vietnamplus.vn",
-      "published_at": "2026-11-13T09:28:39Z",
-      "topics": [
-        "khí hậu"
-      ],
-      "image_url": null
-    },
-    {
-      "title": "Học sinh mang bình nước cá nhân, thực hành giảm rác thải nhựa",
-      "summary": "Học sinh mang bình nước cá nhân, thực hành giảm rác thải nhựa Báo Nông nghiệp và Môi trường",
-      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOel9lbmpIZDc1cGNudy1vVUN5UVlRcnJlc0JnOUJveTBBTnI1Q0pGZkhmZ2Y0MHVzeUZQQjFRbGhsVmdzUGZMLUFkRGxyYjdOOU1Ta3YtNTN3WG9BbG5IbFVHekJQSk1QejVDSUxEMkltQ2xFRnhjZlBoeEdTSk5vZDFRbWl6UkJIQnZ0WTU1M2hJbmRBTnJSbnVlc1d4NG56TjlBbzZhNA?oc=5",
-      "publisher": "Báo Nông nghiệp và Môi trường",
-      "publisher_url": "https://nongnghiepmoitruong.vn",
-      "published_at": "2026-11-13T08:57:58Z",
+      "title": "Phát động Giải thưởng Trường học sinh thái ASEAN 2026, khuyến khích giảm rác thải nhựa",
+      "summary": "Phát động Giải thưởng Trường học sinh thái ASEAN 2026, khuyến khích giảm rác thải nhựa Báo Tuổi Trẻ",
+      "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQQzVCUVhTYlJVUlVUNkNnLUtOR3hZd0ZObFdVN1ZvWDZqQ080U0I0WFZneWd3c1Nlb2U5ZF9tNWZfdXRBU2c3aGR0SVlPSmxkTjNVR2VfaEMtRlQ3eEpieU12ZTFmSjdrbWxaSjRtdGRYQnFGb1NsTFZIWHYyeWU1TVFJR3lKeFEwM0dad2dwemZhNG9PUmtER0xXYmZwWGRWcHlMODFYZ2ZiTC1sYWpQZjJpTVVIUVNvbTVUaGZxdmh4MjVtMEE?oc=5",
+      "publisher": "Báo Tuổi Trẻ",
+      "publisher_url": "https://tuoitre.vn",
+      "published_at": "2026-11-13T10:40:00Z",
       "topics": [
         "rác thải",
-        "nhựa và tái chế",
-        "thiên nhiên"
-      ],
-      "image_url": null
-    },
-    {
-      "title": "Từ năm 2027, Hà Nội mở rộng kiểm soát phương tiện phát thải tại khu vực trung tâm",
-      "summary": "Từ năm 2027, Hà Nội mở rộng kiểm soát phương tiện phát thải tại khu vực trung tâm moitruong.net.vn",
-      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPV0U2XzVjT0tGS0NKWXpsSUpoMUhJVDVPb2VCd0VxNjhlZ1VsamtsU205cC1TYlZaWTFIajRrZHdOaW80M0phMUR4bHdsU0FUYzhJaXlsVDBZYlRpNXNHUGNRbTd5VFFCZFdPalNOOEhtdWRJektBX3ltSWdDWXRsMHdtUjlRT3dLTWQ2ZFI0UnFnSl95ZUxoYmlZNkJ2bWVXY3FUR0hrQ0VKWjk1cmRncWFtbkI5VlBo?oc=5",
-      "publisher": "moitruong.net.vn",
-      "publisher_url": "https://moitruong.net.vn",
-      "published_at": "2026-11-13T08:31:01Z",
-      "topics": [
-        "khí hậu",
-        "thiên nhiên"
-      ],
-      "image_url": null
-    },
-    {
-      "title": "Hà Nội mở rộng thí điểm vùng phát thải thấp từ đầu năm 2027",
-      "summary": "Hà Nội mở rộng thí điểm vùng phát thải thấp từ đầu năm 2027 Năng lượng sạch Việt Nam",
-      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQdzRlSFduODN4X0c2UHl1RVBFMUdQTjFZdlc2OTlrTllGYTAtdDZTQy1WUi14X1NvT0RqNWV6UldxTVRRRnRHcFRSa3JYQThLaUJkazE4ODA1cGJoVkdUWGNHUXFyRFJRanpyOXJHajV5T1ZTVXFkWEdta1pSRUkwOHRsMlZjM1Z5bmJ0LUsyMDdlOG5rdmR1VEo5SnE5bGZpdFYwZk5fdlNSVV9uNS1wcl9RbHJST0Zp?oc=5",
-      "publisher": "Năng lượng sạch Việt Nam",
-      "publisher_url": "https://nangluongsachvietnam.vn",
-      "published_at": "2026-11-13T07:00:00Z",
-      "topics": [
-        "khí hậu"
-      ],
-      "image_url": null
-    },
-    {
-      "title": "Hội nghị COP31: Cam kết hơn 480 triệu USD để giảm phát thải",
-      "summary": "Hội nghị COP31: Cam kết hơn 480 triệu USD để giảm phát thải VTV.vn",
-      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNS2tNX1E4ODFTUWxsWFpLWjZIakVleG55ZWpMVFIyVW9IUnNwOEFsTkRaWXdjQllQYlhubUc2VEdNeWhET1VNOUtXV3JHVnU0eDFFNzg4bmF4c3hQelllSTdDYURUQjA2ZE5hMFBJakdzcVFvYmJwbExkX1Vadmhva3E4WExLR0JHWEpfeF9LSzJvc2RTbmZGT2xKeVE?oc=5",
-      "publisher": "VTV.vn",
-      "publisher_url": "https://vtv.vn",
-      "published_at": "2026-11-13T06:47:00Z",
-      "topics": [
-        "khí hậu"
+        "nhựa và tái chế"
       ],
       "image_url": null
     },
@@ -299,114 +66,26 @@
       "image_url": null
     },
     {
-      "title": "COP31 công bố các cam kết tài chính mới nhằm cắt giảm khí methane",
-      "summary": "COP31 công bố các cam kết tài chính mới nhằm cắt giảm khí methane Năng lượng sạch Việt Nam",
-      "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQS1pYR0JnMXo5dFJwd19lMWNZNlVHMllPQUxSaWNHVEFkWnJ6RHEtVUd3T3VaWHJReV96S0ljQURHXy1VNnFDcXR3d28tTE13TWE2OHBpUGNUQlBrbWJNaDZOd0VtLVJFM1VqNTI5andDN3p5c0NxdlRLcGJDX0JCZThMU3lRd3hoOEpiS0NuSlhDaW5vYUM0Xzc0dEtPN0ZLTXl0SEtmcnFVLTAxSXR6TWhNeWRleWhsQUtvWDBSUXQ?oc=5",
-      "publisher": "Năng lượng sạch Việt Nam",
-      "publisher_url": "https://nangluongsachvietnam.vn",
-      "published_at": "2026-11-13T03:35:00Z",
-      "topics": [
-        "khí hậu"
-      ],
-      "image_url": null
-    },
-    {
-      "title": "Tái chế cánh quạt điện gió: 2.000 độ C thành silicon carbide",
-      "summary": "Tái chế cánh quạt điện gió: 2.000 độ C thành silicon carbide Tạp chí Doanh nghiệp & Kinh tế xanh",
-      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQR2ZQYkxBZnJ1M3hlMURpZTRIVGdLNXpLSTFUZDlrYTRmd2d1cVJfT3VPVElselZQN1JmUEtfam1LSlZpR1dadlZGeVAyNHdFZGxuZDVmQW9Jakdmdkx3VzFOSWdEcVdyTlB0YXlITnY5Y09YZWlEVzMwOE1QcEFMWE1ULWRTU1RNQmJZSWxZUGNNTkJzNEhtWWd6OVNEWFdzSHR0UUlfbEJXWFE0MUZfbmVR?oc=5",
-      "publisher": "Tạp chí Doanh nghiệp & Kinh tế xanh",
-      "publisher_url": "https://doanhnghiepkinhtexanh.vn",
-      "published_at": "2026-11-13T02:13:23Z",
-      "topics": [
-        "nhựa và tái chế"
-      ],
-      "image_url": null
-    },
-    {
-      "title": "Nhân rộng các mô hình giảm rác thải nhựa, lan tỏa lối sống xanh",
-      "summary": "Nhân rộng các mô hình giảm rác thải nhựa, lan tỏa lối sống xanh Tạp Chí Điện Tử Thiên Nhiên Và Môi Trường",
-      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQcjRKWDdlQ2I4bjRwSDdkR3VnSDlRdGJleHlSU1hTMFpSTkFmZWEyMHJ0ajlnMGRmQ2h4a1hXSFdpdW91ZlJkTWo2Vk56cDVIUEN6OHNEY240My15dlBCd2ZPdlBKclh4WEZKOU93TE9McmFkTGVaU0lWQm84MXRhQlFDakp0Qzh0TTFGekd3NW9jcVVUbDZrOE1pRU9PX28?oc=5",
-      "publisher": "Tạp Chí Điện Tử Thiên Nhiên Và Môi Trường",
-      "publisher_url": "https://thiennhienmoitruong.vn",
-      "published_at": "2026-11-13T02:11:00Z",
-      "topics": [
-        "rác thải",
-        "nhựa và tái chế",
-        "thiên nhiên"
-      ],
-      "image_url": null
-    },
-    {
-      "title": "Siết trách nhiệm môi trường, tạo động lực cho doanh nghiệp chuyển đổi xanh",
-      "summary": "Siết trách nhiệm môi trường, tạo động lực cho doanh nghiệp chuyển đổi xanh moitruong.net.vn",
-      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPdzhhc1pBVTh1SVJ2SzFsMnRqRVlqUnR5TlJ5ZTJHVnBiSjNxYzMwVDhoRnp0T0VPeUszaWdKS3hfc2xQMjJsbHlmdTItYWk4dFN5eE1nZzczNDIzQ1FncmpPSHhOQTNMSDBpUFJNbjdPN21WYmtwelhBN2JMT1QwRlpBWkJzUHNqa29xeEQ4d2xXajQ0Z1dfX2tNTHpFSk5SWHJBWjd0Q3B6aVA5YXFz?oc=5",
-      "publisher": "moitruong.net.vn",
-      "publisher_url": "https://moitruong.net.vn",
-      "published_at": "2026-11-13T02:00:01Z",
-      "topics": [
-        "thiên nhiên"
-      ],
-      "image_url": null
-    },
-    {
-      "title": "Mỗi vùng sinh thái, mỗi cây trồng một cách giảm phát thải mê-tan",
-      "summary": "Mỗi vùng sinh thái, mỗi cây trồng một cách giảm phát thải mê-tan Bnews.vn",
-      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPc05jeW9EYXpvQnoxaXluTXZFb2RvaTcyTTVZakl6V1FsSWxacVhuSDBhQ1hJczVBOXU5RjhmRnpZN1cxZG9Wd2hhMjI2MWxwa3N1SFZ0bE03Q245cUpsVHY0UUVUM2JnNzJKWnhNcTMwakJSNTA3U3VXbVNUV1dXa285aWdEMDNsLUdBNG5MQ1ByRkU4VUhN?oc=5",
-      "publisher": "Bnews.vn",
-      "publisher_url": "https://bnews.vn",
+      "title": "Chủ tịch Nghệ An chỉ đạo sở, ngành tháo gỡ 3 'nút thắt' cho nhà máy điện rác",
+      "summary": "Chủ tịch Nghệ An chỉ đạo sở, ngành tháo gỡ 3 'nút thắt' cho nhà máy điện rác Báo VietNamNet",
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxORWtxMnFRby00MHZBTWYtdEpudnQteFp3ZEVyRzBTWHZMV00ycnlZRHZXak9JMXUwZU92VEVUUVlLMDBiUHdwUWpNMFVrTllfZTk5OXV1SDNZdDZxYjhyODU2SnVPZ0dUZGRGaThPdE1IZFMzTDRsaTFraGZKbTB5ZE9OTWZ5VW9zdHBwNlFReUh1bUlsTExLcTVBWFVyTlowaFpXd2g1YlB0ZUJO?oc=5",
+      "publisher": "Báo VietNamNet",
+      "publisher_url": "https://vietnamnet.vn",
       "published_at": "2026-11-13T02:00:00Z",
       "topics": [
-        "khí hậu",
-        "thiên nhiên"
+        "rác thải"
       ],
       "image_url": null
     },
     {
-      "title": "Alice Huang 'có mối liên hệ gián tiếp với Huawei'",
-      "summary": "Alice Huang được cho là từng nắm cổ phần tại một số doanh nghiệp ở Trung Quốc có hoạt động hợp tác với Huawei, đối thủ lớn nhất của Nvidia tại thị trường này.",
-      "url": "https://vnexpress.net/alice-huang-co-moi-lien-he-gian-tiep-voi-huawei-5144075.html",
-      "publisher": "VnExpress · Khoa học",
-      "publisher_url": "https://vnexpress.net/rss",
-      "published_at": "2026-11-13T01:42:37Z",
+      "title": "Thái Lan tăng mức phạt nhập lậu rác thải nguy hại",
+      "summary": "Thái Lan tăng mức phạt nhập lậu rác thải nguy hại VTV.vn",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOcElVU2lLa1lHdDYxNFp2eWZibWU4RjY0SDF2Z0tJMUV0WXJfMDV0NWtEUnhQWmRlMnh2clV4cXJtbXlwajhGRnlQWHl6Y3hHekVWWkZJWjN5cEY2Z1duWjlrUGNSWXlETjU3UVRncUFTaEtpZWpYMXplRVlIRHR4NEZ0Z0lhOTBPZElobHlNdzE?oc=5",
+      "publisher": "VTV.vn",
+      "publisher_url": "https://vtv.vn",
+      "published_at": "2026-11-12T23:10:00Z",
       "topics": [
-        "thiên nhiên"
-      ],
-      "image_url": "https://i1-vnexpress.vnecdn.net/2026/11/13/huang-jpeg-1794526426-2366-1794526433.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=2Nh40Cq8vcu_4EI4a1cCgA"
-    },
-    {
-      "title": "Giải bài toán rác thải điện gió bằng công nghệ tái chế nhiệt độ cao",
-      "summary": "Giải bài toán rác thải điện gió bằng công nghệ tái chế nhiệt độ cao moitruong.net.vn",
-      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNOEhjajlxd3l0Zlo3TmliS0ZhOUhBdUl4V29TZ05ZcEYxU3NmTzRxMDdYajZFY0ZPWFFXemtvb0FzQUVOUDFzeXBYMDEtNTNaOXNSbXR5dGRVc0hYUkF4RXNNM0t1RFVwYWlWWm5GanlxdXJIQ19aSl9BZENBMjU5ZkY2VFJCRGtaTDkxUWtUWTZJN2FMblAtdDE0d2d4Ui01S3FOcnMxTQ?oc=5",
-      "publisher": "moitruong.net.vn",
-      "publisher_url": "https://moitruong.net.vn",
-      "published_at": "2026-11-13T01:00:01Z",
-      "topics": [
-        "rác thải",
-        "nhựa và tái chế"
-      ],
-      "image_url": null
-    },
-    {
-      "title": "Hoàn thiện quy định về bảo vệ môi trường: Giảm thủ tục, tăng cường hậu kiểm",
-      "summary": "Hoàn thiện quy định về bảo vệ môi trường: Giảm thủ tục, tăng cường hậu kiểm kinhtemoitruong.vn",
-      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQOG1MUGpicnRpNDd3QUg2Y2lKRWNJQThGQl9ZQm5OMlZjekxNYk1WbmM2clloUlIyUF96ekJ2TEIxN3hiTzk2d1lKS3BhMnIxdW96MUFObVRGTGdwMi1idjN2Q2JSNkdfd01ZMHFXWkNzUGl5M21TSExPanZTdWQwQkV3cEI4NzE1cU9qMnVQdTVTa1NxM29LdndtVTFMeXZUMlB1ZEtXNU9GUGp2dlUySDBB?oc=5",
-      "publisher": "kinhtemoitruong.vn",
-      "publisher_url": "https://kinhtemoitruong.vn",
-      "published_at": "2026-11-13T00:15:00Z",
-      "topics": [
-        "thiên nhiên"
-      ],
-      "image_url": null
-    },
-    {
-      "title": "Cơ sở giặt là không phép xả thải gây ô nhiễm",
-      "summary": "Cơ sở giặt là không phép xả thải gây ô nhiễm VTVgo",
-      "url": "https://news.google.com/rss/articles/CBMiQEFVX3lxTE9NYjZsd0RTWExVcDRoQkVVOUxZVE84NElUSnZKcmhOb0hlZTIxMTJiRGtnT0g1WWFVQXBsMTZYazI?oc=5",
-      "publisher": "VTVgo",
-      "publisher_url": "https://vtvgo.vn",
-      "published_at": "2026-11-13T00:00:00Z",
-      "topics": [
-        "ô nhiễm"
+        "rác thải"
       ],
       "image_url": null
     },
@@ -425,30 +104,521 @@
       "image_url": null
     },
     {
-      "title": "Kiểm soát các nguồn phát thải nguy cơ cao gây ô nhiễm môi trường",
-      "summary": "Kiểm soát các nguồn phát thải nguy cơ cao gây ô nhiễm môi trường Tạp Chí Điện Tử Thiên Nhiên Và Môi Trường",
-      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNUnJNWHBmOE5pOFYyMUY4b2gwb2l3SmtiTUdCVFo5WkRVdlktdkdsQWk4UVE2S2ctazdXdzZSREV6ZXlQbDJfR1V3VEFwRFJUeWF5eEF1bno1akxXbWk0Z28xQUhXQU4ybXAxbTRHTEZxZlQzeTBueFJLeUJ4UWtITzFneVlYeGdFandiSWozTGh6VWl6bTAtb0ZyNnBEZ3pkVUE?oc=5",
-      "publisher": "Tạp Chí Điện Tử Thiên Nhiên Và Môi Trường",
-      "publisher_url": "https://thiennhienmoitruong.vn",
-      "published_at": "2026-11-12T21:11:00Z",
+      "title": "Chủ tịch Nghệ An yêu cầu sớm tháo gỡ 3 nút thắt cho điện rác",
+      "summary": "Chủ tịch Nghệ An yêu cầu sớm tháo gỡ 3 nút thắt cho điện rác Báo Dân trí",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNakNDWVZSajJTU2pDU2J6T0dFVTlyVVFjOGp4bVl0Ti1ValdmV3FSNGNLRHNMZlVGTF9obTlyR2RybXFaTVRhNkRDYVhiSlpjTmxhdmNWQk9iSkM4dVBCaTFmQ2g2V0lQckowMVBRck1IYkVISXZFaUhidno3MVo3YUVCT2k3WHpUN1pJbnFOY0FhTVZUbWo2ZkpsMFJ5R2x3R1hSZGt2V292X3FMZnRSeDZ0a3dBZw?oc=5",
+      "publisher": "Báo Dân trí",
+      "publisher_url": "https://dantri.com.vn",
+      "published_at": "2026-11-12T13:46:16Z",
       "topics": [
-        "ô nhiễm",
-        "khí hậu",
+        "rác thải"
+      ],
+      "image_url": null
+    },
+    {
+      "title": "Hải Phòng lý giải nguyên nhân gây mùi hôi từ khu xử lý rác Gia Minh",
+      "summary": "Hải Phòng lý giải nguyên nhân gây mùi hôi từ khu xử lý rác Gia Minh Báo Dân trí",
+      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPMWJVdjltdHdDVU9Qb0tDUy1lbFQyUUcyYS04NkdjNFRuREhpTUs5VkZwMUk5TXNXdjE2d3hDM0U5ZWVKdUJNN2xYdlh2ZTYxZzd3MWpFZXRHZTZUdWo4SDJTUS01b3l0aG1oR2NyOWJ0Z05JWHkwQTl4aHJ3VThRVEZWTzZjRFpYTzMtTjlJREpQemZPS3BMTzBYWkN4a09CYmdjZHJ2eUd2TUp3S01wM1V1bHl0VklVaWFN?oc=5",
+      "publisher": "Báo Dân trí",
+      "publisher_url": "https://dantri.com.vn",
+      "published_at": "2026-11-12T04:50:34Z",
+      "topics": [
+        "rác thải"
+      ],
+      "image_url": null
+    }
+  ],
+  "older_items": [
+    {
+      "title": "Hình ảnh bãi biển Nha Trang ngổn ngang rác đủ loại sau mưa lớn",
+      "summary": "Hình ảnh bãi biển Nha Trang ngổn ngang rác đủ loại sau mưa lớn Báo VietNamNet",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOdGhxNGloY0p3aHk4WDU0MWhkdXR4TlN3M2hVS1hHeEJXSzUwMHVndWZQVDdqZXJRaTc2LWZWNFNDaDdJNi0zdFd3S3NXQWdiVUJpZ011Z1h4TnY4M0ZZZHlWZGdqalhES1RmcE9LRXdUajhQcTdKNXNnLTR4bnhMSE9DUlQwSGQ0SVhKQTFBc3c5SkpVeGdWMU50b0h6Zw?oc=5",
+      "publisher": "Báo VietNamNet",
+      "publisher_url": "https://vietnamnet.vn",
+      "published_at": "2026-11-11T10:14:00Z",
+      "topics": [
+        "rác thải"
+      ],
+      "image_url": null
+    },
+    {
+      "title": "Nha Trang khẩn trương xử lý hàng loạt cây xanh ngã đổ, dọn rác bãi biển sau mưa lũ",
+      "summary": "Nha Trang khẩn trương xử lý hàng loạt cây xanh ngã đổ, dọn rác bãi biển sau mưa lũ Báo Thanh Niên",
+      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQTHBNSlJNdXVMSTB4RWdiMFZGWEZvZ1cybkwzamJPcWxsTkRIX1BmQVdQbVZxQ3hmYWt3TlpkZTRJc3hvX29LVDN3dTdJZVphMjdxRVpzNVE0OFhOTTBXZFduZmNmc0UzaUY5ajZhZmRVSU9Uc3lVV0FBMFZVa3FNUEJMcU5rUjlWX3IzVlpzRThjLWc3dUZMbHQ1NV9wNWZIeWVsdGJlOWlfYm5MNWF4UC1wdmZPUFpsa0QwQXNlcXlEd0E?oc=5",
+      "publisher": "Báo Thanh Niên",
+      "publisher_url": "https://thanhnien.vn",
+      "published_at": "2026-11-11T05:07:00Z",
+      "topics": [
+        "rác thải"
+      ],
+      "image_url": null
+    },
+    {
+      "title": "Nhà máy điện rác 1.760 tỷ ở Ninh Bình lỡ hẹn, bãi chôn lấp cơi nới lần thứ 10",
+      "summary": "Nhà máy điện rác 1.760 tỷ ở Ninh Bình lỡ hẹn, bãi chôn lấp cơi nới lần thứ 10 Báo VietNamNet",
+      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOVkJYbFdJZEhxel8xLWNnUTBadWJZMVRjZklCV1dwMFdPQzc5SG1kSWZUS2hSSmNXUEhQNkgyZm4wQU4xRXk5eTVFRVh2V3QwemRYV1BQMlgxeC1aVzBYS25vSV8wX2ZMZ05GSmxicUJiTlpyQlVRNl9ETy1la1JrajZJaHpGRGlNdE5RMF9ZalZ0OFAt?oc=5",
+      "publisher": "Báo VietNamNet",
+      "publisher_url": "https://vietnamnet.vn",
+      "published_at": "2026-11-10T22:02:00Z",
+      "topics": [
+        "rác thải"
+      ],
+      "image_url": null
+    },
+    {
+      "title": "Từ bãi rác lớn nhất Đà Nẵng đến công viên 'chiếc nhẫn Hòa Bình'",
+      "summary": "Từ bãi rác lớn nhất Đà Nẵng đến công viên 'chiếc nhẫn Hòa Bình' VnExpress",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQMkJCZHFYV1lvN29vMEFmQlhhZHktdlBSNmtYcTdiaEQyV29KT3ZqX0JSVGZHZE9BbFF3Rk5QWWQxcU92YTc2MXJmYkZJOERFVHY5aUZNV1lSWU4xdzhLUktYT2d1c3lkanhTQ29DMXVfWEJwR2EyYV9LUTZiTWdYSUpVTHQ5WlVyRkNKaFQxYjFTeThYMkYydHR6V3I?oc=5",
+      "publisher": "VnExpress",
+      "publisher_url": "https://vnexpress.net",
+      "published_at": "2026-11-10T17:53:02Z",
+      "topics": [
+        "rác thải"
+      ],
+      "image_url": null
+    },
+    {
+      "title": "Đốt rác gây ô nhiễm không khí",
+      "summary": "Đốt rác gây ô nhiễm không khí VTV.vn",
+      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFA0bE5FR01PRXBTLVBHd01iNWx2LUllczVMaTA2YUx1LWR6MDZFQTNKT042ZEllTXRFWjlyWGEyY1BSN1FTS2pqVWdzYkdLM2w4czBiZ2o3UWZYUWk5d3ZjSEI2WTM4bE1INFFqQUJHS1ZWQQ?oc=5",
+      "publisher": "VTV.vn",
+      "publisher_url": "https://vtv.vn",
+      "published_at": "2026-11-10T11:58:05Z",
+      "topics": [
+        "rác thải",
+        "ô nhiễm công cộng"
+      ],
+      "image_url": null
+    },
+    {
+      "title": "Rác chất đống nhiều nơi ở Đà Nẵng, người dân mong sớm xử lý triệt để",
+      "summary": "Rác chất đống nhiều nơi ở Đà Nẵng, người dân mong sớm xử lý triệt để Báo Tuổi Trẻ",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPblA0Wm0zZ1lQeGFZNFZTZURyMGJCNVhTVm1nejlfdDhqU3pNMzlwcHdtT3ZVenNCei1WZUNEM2piTWFvQzVxVGJVTGVON1psN1ZDRUE5aTlodDN5OGtvaWhtamNtXzdTcjNJNnN5ZzNwOV9KMkdvRUZCUGh0cFN0SkMzaTFfbHZwLXdtREhmY2lVd0ZKekdNTXJLVjBYdW8xc18tSnp1Rm9hOFZxaFFyQ1cydGRycUU?oc=5",
+      "publisher": "Báo Tuổi Trẻ",
+      "publisher_url": "https://tuoitre.vn",
+      "published_at": "2026-11-09T10:49:00Z",
+      "topics": [
+        "rác thải"
+      ],
+      "image_url": null
+    },
+    {
+      "title": "Khủng hoảng rác tại Phuket: Phát sinh 1.200 tấn/ngày, xe chở rác đổ dọc đường",
+      "summary": "Khủng hoảng rác tại Phuket: Phát sinh 1.200 tấn/ngày, xe chở rác đổ dọc đường Báo Tuổi Trẻ",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNdWpYN080WWZ1REVkcnFHTlRZTHZJYTJTNnZFWDFnckp1azQzb1lZUmFTOFd1cVcwbkhOWEQ3OWpFdkcwZkF0YXRiVnRwalYyaVg4VkR3b3NTaVJnNUE4bUZtakw4WVBRTFFSY21PTzlZUFV2ekNtU0hpWlQweDRncHQxdGlLZEdMVUt3X3FDTzNpTFR0M2JWNDE1eXZvcmkzdEFzQUM4RV9RX01ZOVE3UnNhbUpCRk0?oc=5",
+      "publisher": "Báo Tuổi Trẻ",
+      "publisher_url": "https://tuoitre.vn",
+      "published_at": "2026-11-08T10:21:00Z",
+      "topics": [
+        "rác thải"
+      ],
+      "image_url": null
+    },
+    {
+      "title": "Di dời khối rác chôn lấp dưới đất tại Khu công nghiệp Bắc Thạch Hà",
+      "summary": "Di dời khối rác chôn lấp dưới đất tại Khu công nghiệp Bắc Thạch Hà Báo Tuổi Trẻ",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOblpCWWJlV19kTUZvSUNBVTI3NVhhR1ZmYjFDSEFCWkJjWXNQNGtibWFmOUF6LVdqRE9iXzdMNFpjcVlCd3p4bWtkeDF3c3RsVnBqdktfQ1NpYlR5SnktaHJ1QkRDakhPaEhBZ2NWX0pVUFZTR25wRUI4VFNoRFEyWEhuUlo2Zks3ekpwYmFoUHhGa1U4MzM2bVlfMmxHS1J4ZUZQbA?oc=5",
+      "publisher": "Báo Tuổi Trẻ",
+      "publisher_url": "https://tuoitre.vn",
+      "published_at": "2026-11-05T08:00:00Z",
+      "topics": [
+        "rác thải"
+      ],
+      "image_url": null
+    },
+    {
+      "title": "Cà Mau đầu tư nhà máy xử lý rác gần 1.000 tỉ đồng",
+      "summary": "Cà Mau đầu tư nhà máy xử lý rác gần 1.000 tỉ đồng Báo Tuổi Trẻ",
+      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPZXhKZzVYSUh1V0t3Q2o1TU5oRjZudWdGQ04tWnd5dEs3cmtOazR1UmRIZUhQZjlUeXdYNTFscFl0VEpDX0UwbjQ0UUxDZnRqSEN5N2RHYVRoYWRtVWtxX0NGRWVJMExGZHRaREszUjZQVWtMWUhJOENQVU9NLUh1OVVHamJOcjY4Rm5uOWExS3RQNFNJ?oc=5",
+      "publisher": "Báo Tuổi Trẻ",
+      "publisher_url": "https://tuoitre.vn",
+      "published_at": "2026-11-04T08:00:00Z",
+      "topics": [
+        "rác thải"
+      ],
+      "image_url": null
+    },
+    {
+      "title": "Rác và lục bình phủ kín mặt kênh",
+      "summary": "Thời gian gần đây, rác và lục bình từ các nơi trôi về, ứ đọng dày đặc trên mặt kênh Nước Đen (P.Bình Hưng Hòa, TP.HCM), gây ô nhiễm trầm trọng và làm mất mỹ quan đô thị.",
+      "url": "https://thanhnien.vn/rac-va-luc-binh-phu-kin-mat-kenh-185261103213311306.htm",
+      "publisher": "Báo Thanh Niên · Bạn đọc",
+      "publisher_url": "https://thanhnien.vn/rss.html",
+      "published_at": "2026-11-04T00:12:00Z",
+      "topics": [
+        "rác thải",
+        "ô nhiễm công cộng"
+      ],
+      "image_url": "https://images2.thanhnien.vn/zoom/600_315/528068263637045248/2026/11/3/tnw-tnw-photo-1793706164640-17937061654571317119104-17937062713261442161500-160-0-960-1280-crop-17937062787701088885885-1793718043478111065372.jpeg"
+    },
+    {
+      "title": "An Giang căng mình xử lý rác thải sinh hoạt",
+      "summary": "An Giang căng mình xử lý rác thải sinh hoạt Báo Thanh Niên",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPX0Mzckt0ZU1XLUJLaGdlNzV5aFJJYkZpTnltTEpUeFBlTmpGd01iMTc4MUI2eEthdUdpSVBvNHlPVUdOWWREOFB4X3FuRUE2QU5HeGVPX2RGU0s1TEhJVzVmbUt4SmlLQndkNjV5RlNCWXhiSkF4Y21COFE0UVE2MUFoRDBITkNUd2pfT0ZjMDc?oc=5",
+      "publisher": "Báo Thanh Niên",
+      "publisher_url": "https://thanhnien.vn",
+      "published_at": "2026-11-02T08:00:00Z",
+      "topics": [
+        "rác thải"
+      ],
+      "image_url": null
+    },
+    {
+      "title": "Rác chất đống bên đường",
+      "summary": "",
+      "url": "https://thanhnien.vn/rac-chat-dong-ben-duong-185261029212747051.htm",
+      "publisher": "Báo Thanh Niên · Bạn đọc",
+      "publisher_url": "https://thanhnien.vn/rss.html",
+      "published_at": "2026-10-30T02:27:00Z",
+      "topics": [
+        "rác thải"
+      ],
+      "image_url": "https://images2.thanhnien.vn/zoom/600_315/528068263637045248/2026/10/29/bdv-1-online-17932835030731257316615-96-0-736-1024-crop-17932840636331907853317.jpg"
+    },
+    {
+      "title": "Rác chất đống tại dự án làm đường ở Hà Nội",
+      "summary": "Rác chất đống tại dự án làm đường ở Hà Nội Tuổi Trẻ",
+      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNb1FJMUFPcEw0WHZJaUxyOF95TFF2ckczRWxXQ2M4UTdVMkpQc3JwTWpiYVZ3YTVfTVJvNXh0VmV6ZXVSbk5zOGlrX1BmTm1FOGdPQ2tvUmxUUENiWHZFTjlXYWNpS1E4ejRKbjhSYktTZkIyRmhQa3Y3VW5jSTV6Tzc2Zk5QU3ZDMkUwTQ?oc=5",
+      "publisher": "Tuổi Trẻ",
+      "publisher_url": "https://tuoitre.vn",
+      "published_at": "2026-10-29T07:00:00Z",
+      "topics": [
+        "rác thải"
+      ],
+      "image_url": null
+    },
+    {
+      "title": "Chạy xe ba gác đổ rác bừa bãi bị camera ghi lại, bị mời làm việc và buộc thu gom lại rác",
+      "summary": "Chạy xe ba gác đổ rác bừa bãi bị camera ghi lại, bị mời làm việc và buộc thu gom lại rác Báo Tuổi Trẻ",
+      "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQUzVyQXhNYmhZU0V1VzNyakh5MzhBRGJ6cGJ1dWJpUUZSV0l5QldzTm1VN1hyc1pJOGd6UlBoQV9wYnJic3FUVkZYbWxZT3NIUGx1eV9Bai1ZLWVnX3hTRW5QRnZpYjZNOXNid2tEQkFNbjNXWE00a0NHZFBMdWl6ZEZyVTlvc3FFaS1wUF9SeXV6RFRWWEczMFRWODl4RURISHlYVDNNMmdwcklvZzR1dnlwVExYQ2JDRkFkVXBZT2J4blN4d0RSdA?oc=5",
+      "publisher": "Báo Tuổi Trẻ",
+      "publisher_url": "https://tuoitre.vn",
+      "published_at": "2026-10-27T07:00:00Z",
+      "topics": [
+        "rác thải"
+      ],
+      "image_url": null
+    },
+    {
+      "title": "Từ hình ảnh người dân cung cấp, phường Bình Hưng Hòa phạt người đi ô tô vứt rác",
+      "summary": "Từ hình ảnh người dân cung cấp, phường Bình Hưng Hòa phạt người đi ô tô vứt rác Báo Tuổi Trẻ",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOQzFld1hTQXBENjlQbVhJRTJpekpBaExHUGJQdHZnQzRsRkdZZmNnbExWaU95UzIzUEVGWHVGMUpMYXU3blJyc094MzNWZW4wcDluRHFhX1pCa3RGUllReXRkaUlkNmpNT2FRNVpXTC1zcm5ieTVMaGJTMTNmcDlFX1htQW1XNjM0N3RPcWNMVmZLaGRDVDFJMTdERHJnNmMwN1ViY2gwRXFFdlFMWE9takFyNEFCSlBZbEtDeA?oc=5",
+      "publisher": "Báo Tuổi Trẻ",
+      "publisher_url": "https://tuoitre.vn",
+      "published_at": "2026-10-26T07:00:00Z",
+      "topics": [
+        "rác thải"
+      ],
+      "image_url": null
+    }
+  ],
+  "items": [
+    {
+      "title": "Chủ tịch Khánh Hòa chỉ đạo xử lý vụ bãi biển ở vịnh Cam Ranh ngập ngụa rác thải",
+      "summary": "Chủ tịch UBND tỉnh Khánh Hòa chỉ đạo các đơn vị liên quan xử lý triệt để tình trạng rác thải nhựa tại bãi biển Bình Lập, xử lý nghiêm các trường hợp vi phạm.",
+      "url": "https://tuoitre.vn/chu-tich-khanh-hoa-chi-dao-xu-ly-vu-bai-bien-o-vinh-cam-ranh-ngap-ngua-rac-thai-10026111409101498.htm",
+      "publisher": "Báo Tuổi Trẻ",
+      "publisher_url": "https://tuoitre.vn/rss.htm",
+      "published_at": "2026-11-14T09:27:00Z",
+      "topics": [
+        "rác thải",
+        "nhựa và tái chế"
+      ],
+      "image_url": "https://cdn2.tuoitre.vn/thumb_w/1200/471584752817336320/2026/11/14/1793432857651703735985656013176070373598565601317603ffae921f1fc14c35dcba30aef33b2cf-17946217266811321297840-107-0-1707-2560-crop-1794621970582891739712.jpg"
+    },
+    {
+      "title": "Cha mẹ cãi vã, xả rác trên đường sẽ cho con mình 'bài học' xấu",
+      "summary": "Đối với con trẻ thì cha mẹ chúng luôn như là một thiên thần, một anh hùng vì nghĩa, chứ không phải là một người hung hãn, hoặc tay 'anh chị'.",
+      "url": "https://tuoitre.vn/cha-me-cai-va-xa-rac-tren-duong-se-chon-con-minh-bai-hoc-xau-100261112100400953.htm",
+      "publisher": "Báo Tuổi Trẻ · Bạn đọc",
+      "publisher_url": "https://tuoitre.vn/rss.htm",
+      "published_at": "2026-11-14T08:38:00Z",
+      "topics": [
+        "rác thải"
+      ],
+      "image_url": "https://cdn2.tuoitre.vn/thumb_w/1200/471584752817336320/2026/11/12/tranh-biem-hoa-lexus-va-cham-giao-thong-danh-nguoi-1739331802132882616285-43-95-803-1310-crop-1794500108823486956264.jpg"
+    },
+    {
+      "title": "Chủ tịch Khánh Hòa chỉ đạo xử lý dứt điểm rác thải nhựa ở Bình Lập sau phản ánh Lao Động",
+      "summary": "Chủ tịch Khánh Hòa chỉ đạo xử lý dứt điểm rác thải nhựa ở Bình Lập sau phản ánh Lao Động Laodong.vn",
+      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPblNBMF9oSTRENWZPSEF5OGs4eU03TC1WdjVSQ3FPWGE5NWV2NXAwT2FoOVNlRDg2M09ZZzhYMkxGVVJjZ1hHX1B3MDR6Z3kya2RjVmJua1M5VjBzQU96MjcwZmtQQUVvV05fYmhGSXB2OC1jYXcwRk1xSmVOeDhybnM5cVp0cWJUOEZaYWYyMFNZVGo1eWFjZllYTVE1bzYtTktYTXFLckhKakh2QjBKaUlQeFlUdzlka0I2SElaTFVZaGdu?oc=5",
+      "publisher": "Laodong.vn",
+      "publisher_url": "https://laodong.vn",
+      "published_at": "2026-11-14T01:13:14Z",
+      "topics": [
+        "rác thải",
+        "nhựa và tái chế"
+      ],
+      "image_url": null
+    },
+    {
+      "title": "Phát động Giải thưởng Trường học sinh thái ASEAN 2026, khuyến khích giảm rác thải nhựa",
+      "summary": "Phát động Giải thưởng Trường học sinh thái ASEAN 2026, khuyến khích giảm rác thải nhựa Báo Tuổi Trẻ",
+      "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQQzVCUVhTYlJVUlVUNkNnLUtOR3hZd0ZObFdVN1ZvWDZqQ080U0I0WFZneWd3c1Nlb2U5ZF9tNWZfdXRBU2c3aGR0SVlPSmxkTjNVR2VfaEMtRlQ3eEpieU12ZTFmSjdrbWxaSjRtdGRYQnFGb1NsTFZIWHYyeWU1TVFJR3lKeFEwM0dad2dwemZhNG9PUmtER0xXYmZwWGRWcHlMODFYZ2ZiTC1sYWpQZjJpTVVIUVNvbTVUaGZxdmh4MjVtMEE?oc=5",
+      "publisher": "Báo Tuổi Trẻ",
+      "publisher_url": "https://tuoitre.vn",
+      "published_at": "2026-11-13T10:40:00Z",
+      "topics": [
+        "rác thải",
+        "nhựa và tái chế"
+      ],
+      "image_url": null
+    },
+    {
+      "title": "Khu xử lý rác quá tải, bốc mùi hôi thối, ảnh hưởng hàng trăm hộ dân ở Ninh Bình",
+      "summary": "Khu xử lý rác quá tải, bốc mùi hôi thối, ảnh hưởng hàng trăm hộ dân ở Ninh Bình VTV.vn",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNNlNLZmg1S1pKNXRCaS1jZ3pDNnNqQWFDdE9OcUpjNUtHWmhTNWJORERHUGdkaVFrMUpnMEpaRWpCZk9kUXpqQ19WcC12TkZBN0R3MWM1Unlta2Y0dmtXcjJQUUxfUnZMeGM1QU10SGF2T3hJNTlfdGNIM3ZmQXZCWjJ3UFN1ZHRRVTI3OElHdkJTOE90UGlka3NNdldoOHB4T2lTWnJWNTNhdm0tRjBKT2Z2aDU0dw?oc=5",
+      "publisher": "VTV.vn",
+      "publisher_url": "https://vtv.vn",
+      "published_at": "2026-11-13T05:10:00Z",
+      "topics": [
+        "rác thải"
+      ],
+      "image_url": null
+    },
+    {
+      "title": "Chủ tịch Nghệ An chỉ đạo sở, ngành tháo gỡ 3 'nút thắt' cho nhà máy điện rác",
+      "summary": "Chủ tịch Nghệ An chỉ đạo sở, ngành tháo gỡ 3 'nút thắt' cho nhà máy điện rác Báo VietNamNet",
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxORWtxMnFRby00MHZBTWYtdEpudnQteFp3ZEVyRzBTWHZMV00ycnlZRHZXak9JMXUwZU92VEVUUVlLMDBiUHdwUWpNMFVrTllfZTk5OXV1SDNZdDZxYjhyODU2SnVPZ0dUZGRGaThPdE1IZFMzTDRsaTFraGZKbTB5ZE9OTWZ5VW9zdHBwNlFReUh1bUlsTExLcTVBWFVyTlowaFpXd2g1YlB0ZUJO?oc=5",
+      "publisher": "Báo VietNamNet",
+      "publisher_url": "https://vietnamnet.vn",
+      "published_at": "2026-11-13T02:00:00Z",
+      "topics": [
+        "rác thải"
+      ],
+      "image_url": null
+    },
+    {
+      "title": "Thái Lan tăng mức phạt nhập lậu rác thải nguy hại",
+      "summary": "Thái Lan tăng mức phạt nhập lậu rác thải nguy hại VTV.vn",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOcElVU2lLa1lHdDYxNFp2eWZibWU4RjY0SDF2Z0tJMUV0WXJfMDV0NWtEUnhQWmRlMnh2clV4cXJtbXlwajhGRnlQWHl6Y3hHekVWWkZJWjN5cEY2Z1duWjlrUGNSWXlETjU3UVRncUFTaEtpZWpYMXplRVlIRHR4NEZ0Z0lhOTBPZElobHlNdzE?oc=5",
+      "publisher": "VTV.vn",
+      "publisher_url": "https://vtv.vn",
+      "published_at": "2026-11-12T23:10:00Z",
+      "topics": [
+        "rác thải"
+      ],
+      "image_url": null
+    },
+    {
+      "title": "Giảm thiểu chất thải nhựa, bảo vệ môi trường du lịch",
+      "summary": "Giảm thiểu chất thải nhựa, bảo vệ môi trường du lịch Vietnam.vn",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9WWlhNaVBlaEx6b3MwZElfai1RWERibU5Va0YxcDFsMVVNdl9rQ3BRZWF5OF9JMWsydHc4bm1tRjYtMkZFQU9CMHZKWTg2VDBoZEdDeDcyV1dxZ0NUVkJlTkk4d0tScTFuUS1uNVFkTkwwbFVLSnhHY04xOG1lbG8?oc=5",
+      "publisher": "Vietnam.vn",
+      "publisher_url": "https://www.vietnam.vn",
+      "published_at": "2026-11-12T22:29:56Z",
+      "topics": [
+        "rác thải",
+        "nhựa và tái chế",
         "thiên nhiên"
       ],
       "image_url": null
     },
     {
-      "title": "Lộ diện 'Con đường Tơ lụa trong không gian' với 20 vệ tinh AI của Trung Quốc",
-      "summary": "Các vệ tinh có thể tự nhận diện tàu thuyền, công trình và phát hiện lũ lụt, giúp rút ngắn thời gian xử lý dữ liệu.",
-      "url": "https://tuoitre.vn/lo-dien-con-duong-to-lua-trong-khong-gian-voi-20-ve-tinh-ai-cua-trung-quoc-100261112162755493.htm",
-      "publisher": "Tuổi Trẻ · Khoa học",
-      "publisher_url": "https://tuoitre.vn/rss.htm",
-      "published_at": "2026-11-12T19:09:00Z",
+      "title": "Chủ tịch Nghệ An yêu cầu sớm tháo gỡ 3 nút thắt cho điện rác",
+      "summary": "Chủ tịch Nghệ An yêu cầu sớm tháo gỡ 3 nút thắt cho điện rác Báo Dân trí",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNakNDWVZSajJTU2pDU2J6T0dFVTlyVVFjOGp4bVl0Ti1ValdmV3FSNGNLRHNMZlVGTF9obTlyR2RybXFaTVRhNkRDYVhiSlpjTmxhdmNWQk9iSkM4dVBCaTFmQ2g2V0lQckowMVBRck1IYkVISXZFaUhidno3MVo3YUVCT2k3WHpUN1pJbnFOY0FhTVZUbWo2ZkpsMFJ5R2x3R1hSZGt2V292X3FMZnRSeDZ0a3dBZw?oc=5",
+      "publisher": "Báo Dân trí",
+      "publisher_url": "https://dantri.com.vn",
+      "published_at": "2026-11-12T13:46:16Z",
       "topics": [
-        "thiên nhiên"
+        "rác thải"
       ],
-      "image_url": "https://cdn2.tuoitre.vn/thumb_w/1200/471584752817336320/2026/11/12/b692b984-9571-41c5-8069-887e64f688e4bd2ec764-1794475528326671578619-0-0-750-1200-crop-17944755568791874916645.png"
+      "image_url": null
+    },
+    {
+      "title": "Hải Phòng lý giải nguyên nhân gây mùi hôi từ khu xử lý rác Gia Minh",
+      "summary": "Hải Phòng lý giải nguyên nhân gây mùi hôi từ khu xử lý rác Gia Minh Báo Dân trí",
+      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPMWJVdjltdHdDVU9Qb0tDUy1lbFQyUUcyYS04NkdjNFRuREhpTUs5VkZwMUk5TXNXdjE2d3hDM0U5ZWVKdUJNN2xYdlh2ZTYxZzd3MWpFZXRHZTZUdWo4SDJTUS01b3l0aG1oR2NyOWJ0Z05JWHkwQTl4aHJ3VThRVEZWTzZjRFpYTzMtTjlJREpQemZPS3BMTzBYWkN4a09CYmdjZHJ2eUd2TUp3S01wM1V1bHl0VklVaWFN?oc=5",
+      "publisher": "Báo Dân trí",
+      "publisher_url": "https://dantri.com.vn",
+      "published_at": "2026-11-12T04:50:34Z",
+      "topics": [
+        "rác thải"
+      ],
+      "image_url": null
+    },
+    {
+      "title": "Hình ảnh bãi biển Nha Trang ngổn ngang rác đủ loại sau mưa lớn",
+      "summary": "Hình ảnh bãi biển Nha Trang ngổn ngang rác đủ loại sau mưa lớn Báo VietNamNet",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOdGhxNGloY0p3aHk4WDU0MWhkdXR4TlN3M2hVS1hHeEJXSzUwMHVndWZQVDdqZXJRaTc2LWZWNFNDaDdJNi0zdFd3S3NXQWdiVUJpZ011Z1h4TnY4M0ZZZHlWZGdqalhES1RmcE9LRXdUajhQcTdKNXNnLTR4bnhMSE9DUlQwSGQ0SVhKQTFBc3c5SkpVeGdWMU50b0h6Zw?oc=5",
+      "publisher": "Báo VietNamNet",
+      "publisher_url": "https://vietnamnet.vn",
+      "published_at": "2026-11-11T10:14:00Z",
+      "topics": [
+        "rác thải"
+      ],
+      "image_url": null
+    },
+    {
+      "title": "Nha Trang khẩn trương xử lý hàng loạt cây xanh ngã đổ, dọn rác bãi biển sau mưa lũ",
+      "summary": "Nha Trang khẩn trương xử lý hàng loạt cây xanh ngã đổ, dọn rác bãi biển sau mưa lũ Báo Thanh Niên",
+      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQTHBNSlJNdXVMSTB4RWdiMFZGWEZvZ1cybkwzamJPcWxsTkRIX1BmQVdQbVZxQ3hmYWt3TlpkZTRJc3hvX29LVDN3dTdJZVphMjdxRVpzNVE0OFhOTTBXZFduZmNmc0UzaUY5ajZhZmRVSU9Uc3lVV0FBMFZVa3FNUEJMcU5rUjlWX3IzVlpzRThjLWc3dUZMbHQ1NV9wNWZIeWVsdGJlOWlfYm5MNWF4UC1wdmZPUFpsa0QwQXNlcXlEd0E?oc=5",
+      "publisher": "Báo Thanh Niên",
+      "publisher_url": "https://thanhnien.vn",
+      "published_at": "2026-11-11T05:07:00Z",
+      "topics": [
+        "rác thải"
+      ],
+      "image_url": null
+    },
+    {
+      "title": "Nhà máy điện rác 1.760 tỷ ở Ninh Bình lỡ hẹn, bãi chôn lấp cơi nới lần thứ 10",
+      "summary": "Nhà máy điện rác 1.760 tỷ ở Ninh Bình lỡ hẹn, bãi chôn lấp cơi nới lần thứ 10 Báo VietNamNet",
+      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOVkJYbFdJZEhxel8xLWNnUTBadWJZMVRjZklCV1dwMFdPQzc5SG1kSWZUS2hSSmNXUEhQNkgyZm4wQU4xRXk5eTVFRVh2V3QwemRYV1BQMlgxeC1aVzBYS25vSV8wX2ZMZ05GSmxicUJiTlpyQlVRNl9ETy1la1JrajZJaHpGRGlNdE5RMF9ZalZ0OFAt?oc=5",
+      "publisher": "Báo VietNamNet",
+      "publisher_url": "https://vietnamnet.vn",
+      "published_at": "2026-11-10T22:02:00Z",
+      "topics": [
+        "rác thải"
+      ],
+      "image_url": null
+    },
+    {
+      "title": "Từ bãi rác lớn nhất Đà Nẵng đến công viên 'chiếc nhẫn Hòa Bình'",
+      "summary": "Từ bãi rác lớn nhất Đà Nẵng đến công viên 'chiếc nhẫn Hòa Bình' VnExpress",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQMkJCZHFYV1lvN29vMEFmQlhhZHktdlBSNmtYcTdiaEQyV29KT3ZqX0JSVGZHZE9BbFF3Rk5QWWQxcU92YTc2MXJmYkZJOERFVHY5aUZNV1lSWU4xdzhLUktYT2d1c3lkanhTQ29DMXVfWEJwR2EyYV9LUTZiTWdYSUpVTHQ5WlVyRkNKaFQxYjFTeThYMkYydHR6V3I?oc=5",
+      "publisher": "VnExpress",
+      "publisher_url": "https://vnexpress.net",
+      "published_at": "2026-11-10T17:53:02Z",
+      "topics": [
+        "rác thải"
+      ],
+      "image_url": null
+    },
+    {
+      "title": "Đốt rác gây ô nhiễm không khí",
+      "summary": "Đốt rác gây ô nhiễm không khí VTV.vn",
+      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFA0bE5FR01PRXBTLVBHd01iNWx2LUllczVMaTA2YUx1LWR6MDZFQTNKT042ZEllTXRFWjlyWGEyY1BSN1FTS2pqVWdzYkdLM2w4czBiZ2o3UWZYUWk5d3ZjSEI2WTM4bE1INFFqQUJHS1ZWQQ?oc=5",
+      "publisher": "VTV.vn",
+      "publisher_url": "https://vtv.vn",
+      "published_at": "2026-11-10T11:58:05Z",
+      "topics": [
+        "rác thải",
+        "ô nhiễm công cộng"
+      ],
+      "image_url": null
+    },
+    {
+      "title": "Rác chất đống nhiều nơi ở Đà Nẵng, người dân mong sớm xử lý triệt để",
+      "summary": "Rác chất đống nhiều nơi ở Đà Nẵng, người dân mong sớm xử lý triệt để Báo Tuổi Trẻ",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPblA0Wm0zZ1lQeGFZNFZTZURyMGJCNVhTVm1nejlfdDhqU3pNMzlwcHdtT3ZVenNCei1WZUNEM2piTWFvQzVxVGJVTGVON1psN1ZDRUE5aTlodDN5OGtvaWhtamNtXzdTcjNJNnN5ZzNwOV9KMkdvRUZCUGh0cFN0SkMzaTFfbHZwLXdtREhmY2lVd0ZKekdNTXJLVjBYdW8xc18tSnp1Rm9hOFZxaFFyQ1cydGRycUU?oc=5",
+      "publisher": "Báo Tuổi Trẻ",
+      "publisher_url": "https://tuoitre.vn",
+      "published_at": "2026-11-09T10:49:00Z",
+      "topics": [
+        "rác thải"
+      ],
+      "image_url": null
+    },
+    {
+      "title": "Khủng hoảng rác tại Phuket: Phát sinh 1.200 tấn/ngày, xe chở rác đổ dọc đường",
+      "summary": "Khủng hoảng rác tại Phuket: Phát sinh 1.200 tấn/ngày, xe chở rác đổ dọc đường Báo Tuổi Trẻ",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNdWpYN080WWZ1REVkcnFHTlRZTHZJYTJTNnZFWDFnckp1azQzb1lZUmFTOFd1cVcwbkhOWEQ3OWpFdkcwZkF0YXRiVnRwalYyaVg4VkR3b3NTaVJnNUE4bUZtakw4WVBRTFFSY21PTzlZUFV2ekNtU0hpWlQweDRncHQxdGlLZEdMVUt3X3FDTzNpTFR0M2JWNDE1eXZvcmkzdEFzQUM4RV9RX01ZOVE3UnNhbUpCRk0?oc=5",
+      "publisher": "Báo Tuổi Trẻ",
+      "publisher_url": "https://tuoitre.vn",
+      "published_at": "2026-11-08T10:21:00Z",
+      "topics": [
+        "rác thải"
+      ],
+      "image_url": null
+    },
+    {
+      "title": "Di dời khối rác chôn lấp dưới đất tại Khu công nghiệp Bắc Thạch Hà",
+      "summary": "Di dời khối rác chôn lấp dưới đất tại Khu công nghiệp Bắc Thạch Hà Báo Tuổi Trẻ",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOblpCWWJlV19kTUZvSUNBVTI3NVhhR1ZmYjFDSEFCWkJjWXNQNGtibWFmOUF6LVdqRE9iXzdMNFpjcVlCd3p4bWtkeDF3c3RsVnBqdktfQ1NpYlR5SnktaHJ1QkRDakhPaEhBZ2NWX0pVUFZTR25wRUI4VFNoRFEyWEhuUlo2Zks3ekpwYmFoUHhGa1U4MzM2bVlfMmxHS1J4ZUZQbA?oc=5",
+      "publisher": "Báo Tuổi Trẻ",
+      "publisher_url": "https://tuoitre.vn",
+      "published_at": "2026-11-05T08:00:00Z",
+      "topics": [
+        "rác thải"
+      ],
+      "image_url": null
+    },
+    {
+      "title": "Cà Mau đầu tư nhà máy xử lý rác gần 1.000 tỉ đồng",
+      "summary": "Cà Mau đầu tư nhà máy xử lý rác gần 1.000 tỉ đồng Báo Tuổi Trẻ",
+      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPZXhKZzVYSUh1V0t3Q2o1TU5oRjZudWdGQ04tWnd5dEs3cmtOazR1UmRIZUhQZjlUeXdYNTFscFl0VEpDX0UwbjQ0UUxDZnRqSEN5N2RHYVRoYWRtVWtxX0NGRWVJMExGZHRaREszUjZQVWtMWUhJOENQVU9NLUh1OVVHamJOcjY4Rm5uOWExS3RQNFNJ?oc=5",
+      "publisher": "Báo Tuổi Trẻ",
+      "publisher_url": "https://tuoitre.vn",
+      "published_at": "2026-11-04T08:00:00Z",
+      "topics": [
+        "rác thải"
+      ],
+      "image_url": null
+    },
+    {
+      "title": "Rác và lục bình phủ kín mặt kênh",
+      "summary": "Thời gian gần đây, rác và lục bình từ các nơi trôi về, ứ đọng dày đặc trên mặt kênh Nước Đen (P.Bình Hưng Hòa, TP.HCM), gây ô nhiễm trầm trọng và làm mất mỹ quan đô thị.",
+      "url": "https://thanhnien.vn/rac-va-luc-binh-phu-kin-mat-kenh-185261103213311306.htm",
+      "publisher": "Báo Thanh Niên · Bạn đọc",
+      "publisher_url": "https://thanhnien.vn/rss.html",
+      "published_at": "2026-11-04T00:12:00Z",
+      "topics": [
+        "rác thải",
+        "ô nhiễm công cộng"
+      ],
+      "image_url": "https://images2.thanhnien.vn/zoom/600_315/528068263637045248/2026/11/3/tnw-tnw-photo-1793706164640-17937061654571317119104-17937062713261442161500-160-0-960-1280-crop-17937062787701088885885-1793718043478111065372.jpeg"
+    },
+    {
+      "title": "An Giang căng mình xử lý rác thải sinh hoạt",
+      "summary": "An Giang căng mình xử lý rác thải sinh hoạt Báo Thanh Niên",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPX0Mzckt0ZU1XLUJLaGdlNzV5aFJJYkZpTnltTEpUeFBlTmpGd01iMTc4MUI2eEthdUdpSVBvNHlPVUdOWWREOFB4X3FuRUE2QU5HeGVPX2RGU0s1TEhJVzVmbUt4SmlLQndkNjV5RlNCWXhiSkF4Y21COFE0UVE2MUFoRDBITkNUd2pfT0ZjMDc?oc=5",
+      "publisher": "Báo Thanh Niên",
+      "publisher_url": "https://thanhnien.vn",
+      "published_at": "2026-11-02T08:00:00Z",
+      "topics": [
+        "rác thải"
+      ],
+      "image_url": null
+    },
+    {
+      "title": "Rác chất đống bên đường",
+      "summary": "",
+      "url": "https://thanhnien.vn/rac-chat-dong-ben-duong-185261029212747051.htm",
+      "publisher": "Báo Thanh Niên · Bạn đọc",
+      "publisher_url": "https://thanhnien.vn/rss.html",
+      "published_at": "2026-10-30T02:27:00Z",
+      "topics": [
+        "rác thải"
+      ],
+      "image_url": "https://images2.thanhnien.vn/zoom/600_315/528068263637045248/2026/10/29/bdv-1-online-17932835030731257316615-96-0-736-1024-crop-17932840636331907853317.jpg"
+    },
+    {
+      "title": "Rác chất đống tại dự án làm đường ở Hà Nội",
+      "summary": "Rác chất đống tại dự án làm đường ở Hà Nội Tuổi Trẻ",
+      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNb1FJMUFPcEw0WHZJaUxyOF95TFF2ckczRWxXQ2M4UTdVMkpQc3JwTWpiYVZ3YTVfTVJvNXh0VmV6ZXVSbk5zOGlrX1BmTm1FOGdPQ2tvUmxUUENiWHZFTjlXYWNpS1E4ejRKbjhSYktTZkIyRmhQa3Y3VW5jSTV6Tzc2Zk5QU3ZDMkUwTQ?oc=5",
+      "publisher": "Tuổi Trẻ",
+      "publisher_url": "https://tuoitre.vn",
+      "published_at": "2026-10-29T07:00:00Z",
+      "topics": [
+        "rác thải"
+      ],
+      "image_url": null
+    },
+    {
+      "title": "Chạy xe ba gác đổ rác bừa bãi bị camera ghi lại, bị mời làm việc và buộc thu gom lại rác",
+      "summary": "Chạy xe ba gác đổ rác bừa bãi bị camera ghi lại, bị mời làm việc và buộc thu gom lại rác Báo Tuổi Trẻ",
+      "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQUzVyQXhNYmhZU0V1VzNyakh5MzhBRGJ6cGJ1dWJpUUZSV0l5QldzTm1VN1hyc1pJOGd6UlBoQV9wYnJic3FUVkZYbWxZT3NIUGx1eV9Bai1ZLWVnX3hTRW5QRnZpYjZNOXNid2tEQkFNbjNXWE00a0NHZFBMdWl6ZEZyVTlvc3FFaS1wUF9SeXV6RFRWWEczMFRWODl4RURISHlYVDNNMmdwcklvZzR1dnlwVExYQ2JDRkFkVXBZT2J4blN4d0RSdA?oc=5",
+      "publisher": "Báo Tuổi Trẻ",
+      "publisher_url": "https://tuoitre.vn",
+      "published_at": "2026-10-27T07:00:00Z",
+      "topics": [
+        "rác thải"
+      ],
+      "image_url": null
+    },
+    {
+      "title": "Từ hình ảnh người dân cung cấp, phường Bình Hưng Hòa phạt người đi ô tô vứt rác",
+      "summary": "Từ hình ảnh người dân cung cấp, phường Bình Hưng Hòa phạt người đi ô tô vứt rác Báo Tuổi Trẻ",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOQzFld1hTQXBENjlQbVhJRTJpekpBaExHUGJQdHZnQzRsRkdZZmNnbExWaU95UzIzUEVGWHVGMUpMYXU3blJyc094MzNWZW4wcDluRHFhX1pCa3RGUllReXRkaUlkNmpNT2FRNVpXTC1zcm5ieTVMaGJTMTNmcDlFX1htQW1XNjM0N3RPcWNMVmZLaGRDVDFJMTdERHJnNmMwN1ViY2gwRXFFdlFMWE9takFyNEFCSlBZbEtDeA?oc=5",
+      "publisher": "Báo Tuổi Trẻ",
+      "publisher_url": "https://tuoitre.vn",
+      "published_at": "2026-10-26T07:00:00Z",
+      "topics": [
+        "rác thải"
+      ],
+      "image_url": null
     }
   ]
 }

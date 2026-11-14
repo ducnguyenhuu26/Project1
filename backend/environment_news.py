@@ -18,12 +18,23 @@ from xml.etree import ElementTree
 
 
 REFRESH_SECONDS = 24 * 60 * 60
-MAX_ITEMS = 36
+LATEST_LIMIT = 10
+OLDER_LIMIT = 15
+MAX_ITEMS = LATEST_LIMIT + OLDER_LIMIT
+HISTORY_DAYS = 90
 MAX_FEED_BYTES = 2_000_000
 USER_AGENT = 'SOICTERRA-Environment-News/1.0 (RSS headlines and excerpts; opens original publisher pages)'
 PAGE_USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36'
 
-NEWS_QUERY = '(môi trường OR rác thải OR chất thải OR tái chế OR ô nhiễm OR khí hậu OR phát thải) when:7d'
+TRUSTED_DOMAINS = {
+    'vnexpress.net', 'tuoitre.vn', 'thanhnien.vn', 'dantri.com.vn',
+    'vietnamnet.vn', 'vtv.vn', 'nhandan.vn', 'vov.vn', 'baotintuc.vn',
+    'laodong.vn', 'tienphong.vn', 'plo.vn', 'cand.com.vn', 'vietnam.vn',
+}
+NEWS_QUERY = '("rác thải" OR "đổ trộm rác" OR "xả rác" OR "vứt rác" OR "đốt rác" OR "bãi rác") (site:vnexpress.net OR site:tuoitre.vn OR site:thanhnien.vn OR site:dantri.com.vn OR site:vietnamnet.vn OR site:vtv.vn OR site:nhandan.vn OR site:vov.vn) when:7d'
+ARCHIVE_QUERY = NEWS_QUERY.rsplit('when:7d', 1)[0] + 'when:60d'
+LANDFILL_QUERY = '("rác chất đống" OR "rác ngập" OR "bãi rác quá tải" OR "rác thải sinh hoạt") (site:vnexpress.net OR site:tuoitre.vn OR site:thanhnien.vn OR site:dantri.com.vn OR site:vietnamnet.vn OR site:vtv.vn OR site:nhandan.vn OR site:vov.vn) when:90d'
+ILLEGAL_DUMPING_QUERY = '("lén đổ rác" OR "camera" "đổ rác" OR "đổ trộm" OR "xả rác nơi công cộng" OR "vứt rác bừa bãi") (site:vnexpress.net OR site:tuoitre.vn OR site:thanhnien.vn OR site:dantri.com.vn OR site:vietnamnet.vn OR site:vtv.vn OR site:nhandan.vn OR site:vov.vn) when:90d'
 FEEDS = (
     {
         'id': 'google-news',
@@ -33,32 +44,66 @@ FEEDS = (
         'source_url': 'https://news.google.com/',
     },
     {
-        'id': 'vnexpress',
-        'name': 'VnExpress · Khoa học',
-        'url': 'https://vnexpress.net/rss/khoa-hoc-cong-nghe.rss',
+        'id': 'google-news-archive',
+        'name': 'Google Tin tức · Kho bài cũ',
+        'url': 'https://news.google.com/rss/search?q=' + quote(LANDFILL_QUERY)
+        + '&hl=vi&gl=VN&ceid=VN:vi',
+        'source_url': 'https://news.google.com/',
+        'history_days': HISTORY_DAYS,
+    },
+    {
+        'id': 'google-news-enforcement',
+        'name': 'Google Tin tức · Xả rác, đổ trộm',
+        'url': 'https://news.google.com/rss/search?q=' + quote(ILLEGAL_DUMPING_QUERY)
+        + '&hl=vi&gl=VN&ceid=VN:vi',
+        'source_url': 'https://news.google.com/',
+        'history_days': HISTORY_DAYS,
+    },
+    {
+        'id': 'vnexpress-latest',
+        'name': 'VnExpress',
+        'url': 'https://vnexpress.net/rss/tin-moi-nhat.rss',
         'source_url': 'https://vnexpress.net/rss',
     },
     {
-        'id': 'tuoitre',
-        'name': 'Tuổi Trẻ · Khoa học',
-        'url': 'https://tuoitre.vn/khoa-hoc.rss',
+        'id': 'tuoitre-latest',
+        'name': 'Báo Tuổi Trẻ',
+        'url': 'https://tuoitre.vn/rss/tin-moi-nhat.rss',
         'source_url': 'https://tuoitre.vn/rss.htm',
     },
     {
-        'id': 'vepf',
-        'name': 'Quỹ Bảo vệ Môi trường Việt Nam',
-        'url': 'https://www.vepf.vn/vi/rss/tin-moi-truong-vepfpw4e5j.rss',
-        'source_url': 'https://www.vepf.vn/vi/rss.html',
+        'id': 'tuoitre-readers',
+        'name': 'Báo Tuổi Trẻ · Bạn đọc',
+        'url': 'https://tuoitre.vn/rss/ban-doc.rss',
+        'source_url': 'https://tuoitre.vn/rss.htm',
+    },
+    {
+        'id': 'thanhnien-readers',
+        'name': 'Báo Thanh Niên · Bạn đọc',
+        'url': 'https://thanhnien.vn/rss/ban-doc.rss',
+        'source_url': 'https://thanhnien.vn/rss.html',
+        'history_days': HISTORY_DAYS,
+    },
+    {
+        'id': 'dantri-lifestyle',
+        'name': 'Báo Dân trí',
+        'url': 'https://dantri.com.vn/rss/doi-song.rss',
+        'source_url': 'https://dantri.com.vn/rss.htm',
+    },
+    {
+        'id': 'thanhnien-current',
+        'name': 'Báo Thanh Niên',
+        'url': 'https://thanhnien.vn/rss/thoi-su.rss',
+        'source_url': 'https://thanhnien.vn/rss.html',
     },
 )
 
 TOPIC_TERMS = {
-    'rác thải': ('rac thai', 'chat thai', 'phan loai rac', 'bai rac', 'xu ly rac'),
-    'nhựa và tái chế': ('nhua', 'tai che', 'tai su dung', 'kinh te tuan hoan'),
-    'ô nhiễm': ('o nhiem', 'nuoc thai', 'khi thai', 'xa thai', 'vi nhua'),
-    'khí hậu': ('khi hau', 'bien doi khi hau', 'phat thai', 'carbon', 'nang luong sach', 'nang luong tai tao'),
-    'thiên nhiên': ('sinh thai', 'bao ton', 'da dang sinh hoc', 'rung', 'moi truong'),
+    'rác thải': ('rac', 'chat thai', 'do trom', 'xa rac', 'dot rac', 'vu rac', 'bai rac'),
+    'nhựa và tái chế': ('nhua', 'tai che', 'nilon', 'ni long', 'bao bi'),
+    'ô nhiễm công cộng': ('o nhiem', 'diem den rac', 'khu dan cu'),
 }
+WASTE_TERMS = ('rac', 'chat thai')
 
 
 class _TextOnly(HTMLParser):
@@ -103,6 +148,10 @@ def _normalized(value: str) -> str:
 
     value = unicodedata.normalize('NFD', value.casefold().replace('đ', 'd'))
     return ''.join(char for char in value if not unicodedata.combining(char))
+
+
+def _contains_any(normalized: str, terms: tuple[str, ...]) -> bool:
+    return any(re.search(rf'(?<![a-z0-9]){re.escape(term)}(?![a-z0-9])', normalized) for term in terms)
 
 
 def _published(value: str) -> str | None:
@@ -184,10 +233,17 @@ def _article_image(url: str) -> str | None:
 
 def _topics(text: str) -> list[str]:
     normalized = _normalized(text)
-    return [label for label, terms in TOPIC_TERMS.items() if any(term in normalized for term in terms)]
+    if not _contains_any(normalized, WASTE_TERMS):
+        return []
+    return [label for label, terms in TOPIC_TERMS.items() if _contains_any(normalized, terms)]
 
 
-def _parse_feed(feed: dict[str, str]) -> list[dict[str, Any]]:
+def _trusted_publisher(url: str) -> bool:
+    host = (urlparse(url).hostname or '').casefold().removeprefix('www.')
+    return any(host == domain or host.endswith('.' + domain) for domain in TRUSTED_DOMAINS)
+
+
+def _parse_feed(feed: dict[str, Any]) -> list[dict[str, Any]]:
     request = Request(feed['url'], headers={'User-Agent': USER_AGENT, 'Accept': 'application/rss+xml, application/xml, text/xml'})
     with urlopen(request, timeout=8) as response:
         data = response.read(MAX_FEED_BYTES + 1)
@@ -196,7 +252,8 @@ def _parse_feed(feed: dict[str, str]) -> list[dict[str, Any]]:
     root = ElementTree.fromstring(data)
     entries = [node for node in root.iter() if node.tag.rsplit('}', 1)[-1].casefold() in {'item', 'entry'}]
     articles = []
-    cutoff = datetime.now(timezone.utc) - timedelta(days=7)
+    default_history = 7 if feed['id'] == 'google-news' else HISTORY_DAYS
+    cutoff = datetime.now(timezone.utc) - timedelta(days=int(feed.get('history_days', default_history)))
     for entry in entries:
         title = _plain_text(_child_text(entry, 'title'), max_chars=220)
         link = _article_link(entry)
@@ -212,18 +269,20 @@ def _parse_feed(feed: dict[str, str]) -> list[dict[str, Any]]:
             published_dt = datetime.fromisoformat(published.replace('Z', '+00:00'))
             if published_dt < cutoff:
                 continue
-        elif feed['id'] == 'google-news':
+        elif str(feed['id']).startswith('google-news'):
             continue
         source_node = next((node for node in entry if node.tag.rsplit('}', 1)[-1].casefold() == 'source'), None)
         publisher = _plain_text(source_node.text or '', 100) if source_node is not None else feed['name']
         publisher_url = (source_node.attrib.get('url') if source_node is not None else '') or feed['source_url']
+        if not _trusted_publisher(publisher_url):
+            continue
         source_suffix = f' - {publisher}'
         if title.casefold().endswith(source_suffix.casefold()):
             title = title[:-len(source_suffix)].rstrip()
-        searchable = f'{title} {summary}'
-        topics = _topics(searchable)
-        if not topics:
+        headline_topics = _topics(title)
+        if not headline_topics:
             continue
+        topics = _topics(f'{title} {summary}') or headline_topics
         articles.append({
             'title': title,
             'summary': summary,
@@ -238,9 +297,11 @@ def _parse_feed(feed: dict[str, str]) -> list[dict[str, Any]]:
 
 
 class EnvironmentNewsService:
-    def __init__(self, feeds: tuple[dict[str, str], ...] = FEEDS) -> None:
+    def __init__(self, feeds: tuple[dict[str, Any], ...] = FEEDS) -> None:
         self._feeds = feeds
         self._cache: list[dict[str, Any]] = []
+        self._latest_items: list[dict[str, Any]] = []
+        self._older_items: list[dict[str, Any]] = []
         self._updated_at: str | None = None
         self._last_attempt = 0.0
         self._last_failures: list[str] = []
@@ -251,16 +312,71 @@ class EnvironmentNewsService:
     def _load_file_cache(self) -> None:
         try:
             payload = json.loads(self._data_path.read_text(encoding='utf-8'))
-            items = payload.get('items', [])
+            latest = payload.get('latest_items')
+            older = payload.get('older_items')
+            items = (latest if isinstance(latest, list) else []) + (older if isinstance(older, list) else [])
+            if not items:
+                items = payload.get('items', [])
             if isinstance(items, list):
-                self._cache = [item for item in items if isinstance(item, dict) and item.get('url')][:MAX_ITEMS]
+                self._cache = self._clean_items(items)
+                self._split_cache()
                 self._updated_at = payload.get('updated_at')
         except (OSError, ValueError, TypeError):
             pass
 
+    @staticmethod
+    def _published_datetime(item: dict[str, Any]) -> datetime | None:
+        value = item.get('published_at')
+        if not value:
+            return None
+        try:
+            parsed = datetime.fromisoformat(str(value).replace('Z', '+00:00'))
+            return parsed.replace(tzinfo=timezone.utc) if parsed.tzinfo is None else parsed.astimezone(timezone.utc)
+        except (TypeError, ValueError):
+            return None
+
+    def _clean_items(self, items: list[Any]) -> list[dict[str, Any]]:
+        cutoff = datetime.now(timezone.utc) - timedelta(days=HISTORY_DAYS)
+        unique: dict[str, dict[str, Any]] = {}
+        for item in items:
+            if not isinstance(item, dict) or not item.get('url'):
+                continue
+            if not _trusted_publisher(str(item.get('publisher_url') or '')):
+                continue
+            if not _topics(f"{item.get('title', '')} {item.get('summary', '')}"):
+                continue
+            published = self._published_datetime(item)
+            if published is None or published < cutoff:
+                continue
+            title_key = _normalized(str(item.get('title') or ''))
+            if not title_key:
+                continue
+            existing = unique.get(title_key)
+            if existing is None:
+                unique[title_key] = item
+            else:
+                old_is_wrapper = (urlparse(str(existing.get('url') or '')).hostname or '').endswith('news.google.com')
+                new_is_direct = not (urlparse(str(item.get('url') or '')).hostname or '').endswith('news.google.com')
+                if (old_is_wrapper and new_is_direct) or (bool(item.get('image_url')) and not existing.get('image_url')):
+                    unique[title_key] = item
+        result = list(unique.values())
+        result.sort(key=lambda row: row.get('published_at') or '', reverse=True)
+        return result[:MAX_ITEMS * 3]
+
+    def _split_cache(self) -> None:
+        cutoff = datetime.now(timezone.utc) - timedelta(days=7)
+        fresh = [
+            item for item in self._cache
+            if (published := self._published_datetime(item)) is not None and published >= cutoff
+        ]
+        self._latest_items = fresh[:LATEST_LIMIT]
+        latest_urls = {item['url'] for item in self._latest_items}
+        self._older_items = [item for item in self._cache if item['url'] not in latest_urls][:OLDER_LIMIT]
+        self._cache = self._latest_items + self._older_items
+
     def _file_cache_is_fresh(self) -> bool:
         try:
-            return time.time() - self._data_path.stat().st_mtime < REFRESH_SECONDS
+            return bool(self._cache) and time.time() - self._data_path.stat().st_mtime < REFRESH_SECONDS
         except OSError:
             return False
 
@@ -284,13 +400,12 @@ class EnvironmentNewsService:
                         articles.extend(future.result())
                     except Exception:
                         failures.append(feed['id'])
-            unique: dict[str, dict[str, Any]] = {}
-            for article in articles:
-                unique.setdefault(article['url'], article)
-            merged = list(unique.values())
-            merged.sort(key=lambda item: item['published_at'] or '', reverse=True)
-            visible = merged[:12]
-            missing_images = [item for item in visible if not item.get('image_url')]
+            merged = self._clean_items(self._cache + articles)
+            visible = merged[:LATEST_LIMIT]
+            missing_images = [
+                item for item in visible
+                if not item.get('image_url') and _trusted_publisher(str(item.get('url') or ''))
+            ]
             if missing_images:
                 with ThreadPoolExecutor(max_workers=6) as executor:
                     image_jobs = {executor.submit(_article_image, item['url']): item for item in missing_images}
@@ -300,7 +415,8 @@ class EnvironmentNewsService:
                         except Exception:
                             pass
             if merged:
-                self._cache = merged[:MAX_ITEMS]
+                self._cache = merged
+                self._split_cache()
             self._last_failures = failures
             self._last_attempt = time.monotonic()
             self._updated_at = datetime.now(timezone.utc).isoformat(timespec='seconds').replace('+00:00', 'Z')
@@ -308,7 +424,13 @@ class EnvironmentNewsService:
                 try:
                     self._data_path.parent.mkdir(parents=True, exist_ok=True)
                     temporary = self._data_path.with_suffix('.json.tmp')
-                    temporary.write_text(json.dumps({'schema_version': 1, 'updated_at': self._updated_at, 'items': self._cache}, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+                    temporary.write_text(json.dumps({
+                        'schema_version': 1,
+                        'updated_at': self._updated_at,
+                        'latest_items': self._latest_items,
+                        'older_items': self._older_items,
+                        'items': self._cache,
+                    }, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
                     temporary.replace(self._data_path)
                 except OSError:
                     pass
@@ -317,6 +439,8 @@ class EnvironmentNewsService:
     def _snapshot(self) -> dict[str, Any]:
         return {
             'items': self._cache,
+            'latest_items': self._latest_items,
+            'older_items': self._older_items,
             'updated_at': self._updated_at,
             'refresh_after_seconds': REFRESH_SECONDS,
             'partial_failure': bool(self._last_failures),

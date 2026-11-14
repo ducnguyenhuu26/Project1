@@ -4,18 +4,19 @@ import { useReveal } from '../lib/useReveal';
 import { useLanguage } from '../lib/language';
 import { RecommendationWizard } from './RecommendationWizard';
 import { EnvironmentalNews } from './EnvironmentalNews';
-import type { HistoryEntry, Knowledge } from '../types';
+import type { HistoryEntry, ItemSession, Knowledge } from '../types';
 
 export function KnowledgeSections({knowledge,supportedIds}:{knowledge:Knowledge|null;supportedIds:string[]}){
   const {language,t}=useLanguage(); const content=(language==='en'?siteContentEn:siteContent).library;
   const[active,setActive]=useState('');const[query,setQuery]=useState('');const[filter,setFilter]=useState<'all'|'supported'|'manual'>('all');const ref=useReveal<HTMLElement>();const materials=knowledge?.materials??[];
+  const [lookup,setLookup]=useState<ItemSession>({confirmedObjectId:'',answers:{},recommendation:null});
   const matches=useMemo(()=>materials.filter(m=>{const text=[m.name,m.id,...m.examples,...(m.synonyms??[])].join(' ').toLocaleLowerCase('vi').includes(query.toLocaleLowerCase('vi'));const covered=supportedIds.includes(m.id)||knowledge?.categories.some(c=>c.material_id===m.id&&supportedIds.includes(c.id))===true;return text&&(filter==='all'||(filter==='supported'?covered:!covered));}),[materials,query,filter,supportedIds,knowledge]);
   const selected=matches.find(m=>m.id===active)??matches[0];
   const selectedSupported=selected?(supportedIds.includes(selected.id)||knowledge?.categories.some(c=>c.material_id===selected.id&&supportedIds.includes(c.id))===true):false;
   return <section className="section library" id="library" aria-labelledby="library-title" ref={ref}><div className="wrap">
     <div className="section-head reveal"><div><div className="section-n">{content.kicker}</div><h2 className="section-title" id="library-title">{content.title}</h2></div><p className="section-sub">{content.description}</p></div>
     <EnvironmentalNews />
-    <RecommendationWizard />
+    <RecommendationWizard session={lookup} onSessionChange={setLookup}/>
     {!knowledge&&<p className="library-state" role="status">{t('Đang kết nối thư viện kiến thức…','Connecting to the knowledge library…')}</p>}
     {knowledge&&<><div className="library-controls reveal"><label className="library-search">{t('TÌM TRONG THƯ VIỆN','SEARCH THE LIBRARY')}<input value={query} onChange={e=>setQuery(e.target.value)} placeholder={t('chai nhựa, pin, giấy…','plastic bottle, battery, paper…')}/></label><div className="library-filters" role="group" aria-label={t('Lọc nhóm vật liệu','Filter material groups')}>{([{id:'all',label:t('Tất cả','All')},{id:'supported',label:t('Model hỗ trợ','AI supported')},{id:'manual',label:t('Tra cứu tay','Lookup')} ] as const).map(x=><button key={x.id} className={filter===x.id?'active':''} aria-pressed={filter===x.id} onClick={()=>setFilter(x.id)}>{x.label}</button>)}</div></div>
       <div className="categories reveal" role="group" aria-label="Chọn nhóm vật liệu">{matches.map((m,i)=>{const covered=supportedIds.includes(m.id)||knowledge.categories.some(c=>c.material_id===m.id&&supportedIds.includes(c.id));return <button className={`catbtn${(selected?.id===m.id)?' active':''}`} key={m.id} aria-pressed={selected?.id===m.id} onClick={()=>setActive(m.id)}>{m.name}<span className="category-index">{String(i+1).padStart(2,'0')} · {covered?'AI':'LOOKUP'}</span></button>;})}</div>

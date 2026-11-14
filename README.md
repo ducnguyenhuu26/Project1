@@ -7,13 +7,13 @@
 - **Scan Studio:** tải ảnh JPEG, PNG hoặc WebP để gửi tới FastAPI; xem bounding box, lớp, confidence và hướng dẫn theo kết quả.
 - **Ảnh mẫu:** thử luồng demo ngay sau khi cài đặt, không cần checkpoint. Các khung trên ảnh mẫu được đánh dấu là minh họa.
 - **Thư viện phân loại:** tìm kiếm vật liệu, xem hướng dẫn nên làm, cần tránh và lưu ý.
-- **Tin môi trường:** bảng tin tự làm mới từ RSS của các nguồn báo và môi trường; chỉ hiện tiêu đề/đoạn trích, mở bài đầy đủ tại nguồn gốc.
+- **Tin rác thải:** hai dải trượt riêng cho tối đa 10 tin mới và 15 bài cũ được lưu; ưu tiên RSS từ các báo lớn, lọc tin phải nhắc rõ rác/chất thải và mở bài tại nguồn.
 - **Hiệu chỉnh kết quả:** đổi nhãn, bỏ phát hiện hoặc thêm nhóm vật liệu để tra cứu.
 - **Trợ lý SOICTERRA:** tra cứu FAQ và dữ liệu hướng dẫn được biên soạn cùng dự án.
 - **Lịch sử riêng trên trình duyệt:** lưu thời gian và nhãn quét trong `localStorage`, không lưu ảnh vào lịch sử.
 - **Song ngữ Việt–Anh:** đổi ngôn ngữ giao diện từ nút VI/EN trên thanh điều hướng. Nội dung hướng dẫn lấy từ `backend/knowledge.json` hiện được biên soạn bằng tiếng Việt.
 
-Bảng tin cần API server có kết nối Internet. API cập nhật nguồn RSS mỗi ngày, lưu snapshot ở `backend/data/environment_news.json` và giữ tin cũ nếu nguồn tạm thời lỗi. Giao diện có nút làm mới thủ công; hợp đồng dữ liệu trung tính cho workflow GitHub Actions nằm trong [docs/environment-news-feed.md](docs/environment-news-feed.md).
+Bảng tin cần API server có kết nối Internet. API cập nhật nguồn RSS mỗi ngày, lưu snapshot ở `backend/data/environment_news.json` và giữ lịch sử bài trong tối đa 90 ngày. Giao diện có thanh cuộn ngang riêng cho từng dải và nút làm mới thủ công; hợp đồng dữ liệu cho workflow GitHub Actions nằm trong [docs/environment-news-feed.md](docs/environment-news-feed.md).
 
 ## Công nghệ
 
