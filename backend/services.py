@@ -1,6 +1,8 @@
 """Versioned taxonomy, model adapters, and grounded waste advice."""
 from dataclasses import dataclass
+import hashlib
 import json
+import os
 from pathlib import Path
 from threading import Lock
 from typing import Protocol
@@ -63,10 +65,12 @@ class ModelNotReady(RuntimeError):
     pass
 
 
-def load_model_manifest(model_path: Path, manifest_path: Path | None = None) -> dict:
+def load_model_manifest(model_path: Path, manifest_path: Path | None = None, *, require_checkpoint_hash: bool = False) -> dict:
     path = manifest_path or model_path.with_name("model_manifest.json")
     if not path.is_file():
-        # Preserve the established baseline checkpoint contract.
+        if os.getenv("ALLOW_LEGACY_MODEL_MANIFEST", "false").strip().lower() not in {"1", "true", "yes"}:
+            raise ValueError("Model manifest is required; set ALLOW_LEGACY_MODEL_MANIFEST=true only for an explicitly reviewed legacy checkpoint")
+        # Explicit compatibility switch for the established baseline checkpoint.
         return {"schema_version": "1.0", "model_id": "legacy-swim3-3class", "model_version": model_path.name,
                 "taxonomy_version": TAXONOMY["version"], "class_map": [
                     {"class_id": i, "name": category.title(), "category_id": category}
@@ -83,6 +87,15 @@ def load_model_manifest(model_path: Path, manifest_path: Path | None = None) -> 
     for row in class_map:
         if row.get("category_id") not in TAXONOMY_ITEMS or not TAXONOMY_ITEMS[row["category_id"]]["detection_supported"]:
             raise ValueError(f"Model manifest contains unknown or unsupported category: {row.get('category_id')}")
+    expected_sha = manifest.get("checkpoint_sha256")
+    if require_checkpoint_hash and not expected_sha:
+        raise ValueError("Model manifest must include checkpoint_sha256")
+    if expected_sha:
+        if not isinstance(expected_sha, str) or len(expected_sha) != 64 or any(char not in "0123456789abcdefABCDEF" for char in expected_sha):
+            raise ValueError("Model manifest checkpoint_sha256 must be a 64-character hexadecimal SHA-256")
+        actual_sha = hashlib.sha256(model_path.read_bytes()).hexdigest()
+        if actual_sha.casefold() != expected_sha.casefold():
+            raise ValueError("Checkpoint SHA-256 does not match model manifest")
     return manifest
 
 
@@ -104,7 +117,7 @@ class RealYOLODetector:
         self._predict_lock = Lock()
         if model_path.is_file():
             try:
-                self.manifest = load_model_manifest(model_path, manifest_path)
+                self.manifest = load_model_manifest(model_path, manifest_path, require_checkpoint_hash=True)
                 self.model_version = self.manifest.get("model_id") or model_path.stem
                 self.class_map = {int(row["class_id"]): row["category_id"] for row in self.manifest["class_map"]}
                 self.supported_category_ids = list(self.class_map.values())
@@ -119,7 +132,7 @@ class RealYOLODetector:
                     if names[class_id].casefold() not in {value.casefold() for value in expected}:
                         raise ValueError(f"Checkpoint class name mismatch at ID {class_id}: {names[class_id]}")
                 self.model = model
-            except ValueError as exc:
+            except Exception as exc:
                 self.model_error = str(exc)
 
     def predict(self, image: Image.Image, filename: str) -> list[Detection]:

@@ -138,9 +138,11 @@ DETECTOR_MODE=real
 MODEL_PATH=weights/models/wastewise_yolo26s_v7_50ep/best.pt
 INFERENCE_DEVICE=cpu
 CONFIDENCE=0.25
+MAX_CONCURRENT_INFERENCES=2
+ALLOW_LEGACY_MODEL_MANIFEST=false
 ```
 
-Model v7 nhận diện sáu nhóm: nhựa, giấy, kim loại, thủy tinh, hữu cơ và vải. Khởi động lại API sau khi đổi cấu hình. API báo trạng thái model và các lớp đang hỗ trợ tại `/api/v1/health`; khi thiếu hoặc sai checkpoint, phần nhận diện trả lỗi thay vì âm thầm chạy demo. Manifest hiện ghi `test_evaluated: false`, nên các chỉ số đi kèm là trên validation, chưa phải đánh giá cuối trên test.
+Model v7 nhận diện sáu nhóm: nhựa, giấy, kim loại, thủy tinh, hữu cơ và vải. Khởi động lại API sau khi đổi cấu hình. API báo trạng thái model và các lớp đang hỗ trợ tại `/api/v1/health`; khi thiếu hoặc sai checkpoint, phần nhận diện trả lỗi thay vì âm thầm chạy demo. Chế độ `real` yêu cầu manifest hợp lệ cạnh checkpoint, có SHA-256 khớp file, taxonomy và class map khớp checkpoint. Chỉ đặt `ALLOW_LEGACY_MODEL_MANIFEST=true` cho checkpoint cũ đã được rà soát thủ công. `MAX_CONCURRENT_INFERENCES` giới hạn chung scan và khoanh vùng trong mỗi worker; giới hạn chat là 10 request/phút/client và refresh tin là 1 request/phút/client. Đây là giới hạn trong bộ nhớ từng worker; khi chạy nhiều worker, cần đặt proxy/gateway chung để áp dụng hạn mức toàn dịch vụ. Không tin `X-Forwarded-For` nếu chưa cấu hình proxy tin cậy. Manifest hiện ghi `test_evaluated: false`, nên các chỉ số đi kèm là trên validation, chưa phải đánh giá cuối trên test.
 
 Để dùng GPU CUDA, cài PyTorch phù hợp với máy theo hướng dẫn chính thức của PyTorch, rồi đặt `INFERENCE_DEVICE=0`. Cấu hình GPU phụ thuộc phiên bản CUDA và driver trên máy.
 

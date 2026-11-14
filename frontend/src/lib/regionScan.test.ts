@@ -8,7 +8,7 @@ const scan=(detections:Detection[]):Scan=>({mode:'real',model_version:'test',tax
 describe('merging a second detection pass',()=>{
   it('appends a fresh identity without changing the first scan',()=>{
     const original=scan([detection('det-1')]);
-    const region=scan([detection('det-1')]);
+    const region=scan([{...detection('det-1'),bbox_xyxy:[100,10,120,30]}]);
     const merged=mergeRegionScan(original,region,[20,20,80,80],()=>'new-id');
     expect(merged.added[0].id).toBe('region-new-id');
     expect(merged.scan.detections.map(d=>d.id)).toEqual(['det-1','region-new-id']);
@@ -18,5 +18,21 @@ describe('merging a second detection pass',()=>{
   it('keeps an unmatched drawn region for manual KB confirmation',()=>{
     const merged=mergeRegionScan(scan([]),scan([]),[20,20,80,80],()=>'missing');
     expect(merged.added[0]).toMatchObject({id:'manual-region-missing',category_id:null,origin:'manual',confidence:null,bbox_xyxy:[20,20,80,80]});
+  });
+  it('suppresses a same-category AI box already covered by the original scan',()=>{
+    const original=scan([detection('stable-id')]);
+    const overlapping=scan([{...detection('transient-id'),bbox_xyxy:[12,12,31,31]}]);
+    const merged=mergeRegionScan(original,overlapping,[5,5,40,40],()=> 'should-not-be-used');
+    expect(merged.added).toEqual([]);
+    expect(merged.duplicates.map(d=>d.id)).toEqual(['stable-id']);
+    expect(merged.scan.detections.map(d=>d.id)).toEqual(['stable-id']);
+    expect(merged.scan.summary[0].estimated_count).toBe(1);
+  });
+  it('keeps an overlapping box when its class or provenance differs',()=>{
+    const original=scan([detection('stable-id')]);
+    const different=scan([{...detection('glass'),category_id:'glass'}]);
+    const merged=mergeRegionScan(original,different,[5,5,40,40],()=> 'kept');
+    expect(merged.added).toHaveLength(1);
+    expect(merged.added[0].id).toBe('region-kept');
   });
 });

@@ -4,7 +4,7 @@ import math
 import os
 from pathlib import Path
 
-from fastapi import FastAPI, File, Form, HTTPException, UploadFile
+from fastapi import FastAPI, File, Form, HTTPException, Request, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.concurrency import run_in_threadpool
 from PIL import Image, ImageOps, UnidentifiedImageError
@@ -16,6 +16,7 @@ from .services import (KNOWLEDGE, MATERIALS, TAXONOMY, TAXONOMY_ITEMS, DemoDetec
 from .recommendation_api import recommendation_router
 from .environment_news import environment_news
 from .chat import chat_status, grounded_chat
+from .admission import RequestGuards, client_key
 
 load_dotenv()
 
@@ -64,10 +65,23 @@ def build_app(mode: str | None = None, detector=None) -> FastAPI:
         os.getenv("INFERENCE_DEVICE", "cpu")))
     app = FastAPI(title="WasteWise VN", version="0.1.0")
     app.state.detector = provider
+    guards = RequestGuards(int(os.getenv("MAX_CONCURRENT_INFERENCES", "2")))
     # Keep the original waste-type and chat APIs stable; v2 guidance is additive.
     app.include_router(recommendation_router)
-    app.add_middleware(CORSMiddleware, allow_origins=os.getenv("CORS_ORIGINS", "http://localhost:5173").split(","),
-                       allow_methods=["GET", "POST"], allow_headers=["*"])
+    origins = [origin.strip() for origin in os.getenv("CORS_ORIGINS", "http://localhost:5173").split(",") if origin.strip()]
+    app.add_middleware(CORSMiddleware, allow_origins=origins,
+                       allow_methods=["GET", "POST"], allow_headers=["*"], expose_headers=["Retry-After"])
+
+    def throttle(scope: str, request: Request, limit: int, window_seconds: int) -> None:
+        allowed, retry_after = guards.allow(scope, client_key(request), limit, window_seconds)
+        if not allowed:
+            raise HTTPException(429, detail={"code": "RATE_LIMITED", "message": "Yêu cầu quá nhanh; vui lòng thử lại sau."},
+                                headers={"Retry-After": str(retry_after)})
+
+    def acquire_inference() -> None:
+        if not guards.inference.acquire(blocking=False):
+            raise HTTPException(503, detail={"code": "INFERENCE_BUSY", "message": "Máy chủ đang xử lý đủ số ảnh; hãy thử lại sau."},
+                                headers={"Retry-After": "2"})
 
     @app.get("/api/v1/health")
     def health():
@@ -81,7 +95,9 @@ def build_app(mode: str | None = None, detector=None) -> FastAPI:
                     [item["id"] for item in TAXONOMY["categories"] if item["detection_supported"]])}
 
     @app.get("/api/v1/news/environment")
-    async def environment_articles(refresh: bool = False):
+    async def environment_articles(request: Request, refresh: bool = False):
+        if refresh:
+            throttle("news-refresh", request, 1, 60)
         return await run_in_threadpool(environment_news.get_news, refresh)
 
     @app.get("/api/v1/waste-types")
@@ -135,41 +151,49 @@ def build_app(mode: str | None = None, detector=None) -> FastAPI:
                 "warnings": warnings}
 
     @app.post("/api/v1/scans", response_model=ScanResponse)
-    async def scan(image: UploadFile = File(...)):
-        picture = await read_picture(image)
+    async def scan(request: Request, image: UploadFile = File(...)):
+        acquire_inference()
         try:
-            detections = await run_in_threadpool(provider.predict, picture, image.filename or "")
-        except ModelNotReady as exc:
-            raise HTTPException(503, detail={"code": "MODEL_NOT_READY", "message": str(exc)})
-        validate_detections(detections, picture.width, picture.height)
-        warnings = (["MINH HỌA: đây không phải kết quả AI; chỉ ảnh mẫu có khung ví dụ."] if provider.mode == "demo"
-                    else ["Không phát hiện được vật thể không có nghĩa là ảnh không chứa vật liệu đó."] if not detections else [])
-        return scan_response(picture, detections, warnings)
+            picture = await read_picture(image)
+            try:
+                detections = await run_in_threadpool(provider.predict, picture, image.filename or "")
+            except ModelNotReady as exc:
+                raise HTTPException(503, detail={"code": "MODEL_NOT_READY", "message": str(exc)})
+            validate_detections(detections, picture.width, picture.height)
+            warnings = (["MINH HỌA: đây không phải kết quả AI; chỉ ảnh mẫu có khung ví dụ."] if provider.mode == "demo"
+                        else ["Không phát hiện được vật thể không có nghĩa là ảnh không chứa vật liệu đó."] if not detections else [])
+            return scan_response(picture, detections, warnings)
+        finally:
+            guards.inference.release()
 
     @app.post("/api/v1/scans/region", response_model=ScanResponse)
-    async def scan_region(image: UploadFile = File(...), x1: float = Form(...), y1: float = Form(...),
+    async def scan_region(request: Request, image: UploadFile = File(...), x1: float = Form(...), y1: float = Form(...),
                           x2: float = Form(...), y2: float = Form(...)):
         """Run the current detector on an explicit region; boxes return in full-image coordinates."""
-        picture = await read_picture(image)
-        values = (x1, y1, x2, y2)
-        if (not all(math.isfinite(value) for value in values)
-                or not (0 <= x1 < x2 <= picture.width and 0 <= y1 < y2 <= picture.height)):
-            raise HTTPException(422, detail="Vùng khoanh nằm ngoài ảnh hoặc có tọa độ không hợp lệ")
-        left, top, right, bottom = math.floor(x1), math.floor(y1), math.ceil(x2), math.ceil(y2)
-        if right - left < 16 or bottom - top < 16:
-            raise HTTPException(422, detail="Vùng khoanh phải rộng và cao ít nhất 16 pixel")
-        if provider.mode == "demo":
-            return scan_response(picture, [], ["Chế độ demo không chạy YOLO lần hai; vùng khoanh cần được xác nhận thủ công trong KB."])
-        crop = picture.crop((left, top, right, bottom))
+        acquire_inference()
         try:
-            detections = await run_in_threadpool(provider.predict, crop, image.filename or "")
-        except ModelNotReady as exc:
-            raise HTTPException(503, detail={"code": "MODEL_NOT_READY", "message": str(exc)})
-        validate_detections(detections, crop.width, crop.height)
-        for detection in detections:
-            detection.bbox_xyxy = [detection.bbox_xyxy[0] + left, detection.bbox_xyxy[1] + top,
-                                   detection.bbox_xyxy[2] + left, detection.bbox_xyxy[3] + top]
-        return scan_response(picture, detections, [] if detections else ["YOLO vẫn chưa nhận diện được vùng này; hãy chọn đồ vật trong KB."])
+            picture = await read_picture(image)
+            values = (x1, y1, x2, y2)
+            if (not all(math.isfinite(value) for value in values)
+                    or not (0 <= x1 < x2 <= picture.width and 0 <= y1 < y2 <= picture.height)):
+                raise HTTPException(422, detail="Vùng khoanh nằm ngoài ảnh hoặc có tọa độ không hợp lệ")
+            left, top, right, bottom = math.floor(x1), math.floor(y1), math.ceil(x2), math.ceil(y2)
+            if right - left < 16 or bottom - top < 16:
+                raise HTTPException(422, detail="Vùng khoanh phải rộng và cao ít nhất 16 pixel")
+            if provider.mode == "demo":
+                return scan_response(picture, [], ["Chế độ demo không chạy YOLO lần hai; vùng khoanh cần được xác nhận thủ công trong KB."])
+            crop = picture.crop((left, top, right, bottom))
+            try:
+                detections = await run_in_threadpool(provider.predict, crop, image.filename or "")
+            except ModelNotReady as exc:
+                raise HTTPException(503, detail={"code": "MODEL_NOT_READY", "message": str(exc)})
+            validate_detections(detections, crop.width, crop.height)
+            for detection in detections:
+                detection.bbox_xyxy = [detection.bbox_xyxy[0] + left, detection.bbox_xyxy[1] + top,
+                                       detection.bbox_xyxy[2] + left, detection.bbox_xyxy[3] + top]
+            return scan_response(picture, detections, [] if detections else ["YOLO vẫn chưa nhận diện được vùng này; hãy chọn đồ vật trong KB."])
+        finally:
+            guards.inference.release()
 
     class ChatRequest(BaseModel):
         message: str = Field(max_length=500)
@@ -182,16 +206,17 @@ def build_app(mode: str | None = None, detector=None) -> FastAPI:
         return chat_status()
 
     @app.post("/api/v1/chat")
-    async def chat(request: ChatRequest):
-        context = request.category_ids or request.material_ids
+    async def chat(request: Request, body: ChatRequest):
+        throttle("chat", request, 10, 60)
+        context = body.category_ids or body.material_ids
         history = []
-        for turn in request.history:
+        for turn in body.history:
             role = turn.get('role')
             content = turn.get('content')
             if role not in {'user', 'assistant'} or not isinstance(content, str) or len(content) > 1000:
                 raise HTTPException(422, detail='Lịch sử hội thoại không hợp lệ')
             history.append({'role': role, 'content': content})
-        return await grounded_chat(request.message, context, history)
+        return await grounded_chat(body.message, context, history)
 
     return app
 

@@ -1,4 +1,4 @@
-import { useRef, useState, type DragEvent, type KeyboardEvent, type PointerEvent } from 'react';
+import { useEffect, useRef, useState, type DragEvent, type KeyboardEvent, type PointerEvent } from 'react';
 import { ArrowRight, ImagePlus, LoaderCircle, RotateCcw, ScanLine, ShieldCheck, Upload, X } from 'lucide-react';
 import type { Detection, ItemSession, Material, Scan } from '../types';
 import { useReveal } from '../lib/useReveal';
@@ -17,8 +17,9 @@ export function ScanStudio(p:Props){
   const draftRef=useRef<{start:ImagePoint;end:ImagePoint}|null>(null);
   const [drawError,setDrawError]=useState('');
   const [sessions,setSessions]=useState<Record<string,ItemSession>>({});
+  useEffect(()=>{setSessions({});},[p.scanContextKey]);
   const emptySession:ItemSession={confirmedObjectId:'',answers:{},recommendation:null};
-  const sessionKey=p.selected&&p.selected!=='manual'&&p.scanContextKey?`${p.scanContextKey}:${p.selected}`:'manual';
+  const sessionKey=p.selected&&p.selected!=='manual'&&p.scanContextKey?`${p.scanContextKey}:${p.selected}`:p.scanContextKey?`${p.scanContextKey}:manual`:'manual';
   const session=sessions[sessionKey]??emptySession;
   const updateSession=(next:ItemSession)=>setSessions(previous=>({...previous,[sessionKey]:next}));
   const clearSession=(id:string)=>{if(p.scanContextKey)setSessions(previous=>({...previous,[`${p.scanContextKey}:${id}`]:emptySession}));};
@@ -69,13 +70,14 @@ export function ScanStudio(p:Props){
           {(drawError||p.regionError)&&<p className="result-warning" role="alert">{drawError||p.regionError} Bạn vẫn có thể tra cứu KB thủ công.</p>}
           {p.scan.mode==='real'&&!p.scan.detections.length&&<p className="result-warning">{t('Không có phát hiện thuộc lớp mô hình đang hỗ trợ. Hãy thử tra cứu hoặc thêm nhãn thủ công.','No objects matched the model’s supported classes. Try the library or add a manual label.')}</p>}
           <div className="result-list" aria-label="Danh sách vật thể được trả về từ API">{presentDetections.map((d,i)=>{const id=p.corrections[d.id]??d.category_id??'';return <article className={`result-card${p.selected===d.id?' selected':''}`} key={d.id}>
-            <button className="result-select" aria-pressed={p.selected===d.id} aria-label={`Chọn vật thể ${i+1}: ${d.label}`} onClick={()=>p.onSelect(d.id)}><span className="result-icon" style={{color:palette[id]??'#cb1028'}}>{String(i+1).padStart(2,'0')}</span><span className="result-text"><b>{d.label}</b><small>{p.corrections[d.id]?'Nhãn đã hiệu chỉnh':d.origin==='manual'?'Vùng khoanh · chưa nhận diện':d.origin==='illustration'?'Phát hiện minh họa':d.origin==='ai'?'AI detection':'Nguồn API'}</small>{sessions[`${p.scanContextKey}:${d.id}`]?.recommendation?.status==='complete'&&<small>Đã có hướng dẫn</small>}</span><span className="score">{p.scan!.mode==='real'&&d.confidence!=null?`${Math.round(d.confidence*100)}% · độ tin cậy mô hình`:'—'}</span></button>
+            <button className="result-select" aria-pressed={p.selected===d.id} aria-label={`Chọn vật thể ${i+1}: ${material(id)?.name??d.label}`} onClick={()=>p.onSelect(d.id)}><span className="result-icon" style={{color:palette[id]??'#cb1028'}}>{String(i+1).padStart(2,'0')}</span><span className="result-text"><b>{material(id)?.name??d.label}</b><small>{p.corrections[d.id]?`Đã sửa nhãn · YOLO gợi ý: ${d.label}`:d.origin==='manual'?'Vùng khoanh · chưa nhận diện':d.origin==='illustration'?'Phát hiện minh họa':d.origin==='ai'?'Nhãn YOLO':'Nguồn API'}</small>{sessions[`${p.scanContextKey}:${d.id}`]?.recommendation?.status==='complete'&&<small>Đã có hướng dẫn</small>}</span><span className="score">{p.scan!.mode==='real'&&d.confidence!=null?`${Math.round(d.confidence*100)}% · độ tin cậy mô hình`:'—'}</span></button>
             <div className="result-actions"><label className="sr-only" htmlFor={`correction-${d.id}`}>Sửa nhãn vật thể {i+1}</label><select id={`correction-${d.id}`} value={id} onChange={e=>{clearSession(d.id);p.onCorrect(d,e.target.value);}}><option value="">Chưa xác định</option>{p.materials.map(m=><option key={m.id} value={m.id}>{m.name}{p.supportedIds.includes(m.id)?'':' · tra cứu tay'}</option>)}</select><button title="Loại bỏ vật thể này" aria-label={`Loại bỏ vật thể ${i+1}`} onClick={()=>{clearSession(d.id);p.onExclude(d.id);}}><X size={15}/></button></div>
           </article>;})}</div>
           {!presentDetections.length&&<div className="result-empty">Không có vật thể đang chọn. Tra cứu toàn bộ thư viện bên dưới.</div>}
           <button className="textbtn" type="button" onClick={()=>p.onSelect('manual')}>Không tìm thấy / tra cứu toàn bộ</button>
           <button className="choose guidance-jump" type="button" aria-controls="studio-guidance" onClick={()=>document.getElementById('studio-guidance')?.scrollIntoView({behavior:'smooth',block:'start'})}>{session.recommendation?.status==='complete'?'Xem lời khuyên cho vật thể này':'Chọn đồ vật để xem lời khuyên'} <ArrowRight size={15}/></button>
           <div className="result-count">{p.active.length} nhóm vật liệu đang được xem xét · {p.manual.length} nhãn tự chọn</div>
+          {p.scan.summary.length>0&&<div className="results-note" aria-live="polite">Tóm tắt đang chọn: {p.scan.summary.map(row=>`${row.name} × ${row.estimated_count}`).join(' · ')}</div>}
           <label className="manual-field">THÊM NHÓM VẬT LIỆU THỦ CÔNG<select value="" onChange={e=>e.target.value&&p.onManual(e.target.value)}><option value="">+ Chọn để tra cứu</option>{p.materials.filter(m=>!p.active.includes(m.id)).map(m=><option key={m.id} value={m.id}>{m.name}{p.supportedIds.includes(m.id)?' · model hỗ trợ':' · chỉ tra cứu'}</option>)}</select></label>
         </>:<>
           <div className="results-note">Kết quả có confidence, lớp và hướng dẫn theo từng vật thể.</div>

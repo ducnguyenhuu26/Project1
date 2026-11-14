@@ -66,6 +66,20 @@ describe('per detection scan flow', () => {
     view.rerender(<Harness detections={detections} scanId="scan-2"/>);
     expect(screen.getByTestId('wizard').textContent).not.toContain('Bottle advice');
   });
+  it('keeps the manual session scoped to the current scan',()=>{
+    const view=render(<Harness detections={[]} initial="manual" scanId="scan-1"/>);
+    fireEvent.click(screen.getByText('Complete item'));
+    expect(screen.getByTestId('wizard').textContent).toContain('Bottle advice');
+    view.rerender(<Harness detections={[]} initial="manual" scanId="scan-2"/>);
+    expect(screen.getByTestId('wizard').textContent).not.toContain('Bottle advice');
+  });
+  it('shows the corrected class while retaining the original YOLO label',()=>{
+    render(<Harness detections={[detection('det-a','textile')]}/>);
+    fireEvent.change(screen.getByLabelText('Sửa nhãn vật thể 1'),{target:{value:'paper'}});
+    expect(screen.getByRole('button',{name:'Chọn vật thể 1: paper'})).toBeTruthy();
+    expect(screen.getByText('paper')).toBeTruthy();
+    expect(screen.getByText('Đã sửa nhãn · YOLO gợi ý: textile')).toBeTruthy();
+  });
   it('submits the exact drawn image region for a second detection pass', () => {
     const onRegion=vi.fn();
     render(<Harness detections={[]} initial="manual" onRegion={onRegion}/>);

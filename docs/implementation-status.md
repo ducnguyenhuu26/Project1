@@ -3,7 +3,7 @@
 ## Bổ sung kiến trúc taxonomy (12/11/2026)
 
 - `backend/taxonomy.json` là registry taxonomy `2026-11-12.1`, phân biệt object/category ID, material và handling stream. Chỉ ba ID legacy (`plastic`, `paper`, `metal`) đang có detector mapping; các ID còn lại là manual-only, chưa phải lớp đã huấn luyện.
-- `model_manifest.json` đặt cạnh checkpoint có class map theo ID. Checkpoint cũ không có manifest dùng adapter cố định 0=Plastic, 1=Paper, 2=Metal. Manifest sai phiên bản, ID hoặc tên lớp bị từ chối; health báo `invalid_manifest` và scan trả 503.
+- `model_manifest.json` đặt cạnh checkpoint có class map theo ID. Chế độ thật fail closed nếu manifest vắng/sai, checkpoint hash sai, hoặc class ID/tên không khớp; health báo `invalid_manifest` và scan trả 503. Checkpoint legacy chỉ có adapter 0=Plastic, 1=Paper, 2=Metal khi bật rõ `ALLOW_LEGACY_MODEL_MANIFEST=true`.
 - API scan trả `category_id`, nhãn chuẩn hóa, bbox, confidence, nguồn, model version; `material_id` vẫn được trả tương thích. Frontend sửa nhãn theo từng box và thêm mục tra cứu tay riêng. Các sửa đổi chỉ lưu ở local history; không gửi làm nhãn huấn luyện.
 - `ml/scripts/build_multisource.py` tạo bundle COCO→YOLO có audit issues, provenance, visualization sample và deterministic group split; chỉ nhận taxonomy class `ready_for_training`, nhưng **chưa có dataset đa lớp nào được build**. `ml/config/dataset_sources.json` đánh dấu các mapping cần review; TACO là ứng viên object detection, SWiM3 license vẫn chưa xác minh trong checkout.
 - `train_multiclass.py --preflight-only` kiểm tra YAML, split, labels, taxonomy, disk và CUDA request mà không train. Run GPU chưa được khởi chạy. `train.py` và baseline SWiM3 ba lớp không bị sửa.
