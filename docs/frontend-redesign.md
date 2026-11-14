@@ -8,11 +8,11 @@ The React entry point now composes `SiteHeader`, `Hero`, `ScanStudio`, `Knowledg
 
 ## API integrity and behavior
 
-- The frontend uses the existing routes and request fields: health, waste types, multipart scan `image`, and chat `category_ids`. No backend contract or model configuration was changed for this redesign.
+- The current API includes health, waste types, multipart scan `image`, region rescan `image` + `x1/y1/x2/y2`, and chat message/history/category fields. See [the Beta01 integration report](CV_KB_INTEGRATION_REPORT.md) for the current contracts.
 - Health and scan `supported_category_ids` drive the supported-category labels. The real/demo mode, model version, taxonomy version, confidence, warnings, dimensions, individual detections, and advice remain visible where applicable. Demo scans are labeled as illustrations and do not imply confidence scores.
 - Image selection accepts JPEG, PNG, and WebP up to 10 MB. API errors retain FastAPI's detail when available and provide useful fallbacks for 413, 415, 422, and 503. Network errors and the 60-second timeout are shown in the scan panel.
 - Each detection retains its own correction and exclusion control. The overlay uses the API's EXIF-corrected dimensions and scales the SVG viewBox with the displayed image's natural aspect ratio. No-detection real scans lead into manual lookup.
-- Advice is from the knowledge endpoint; model coverage is not inferred from the library alone when health or scan data is available. Chat stays grounded in the same API knowledge route. Local history stores only timestamps and material IDs in `localStorage`; uploaded image bytes are not included in that history.
+- Advice is from the knowledge endpoint; model coverage is not inferred from the library alone when health or scan data is available. Chat calls Groq for every question when configured, optionally adding matching KB context; model outage or missing key triggers the KB fallback. Local scan history stores only timestamps and material IDs in `localStorage`; uploaded image bytes are not included in that history.
 - Keyboard focus, native buttons and selects, an accessible mobile menu, status/error announcements, semantic headings, reduced-motion handling, and narrow-screen layouts are included.
 
 ## Verification

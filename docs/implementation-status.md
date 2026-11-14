@@ -20,3 +20,13 @@
 - Rủi ro còn lại: dHash không bảo đảm phát hiện mọi ảnh tương tự về ngữ nghĩa; nhãn nhóm giấy có ví dụ vật liệu phủ/wood, chưa có tập kiểm tra ngoài miền được gắn box từ Việt Nam, latency CPU của s chưa đo, nội dung hướng dẫn mới ở mức chung. Có CSS mobile nhưng chưa kiểm tra trực quan ở viewport điện thoại thật.
 - **Chưa sẵn sàng deploy nhận diện thật tại Việt Nam:** cần nghiệm thu trên `VN-Field-test` độc lập; [giao thức và script đo tại ngưỡng triển khai](vietnam-data-strategy.md). SWiM3-test không thay thế được bước này.
 - Đã thêm đường **Domain Adaptation** bằng `train.py --init-checkpoint`: nạp checkpoint ba lớp từ SWiM3 để bắt đầu run mới trên VN-Field, tách khỏi `--resume-checkpoint`. Đã thử CPU smoke một epoch trên mini SWiM3 để xác nhận đường nạp/training hoạt động; **chưa có dữ liệu VN nên chưa chạy adaptation thực**.
+
+## Beta01 — 14/11/2026
+
+- Scan Studio giữ trạng thái riêng cho từng detection, cho phép sửa/bỏ từng khung và khoanh vùng để gọi YOLO lần hai; kết quả crop được quy về tọa độ ảnh gốc. Chế độ demo không giả vờ chạy lượt YOLO thứ hai.
+- Recommendation Wizard dùng catalog 166 vật thể, thu thập điều kiện theo từng vật thể và trả lời có nguồn/cảnh báo KB.
+- Chatbot gọi Groq `openai/gpt-oss-20b` cho mọi câu hỏi khi `GROQ_API_KEY` được cấu hình. KB chỉ bổ sung ngữ cảnh; lỗi provider hoặc thiếu key dùng KB dự phòng. API key chỉ ở `.env`, không được commit.
+- Tin môi trường hiển thị dải bài mới và bài đã lưu riêng. Dữ liệu model, dataset, checkpoint, `node_modules`, `.venv` và output huấn luyện vẫn là tài nguyên local bị Git ignore.
+- Tích hợp không retrain YOLO, không sửa 166 bản ghi recommendation KB, chưa deploy.
+- Báo cáo về API contracts và kiểm thử nằm ở [CV_KB_INTEGRATION_REPORT.md](CV_KB_INTEGRATION_REPORT.md); chatbot có [hướng dẫn cấu hình](CHATBOT_GROQ.md).
+- Kiểm tra Beta01: backend 346 passed (1 cảnh báo Starlette deprecation), frontend 14 passed, TypeScript/Vite build thành công.

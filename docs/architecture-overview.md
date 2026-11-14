@@ -107,7 +107,7 @@ S_{final}=(S_{AI}\setminus E)\cup U,
 \qquad A=\operatorname{Lookup}(S_{final},\mathcal K).
 $$
 
-$A$ chứa việc nên làm, việc tránh làm và lưu ý tại Việt Nam theo từng nhóm. Trợ lý hỏi đáp hiện áp dụng quy tắc trên câu hỏi và $\mathcal K$; nó không phải Transformer ngôn ngữ. Ứng dụng hiển thị nguồn của gợi ý để người dùng phân biệt AI, ảnh minh họa và nhóm tự thêm.
+$A$ chứa việc nên làm, việc tránh làm và lưu ý tại Việt Nam theo từng nhóm. Chatbot gửi mọi câu hỏi đến Groq khi có key; mục KB phù hợp được thêm làm ngữ cảnh, còn câu hỏi không khớp vẫn được LLM trả lời bằng hướng dẫn chung an toàn. Khi thiếu key hoặc provider lỗi, chatbot quay về KB. Ứng dụng phân biệt câu trả lời Groq và KB dự phòng.
 
 ## Model được học và đánh giá như thế nào?
 

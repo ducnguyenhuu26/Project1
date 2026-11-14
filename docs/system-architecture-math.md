@@ -10,7 +10,7 @@ Tài liệu [architecture-math.md](architecture-math.md) đặc tả **mạng YO
 | YOLO26n | ảnh RGB → box, lớp, điểm lớp | Có; fine-tune ba lớp | Đối chứng gọn, đã chạy CPU smoke |
 | C2PSA tại layer 10 và PSABlock tại layer 22 | feature map → feature map | Có | **Có sẵn trong YOLO26 gốc**, không phải đóng góp riêng |
 | Tổng hợp, chỉnh sửa, tra cứu lời khuyên | detections + lựa chọn người dùng → hướng dẫn | Không | Đã triển khai bằng quy tắc và JSON |
-| Trợ lý tra cứu | câu hỏi + nhóm vật liệu → câu trả lời | Không | Đã triển khai bằng quy tắc và JSON; không phải LLM |
+| Trợ lý SOICTERRA | câu hỏi + lịch sử + KB phù hợp → phản hồi | Có (Groq API, khi có key) | LLM trả lời mọi câu hỏi; KB là ngữ cảnh tùy chọn, KB local dự phòng khi thiếu key/lỗi |
 
 **Model hiện tại không có block CNN/Transformer/attention do dự án tự thêm.** Đây là quyết định kỹ thuật cho run chính trước khi có đối chứng chất lượng. Không nên gọi toàn bộ hệ thống là “YOLO26 backbone + mạng riêng”: YOLO26 ở đây là *complete detector*, gồm backbone, neck và head. Phần riêng của dự án là luồng chuyển detection thành tư vấn và tương tác có nguồn gốc rõ ràng.
 
@@ -56,7 +56,7 @@ $$
 A(S_{final},\mathcal K)=\{\mathcal K[m].(\text{do},\text{avoid},\text{caution},\text{vn\_tip}):m\in S_{final}\}.
 $$
 
-Trợ lý hiện tại trả $R(q,S_{final},\mathcal K)$: áp dụng quy tắc cảnh báo an toàn cho câu hỏi về đốt rác trước, rồi FAQ/khớp từ vật liệu, sau cùng trả lời theo nhóm đang chọn hoặc báo chưa có hướng dẫn. $R$ là hàm quy tắc, không có Transformer ngôn ngữ và không học tham số. Đầu ra cuối cho người dùng là **ảnh có box + danh sách nhóm + thẻ hành động + câu trả lời tra cứu**, không phải chỉ vector lớp của YOLO.
+Chatbot hiện gọi LLM cho câu hỏi người dùng khi đã cấu hình Groq; bộ tra cứu có thể gắn đoạn KB phù hợp vào ngữ cảnh nhưng không quyết định việc có gọi LLM hay không. Khi provider không sẵn sàng, hàm quy tắc/KB trả câu dự phòng. Đầu ra cuối cho người dùng là **ảnh có box + danh sách nhóm + thẻ hành động + câu trả lời chatbot**, không phải chỉ vector lớp của YOLO.
 
 ## 3. “Giải thích được” nghĩa là gì ở bản này?
 

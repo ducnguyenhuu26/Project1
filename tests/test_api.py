@@ -37,9 +37,13 @@ def test_reject_bad_uploads_and_missing_model(monkeypatch):
     response = real.post("/api/v1/scans", files={"image": ("ok.png", png(), "image/png")})
     assert response.status_code == 503
     assert response.json()["detail"]["code"] == "MODEL_NOT_READY"
+    region = real.post("/api/v1/scans/region", data={"x1": 1, "y1": 1, "x2": 40, "y2": 40},
+                       files={"image": ("ok.png", png(), "image/png")})
+    assert region.status_code == 503
 
 
-def test_knowledge_and_grounded_chat():
+def test_knowledge_and_grounded_chat(monkeypatch):
+    monkeypatch.setenv("GROQ_API_KEY", "")
     client = TestClient(build_app(mode="demo"))
     kb = client.get("/api/v1/waste-types").json()
     assert len([m for m in kb["materials"] if m["ai_class"] is not None]) == 3
@@ -104,3 +108,45 @@ def test_invalid_model_manifest_is_reported_as_not_ready(tmp_path):
     response = client.post("/api/v1/scans", files={"image": ("ok.png", png(), "image/png")})
     assert response.status_code == 503
     assert "taxonomy_version" in response.json()["detail"]["message"]
+
+
+def test_region_scan_crops_and_maps_boxes_to_original_image():
+    from backend.services import Detection
+
+    class RegionDetector:
+        mode = "real"
+        model_version = "test-model"
+        supported_category_ids = ["plastic"]
+
+        def __init__(self):
+            self.calls = []
+
+        def predict(self, image, filename):
+            self.calls.append((image.size, filename))
+            return [Detection(0, .82, [2, 3, image.width - 1, image.height - 1])]
+
+    detector = RegionDetector()
+    client = TestClient(build_app(detector=detector))
+    response = client.post("/api/v1/scans/region", data={"x1": 10.2, "y1": 5.8, "x2": 50.1, "y2": 35.2},
+                           files={"image": ("photo.png", png(), "image/png")})
+    assert response.status_code == 200
+    body = response.json()
+    assert detector.calls == [((41, 31), "photo.png")]
+    assert body["image_width"] == 80 and body["image_height"] == 60
+    assert body["detections"][0]["bbox_xyxy"] == [12.0, 8.0, 50.0, 35.0]
+    assert body["detections"][0]["origin"] == "ai"
+
+
+def test_region_scan_rejects_invalid_boxes_and_preserves_demo_label():
+    client = TestClient(build_app(mode="demo"))
+    image = {"image": ("photo.png", png(), "image/png")}
+    assert client.post("/api/v1/scans/region", data={"x1": 0, "y1": 0, "x2": 40, "y2": 40},
+                       files={"image": ("bad.txt", b"hello", "text/plain")}).status_code == 415
+    for box in ({"x1": -1, "y1": 0, "x2": 40, "y2": 30},
+                {"x1": 10, "y1": 10, "x2": 15, "y2": 30},
+                {"x1": 60, "y1": 20, "x2": 30, "y2": 40}):
+        assert client.post("/api/v1/scans/region", data=box, files=image).status_code == 422
+    response = client.post("/api/v1/scans/region", data={"x1": 10, "y1": 10, "x2": 40, "y2": 40}, files=image)
+    assert response.status_code == 200
+    assert response.json()["mode"] == "demo" and response.json()["detections"] == []
+    assert "không chạy YOLO" in response.json()["warnings"][0]

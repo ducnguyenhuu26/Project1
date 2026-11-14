@@ -12,8 +12,9 @@ import time
 import json
 from pathlib import Path
 from typing import Any
-from urllib.parse import quote, urlparse
-from urllib.request import Request, urlopen
+from urllib.parse import quote, urlencode, urlparse
+from urllib.request import HTTPCookieProcessor, Request, build_opener, urlopen
+from http.cookiejar import CookieJar
 from xml.etree import ElementTree
 
 
@@ -21,6 +22,7 @@ REFRESH_SECONDS = 24 * 60 * 60
 LATEST_LIMIT = 10
 OLDER_LIMIT = 15
 MAX_ITEMS = LATEST_LIMIT + OLDER_LIMIT
+MAX_IMAGE_ENRICH_PER_REFRESH = MAX_ITEMS
 HISTORY_DAYS = 90
 MAX_FEED_BYTES = 2_000_000
 USER_AGENT = 'SOICTERRA-Environment-News/1.0 (RSS headlines and excerpts; opens original publisher pages)'
@@ -231,6 +233,89 @@ def _article_image(url: str) -> str | None:
         return None
 
 
+def _google_response_url(body: str) -> str | None:
+    try:
+        payload_text = body.split('\n\n', 1)[1] if '\n\n' in body else body.removeprefix(")]}'").lstrip()
+        frames = json.loads(payload_text)
+        frame = next(
+            item for item in frames
+            if isinstance(item, list) and len(item) > 2 and item[0] == 'wrb.fr' and item[1] == 'Fbv4je'
+        )
+        result = json.loads(frame[2])
+        if isinstance(result, list) and len(result) > 1 and result[0] == 'garturlres':
+            resolved = str(result[1])
+            parsed = urlparse(resolved)
+            if parsed.scheme == 'https' and parsed.netloc and _trusted_publisher(resolved):
+                return resolved
+    except (ValueError, TypeError, StopIteration, IndexError):
+        pass
+    return None
+
+
+def _resolve_google_article(url: str) -> str | None:
+    parsed = urlparse(url)
+    if parsed.hostname != 'news.google.com' or '/articles/' not in parsed.path:
+        return None
+    article_id = parsed.path.rsplit('/', 1)[-1]
+    if not article_id:
+        return None
+    opener = build_opener(HTTPCookieProcessor(CookieJar()))
+    headers = {
+        'User-Agent': PAGE_USER_AGENT,
+        'Accept': 'text/html,application/xhtml+xml',
+        'Accept-Language': 'vi-VN,vi;q=0.9,en-US;q=0.8',
+        'Cookie': 'CONSENT=PENDING+987',
+        'Upgrade-Insecure-Requests': '1',
+    }
+    try:
+        page = opener.open(Request(f'https://news.google.com/rss/articles/{article_id}', headers=headers), timeout=8)
+        html = page.read(800_000).decode('utf-8', errors='replace')
+        signature = re.search(r"data-n-a-sg=[\"']([^\"']+)[\"']", html)
+        timestamp = re.search(r"data-n-a-ts=[\"'](\d+)[\"']", html)
+        if not signature or not timestamp:
+            return None
+        inner = json.dumps([
+            'garturlreq',
+            [['X', 'X', ['X', 'X'], None, None, 1, 1, 'VN:vi', None, 1, None, None, None, None, None, 0, 1],
+             'X', 'X', 1, [1, 1, 1], 1, 1, None, 0, 0, None, 0],
+            article_id,
+            int(timestamp.group(1)),
+            signature.group(1),
+        ], separators=(',', ':'))
+        outer = json.dumps([[['Fbv4je', inner]]], separators=(',', ':'))
+        body = ('f.req=' + quote(outer, safe='')).encode('utf-8')
+        post_headers = {
+            **headers,
+            'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+            'Origin': 'https://news.google.com',
+            'Referer': 'https://news.google.com/',
+            'X-Same-Domain': '1',
+            'Accept': '*/*',
+        }
+        with opener.open(Request(
+            'https://news.google.com/_/DotsSplashUi/data/batchexecute',
+            data=body,
+            headers=post_headers,
+        ), timeout=8) as response:
+            return _google_response_url(response.read().decode('utf-8', errors='replace'))
+    except Exception:
+        return None
+
+
+def _enrich_article_image(item: dict[str, Any]) -> None:
+    """Resolve Google News links and read the publisher's social preview image."""
+    article_url = str(item.get('url') or '')
+    if (urlparse(article_url).hostname or '').casefold() == 'news.google.com':
+        resolved = _resolve_google_article(article_url)
+        if not resolved:
+            return
+        article_url = resolved
+        item['url'] = resolved
+    if not _trusted_publisher(article_url):
+        return
+    item['image_url'] = _article_image(article_url)
+
+
 def _topics(text: str) -> list[str]:
     normalized = _normalized(text)
     if not _contains_any(normalized, WASTE_TERMS):
@@ -401,17 +486,17 @@ class EnvironmentNewsService:
                     except Exception:
                         failures.append(feed['id'])
             merged = self._clean_items(self._cache + articles)
-            visible = merged[:LATEST_LIMIT]
-            missing_images = [
-                item for item in visible
-                if not item.get('image_url') and _trusted_publisher(str(item.get('url') or ''))
+            missing_images = [item for item in merged if not item.get('image_url')][
+                :MAX_IMAGE_ENRICH_PER_REFRESH
             ]
             if missing_images:
-                with ThreadPoolExecutor(max_workers=6) as executor:
-                    image_jobs = {executor.submit(_article_image, item['url']): item for item in missing_images}
+                with ThreadPoolExecutor(max_workers=4) as executor:
+                    image_jobs = {
+                        executor.submit(_enrich_article_image, item): item for item in missing_images
+                    }
                     for future in as_completed(image_jobs):
                         try:
-                            image_jobs[future]['image_url'] = future.result()
+                            future.result()
                         except Exception:
                             pass
             if merged:

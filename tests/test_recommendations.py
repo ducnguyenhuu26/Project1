@@ -251,6 +251,7 @@ def test_catalog_and_detail_endpoints(client):
     assert detail.status_code == 200
     assert {q['id'] for q in detail.json()['questions']} == {'material', 'contamination'}
     assert client.get('/api/v1/recommendations/objects/not-an-object').status_code == 404
+    assert client.get('/api/v1/recommendations/catalog?category_id=not-a-category').status_code == 422
 
 
 def test_evaluate_endpoint_happy_path_and_traceability(client):

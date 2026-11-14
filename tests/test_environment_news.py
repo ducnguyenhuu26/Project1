@@ -1,7 +1,14 @@
 from io import BytesIO
 from datetime import datetime, timedelta, timezone
 
-from backend.environment_news import EnvironmentNewsService, _image_url, _parse_feed, _topics
+from backend.environment_news import (
+    EnvironmentNewsService,
+    _enrich_article_image,
+    _google_response_url,
+    _image_url,
+    _parse_feed,
+    _topics,
+)
 
 
 def test_rss_media_thumbnail_is_exposed_as_image_url():
@@ -92,3 +99,29 @@ def test_news_cache_keeps_ten_latest_and_fifteen_older():
     assert len(service._latest_items) == 10
     assert len(service._older_items) == 15
     assert len(service._cache) == 25
+
+
+def test_google_news_batchexecute_response_resolves_trusted_publisher_url():
+    result_payload = '["garturlres","https://tuoitre.vn/xa-hoi/thu-gom-rac-123.htm",1]'
+    response = ")]}'\n\n" + __import__("json").dumps([
+        ["wrb.fr", "Fbv4je", result_payload, None, None, None, "generic"]
+    ])
+
+    assert _google_response_url(response) == "https://tuoitre.vn/xa-hoi/thu-gom-rac-123.htm"
+
+
+def test_google_news_article_uses_publisher_url_and_social_image(monkeypatch):
+    item = {"url": "https://news.google.com/rss/articles/opaque-id", "image_url": None}
+    monkeypatch.setattr(
+        "backend.environment_news._resolve_google_article",
+        lambda _url: "https://vnexpress.net/xa-hoi/thu-gom-rac-123.htm",
+    )
+    monkeypatch.setattr(
+        "backend.environment_news._article_image",
+        lambda url: "https://i1-vnexpress.vnecdn.net/story.jpg" if url == item["url"] else None,
+    )
+
+    _enrich_article_image(item)
+
+    assert item["url"] == "https://vnexpress.net/xa-hoi/thu-gom-rac-123.htm"
+    assert item["image_url"] == "https://i1-vnexpress.vnecdn.net/story.jpg"

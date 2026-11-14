@@ -1,4 +1,4 @@
-import type { Health, Knowledge, Scan } from '../types';
+import type { ChatMessage, Health, Knowledge, Scan } from '../types';
 
 const API = (import.meta as ImportMeta & { env: { VITE_API_URL?: string } }).env.VITE_API_URL || '';
 
@@ -26,7 +26,13 @@ export function postScan(file: File, signal: AbortSignal) {
   const form = new FormData(); form.append('image', file);
   return request<Scan>('/api/v1/scans', { method: 'POST', body: form, signal });
 }
-export const postChat = (message: string, categoryIds: string[]) => request<{ answer?: string }>('/api/v1/chat', {
+export function postRegionScan(file: File, box: [number, number, number, number], signal: AbortSignal) {
+  const form = new FormData();
+  form.append('image', file);
+  for (const [index, name] of ['x1', 'y1', 'x2', 'y2'].entries()) form.append(name, String(box[index]));
+  return request<Scan>('/api/v1/scans/region', { method: 'POST', body: form, signal });
+}
+export const postChat = (message: string, categoryIds: string[], history: ChatMessage[] = []) => request<{ answer?: string; assistant?: 'groq' | 'knowledge_base'; grounded_in?: string }>('/api/v1/chat', {
   method: 'POST', headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({ message, category_ids: categoryIds }),
+  body: JSON.stringify({ message, category_ids: categoryIds, history: history.slice(-8).map(turn=>({role:turn.role,content:turn.text})) }),
 });

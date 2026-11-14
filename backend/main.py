@@ -1,9 +1,10 @@
 """WasteWise VN HTTP API."""
 from io import BytesIO
+import math
 import os
 from pathlib import Path
 
-from fastapi import FastAPI, File, HTTPException, UploadFile
+from fastapi import FastAPI, File, Form, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.concurrency import run_in_threadpool
 from PIL import Image, ImageOps, UnidentifiedImageError
@@ -11,9 +12,10 @@ from pydantic import BaseModel, Field
 from dotenv import load_dotenv
 
 from .services import (KNOWLEDGE, MATERIALS, TAXONOMY, TAXONOMY_ITEMS, DemoDetector,
-                       ModelNotReady, RealYOLODetector, answer_chat, summarize)
+                       ModelNotReady, RealYOLODetector, summarize)
 from .recommendation_api import recommendation_router
 from .environment_news import environment_news
+from .chat import chat_status, grounded_chat
 
 load_dotenv()
 
@@ -94,8 +96,7 @@ def build_app(mode: str | None = None, detector=None) -> FastAPI:
             raise HTTPException(404, detail="Không có mục tra cứu này")
         return MATERIALS[material_id]
 
-    @app.post("/api/v1/scans", response_model=ScanResponse)
-    async def scan(image: UploadFile = File(...)):
+    async def read_picture(image: UploadFile) -> Image.Image:
         if image.content_type not in {"image/jpeg", "image/png", "image/webp"}:
             raise HTTPException(415, detail="Chỉ hỗ trợ JPEG, PNG hoặc WebP")
         max_bytes = int(os.getenv("MAX_UPLOAD_MB", "10")) * 1024 * 1024
@@ -111,20 +112,19 @@ def build_app(mode: str | None = None, detector=None) -> FastAPI:
                 picture = ImageOps.exif_transpose(raw).convert("RGB")
         except (UnidentifiedImageError, OSError, ValueError):
             raise HTTPException(422, detail="Không đọc được ảnh")
-        try:
-            detections = await run_in_threadpool(provider.predict, picture, image.filename or "")
-        except ModelNotReady as exc:
-            raise HTTPException(503, detail={"code": "MODEL_NOT_READY", "message": str(exc)})
+        return picture
+
+    def validate_detections(detections, width: int, height: int) -> None:
         for detection in detections:
             box = detection.bbox_xyxy
-            if (len(box) != 4 or any(not isinstance(value, (int, float)) for value in box)
-                    or not (0 <= box[0] < box[2] <= picture.width and 0 <= box[1] < box[3] <= picture.height)):
+            if (len(box) != 4 or any(not isinstance(value, (int, float)) or not math.isfinite(value) for value in box)
+                    or not (0 <= box[0] < box[2] <= width and 0 <= box[1] < box[3] <= height)):
                 raise HTTPException(502, detail={"code": "INVALID_DETECTION", "message": "Detector returned an invalid bounding box"})
-            if detection.confidence is not None and not 0 <= detection.confidence <= 1:
+            if detection.confidence is not None and (not math.isfinite(detection.confidence) or not 0 <= detection.confidence <= 1):
                 raise HTTPException(502, detail={"code": "INVALID_DETECTION", "message": "Detector confidence must be between 0 and 1"})
+
+    def scan_response(picture: Image.Image, detections, warnings: list[str]) -> dict:
         summary = summarize(detections)
-        warnings = (["MINH HỌA: đây không phải kết quả AI; chỉ ảnh mẫu có khung ví dụ."] if provider.mode == "demo"
-                    else ["Không phát hiện được vật thể không có nghĩa là ảnh không chứa vật liệu đó."] if not detections else [])
         return {"mode": provider.mode, "model_version": provider.model_version,
                 "image_width": picture.width, "image_height": picture.height,
                 "detections": [d.as_dict() for d in detections], "summary": summary,
@@ -134,15 +134,64 @@ def build_app(mode: str | None = None, detector=None) -> FastAPI:
                                                    [item["id"] for item in TAXONOMY["categories"] if item["detection_supported"]]),
                 "warnings": warnings}
 
+    @app.post("/api/v1/scans", response_model=ScanResponse)
+    async def scan(image: UploadFile = File(...)):
+        picture = await read_picture(image)
+        try:
+            detections = await run_in_threadpool(provider.predict, picture, image.filename or "")
+        except ModelNotReady as exc:
+            raise HTTPException(503, detail={"code": "MODEL_NOT_READY", "message": str(exc)})
+        validate_detections(detections, picture.width, picture.height)
+        warnings = (["MINH HỌA: đây không phải kết quả AI; chỉ ảnh mẫu có khung ví dụ."] if provider.mode == "demo"
+                    else ["Không phát hiện được vật thể không có nghĩa là ảnh không chứa vật liệu đó."] if not detections else [])
+        return scan_response(picture, detections, warnings)
+
+    @app.post("/api/v1/scans/region", response_model=ScanResponse)
+    async def scan_region(image: UploadFile = File(...), x1: float = Form(...), y1: float = Form(...),
+                          x2: float = Form(...), y2: float = Form(...)):
+        """Run the current detector on an explicit region; boxes return in full-image coordinates."""
+        picture = await read_picture(image)
+        values = (x1, y1, x2, y2)
+        if (not all(math.isfinite(value) for value in values)
+                or not (0 <= x1 < x2 <= picture.width and 0 <= y1 < y2 <= picture.height)):
+            raise HTTPException(422, detail="Vùng khoanh nằm ngoài ảnh hoặc có tọa độ không hợp lệ")
+        left, top, right, bottom = math.floor(x1), math.floor(y1), math.ceil(x2), math.ceil(y2)
+        if right - left < 16 or bottom - top < 16:
+            raise HTTPException(422, detail="Vùng khoanh phải rộng và cao ít nhất 16 pixel")
+        if provider.mode == "demo":
+            return scan_response(picture, [], ["Chế độ demo không chạy YOLO lần hai; vùng khoanh cần được xác nhận thủ công trong KB."])
+        crop = picture.crop((left, top, right, bottom))
+        try:
+            detections = await run_in_threadpool(provider.predict, crop, image.filename or "")
+        except ModelNotReady as exc:
+            raise HTTPException(503, detail={"code": "MODEL_NOT_READY", "message": str(exc)})
+        validate_detections(detections, crop.width, crop.height)
+        for detection in detections:
+            detection.bbox_xyxy = [detection.bbox_xyxy[0] + left, detection.bbox_xyxy[1] + top,
+                                   detection.bbox_xyxy[2] + left, detection.bbox_xyxy[3] + top]
+        return scan_response(picture, detections, [] if detections else ["YOLO vẫn chưa nhận diện được vùng này; hãy chọn đồ vật trong KB."])
+
     class ChatRequest(BaseModel):
         message: str = Field(max_length=500)
         material_ids: list[str] = Field(default_factory=list)
         category_ids: list[str] = Field(default_factory=list)
+        history: list[dict] = Field(default_factory=list, max_length=8)
+
+    @app.get("/api/v1/chat/status")
+    def get_chat_status():
+        return chat_status()
 
     @app.post("/api/v1/chat")
-    def chat(request: ChatRequest):
+    async def chat(request: ChatRequest):
         context = request.category_ids or request.material_ids
-        return {**answer_chat(request.message, context), "grounded_in": "WasteWise curated knowledge base"}
+        history = []
+        for turn in request.history:
+            role = turn.get('role')
+            content = turn.get('content')
+            if role not in {'user', 'assistant'} or not isinstance(content, str) or len(content) > 1000:
+                raise HTTPException(422, detail='Lịch sử hội thoại không hợp lệ')
+            history.append({'role': role, 'content': content})
+        return await grounded_chat(request.message, context, history)
 
     return app
 

@@ -191,7 +191,16 @@
       "examples": [
         "điện thoại hỏng",
         "sạc hỏng",
-        "thiết bị điện tử"
+        "thiết bị điện tử",
+        "loa",
+        "loa cũ",
+        "loa hỏng",
+        "thiết bị âm thanh",
+        "tai nghe",
+        "radio cũ",
+        "ram",
+        "thanh ram",
+        "ram máy tính"
       ],
       "description": "Thiết bị có thể chứa pin và linh kiện nguy hại; ảnh không xác định được tình trạng bên trong.",
       "do": [

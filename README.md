@@ -1,15 +1,15 @@
 # SOICTERRA
 
-**SOICTERRA** là dự án của sinh viên SoICT, Đại học Bách khoa Hà Nội, ứng dụng thị giác máy tính vào phân loại rác trong bối cảnh đô thị Việt Nam. Người dùng có thể tải ảnh lên Scan Studio, xem kết quả nhận diện, hiệu chỉnh nhãn, tra cứu hướng dẫn theo vật liệu và hỏi trợ lý kiến thức.
+**SOICTERRA Beta01** là bản thử nghiệm của dự án sinh viên SoICT, Đại học Bách khoa Hà Nội, ứng dụng thị giác máy tính vào phân loại rác trong bối cảnh đô thị Việt Nam. Người dùng có thể tải ảnh lên Scan Studio, xem kết quả nhận diện, hiệu chỉnh nhãn, tra cứu hướng dẫn theo vật liệu và hỏi trợ lý kiến thức.
 
 ## Tính năng
 
-- **Scan Studio:** tải ảnh JPEG, PNG hoặc WebP để gửi tới FastAPI; xem bounding box, lớp, confidence và hướng dẫn theo kết quả.
+- **Scan Studio:** tải ảnh JPEG, PNG hoặc WebP để gửi tới FastAPI; xem bounding box, lớp, confidence và hướng dẫn theo kết quả. Có thể khoanh vùng trực tiếp để chạy lượt nhận diện YOLO thứ hai khi bị sót vật thể.
 - **Ảnh mẫu:** thử luồng demo ngay sau khi cài đặt, không cần checkpoint. Các khung trên ảnh mẫu được đánh dấu là minh họa.
 - **Thư viện phân loại:** tìm kiếm vật liệu, xem hướng dẫn nên làm, cần tránh và lưu ý.
 - **Tin rác thải:** hai dải trượt riêng cho tối đa 10 tin mới và 15 bài cũ được lưu; ưu tiên RSS từ các báo lớn, lọc tin phải nhắc rõ rác/chất thải và mở bài tại nguồn.
-- **Hiệu chỉnh kết quả:** đổi nhãn, bỏ phát hiện hoặc thêm nhóm vật liệu để tra cứu.
-- **Trợ lý SOICTERRA:** tra cứu FAQ và dữ liệu hướng dẫn được biên soạn cùng dự án.
+- **Hiệu chỉnh kết quả:** sửa hoặc bỏ từng detection độc lập, hoặc thêm nhóm vật liệu để tra cứu.
+- **Trợ lý SOICTERRA:** khi cấu hình Groq, mọi câu hỏi được gửi tới `openai/gpt-oss-20b`; KB được thêm làm ngữ cảnh khi phù hợp. Nếu thiếu key hoặc provider lỗi, chatbot dùng câu trả lời KB dự phòng. Xem [hướng dẫn cấu hình](docs/CHATBOT_GROQ.md).
 - **Lịch sử riêng trên trình duyệt:** lưu thời gian và nhãn quét trong `localStorage`, không lưu ảnh vào lịch sử.
 - **Song ngữ Việt–Anh:** đổi ngôn ngữ giao diện từ nút VI/EN trên thanh điều hướng. Nội dung hướng dẫn lấy từ `backend/knowledge.json` hiện được biên soạn bằng tiếng Việt.
 
@@ -32,6 +32,17 @@ Bảng tin cần API server có kết nối Internet. API cập nhật nguồn R
 - Trình duyệt hiện đại
 
 Chế độ mặc định là `demo`, không cần tải model hoặc dữ liệu huấn luyện. Cài Python requirements có thể tải các thư viện nhận diện khá lớn; hãy chờ pip cài xong trước khi chạy API.
+
+### Cấu hình chatbot Groq
+
+Để bật LLM, tạo key ở [Groq Console](https://console.groq.com/keys), rồi đặt `GROQ_API_KEY` trong `.env`:
+
+```dotenv
+GROQ_API_KEY=your-key
+GROQ_MODEL=openai/gpt-oss-20b
+```
+
+Không commit `.env` hoặc gửi key vào mã nguồn. Để trống key thì chatbot vẫn chạy bằng KB dự phòng.
 
 ## Cài đặt và chạy
 
@@ -185,4 +196,7 @@ Một số điểm để sửa giao diện và nội dung:
 - [Chiến lược dữ liệu và huấn luyện](docs/training.md)
 - [Kiểm toán dữ liệu](docs/data-audit.md)
 - [Trạng thái triển khai](docs/implementation-status.md)
+- [Tính năng Beta01](docs/features.md)
 - [Hướng dẫn frontend SOICTERRA](docs/soicterra-frontend-v3.md)
+- [Báo cáo tích hợp Beta01 CV–KB](docs/CV_KB_INTEGRATION_REPORT.md)
+- [Chatbot Groq](docs/CHATBOT_GROQ.md)

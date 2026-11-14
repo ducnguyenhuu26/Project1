@@ -26,11 +26,11 @@ From the repository root, start the API and Vite frontend with:
 ./dev.ps1
 ```
 
-Then open `http://127.0.0.1:5173`. The frontend proxies `/api` to the local FastAPI service on port 8000. For a frontend-only server, run `npm run dev -- --host 127.0.0.1` from `frontend/`.
+`dev.ps1` opens `http://127.0.0.1:5175` and runs FastAPI on port 8001. For manual development, run FastAPI on port 8000 and Vite on port 5173; then open `http://127.0.0.1:5173`. The frontend-only Vite proxy forwards `/api` to port 8000.
 
 ## Behavior and QA notes
 
-- Real uploads keep using `POST /api/v1/scans`; health, waste type and chat routes retain their existing API contracts. Corrections, object exclusion, manual category lookup, knowledge filters, chat and local history remain in the React app.
+- Real uploads use `POST /api/v1/scans`; the user can draw a region for a second detection through `POST /api/v1/scans/region`. Per-detection corrections and recommendation sessions remain isolated. Chat calls the configured Groq model for every question, with KB context when available and KB fallback on provider failure.
 - The sample action submits the repository's sample image to the same scan API. Its returned `mode=demo` is labeled as illustrative, with no fabricated confidence values. Real inference display depends on the backend response and available checkpoint.
 - `npm ci` and `npm run build` pass in a clean temporary frontend copy. From the repository root, `.\.venv\Scripts\python.exe -m pytest -q` passes (53 tests; one Starlette deprecation warning). Browser smoke checks verified the mobile menu, no horizontal overflow at 390 px, the sample API response with three illustrative results, per-object label correction and synchronized box label, and a knowledge-base assistant response. The browser currently reports demo mode; real-checkpoint inference was not claimed.
 - The guide's local `file://` reference could not be opened in the browser automation surface, so a reference-vs-React screenshot comparison was not recorded. The React app itself was opened and visually inspected in the browser.

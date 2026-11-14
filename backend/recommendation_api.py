@@ -1,7 +1,7 @@
 """Drop-in FastAPI router: app.include_router(recommendation_router)."""
 from fastapi import APIRouter, HTTPException, Query
 from pydantic import BaseModel, Field
-from .recommendations import catalog, detail, recommend, KB
+from .recommendations import catalog, detail, recommend, KB, TAXONOMY
 
 recommendation_router = APIRouter(prefix='/api/v1/recommendations', tags=['recommendations'])
 
@@ -14,6 +14,8 @@ class EvaluationRequest(BaseModel):
 @recommendation_router.get('/catalog')
 def get_catalog(q: str = Query('', max_length=120), category_id: str | None = Query(None, max_length=100),
                 limit: int = Query(100, ge=1, le=200)):
+    if category_id and category_id not in {row['id'] for row in TAXONOMY['categories']}:
+        raise HTTPException(status_code=422, detail='Không biết nhóm vật liệu')
     items = catalog(q, category_id, limit)
     return {'version': KB['version'], 'items': items, 'count': len(items), 'total_count': len(KB['objects'])}
 
