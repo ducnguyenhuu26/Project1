@@ -75,12 +75,12 @@ def build_app(mode: str | None = None, detector=None) -> FastAPI:
     def throttle(scope: str, request: Request, limit: int, window_seconds: int) -> None:
         allowed, retry_after = guards.allow(scope, client_key(request), limit, window_seconds)
         if not allowed:
-            raise HTTPException(429, detail={"code": "RATE_LIMITED", "message": "Yêu cầu quá nhanh; vui lòng thử lại sau."},
+            raise HTTPException(429, detail={"code": "RATE_LIMITED", "message": "Yêu cầu quá nhanh; xin vui lòng thử lại sau."},
                                 headers={"Retry-After": str(retry_after)})
 
     def acquire_inference() -> None:
         if not guards.inference.acquire(blocking=False):
-            raise HTTPException(503, detail={"code": "INFERENCE_BUSY", "message": "Máy chủ đang xử lý đủ số ảnh; hãy thử lại sau."},
+            raise HTTPException(503, detail={"code": "INFERENCE_BUSY", "message": "Máy chủ đang xử lý đủ số ảnh; vui lòng thử lại sau."},
                                 headers={"Retry-After": "2"})
 
     @app.get("/api/v1/health")
@@ -125,7 +125,7 @@ def build_app(mode: str | None = None, detector=None) -> FastAPI:
         max_bytes = int(os.getenv("MAX_UPLOAD_MB", "10")) * 1024 * 1024
         data = await image.read(max_bytes + 1)
         if not data or len(data) > max_bytes:
-            raise HTTPException(413, detail="Ảnh rỗng hoặc vượt quá giới hạn dung lượng")
+            raise HTTPException(413, detail="Ảnh rỗng hoặc vượt quá giới hạn dung lượng cho phép")
         try:
             with Image.open(BytesIO(data)) as raw:
                 raw.verify()
@@ -167,8 +167,8 @@ def build_app(mode: str | None = None, detector=None) -> FastAPI:
             except ModelNotReady as exc:
                 raise HTTPException(503, detail={"code": "MODEL_NOT_READY", "message": str(exc)})
             validate_detections(detections, picture.width, picture.height)
-            warnings = (["MINH HỌA: đây không phải kết quả AI; chỉ ảnh mẫu có khung ví dụ."] if provider.mode == "demo"
-                        else ["Không phát hiện được vật thể không có nghĩa là ảnh không chứa vật liệu đó."] if not detections else [])
+            warnings = (["MINH HỌA: đây không phải kết quả do mô hình cung cấp. Ảnh mẫu chỉ có khung ví dụ"] if provider.mode == "demo"
+                        else ["Không phát hiện được vật thể không có nghĩa là ảnh không chứa vật liệu đó, xin vui lòng khoanh vùng vật thể chưa được phát hiện. Nếu vẫn không được phát hiện, vui lòng tra cứu thủ công"] if not detections else [])
             return scan_response(picture, detections, warnings)
         finally:
             guards.inference.release()
@@ -198,7 +198,7 @@ def build_app(mode: str | None = None, detector=None) -> FastAPI:
             for detection in detections:
                 detection.bbox_xyxy = [detection.bbox_xyxy[0] + left, detection.bbox_xyxy[1] + top,
                                        detection.bbox_xyxy[2] + left, detection.bbox_xyxy[3] + top]
-            return scan_response(picture, detections, [] if detections else ["YOLO vẫn chưa nhận diện được vùng này; hãy chọn đồ vật trong KB."])
+            return scan_response(picture, detections, [] if detections else ["Mô hình vẫn chưa thể nhận diện được vật thể. Vui lòng tra cứu trong danh sách đề mục để được hỗ trợ"])
         finally:
             guards.inference.release()
 
@@ -221,7 +221,7 @@ def build_app(mode: str | None = None, detector=None) -> FastAPI:
             role = turn.get('role')
             content = turn.get('content')
             if role not in {'user', 'assistant'} or not isinstance(content, str) or len(content) > 1000:
-                raise HTTPException(422, detail='Lịch sử hội thoại không hợp lệ')
+                raise HTTPException(422, detail='Lịch sử hội thoại không hợp lệ, vui lòng thử lại sau')
             history.append({'role': role, 'content': content})
         return await grounded_chat(body.message, context, history)
 
