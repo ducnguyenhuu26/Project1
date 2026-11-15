@@ -33,10 +33,10 @@ TRUSTED_DOMAINS = {
     'vietnamnet.vn', 'vtv.vn', 'nhandan.vn', 'vov.vn', 'baotintuc.vn',
     'laodong.vn', 'tienphong.vn', 'plo.vn', 'cand.com.vn', 'vietnam.vn',
 }
-NEWS_QUERY = '("rác thải" OR "đổ trộm rác" OR "xả rác" OR "vứt rác" OR "đốt rác" OR "bãi rác") (site:vnexpress.net OR site:tuoitre.vn OR site:thanhnien.vn OR site:dantri.com.vn OR site:vietnamnet.vn OR site:vtv.vn OR site:nhandan.vn OR site:vov.vn) when:7d'
+NEWS_QUERY = '("rác thải" OR "đổ trộm rác" OR "xả rác" OR "vứt rác" OR "đốt rác" OR "bãi rác" OR "xử lý rác" OR "camera phát hiện đổ trộng rác") (site:vnexpress.net OR site:tuoitre.vn OR site:thanhnien.vn OR site:dantri.com.vn OR site:vietnamnet.vn OR site:vtv.vn OR site:nhandan.vn OR site:vov.vn) when:7d'
 ARCHIVE_QUERY = NEWS_QUERY.rsplit('when:7d', 1)[0] + 'when:60d'
-LANDFILL_QUERY = '("rác chất đống" OR "rác ngập" OR "bãi rác quá tải" OR "rác thải sinh hoạt") (site:vnexpress.net OR site:tuoitre.vn OR site:thanhnien.vn OR site:dantri.com.vn OR site:vietnamnet.vn OR site:vtv.vn OR site:nhandan.vn OR site:vov.vn) when:90d'
-ILLEGAL_DUMPING_QUERY = '("lén đổ rác" OR "camera" "đổ rác" OR "đổ trộm" OR "xả rác nơi công cộng" OR "vứt rác bừa bãi") (site:vnexpress.net OR site:tuoitre.vn OR site:thanhnien.vn OR site:dantri.com.vn OR site:vietnamnet.vn OR site:vtv.vn OR site:nhandan.vn OR site:vov.vn) when:90d'
+LANDFILL_QUERY = '("rác chất đống" OR "rác ngập" OR "bãi rác quá tải" OR "rác thải sinh hoạt" OR "rác công nghiệp" OR "rác y tế" OR "rác chưa qua xử lý" OR "rác thải nhựa") (site:vnexpress.net OR site:tuoitre.vn OR site:thanhnien.vn OR site:dantri.com.vn OR site:vietnamnet.vn OR site:vtv.vn OR site:nhandan.vn OR site:vov.vn) when:90d'
+ILLEGAL_DUMPING_QUERY = '("lén đổ rác" OR "camera" "đổ rác" OR "đổ trộm" OR "xả rác nơi công cộng" OR "vứt rác bừa bãi" OR "phát triển các công nghệ xử lý rác mới") (site:vnexpress.net OR site:tuoitre.vn OR site:thanhnien.vn OR site:dantri.com.vn OR site:vietnamnet.vn OR site:vtv.vn OR site:nhandan.vn OR site:vov.vn) when:90d'
 FEEDS = (
     {
         'id': 'google-news',
