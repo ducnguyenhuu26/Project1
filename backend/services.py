@@ -181,4 +181,4 @@ def answer_chat(message: str, category_ids: list[str]) -> dict:
         item = MATERIALS.get(category_ids[0])
         if item:
             return {"answer": f"Với {item['name'].lower()} trong kết quả: {' '.join(item['do'])} {item['caution']}", "category_id": item["id"], "material_id": item["id"]}
-    return {"answer": "Mình chưa có hướng dẫn được kiểm chứng cho câu hỏi này. Hãy tra cứu một nhóm trong thư viện rác hoặc hỏi đơn vị thu gom tại địa phương.", "category_id": None, "material_id": None}
+    return {"answer": "Mình chưa có hướng dẫn được kiểm chứng cho câu hỏi này. Hãy tra cứu một nhóm trong danh mục phân loại rác hoặc hỏi đơn vị thu gom tại địa phương.", "category_id": None, "material_id": None}
