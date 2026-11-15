@@ -15,7 +15,7 @@ class EvaluationRequest(BaseModel):
 def get_catalog(q: str = Query('', max_length=120), category_id: str | None = Query(None, max_length=100),
                 limit: int = Query(100, ge=1, le=200)):
     if category_id and category_id not in {row['id'] for row in TAXONOMY['categories']}:
-        raise HTTPException(status_code=422, detail='Không biết nhóm vật liệu')
+        raise HTTPException(status_code=422, detail='Không biết nhóm vật liệu, xin vui lòng thử lại')
     items = catalog(q, category_id, limit)
     return {'version': KB['version'], 'items': items, 'count': len(items), 'total_count': len(KB['objects'])}
 
@@ -24,13 +24,13 @@ def get_object(object_id: str):
     try:
         return detail(object_id)
     except KeyError:
-        raise HTTPException(status_code=404, detail='Không tìm thấy vật thể')
+        raise HTTPException(status_code=404, detail='Không tìm thấy vật thể, vui lòng chụp lại ảnh hoặc sử dụng chức năng tra cứu danh mục vật thể thủ công bên dưới')
 
 @recommendation_router.post('/evaluate')
 def evaluate(req: EvaluationRequest):
     try:
         return recommend(req.object_id, req.answers, req.source, req.detected_category_id)
     except KeyError:
-        raise HTTPException(status_code=404, detail='Không tìm thấy vật thể')
+        raise HTTPException(status_code=404, detail='Không tìm thấy vật thể, vui lòng chụp lại ảnh hoặc sử dụng chức năng tra cứu danh mục vật thể thủ công bên dưới')
     except ValueError as exc:
         raise HTTPException(status_code=422, detail=str(exc))
