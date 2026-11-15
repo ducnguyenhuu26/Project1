@@ -11,11 +11,11 @@ from .services import answer_chat
 
 logger = logging.getLogger(__name__)
 UNSUPPORTED_ANSWER = (
-    "Mình chưa có hướng dẫn được kiểm chứng cho câu hỏi này. Hãy tra cứu một nhóm trong "
-    "thư viện rác hoặc hỏi đơn vị thu gom tại địa phương."
+    "Mình chưa có hướng dẫn được kiểm chứng cho câu hỏi này. Bạn hãy vui lòng tra cứu một nhóm trong "
+    "thư viện về các loại rác hoặc hỏi đơn vị thu gom tại địa phương."
 )
 SYSTEM_INSTRUCTION = """Bạn là trợ lý ảo của hệ thống SOICTERRA, nhiệm vụ của bạn là trả lời câu hỏi của người dùng về phân loại và xử lý rác, 
-cũng như một số tình huống an toàn khi người sử dụng không biết làm gì khi gặp một số loại rác cụ thể; trả lời bằng tiếng Việt tự nhiên, ngắn gọn, đúng trọng tâm.
+cũng như một số tình huống an toàn khi người sử dụng không biết làm gì khi gặp một số loại rác cụ thể; trả lời bằng tiếng Việt một cách tự nhiên, ngắn gọn, dễ hiểu, đúng trọng tâm.
 Luôn cố gắng trả lời câu hỏi bằng kiến thức chung an toàn; không từ chối chỉ vì không tìm thấy từ khóa hoặc mục KB khớp.
 Nếu có NGUỒN KB, ưu tiên dùng nguồn đó và có thể giải thích thêm bằng kiến thức chung. Nếu không có nguồn KB phù hợp, tự trả lời hướng dẫn phổ thông, nêu rõ khi chi tiết phụ thuộc địa phương.
 Không bịa quy định pháp luật, địa chỉ/điểm thu gom, chương trình đang hoạt động, khả năng tiếp nhận của một đơn vị, hoặc tuyên bố an toàn chưa được kiểm chứng.
@@ -23,6 +23,7 @@ Người dùng có thể không chỉ hỏi về rác mà còn hỏi về một 
 cho họ. Nếu họ có câu hỏi nào thêm, hay cứ vui vẻ trả lời. Câu trả lời phải đầu đủ như 1 câu thoại, tuyệt đối không trả lời cụt lủn gây mất thiện cảm.
 Chú ý câu trả lời đừng quá dài.
 """
+
 DEFAULT_MODEL = "openai/gpt-oss-20b"
 CHAT_ENDPOINT = "https://api.groq.com/openai/v1/chat/completions"
 MAX_PROMPT_CHARS = 3500
@@ -31,13 +32,13 @@ MAX_PROMPT_CHARS = 3500
 def _safety_response(message: str) -> str | None:
     query = message.casefold()
     if any(term in query for term in ("pin phồng", "pin nóng", "pin bốc khói", "pin đang cháy", "battery swollen", "battery smoking")):
-        return "Không sạc, chọc thủng hoặc ép pin. Tránh xa vật dễ cháy; nếu pin đang nóng, bốc khói hoặc cháy, rời khỏi khu vực và liên hệ lực lượng khẩn cấp. Không bỏ pin hỏng vào rác sinh hoạt."
+        return "Không sạc, chọc thủng hoặc ép pin, tránh tác động các lực mạnh vào viên pin. Tránh xa vật dễ cháy; nếu pin đang nóng, bốc khói hoặc cháy, rời khỏi khu vực và liên hệ lực lượng khẩn cấp để xử lý kịp thời. Không bỏ pin hỏng vào rác sinh hoạt."
     if any(term in query for term in ("kim tiêm", "kim chích", "needle", "vật sắc y tế")):
-        return "Không chạm trực tiếp và không đậy nắp kim bằng tay. Tránh để người khác tiếp xúc; liên hệ cơ sở y tế hoặc đơn vị có thẩm quyền để xử lý vật sắc y tế."
+        return "Không chạm trực tiếp và không đậy nắp kim bằng tay nhằm tránh gây nguy hiểm. Tránh để người khác tiếp xúc; liên hệ cơ sở y tế hoặc đơn vị có thẩm quyền để xử lý vật sắc y tế."
     if any(term in query for term in ("hóa chất", "thuốc trừ sâu", "chemical", "dung môi")):
-        return "Không trộn hóa chất hoặc đổ xuống cống. Tránh tiếp xúc, làm theo nhãn cảnh báo và liên hệ đơn vị tiếp nhận chất thải nguy hại tại địa phương."
+        return "Không trộn hóa chất hoặc đổ xuống cống. Tránh tiếp xúc trực tiếp, trong trường hợp bất khả kháng phải mang đồ bảo hộ trước khi chạm vào loại vật liệu này, sau đó làm theo nhãn cảnh báo và liên hệ đơn vị tiếp nhận chất thải nguy hại tại địa phương."
     if any(term in query for term in ("đang cháy", "bốc khói", "hít phải khói", "khói", "fire", "smoke")):
-        return "Rời khỏi khu vực có khói hoặc lửa và tránh hít khói. Không tự xử lý vật đang cháy; liên hệ lực lượng khẩn cấp tại địa phương."
+        return "Rời khỏi khu vực có khói hoặc lửa và tránh hít khói, thực hiện các biện pháp an toàn để bảo vệ bản thân nếu đang trong tình thế hít phải khói như lấy khăn ướt bịt mũi, nằm sát xuống sàn,... Không tự xử lý vật đang cháy; liên hệ lực lượng khẩn cấp tại địa phương."
     return None
 
 
