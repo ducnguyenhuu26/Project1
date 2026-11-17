@@ -13,7 +13,7 @@ class EvaluationRequest(BaseModel):
 
 @recommendation_router.get('/catalog')
 def get_catalog(q: str = Query('', max_length=120), category_id: str | None = Query(None, max_length=100),
-                limit: int = Query(100, ge=1, le=200)):
+                limit: int = Query(100, ge=1, le=500)):
     if category_id and category_id not in {row['id'] for row in TAXONOMY['categories']}:
         raise HTTPException(status_code=422, detail='Không biết nhóm vật liệu, xin vui lòng thử lại')
     items = catalog(q, category_id, limit)

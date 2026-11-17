@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-14.1",
+  "version": "2026-11-17.1",
   "review_status": "prototype_not_official_local_disposal_policy",
   "locale": "vi-VN",
   "notice": "Đây là hướng dẫn tham khảo theo tình huống, không xác nhận chính xác vật liệu qua ảnh hoặc khả năng tiếp nhận tại một địa điểm cụ thể.",
@@ -3164,6 +3164,589 @@
       "caution": "Vẫn cần xác minh tuyến thu gom thực tế; việc có mã vật liệu không đồng nghĩa chắc chắn tái chế được.",
       "question_ids": [
         "condition"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "shampoo_bottle",
+      "name_vi": "Chai dầu gội đã dùng",
+      "category_id": "plastic",
+      "aliases_vi": [
+        "vỏ chai dầu gội"
+      ],
+      "default_stream": "recyclable",
+      "base_advice": "Bạn hãy làm rỗng chai và chỉ tráng nhẹ nếu bên trong là dầu gội thông thường; sau đó để khô và hỏi nơi thu gom có nhận loại chai này không.",
+      "avoid": "Bạn đừng trộn chai còn nhiều dung dịch với nhựa sạch.",
+      "caution": "Nếu chai từng chứa hóa chất khác hoặc không rõ chất bên trong, bạn hãy giữ nguyên nhãn và hỏi đơn vị tiếp nhận phù hợp.",
+      "question_ids": [
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "yogurt_cup",
+      "name_vi": "Hũ sữa chua nhựa",
+      "category_id": "plastic",
+      "aliases_vi": [
+        "cốc sữa chua"
+      ],
+      "default_stream": "special_collection",
+      "base_advice": "Bạn hãy vét hết thức ăn còn lại và kiểm tra nơi thu gom có nhận loại hũ nhựa này không.",
+      "avoid": "Bạn đừng bỏ hũ còn dính nhiều sữa chua vào dòng nhựa khô.",
+      "caution": "Mã nhựa trên đáy hũ không tự xác nhận rằng địa phương có thể tái chế hũ.",
+      "question_ids": [
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "margarine_tub",
+      "name_vi": "Hộp bơ thực vật nhựa",
+      "category_id": "plastic",
+      "aliases_vi": [
+        "hộp bơ nhựa"
+      ],
+      "default_stream": "special_collection",
+      "base_advice": "Bạn hãy lấy hết phần bơ còn lại, để hộp khô rồi hỏi nơi nhận có tiếp nhận loại hộp này không.",
+      "avoid": "Bạn đừng đưa hộp còn dính nhiều dầu mỡ vào túi nhựa sạch.",
+      "caution": "Nắp và thân hộp có thể làm từ vật liệu khác nhau; bạn hãy kiểm tra yêu cầu của nơi nhận.",
+      "question_ids": [
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "takeout_plastic_box",
+      "name_vi": "Hộp nhựa đựng đồ ăn mang về",
+      "category_id": "plastic",
+      "aliases_vi": [
+        "hộp cơm mang về"
+      ],
+      "default_stream": "special_collection",
+      "base_advice": "Bạn hãy bỏ thức ăn thừa, làm sạch sơ bộ nếu an toàn và kiểm tra loại nhựa mà nơi thu gom nhận.",
+      "avoid": "Bạn đừng mặc định mọi hộp đồ ăn đều được tái chế.",
+      "caution": "Hộp dính dầu mỡ hoặc làm từ nhiều lớp vật liệu có thể cần tuyến xử lý khác.",
+      "question_ids": [
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "plastic_cutlery",
+      "name_vi": "Muỗng, nĩa nhựa dùng một lần",
+      "category_id": "plastic",
+      "aliases_vi": [
+        "thìa nhựa",
+        "dĩa nhựa"
+      ],
+      "default_stream": "residual",
+      "base_advice": "Bạn hãy gạt sạch thức ăn còn bám và làm theo hướng dẫn rác còn lại tại địa phương nếu không có nơi nhận riêng.",
+      "avoid": "Bạn đừng tự bỏ muỗng nhựa vào dòng chai nhựa tái chế.",
+      "caution": "Vật nhỏ và dính thức ăn thường khó được tiếp nhận cùng chai, hộp nhựa; bạn nên hỏi chương trình thu gom cụ thể.",
+      "question_ids": [
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "zip_bag",
+      "name_vi": "Túi nhựa có khóa kéo",
+      "category_id": "plastic",
+      "aliases_vi": [
+        "túi zip",
+        "túi zipper"
+      ],
+      "default_stream": "special_collection",
+      "base_advice": "Bạn hãy làm rỗng và để túi khô; nếu còn sạch, bạn có thể dùng lại hoặc hỏi điểm nhận màng nhựa.",
+      "avoid": "Bạn đừng trộn túi nhựa mềm vào thùng thu gom chai, hộp nhựa khi nơi nhận không cho phép.",
+      "caution": "Khóa kéo có thể làm quy trình thu hồi khác màng nhựa thông thường.",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "plastic_cup_lid",
+      "name_vi": "Nắp ly nhựa mang đi",
+      "category_id": "plastic",
+      "aliases_vi": [
+        "nắp cốc nhựa"
+      ],
+      "default_stream": "special_collection",
+      "base_advice": "Bạn hãy tách nắp khỏi ly, bỏ phần đồ uống còn sót và hỏi nơi nhận có thu gom loại nắp này không.",
+      "avoid": "Bạn đừng coi nắp ly là cùng vật liệu với phần thân ly giấy.",
+      "caution": "Nhựa của nắp và lớp phủ của ly có thể cần cách phân loại khác nhau.",
+      "question_ids": [
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "plastic_bottle_label",
+      "name_vi": "Màng nhãn chai nhựa",
+      "category_id": "plastic",
+      "aliases_vi": [
+        "nhãn co chai",
+        "tem chai nhựa"
+      ],
+      "default_stream": "special_collection",
+      "base_advice": "Bạn hãy giữ hoặc tách nhãn theo đúng yêu cầu của nơi thu gom chai; nếu không rõ, bạn cứ để nguyên chai và hỏi trước.",
+      "avoid": "Bạn đừng tự khẳng định màng nhãn được nhận cùng chai chỉ vì nó cũng là nhựa.",
+      "caution": "Nhãn co nhiệt và keo dán có thể khác vật liệu thân chai.",
+      "question_ids": [
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "plastic_sauce_bottle",
+      "name_vi": "Chai nhựa đựng nước sốt",
+      "category_id": "plastic",
+      "aliases_vi": [
+        "chai tương ớt",
+        "chai nước mắm nhựa"
+      ],
+      "default_stream": "special_collection",
+      "base_advice": "Bạn hãy làm rỗng, loại bỏ phần nước sốt nhìn thấy được nếu an toàn rồi hỏi nơi thu gom có nhận chai không.",
+      "avoid": "Bạn đừng đưa chai còn nhiều nước sốt vào dòng nhựa sạch.",
+      "caution": "Nếu chai từng chứa hóa chất khác hoặc có mùi lạ, bạn hãy giữ riêng và xác minh trước khi rửa.",
+      "question_ids": [
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "cereal_box",
+      "name_vi": "Hộp giấy đựng ngũ cốc",
+      "category_id": "paper",
+      "aliases_vi": [
+        "hộp ngũ cốc"
+      ],
+      "default_stream": "recyclable",
+      "base_advice": "Bạn hãy lấy túi lót bên trong ra, giữ hộp giấy khô và gấp gọn nếu nơi thu gom nhận giấy bìa.",
+      "avoid": "Bạn đừng trộn túi lót nhựa với phần hộp giấy.",
+      "caution": "Nếu hộp bị ướt hoặc dính nhiều thức ăn, bạn cần hỏi nơi thu gom trước khi đưa vào giấy sạch.",
+      "question_ids": [
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "shoebox",
+      "name_vi": "Hộp giày bằng bìa giấy",
+      "category_id": "paper",
+      "aliases_vi": [
+        "hộp đựng giày"
+      ],
+      "default_stream": "recyclable",
+      "base_advice": "Bạn có thể dùng lại hộp còn tốt; nếu bỏ đi, hãy lấy vật lót ra và gấp gọn hộp giấy khô.",
+      "avoid": "Bạn đừng bỏ xốp lót hoặc túi nhựa vào cùng dòng giấy bìa.",
+      "caution": "Hộp có phủ nhựa hoặc dính bẩn cần được nơi thu gom xác nhận trước.",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "paper_folder",
+      "name_vi": "Bìa hồ sơ giấy",
+      "category_id": "paper",
+      "aliases_vi": [
+        "bìa kẹp giấy",
+        "folder giấy"
+      ],
+      "default_stream": "recyclable",
+      "base_advice": "Bạn hãy giữ bìa giấy khô và tách các kẹp kim loại hoặc màng nhựa dễ tháo trước khi bàn giao.",
+      "avoid": "Bạn đừng coi toàn bộ bìa có lớp phủ nhựa là giấy tái chế thông thường.",
+      "caution": "Nếu bìa có nhiều lớp dán chặt, bạn hãy hỏi nơi thu gom về khả năng tiếp nhận.",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "sticky_notes",
+      "name_vi": "Giấy ghi chú có keo",
+      "category_id": "paper",
+      "aliases_vi": [
+        "giấy note",
+        "giấy nhớ"
+      ],
+      "default_stream": "special_collection",
+      "base_advice": "Bạn hãy gom giấy ghi chú khô và hỏi nơi thu gom có nhận giấy dính keo hay không.",
+      "avoid": "Bạn đừng tự khẳng định mọi loại giấy có keo đều đi cùng giấy văn phòng.",
+      "caution": "Lớp keo và màu phủ khác nhau tùy sản phẩm nên khả năng thu hồi phụ thuộc nơi nhận.",
+      "question_ids": [
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "greeting_card",
+      "name_vi": "Thiệp chúc mừng bằng giấy",
+      "category_id": "paper",
+      "aliases_vi": [
+        "thiệp sinh nhật",
+        "thiệp giấy"
+      ],
+      "default_stream": "special_collection",
+      "base_advice": "Bạn có thể giữ lại thiệp còn tốt; khi bỏ đi, hãy tách phụ kiện nhựa, pin hoặc kim tuyến nếu có thể làm an toàn.",
+      "avoid": "Bạn đừng đưa thiệp có nhạc điện tử hoặc pin vào giấy thuần.",
+      "caution": "Thiệp phủ nhũ, ép màng hoặc có linh kiện cần được phân loại theo thành phần thực tế.",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "cardboard_sleeve",
+      "name_vi": "Vỏ bọc giấy của ly mang đi",
+      "category_id": "paper",
+      "aliases_vi": [
+        "áo giấy ly cà phê"
+      ],
+      "default_stream": "recyclable",
+      "base_advice": "Bạn hãy tháo vỏ bọc khỏi ly, giữ khô và hỏi nơi nhận có thu gom giấy bìa này không.",
+      "avoid": "Bạn đừng bỏ cả ly tráng phủ vào cùng vỏ bọc giấy.",
+      "caution": "Vỏ bọc và thân ly có thể đi theo hai tuyến xử lý khác nhau.",
+      "question_ids": [
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "paper_plate",
+      "name_vi": "Đĩa giấy dùng một lần",
+      "category_id": "paper",
+      "aliases_vi": [
+        "dĩa giấy"
+      ],
+      "default_stream": "special_collection",
+      "base_advice": "Bạn hãy bỏ thức ăn thừa và kiểm tra đĩa có lớp phủ chống thấm trước khi hỏi nơi thu gom.",
+      "avoid": "Bạn đừng mặc định đĩa giấy dính dầu mỡ là giấy sạch có thể tái chế.",
+      "caution": "Loại phủ nhựa và mức bẩn quyết định khả năng tiếp nhận; ảnh chụp không đủ để xác nhận.",
+      "question_ids": [
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "paper_coffee_filter",
+      "name_vi": "Giấy lọc cà phê đã dùng",
+      "category_id": "paper",
+      "aliases_vi": [
+        "phin giấy cà phê"
+      ],
+      "default_stream": "special_collection",
+      "base_advice": "Bạn hãy tách bã cà phê và hỏi nơi nhận hữu cơ hoặc chương trình ủ phân có chấp nhận giấy lọc này không.",
+      "avoid": "Bạn đừng bỏ giấy lọc ướt vào giấy tái chế khô.",
+      "caution": "Giấy lọc có thể được xử lý khác nhau tùy chất liệu và hệ thống ủ phân địa phương.",
+      "question_ids": [
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "metal_bottle_cap",
+      "name_vi": "Nắp chai kim loại",
+      "category_id": "metal",
+      "aliases_vi": [
+        "nắp bia",
+        "nắp chai sắt"
+      ],
+      "default_stream": "recyclable",
+      "base_advice": "Bạn hãy tách nắp khỏi chai, giữ khô và hỏi nơi nhận kim loại cách thu gom vật nhỏ.",
+      "avoid": "Bạn đừng để nắp sắc nhọn rời trong túi mềm có người phải cầm bằng tay.",
+      "caution": "Vì nắp rất nhỏ, một số nơi có thể yêu cầu gom trong hộp kim loại lớn hơn.",
+      "question_ids": [
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "biscuit_tin",
+      "name_vi": "Hộp bánh quy bằng kim loại",
+      "category_id": "metal",
+      "aliases_vi": [
+        "hộp bánh sắt"
+      ],
+      "default_stream": "recyclable",
+      "base_advice": "Bạn có thể dùng lại hộp còn tốt; nếu bỏ đi, hãy làm rỗng và giữ khô trước khi hỏi nơi thu gom kim loại.",
+      "avoid": "Bạn đừng để bánh vụn hoặc vật khác bên trong khi bàn giao.",
+      "caution": "Lớp sơn và chi tiết nhựa trên hộp có thể ảnh hưởng yêu cầu của nơi nhận.",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "aluminum_food_tray",
+      "name_vi": "Khay nhôm đựng thực phẩm",
+      "category_id": "metal",
+      "aliases_vi": [
+        "khay nhôm nướng"
+      ],
+      "default_stream": "special_collection",
+      "base_advice": "Bạn hãy gạt sạch phần thức ăn nhìn thấy được nếu làm vậy an toàn, rồi hỏi nơi nhận nhôm có tiếp nhận khay không.",
+      "avoid": "Bạn đừng đưa khay dính nhiều dầu mỡ vào dòng kim loại sạch.",
+      "caution": "Khay rất mỏng hoặc phủ vật liệu khác có thể không được thu gom như lon nhôm.",
+      "question_ids": [
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "metal_hanger",
+      "name_vi": "Móc áo bằng kim loại",
+      "category_id": "metal",
+      "aliases_vi": [
+        "móc áo sắt"
+      ],
+      "default_stream": "special_collection",
+      "base_advice": "Bạn có thể dùng lại móc còn chắc; nếu hỏng, hãy gom riêng và hỏi nơi nhận kim loại hoặc tiệm giặt là có tiếp nhận không.",
+      "avoid": "Bạn đừng để đầu dây nhọn lộ ra ngoài túi thu gom.",
+      "caution": "Móc có lớp nhựa hoặc nhiều vật liệu nên cần xác minh trước khi phân loại.",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "tea_tin",
+      "name_vi": "Hộp trà bằng kim loại",
+      "category_id": "metal",
+      "aliases_vi": [
+        "lon trà"
+      ],
+      "default_stream": "recyclable",
+      "base_advice": "Bạn hãy làm rỗng hộp, giữ khô và hỏi nơi thu gom kim loại có nhận loại hộp này không.",
+      "avoid": "Bạn đừng để túi trà hoặc gói hút ẩm trong hộp khi bàn giao.",
+      "caution": "Nắp nhựa và thân kim loại có thể cần tách riêng theo yêu cầu nơi nhận.",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "glass_sauce_bottle",
+      "name_vi": "Chai thủy tinh đựng nước sốt",
+      "category_id": "glass",
+      "aliases_vi": [
+        "chai nước mắm thủy tinh",
+        "chai tương thủy tinh"
+      ],
+      "default_stream": "special_collection",
+      "base_advice": "Bạn hãy làm rỗng chai, giữ nguyên vẹn và hỏi nơi thu gom thủy tinh có nhận loại chai này không.",
+      "avoid": "Bạn đừng bỏ chai nứt vỡ vào cùng chai nguyên vẹn.",
+      "caution": "Nếu chai có cạnh sắc hoặc từng chứa chất lạ, bạn cần chuyển sang hướng dẫn an toàn phù hợp.",
+      "question_ids": [
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "candle_jar",
+      "name_vi": "Hũ thủy tinh đựng nến",
+      "category_id": "glass",
+      "aliases_vi": [
+        "lọ nến thơm"
+      ],
+      "default_stream": "special_collection",
+      "base_advice": "Bạn hãy để hũ nguội hoàn toàn, giữ nguyên vẹn và hỏi nơi nhận thủy tinh cách xử lý phần sáp còn lại.",
+      "avoid": "Bạn đừng đổ sáp nóng xuống cống hoặc cố cạy hũ đang nứt.",
+      "caution": "Sáp, bấc và lớp phủ trên hũ có thể khiến nơi thu gom từ chối tiếp nhận.",
+      "question_ids": [
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "glass_vase",
+      "name_vi": "Bình hoa thủy tinh",
+      "category_id": "glass",
+      "aliases_vi": [
+        "lọ hoa thủy tinh"
+      ],
+      "default_stream": "special_collection",
+      "base_advice": "Bạn có thể dùng lại bình còn nguyên; nếu bỏ đi, hãy làm rỗng, giữ riêng và hỏi nơi nhận thủy tinh gia dụng.",
+      "avoid": "Bạn đừng trộn bình hoa nứt vỡ với chai lọ nguyên vẹn.",
+      "caution": "Loại thủy tinh gia dụng có thể khác dòng chai lọ được thu gom; cần xác nhận tại địa phương.",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "onion_skin",
+      "name_vi": "Vỏ hành, vỏ tỏi",
+      "category_id": "organic",
+      "aliases_vi": [
+        "vỏ tỏi"
+      ],
+      "default_stream": "organic",
+      "base_advice": "Bạn hãy để vỏ hành tỏi riêng khỏi bao bì và hỏi chương trình thu gom hữu cơ hoặc nơi ủ phân có nhận không.",
+      "avoid": "Bạn đừng trộn vỏ rau củ với túi nilon rồi đưa vào dòng hữu cơ.",
+      "caution": "Nếu vỏ dính hóa chất không rõ, bạn hãy giữ riêng và xác minh trước khi ủ.",
+      "question_ids": [
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "watermelon_rind",
+      "name_vi": "Vỏ dưa hấu",
+      "category_id": "organic",
+      "aliases_vi": [
+        "cùi dưa hấu"
+      ],
+      "default_stream": "organic",
+      "base_advice": "Bạn hãy cắt nhỏ nếu cần, để ráo và đưa vào dòng hữu cơ khi nơi thu gom hoặc hệ thống ủ phân chấp nhận.",
+      "avoid": "Bạn đừng để vỏ ướt lẫn bao bì nhựa trong thời gian dài.",
+      "caution": "Khối lượng và độ ẩm lớn có thể gây mùi nếu lưu trữ không phù hợp.",
+      "question_ids": [
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "avocado_pit",
+      "name_vi": "Hạt bơ",
+      "category_id": "organic",
+      "aliases_vi": [
+        "hột bơ"
+      ],
+      "default_stream": "organic",
+      "base_advice": "Bạn hãy tách hạt khỏi bao bì, kiểm tra nơi ủ phân có nhận vật hữu cơ phân hủy chậm như hạt bơ không.",
+      "avoid": "Bạn đừng cho rằng hạt lớn sẽ phân hủy nhanh trong mọi hệ thống ủ tại nhà.",
+      "caution": "Nếu nơi thu gom không nhận, bạn cần làm theo hướng dẫn rác còn lại của địa phương.",
+      "question_ids": [
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "grass_clippings",
+      "name_vi": "Cỏ vừa cắt",
+      "category_id": "organic",
+      "aliases_vi": [
+        "cỏ sân vườn"
+      ],
+      "default_stream": "organic",
+      "base_advice": "Bạn hãy giữ cỏ sạch riêng khỏi đất đá và hỏi nơi thu gom rác vườn hoặc hệ thống ủ phân có nhận không.",
+      "avoid": "Bạn đừng ủ cỏ có dính thuốc diệt cỏ khi chưa xác minh tính an toàn.",
+      "caution": "Cỏ ướt chất đống dễ phát sinh mùi; bạn nên xử lý sớm theo hướng dẫn phù hợp.",
+      "question_ids": [
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "vegetable_stems",
+      "name_vi": "Cuống rau và lá rau bỏ đi",
+      "category_id": "organic",
+      "aliases_vi": [
+        "gốc rau",
+        "lá rau thừa"
+      ],
+      "default_stream": "organic",
+      "base_advice": "Bạn hãy tách cuống lá rau khỏi dây buộc và bao bì, rồi dùng dòng hữu cơ nếu nơi thu gom chấp nhận.",
+      "avoid": "Bạn đừng trộn dây thun và túi nhựa vào phần rau củ để ủ.",
+      "caution": "Nếu rau dính chất lạ hoặc thuốc bảo vệ thực vật chưa rõ, bạn hãy hỏi đơn vị thu gom trước.",
+      "question_ids": [
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "old_socks",
+      "name_vi": "Tất, vớ cũ",
+      "category_id": "textile",
+      "aliases_vi": [
+        "vớ cũ"
+      ],
+      "default_stream": "special_collection",
+      "base_advice": "Bạn hãy giặt và phơi khô đôi tất còn dùng được trước khi hỏi nơi nhận đồ cũ; tất hỏng cần hỏi nơi thu gom vải.",
+      "avoid": "Bạn đừng cho tặng tất ẩm mốc hoặc bẩn như món đồ còn sử dụng tốt.",
+      "caution": "Khả năng nhận hàng dệt may nhỏ phụ thuộc từng chương trình địa phương.",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "denim_jeans",
+      "name_vi": "Quần jean cũ",
+      "category_id": "textile",
+      "aliases_vi": [
+        "quần bò cũ"
+      ],
+      "default_stream": "special_collection",
+      "base_advice": "Bạn có thể sửa hoặc dùng lại quần còn tốt; nếu không, hãy giặt khô và hỏi nơi nhận quần áo cũ.",
+      "avoid": "Bạn đừng đưa quần dính dầu máy hoặc hóa chất vào dòng đồ cho tặng.",
+      "caution": "Khóa kéo và nút kim loại có thể ảnh hưởng cách thu hồi sợi vải.",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "cloth_tote",
+      "name_vi": "Túi vải mua hàng cũ",
+      "category_id": "textile",
+      "aliases_vi": [
+        "túi tote",
+        "túi canvas"
+      ],
+      "default_stream": "special_collection",
+      "base_advice": "Bạn hãy giặt sạch và dùng lại túi còn chắc; nếu rách hỏng, hãy hỏi chương trình thu gom vải có nhận không.",
+      "avoid": "Bạn đừng cho tặng túi mốc hoặc dính chất không rõ.",
+      "caution": "Túi có lớp phủ nhựa có thể không đi cùng vải thuần.",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "wooden_cutting_board",
+      "name_vi": "Thớt gỗ cũ",
+      "category_id": "wood",
+      "aliases_vi": [
+        "thớt tre cũ"
+      ],
+      "default_stream": "special_collection",
+      "base_advice": "Bạn hãy ngừng dùng thớt nứt sâu hoặc mốc; hãy hỏi nơi nhận đồ gỗ nhỏ cách bàn giao.",
+      "avoid": "Bạn đừng đốt thớt có lớp sơn, keo hoặc chất bảo quản không rõ.",
+      "caution": "Thớt từng tiếp xúc thực phẩm và có thể có lớp phủ, nên không mặc định phù hợp để ủ phân.",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "evidence_level": "general_guidance_requires_local_verification"
+    },
+    {
+      "id": "popsicle_sticks",
+      "name_vi": "Que kem gỗ đã dùng",
+      "category_id": "wood",
+      "aliases_vi": [
+        "que kem gỗ"
+      ],
+      "default_stream": "special_collection",
+      "base_advice": "Bạn hãy bỏ phần kem còn dính, giữ que riêng và hỏi nơi thu gom rác hữu cơ có nhận gỗ chưa xử lý không.",
+      "avoid": "Bạn đừng tự đưa que có sơn hoặc mực in vào đống ủ tại nhà.",
+      "caution": "Gỗ đã phủ màu hoặc keo có thể cần hướng xử lý khác gỗ mộc.",
+      "question_ids": [
+        "contamination"
       ],
       "evidence_level": "general_guidance_requires_local_verification"
     }

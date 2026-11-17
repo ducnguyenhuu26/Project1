@@ -33,10 +33,9 @@ TRUSTED_DOMAINS = {
     'vietnamnet.vn', 'vtv.vn', 'nhandan.vn', 'vov.vn', 'baotintuc.vn',
     'laodong.vn', 'tienphong.vn', 'plo.vn', 'cand.com.vn', 'vietnam.vn',
 }
-NEWS_QUERY = '("rác thải" OR "đổ trộm rác" OR "xả rác" OR "vứt rác" OR "đốt rác" OR "bãi rác" OR "xử lý rác" OR "camera phát hiện đổ trộng rác") (site:vnexpress.net OR site:tuoitre.vn OR site:thanhnien.vn OR site:dantri.com.vn OR site:vietnamnet.vn OR site:vtv.vn OR site:nhandan.vn OR site:vov.vn) when:7d'
-ARCHIVE_QUERY = NEWS_QUERY.rsplit('when:7d', 1)[0] + 'when:60d'
+NEWS_QUERY = '("rác thải" OR "chất thải" OR "đổ trộm rác" OR "xả rác" OR "thu gom rác" OR "bãi rác" OR "xử lý rác" OR "nhà máy điện rác") (site:vnexpress.net OR site:tuoitre.vn OR site:thanhnien.vn OR site:dantri.com.vn OR site:vietnamnet.vn OR site:vtv.vn OR site:nhandan.vn OR site:vov.vn) when:7d'
 LANDFILL_QUERY = '("rác chất đống" OR "rác ngập" OR "bãi rác quá tải" OR "rác thải sinh hoạt" OR "rác công nghiệp" OR "rác y tế" OR "rác chưa qua xử lý" OR "rác thải nhựa") (site:vnexpress.net OR site:tuoitre.vn OR site:thanhnien.vn OR site:dantri.com.vn OR site:vietnamnet.vn OR site:vtv.vn OR site:nhandan.vn OR site:vov.vn) when:90d'
-ILLEGAL_DUMPING_QUERY = '("lén đổ rác" OR "camera" "đổ rác" OR "đổ trộm" OR "xả rác nơi công cộng" OR "vứt rác bừa bãi" OR "phát triển các công nghệ xử lý rác mới") (site:vnexpress.net OR site:tuoitre.vn OR site:thanhnien.vn OR site:dantri.com.vn OR site:vietnamnet.vn OR site:vtv.vn OR site:nhandan.vn OR site:vov.vn) when:90d'
+ILLEGAL_DUMPING_QUERY = '("lén đổ rác" OR "đổ trộm rác" OR "xả rác nơi công cộng" OR "vứt rác bừa bãi" OR "camera phát hiện đổ rác") (site:vnexpress.net OR site:tuoitre.vn OR site:thanhnien.vn OR site:dantri.com.vn OR site:vietnamnet.vn OR site:vtv.vn OR site:nhandan.vn OR site:vov.vn) when:90d'
 FEEDS = (
     {
         'id': 'google-news',
@@ -105,7 +104,23 @@ TOPIC_TERMS = {
     'nhựa và tái chế': ('nhua', 'tai che', 'nilon', 'ni long', 'bao bi'),
     'ô nhiễm công cộng': ('o nhiem', 'diem den rac', 'khu dan cu'),
 }
-WASTE_TERMS = ('rac', 'chat thai')
+# Search queries are only candidate generators. A headline must also name a
+# physical waste stream or a concrete collection/disposal action. Bare "rac"
+# matches figurative uses ("nhac rac") and must never qualify by itself.
+PHYSICAL_WASTE_PHRASES = (
+    'rac thai', 'chat thai', 'rac sinh hoat', 'rac cong nghiep', 'rac y te',
+    'rac nguy hai', 'rac doc hai', 'rac nhua', 'rac dien tu', 'rac huu co',
+    'rac bien', 'rac dai duong', 'rac duong pho', 'rac bai bien',
+    'bai rac', 'thung rac', 'xe rac', 'nha may dien rac', 'dien rac',
+    'xu ly rac', 'thu gom rac', 'phan loai rac', 'tai che rac',
+    'do rac', 'do trom rac', 'xa rac', 'vut rac', 'dot rac', 'don rac',
+    'chuyen rac', 'cho rac', 'rac ngap', 'rac chat dong', 'rac bua bai',
+    'ngap rac', 'ngon ngang rac', 'rac du loai', 'don rac bai bien',
+)
+FIGURATIVE_PHRASES = (
+    'nhac rac', 'tin rac', 'noi dung rac', 'van hoa rac', 'truyen thong rac',
+    'rac mang', 'rac so', 'phim rac', 'game rac', 'quang cao rac',
+)
 
 
 class _TextOnly(HTMLParser):
@@ -318,9 +333,9 @@ def _enrich_article_image(item: dict[str, Any]) -> None:
 
 def _topics(text: str) -> list[str]:
     normalized = _normalized(text)
-    if not _contains_any(normalized, WASTE_TERMS):
+    if _contains_any(normalized, FIGURATIVE_PHRASES) or not _contains_any(normalized, PHYSICAL_WASTE_PHRASES):
         return []
-    return [label for label, terms in TOPIC_TERMS.items() if _contains_any(normalized, terms)]
+    return ['rác thải'] + [label for label, terms in TOPIC_TERMS.items() if label != 'rác thải' and _contains_any(normalized, terms)]
 
 
 def _trusted_publisher(url: str) -> bool:
@@ -428,8 +443,10 @@ class EnvironmentNewsService:
                 continue
             if not _trusted_publisher(str(item.get('publisher_url') or '')):
                 continue
-            if not _topics(f"{item.get('title', '')} {item.get('summary', '')}"):
+            headline_topics = _topics(str(item.get('title') or ''))
+            if not headline_topics:
                 continue
+            item = {**item, 'topics': _topics(f"{item.get('title', '')} {item.get('summary', '')}") or headline_topics}
             published = self._published_datetime(item)
             if published is None or published < cutoff:
                 continue

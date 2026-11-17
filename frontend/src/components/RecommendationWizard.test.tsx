@@ -29,7 +29,7 @@ describe('KB confirmation and request lifetime', () => {
       const q = url.searchParams.get('q') || '';
       const category = url.searchParams.get('category_id');
       const items = objects.filter(o => (!category||o.category_id===category) && (!q||o.aliases_vi.includes(q)||o.name_vi.toLowerCase().includes(q)));
-      return json({items,count:items.length,total_count:166});
+      return json({items,count:items.length,total_count:201});
     }));
     render(<Harness/>);
     await screen.findByRole('option',{name:'Lớp lót băng dán'});
@@ -43,7 +43,7 @@ describe('KB confirmation and request lifetime', () => {
   it('ignores a late evaluation from a different detection', async () => {
     let release!: (value: Response) => void;
     vi.stubGlobal('fetch', vi.fn((input: string, init?: RequestInit) => {
-      if (input.includes('/catalog')) return json({items:objects,count:2,total_count:166});
+      if (input.includes('/catalog')) return json({items:objects,count:2,total_count:201});
       if (input.includes('/objects/')) return json({id:'release_liner',name_vi:'Lớp lót băng dán',category_id:'paper',questions:[{id:'material',label:'Chất liệu',options:[{id:'unknown',label:'Chưa rõ'}]}],notice:''});
       if (input.includes('/evaluate')) {
         expect(JSON.parse(init!.body as string)).toMatchObject({object_id:'release_liner',source:'corrected',detected_category_id:'textile'});
@@ -66,7 +66,7 @@ describe('KB confirmation and request lifetime', () => {
   it('uses the confirmed object and renders authored safety detail', async () => {
     const requests: unknown[] = [];
     vi.stubGlobal('fetch', vi.fn((input: string, init?: RequestInit) => {
-      if (input.includes('/catalog')) return json({items:objects,count:2,total_count:166});
+      if (input.includes('/catalog')) return json({items:objects,count:2,total_count:201});
       if (input.includes('/objects/')) return json({id:'release_liner',name_vi:'Lớp lót băng dán',category_id:'paper',questions:[{id:'material',label:'Chất liệu',options:[{id:'unknown',label:'Chưa rõ'}]}],notice:''});
       if (input.includes('/evaluate')) {
         requests.push(JSON.parse(init!.body as string));

@@ -2,6 +2,7 @@ import httpx
 from fastapi.testclient import TestClient
 
 from backend.main import build_app
+from backend.services import answer_chat
 
 
 class FakeResponse:
@@ -19,6 +20,13 @@ class FakeResponse:
 
     def json(self):
         return self.body
+
+
+def test_kb_fallback_uses_complete_friendly_sentences():
+    answer = answer_chat('Chai nhựa xử lý thế nào?', [])['answer']
+    assert answer.startswith('Cảm ơn bạn')
+    assert 'Bạn nên' in answer and 'Bạn không nên' in answer
+    assert answer.endswith('mình sẽ giúp bạn chọn cách xử lý sát hơn.')
 
 
 def test_chat_uses_groq_for_grounded_kb_answer(monkeypatch):

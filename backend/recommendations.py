@@ -136,8 +136,8 @@ def catalog(query: str = '', category_id: str | None = None, limit: int = 100) -
     """Search manually by Vietnamese object name/alias and optional YOLO category."""
     if len(query) > 120:
         raise ValueError('Từ khóa quá dài')
-    if not 1 <= limit <= 200:
-        raise ValueError('limit phải nằm trong khoảng 1–200')
+    if not 1 <= limit <= 500:
+        raise ValueError('limit phải nằm trong khoảng 1–500')
     q = _norm(query.strip())
     results = []
     for item in KB['objects']:
@@ -368,12 +368,23 @@ def recommend(object_id: str, answers: dict[str, str] | None = None,
     # Preserve order while removing duplicate notices from layered safety rules.
     cautions = list(dict.fromkeys(cautions))
     avoid = list(dict.fromkeys(avoid))
+    # Keep the structured safety fields, but give the main guidance a human voice.
+    primary_advice = recommendation if safety_override else context_response
+    friendly_advice = (
+        f"Cảm ơn bạn đã cho mình biết đây là {item['name_vi'].lower()}. "
+        + ("Mình sẽ ưu tiên hướng xử lý an toàn dựa trên dấu hiệu bạn vừa mô tả. " if safety_override
+           else "Với món đồ này, mình khuyên bạn xem xét tình trạng thực tế trước khi xử lý. ")
+        + f"{primary_advice} "
+        + "Bạn cũng nên kiểm tra hướng dẫn của nơi thu gom tại địa phương trước khi bàn giao, "
+        + "vì khả năng tiếp nhận có thể khác nhau."
+    )
     return {
         'status': 'complete', 'object_id': object_id, 'object_name': item['name_vi'],
         'category_id': item['category_id'], 'source': source,
         'detected_category_id': detected_category_id,
         'answers': answers, 'stream_id': stream, 'stream_label': STREAMS[stream],
-        'recommendation': recommendation, 'avoid': avoid, 'cautions': cautions,
+        'recommendation': recommendation, 'friendly_advice': ' '.join(friendly_advice.split()),
+        'avoid': avoid, 'cautions': cautions,
         'context_response': context_response,
         'reasons': reasons, 'evidence_level': item['evidence_level'],
         'headline': guidance['headline'], 'assessment': guidance['assessment'],

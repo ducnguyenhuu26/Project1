@@ -15,6 +15,7 @@ TAXONOMY = json.loads((ROOT / "taxonomy.json").read_text(encoding="utf-8"))
 TAXONOMY_ITEMS = {item["id"]: item for item in TAXONOMY["categories"]}
 MATERIALS = {item["id"]: item for item in KNOWLEDGE["materials"]}
 LEGACY_CLASS_MAP = {0: "plastic", 1: "paper", 2: "metal"}
+UNSUPPORTED_CHAT_ANSWER = "Cảm ơn bạn đã chia sẻ câu hỏi. Hiện mình chưa có hướng dẫn đủ chắc chắn cho món đồ này nên không muốn đoán cách xử lý khiến bạn gặp rủi ro. Bạn có thể mô tả thêm chất liệu, tình trạng của nó hoặc hỏi đơn vị thu gom tại địa phương; mình sẽ tiếp tục hỗ trợ bạn dựa trên thông tin đó."
 
 
 @dataclass
@@ -168,17 +169,40 @@ def summarize(detections: list[Detection], corrections: dict[str, str] | None = 
 def answer_chat(message: str, category_ids: list[str]) -> dict:
     query = message.strip().lower()
     if not query:
-        return {"answer": "Hãy nhập câu hỏi về cách phân loại hoặc xử lý rác.", "category_id": None}
+        return {"answer": "Chào bạn, mình rất sẵn lòng hỗ trợ. Bạn hãy cho mình biết món đồ đang cần xử lý và tình trạng của nó; mình sẽ cùng bạn tìm cách phân loại phù hợp, an toàn hơn.", "category_id": None}
     if any(word in query for word in ["đốt", "cháy", "burn"]):
-        return {"answer": KNOWLEDGE["faq"][1]["answer"], "category_id": None}
+        return {"answer": f"Cảm ơn bạn đã hỏi trước khi xử lý, vì đốt rác có thể ảnh hưởng đến sức khỏe và môi trường. {KNOWLEDGE['faq'][1]['answer']} Nếu bạn cho mình biết đó là loại rác nào, mình sẽ gợi ý cách xử lý cụ thể hơn.", "category_id": None}
     if any(word in query for word in ["tái chế", "recycle"]):
-        return {"answer": KNOWLEDGE["faq"][0]["answer"], "category_id": None}
+        return {"answer": f"Mình rất vui vì bạn đang cân nhắc tái chế món đồ này. {KNOWLEDGE['faq'][0]['answer']} Nếu bạn mô tả thêm chất liệu và tình trạng sạch hay bẩn, mình có thể giúp bạn xem bước tiếp theo phù hợp hơn.", "category_id": None}
+    def sentence(value: str, *, mode: str = 'action') -> str:
+        value = value.strip().rstrip(' .;')
+        if not value:
+            return ''
+        if value.startswith('Không '):
+            value = 'Bạn không nên ' + value[6].lower() + value[7:]
+        elif mode == 'avoid' and value.startswith('Tránh '):
+            value = 'Bạn nên tránh ' + value[6].lower() + value[7:]
+        elif mode == 'action' and not value.startswith(('Bạn ', 'Nếu ', 'Khi ', 'Với ')):
+            value = 'Bạn nên ' + value[0].lower() + value[1:]
+        return value + '.'
+    def material_reply(item: dict) -> dict:
+        name = item['name'].lower()
+        steps = sentence(next(iter(item.get('do', [])), ''))
+        avoid = sentence(next(iter(item.get('avoid', [])), ''), mode='avoid')
+        caution = sentence(item.get('caution', ''), mode='note')
+        local = sentence(item.get('vn_tip', ''))
+        answer = (
+            f"Cảm ơn bạn đã hỏi về {name}. Với loại rác này, mình khuyên bạn xem tình trạng thực tế trước khi quyết định bỏ đi hay tái chế. "
+            f"{steps} {avoid} {caution} {local} "
+            "Nếu bạn cho mình biết món đồ cụ thể và nó có bị bẩn, vỡ hoặc dính chất lạ hay không, mình sẽ giúp bạn chọn cách xử lý sát hơn."
+        )
+        return {"answer": ' '.join(answer.split()), "category_id": item['id'], "material_id": item['id']}
     for item in KNOWLEDGE["materials"]:
         terms = [item["name"].lower(), item["id"], *item.get("examples", []), *item.get("synonyms", [])]
         if any(term in query for term in terms):
-            return {"answer": f"{item['name']}: {' '.join(item['do'])} Lưu ý: {item['caution']} {item['vn_tip']}", "category_id": item["id"], "material_id": item["id"]}
+            return material_reply(item)
     if category_ids:
         item = MATERIALS.get(category_ids[0])
         if item:
-            return {"answer": f"Với {item['name'].lower()} trong kết quả: {' '.join(item['do'])} {item['caution']}", "category_id": item["id"], "material_id": item["id"]}
-    return {"answer": "Mình chưa có hướng dẫn được kiểm chứng cho câu hỏi này. Hãy tra cứu một nhóm trong danh mục phân loại rác hoặc hỏi đơn vị thu gom tại địa phương.", "category_id": None, "material_id": None}
+            return material_reply(item)
+    return {"answer": UNSUPPORTED_CHAT_ANSWER, "category_id": None, "material_id": None}

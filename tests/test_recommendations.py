@@ -138,9 +138,28 @@ def test_every_kb_record_returns_a_complete_result_when_answered(object_id):
 def test_kb_integrity_and_category_references():
     validate_knowledge_base(KB, TAXONOMY)
     validate_response_catalog(RESPONSE_CATALOG, KB, TAXONOMY)
-    assert len(OBJECTS) == len(KB['objects']) == 166
+    assert len(OBJECTS) == len(KB['objects']) == 201
     assert tuple(obj['id'] for obj in KB['objects'][:43]) == LEGACY_OBJECT_IDS
     assert tuple(obj['id'] for obj in RESPONSE_CATALOG['objects'][:43]) == LEGACY_OBJECT_IDS
+
+
+def test_new_household_items_are_searchable_and_keep_safety_overrides(client):
+    catalog_response = client.get('/api/v1/recommendations/catalog?limit=500').json()
+    assert catalog_response['count'] == catalog_response['total_count'] == 201
+    for phrase, object_id in [('túi zip', 'zip_bag'), ('hộp ngũ cốc', 'cereal_box'),
+                              ('nắp bia', 'metal_bottle_cap'), ('vỏ dưa hấu', 'watermelon_rind'),
+                              ('quần bò', 'denim_jeans')]:
+        found = client.get('/api/v1/recommendations/catalog', params={'q': phrase}).json()['items']
+        assert any(row['id'] == object_id for row in found)
+    hazardous = recommend('shampoo_bottle', {'contamination': 'hazardous'})
+    assert hazardous['stream_id'] == 'hazardous'
+    assert hazardous['safety_override'] is True
+    assert 'Không rửa' in hazardous['friendly_advice']
+    assert OBJECTS['plastic_cutlery']['question_ids'] == ['contamination']
+    assert OBJECTS['glass_vase']['question_ids'] == ['condition', 'contamination']
+    organic = recommend('onion_skin', {'contamination': 'food'})
+    assert 'tách phần không phải hữu cơ' in organic['context_response']
+    assert 'loại bỏ phần bám' not in organic['context_response']
 
 
 def test_response_catalog_has_vietnamese_guidance_and_verified_references_for_every_object():
@@ -215,6 +234,9 @@ def test_hazardous_contamination_replaces_generic_cleaning_advice():
     assert result['stream_id'] == 'hazardous'
     assert result['recommendation'].startswith('Không rửa, súc, đổ bỏ')
     assert 'làm sạch sơ bộ' not in result['recommendation']
+    assert result['friendly_advice'].startswith('Cảm ơn bạn')
+    assert 'Không rửa, súc, đổ bỏ' in result['friendly_advice']
+    assert 'làm sạch sơ bộ' not in result['friendly_advice']
 
 
 def test_broken_glass_never_uses_intact_bottle_advice():
@@ -246,7 +268,7 @@ def test_catalog_and_detail_endpoints(client):
     catalog = client.get('/api/v1/recommendations/catalog?q=urgo')
     assert catalog.status_code == 200
     assert catalog.json()['items'][0]['id'] == 'release_liner'
-    assert catalog.json()['total_count'] == 166
+    assert catalog.json()['total_count'] == 201
     detail = client.get('/api/v1/recommendations/objects/release_liner')
     assert detail.status_code == 200
     assert {q['id'] for q in detail.json()['questions']} == {'material', 'contamination'}
@@ -303,7 +325,7 @@ def test_legacy_knowledge_and_health_routes_remain_available(client):
 def test_new_objects_are_available_for_manual_diacritic_insensitive_lookup(client):
     response = client.get('/api/v1/recommendations/catalog?q=nhiet ke&limit=200')
     assert response.status_code == 200
-    assert response.json()['total_count'] == 166
+    assert response.json()['total_count'] == 201
     assert any(item['id'] == 'thermometer_mercury' for item in response.json()['items'])
     detail = client.get('/api/v1/recommendations/objects/painted_wood_frame')
     assert detail.status_code == 200
@@ -315,6 +337,7 @@ def test_condition_aware_natural_language_is_selected_for_ordinary_objects():
     expected = obj['guidance']['condition_responses']['usable']
     result = recommend('plastic_bottle', {'condition': 'usable', 'contamination': 'clean'})
     assert result['context_response'] == expected
+    assert expected in result['friendly_advice']
     assert result['recommendation'] == OBJECTS['plastic_bottle']['base_advice']
     assert result['headline'] == obj['guidance']['headline']
     assert result['assessment'] == obj['guidance']['assessment']

@@ -53,7 +53,7 @@ export function RecommendationWizard({ categoryId = '', detectedCategoryId = '',
   useEffect(() => {
     const controller = new AbortController();
     const params = new URLSearchParams();
-    params.set('limit', '200');
+    params.set('limit', '500');
     if (query.trim()) params.set('q', query.trim());
     if (categoryOnly && categoryId) params.set('category_id', categoryId);
     setLoadingCatalog(true);
@@ -173,8 +173,7 @@ export function RecommendationWizard({ categoryId = '', detectedCategoryId = '',
       <h4>{result.headline || result.stream_label}</h4>
       {result.assessment && <p>{result.assessment}</p>}
       <p><strong>{result.stream_label}</strong></p>
-      {result.recommendation&&<p>{result.recommendation}</p>}
-      {result.context_response&&result.context_response!==result.recommendation&&<p>{result.context_response}</p>}
+      {result.friendly_advice?<p>{result.friendly_advice}</p>:<>{result.recommendation&&<p>{result.recommendation}</p>}{result.context_response&&result.context_response!==result.recommendation&&<p>{result.context_response}</p>}</>}
       <div className="recommend-result-grid">
         <div><strong>{t('CẦN TRÁNH', 'AVOID')}</strong><ul>{result.avoid?.map((x, i) => <li key={i}>{x}</li>)}</ul></div>
         <div><strong>{t('LƯU Ý AN TOÀN', 'SAFETY NOTES')}</strong><ul>{result.cautions?.map((x, i) => <li key={i}>{x}</li>)}</ul></div>

@@ -13592,6 +13592,2175 @@
         "source_limit": "Nguyên tắc chung; điều kiện tiếp nhận tại Việt Nam phải được xác minh với đơn vị thu gom nơi ở."
       },
       "human_review_requirement": "required_before_public_release"
+    },
+    {
+      "id": "shampoo_bottle",
+      "name_vi": "Chai dầu gội đã dùng",
+      "category_id": "plastic",
+      "aliases_vi": [
+        "vỏ chai dầu gội"
+      ],
+      "default_stream": "recyclable",
+      "question_ids": [
+        "contamination"
+      ],
+      "risk_profile": "ordinary_conditional",
+      "response_policy": "xử lý theo tình trạng thực tế; xác minh nơi tiếp nhận địa phương",
+      "source_ids": [
+        "EPA-R",
+        "VN"
+      ],
+      "evidence_status": "general_guidance_requires_local_verification",
+      "review_status": "pending_human_review",
+      "guidance": {
+        "headline": "Bạn đang xem hướng dẫn cho chai dầu gội đã dùng",
+        "assessment": "Mình sẽ giúp bạn xem cách xử lý chai dầu gội đã dùng theo tình trạng thực tế. Nếu chai từng chứa hóa chất khác hoặc không rõ chất bên trong, bạn hãy giữ nguyên nhãn và hỏi đơn vị tiếp nhận phù hợp.",
+        "default_action": "Bạn hãy làm rỗng chai và chỉ tráng nhẹ nếu bên trong là dầu gội thông thường; sau đó để khô và hỏi nơi thu gom có nhận loại chai này không.",
+        "end_of_use": "Khi không còn sử dụng chai dầu gội đã dùng, bạn hãy giữ riêng món đồ và xác minh tuyến tiếp nhận tại địa phương.",
+        "why": "Mình gợi ý như vậy vì vật liệu, mức bẩn và cách thu gom của chai dầu gội đã dùng có thể khác nhau giữa các nơi. Nếu chai từng chứa hóa chất khác hoặc không rõ chất bên trong, bạn hãy giữ nguyên nhãn và hỏi đơn vị tiếp nhận phù hợp.",
+        "explanation": "Nếu chai từng chứa hóa chất khác hoặc không rõ chất bên trong, bạn hãy giữ nguyên nhãn và hỏi đơn vị tiếp nhận phù hợp.",
+        "default_caution": "Bạn đừng trộn chai còn nhiều dung dịch với nhựa sạch.",
+        "condition_responses": {},
+        "contamination_responses": {
+          "clean": "Bạn cho biết chai dầu gội đã dùng không dính chất lạ. Bạn hãy làm rỗng chai và chỉ tráng nhẹ nếu bên trong là dầu gội thông thường; sau đó để khô và hỏi nơi thu gom có nhận loại chai này không.",
+          "food": "Nếu chai dầu gội đã dùng còn dính thức ăn, bạn hãy loại bỏ phần bám nhìn thấy được khi có thể làm vậy an toàn và để khô. Bạn hãy làm rỗng chai và chỉ tráng nhẹ nếu bên trong là dầu gội thông thường; sau đó để khô và hỏi nơi thu gom có nhận loại chai này không.",
+          "hazardous": "Nếu chai dầu gội đã dùng có thể dính hóa chất hoặc chất không rõ, bạn đừng tự rửa hay đưa vào dòng tái chế thông thường. Hãy hỏi đơn vị có thẩm quyền.",
+          "unknown": "Nếu chưa rõ chai dầu gội đã dùng đã dính chất gì, bạn hãy giữ riêng và xác minh trước khi xử lý."
+        },
+        "practical_steps": [
+          {
+            "label": "Kiểm tra",
+            "text": "Bạn hãy xác nhận chất liệu, tình trạng và mức bẩn của chai dầu gội đã dùng."
+          },
+          {
+            "label": "Xử lý",
+            "text": "Bạn hãy làm rỗng chai và chỉ tráng nhẹ nếu bên trong là dầu gội thông thường; sau đó để khô và hỏi nơi thu gom có nhận loại chai này không."
+          },
+          {
+            "label": "Xác minh",
+            "text": "Bạn hãy hỏi nơi thu gom tại địa phương có tiếp nhận đúng loại vật này không."
+          }
+        ],
+        "safety": {
+          "Nếu có vật sắc, hóa chất, mốc nặng hoặc chất bẩn không rõ": "Nếu chai dầu gội đã dùng có dấu hiệu nguy hiểm hoặc chất bẩn không rõ, bạn hãy dừng thao tác và hỏi đơn vị có thẩm quyền.",
+          "Vì sao cần lưu ý": "Nếu chai từng chứa hóa chất khác hoặc không rõ chất bên trong, bạn hãy giữ nguyên nhãn và hỏi đơn vị tiếp nhận phù hợp.",
+          "Tuyệt đối tránh / Không tự suy diễn": "Bạn đừng trộn chai còn nhiều dung dịch với nhựa sạch.",
+          "Phạm vi": "Đây là hướng dẫn chung; chưa xác minh điểm tiếp nhận tại địa phương."
+        },
+        "reduce_waste": "Bạn có thể giảm phát sinh chai dầu gội đã dùng bằng cách chọn đồ dùng bền hoặc dùng lượng vừa đủ khi có thể.",
+        "no_collection": "Nếu nơi thu gom không nhận chai dầu gội đã dùng, bạn hãy hỏi đơn vị quản lý chất thải tại địa phương về tuyến phù hợp; đừng tự khẳng định món đồ được tái chế.",
+        "source_limit": "Các nguồn chỉ hỗ trợ nguyên tắc chung; địa phương có thể áp dụng cách thu gom khác."
+      },
+      "human_review_requirement": "required_before_public_release"
+    },
+    {
+      "id": "yogurt_cup",
+      "name_vi": "Hũ sữa chua nhựa",
+      "category_id": "plastic",
+      "aliases_vi": [
+        "cốc sữa chua"
+      ],
+      "default_stream": "special_collection",
+      "question_ids": [
+        "contamination"
+      ],
+      "risk_profile": "ordinary_conditional",
+      "response_policy": "xử lý theo tình trạng thực tế; xác minh nơi tiếp nhận địa phương",
+      "source_ids": [
+        "EPA-R",
+        "VN"
+      ],
+      "evidence_status": "general_guidance_requires_local_verification",
+      "review_status": "pending_human_review",
+      "guidance": {
+        "headline": "Bạn đang xem hướng dẫn cho hũ sữa chua nhựa",
+        "assessment": "Mình sẽ giúp bạn xem cách xử lý hũ sữa chua nhựa theo tình trạng thực tế. Mã nhựa trên đáy hũ không tự xác nhận rằng địa phương có thể tái chế hũ.",
+        "default_action": "Bạn hãy vét hết thức ăn còn lại và kiểm tra nơi thu gom có nhận loại hũ nhựa này không.",
+        "end_of_use": "Khi không còn sử dụng hũ sữa chua nhựa, bạn hãy giữ riêng món đồ và xác minh tuyến tiếp nhận tại địa phương.",
+        "why": "Mình gợi ý như vậy vì vật liệu, mức bẩn và cách thu gom của hũ sữa chua nhựa có thể khác nhau giữa các nơi. Mã nhựa trên đáy hũ không tự xác nhận rằng địa phương có thể tái chế hũ.",
+        "explanation": "Mã nhựa trên đáy hũ không tự xác nhận rằng địa phương có thể tái chế hũ.",
+        "default_caution": "Bạn đừng bỏ hũ còn dính nhiều sữa chua vào dòng nhựa khô.",
+        "condition_responses": {},
+        "contamination_responses": {
+          "clean": "Bạn cho biết hũ sữa chua nhựa không dính chất lạ. Bạn hãy vét hết thức ăn còn lại và kiểm tra nơi thu gom có nhận loại hũ nhựa này không.",
+          "food": "Nếu hũ sữa chua nhựa còn dính thức ăn, bạn hãy loại bỏ phần bám nhìn thấy được khi có thể làm vậy an toàn và để khô. Bạn hãy vét hết thức ăn còn lại và kiểm tra nơi thu gom có nhận loại hũ nhựa này không.",
+          "hazardous": "Nếu hũ sữa chua nhựa có thể dính hóa chất hoặc chất không rõ, bạn đừng tự rửa hay đưa vào dòng tái chế thông thường. Hãy hỏi đơn vị có thẩm quyền.",
+          "unknown": "Nếu chưa rõ hũ sữa chua nhựa đã dính chất gì, bạn hãy giữ riêng và xác minh trước khi xử lý."
+        },
+        "practical_steps": [
+          {
+            "label": "Kiểm tra",
+            "text": "Bạn hãy xác nhận chất liệu, tình trạng và mức bẩn của hũ sữa chua nhựa."
+          },
+          {
+            "label": "Xử lý",
+            "text": "Bạn hãy vét hết thức ăn còn lại và kiểm tra nơi thu gom có nhận loại hũ nhựa này không."
+          },
+          {
+            "label": "Xác minh",
+            "text": "Bạn hãy hỏi nơi thu gom tại địa phương có tiếp nhận đúng loại vật này không."
+          }
+        ],
+        "safety": {
+          "Nếu có vật sắc, hóa chất, mốc nặng hoặc chất bẩn không rõ": "Nếu hũ sữa chua nhựa có dấu hiệu nguy hiểm hoặc chất bẩn không rõ, bạn hãy dừng thao tác và hỏi đơn vị có thẩm quyền.",
+          "Vì sao cần lưu ý": "Mã nhựa trên đáy hũ không tự xác nhận rằng địa phương có thể tái chế hũ.",
+          "Tuyệt đối tránh / Không tự suy diễn": "Bạn đừng bỏ hũ còn dính nhiều sữa chua vào dòng nhựa khô.",
+          "Phạm vi": "Đây là hướng dẫn chung; chưa xác minh điểm tiếp nhận tại địa phương."
+        },
+        "reduce_waste": "Bạn có thể giảm phát sinh hũ sữa chua nhựa bằng cách chọn đồ dùng bền hoặc dùng lượng vừa đủ khi có thể.",
+        "no_collection": "Nếu nơi thu gom không nhận hũ sữa chua nhựa, bạn hãy hỏi đơn vị quản lý chất thải tại địa phương về tuyến phù hợp; đừng tự khẳng định món đồ được tái chế.",
+        "source_limit": "Các nguồn chỉ hỗ trợ nguyên tắc chung; địa phương có thể áp dụng cách thu gom khác."
+      },
+      "human_review_requirement": "required_before_public_release"
+    },
+    {
+      "id": "margarine_tub",
+      "name_vi": "Hộp bơ thực vật nhựa",
+      "category_id": "plastic",
+      "aliases_vi": [
+        "hộp bơ nhựa"
+      ],
+      "default_stream": "special_collection",
+      "question_ids": [
+        "contamination"
+      ],
+      "risk_profile": "ordinary_conditional",
+      "response_policy": "xử lý theo tình trạng thực tế; xác minh nơi tiếp nhận địa phương",
+      "source_ids": [
+        "EPA-R",
+        "VN"
+      ],
+      "evidence_status": "general_guidance_requires_local_verification",
+      "review_status": "pending_human_review",
+      "guidance": {
+        "headline": "Bạn đang xem hướng dẫn cho hộp bơ thực vật nhựa",
+        "assessment": "Mình sẽ giúp bạn xem cách xử lý hộp bơ thực vật nhựa theo tình trạng thực tế. Nắp và thân hộp có thể làm từ vật liệu khác nhau; bạn hãy kiểm tra yêu cầu của nơi nhận.",
+        "default_action": "Bạn hãy lấy hết phần bơ còn lại, để hộp khô rồi hỏi nơi nhận có tiếp nhận loại hộp này không.",
+        "end_of_use": "Khi không còn sử dụng hộp bơ thực vật nhựa, bạn hãy giữ riêng món đồ và xác minh tuyến tiếp nhận tại địa phương.",
+        "why": "Mình gợi ý như vậy vì vật liệu, mức bẩn và cách thu gom của hộp bơ thực vật nhựa có thể khác nhau giữa các nơi. Nắp và thân hộp có thể làm từ vật liệu khác nhau; bạn hãy kiểm tra yêu cầu của nơi nhận.",
+        "explanation": "Nắp và thân hộp có thể làm từ vật liệu khác nhau; bạn hãy kiểm tra yêu cầu của nơi nhận.",
+        "default_caution": "Bạn đừng đưa hộp còn dính nhiều dầu mỡ vào túi nhựa sạch.",
+        "condition_responses": {},
+        "contamination_responses": {
+          "clean": "Bạn cho biết hộp bơ thực vật nhựa không dính chất lạ. Bạn hãy lấy hết phần bơ còn lại, để hộp khô rồi hỏi nơi nhận có tiếp nhận loại hộp này không.",
+          "food": "Nếu hộp bơ thực vật nhựa còn dính thức ăn, bạn hãy loại bỏ phần bám nhìn thấy được khi có thể làm vậy an toàn và để khô. Bạn hãy lấy hết phần bơ còn lại, để hộp khô rồi hỏi nơi nhận có tiếp nhận loại hộp này không.",
+          "hazardous": "Nếu hộp bơ thực vật nhựa có thể dính hóa chất hoặc chất không rõ, bạn đừng tự rửa hay đưa vào dòng tái chế thông thường. Hãy hỏi đơn vị có thẩm quyền.",
+          "unknown": "Nếu chưa rõ hộp bơ thực vật nhựa đã dính chất gì, bạn hãy giữ riêng và xác minh trước khi xử lý."
+        },
+        "practical_steps": [
+          {
+            "label": "Kiểm tra",
+            "text": "Bạn hãy xác nhận chất liệu, tình trạng và mức bẩn của hộp bơ thực vật nhựa."
+          },
+          {
+            "label": "Xử lý",
+            "text": "Bạn hãy lấy hết phần bơ còn lại, để hộp khô rồi hỏi nơi nhận có tiếp nhận loại hộp này không."
+          },
+          {
+            "label": "Xác minh",
+            "text": "Bạn hãy hỏi nơi thu gom tại địa phương có tiếp nhận đúng loại vật này không."
+          }
+        ],
+        "safety": {
+          "Nếu có vật sắc, hóa chất, mốc nặng hoặc chất bẩn không rõ": "Nếu hộp bơ thực vật nhựa có dấu hiệu nguy hiểm hoặc chất bẩn không rõ, bạn hãy dừng thao tác và hỏi đơn vị có thẩm quyền.",
+          "Vì sao cần lưu ý": "Nắp và thân hộp có thể làm từ vật liệu khác nhau; bạn hãy kiểm tra yêu cầu của nơi nhận.",
+          "Tuyệt đối tránh / Không tự suy diễn": "Bạn đừng đưa hộp còn dính nhiều dầu mỡ vào túi nhựa sạch.",
+          "Phạm vi": "Đây là hướng dẫn chung; chưa xác minh điểm tiếp nhận tại địa phương."
+        },
+        "reduce_waste": "Bạn có thể giảm phát sinh hộp bơ thực vật nhựa bằng cách chọn đồ dùng bền hoặc dùng lượng vừa đủ khi có thể.",
+        "no_collection": "Nếu nơi thu gom không nhận hộp bơ thực vật nhựa, bạn hãy hỏi đơn vị quản lý chất thải tại địa phương về tuyến phù hợp; đừng tự khẳng định món đồ được tái chế.",
+        "source_limit": "Các nguồn chỉ hỗ trợ nguyên tắc chung; địa phương có thể áp dụng cách thu gom khác."
+      },
+      "human_review_requirement": "required_before_public_release"
+    },
+    {
+      "id": "takeout_plastic_box",
+      "name_vi": "Hộp nhựa đựng đồ ăn mang về",
+      "category_id": "plastic",
+      "aliases_vi": [
+        "hộp cơm mang về"
+      ],
+      "default_stream": "special_collection",
+      "question_ids": [
+        "contamination"
+      ],
+      "risk_profile": "ordinary_conditional",
+      "response_policy": "xử lý theo tình trạng thực tế; xác minh nơi tiếp nhận địa phương",
+      "source_ids": [
+        "EPA-R",
+        "VN"
+      ],
+      "evidence_status": "general_guidance_requires_local_verification",
+      "review_status": "pending_human_review",
+      "guidance": {
+        "headline": "Bạn đang xem hướng dẫn cho hộp nhựa đựng đồ ăn mang về",
+        "assessment": "Mình sẽ giúp bạn xem cách xử lý hộp nhựa đựng đồ ăn mang về theo tình trạng thực tế. Hộp dính dầu mỡ hoặc làm từ nhiều lớp vật liệu có thể cần tuyến xử lý khác.",
+        "default_action": "Bạn hãy bỏ thức ăn thừa, làm sạch sơ bộ nếu an toàn và kiểm tra loại nhựa mà nơi thu gom nhận.",
+        "end_of_use": "Khi không còn sử dụng hộp nhựa đựng đồ ăn mang về, bạn hãy giữ riêng món đồ và xác minh tuyến tiếp nhận tại địa phương.",
+        "why": "Mình gợi ý như vậy vì vật liệu, mức bẩn và cách thu gom của hộp nhựa đựng đồ ăn mang về có thể khác nhau giữa các nơi. Hộp dính dầu mỡ hoặc làm từ nhiều lớp vật liệu có thể cần tuyến xử lý khác.",
+        "explanation": "Hộp dính dầu mỡ hoặc làm từ nhiều lớp vật liệu có thể cần tuyến xử lý khác.",
+        "default_caution": "Bạn đừng mặc định mọi hộp đồ ăn đều được tái chế.",
+        "condition_responses": {},
+        "contamination_responses": {
+          "clean": "Bạn cho biết hộp nhựa đựng đồ ăn mang về không dính chất lạ. Bạn hãy bỏ thức ăn thừa, làm sạch sơ bộ nếu an toàn và kiểm tra loại nhựa mà nơi thu gom nhận.",
+          "food": "Nếu hộp nhựa đựng đồ ăn mang về còn dính thức ăn, bạn hãy loại bỏ phần bám nhìn thấy được khi có thể làm vậy an toàn và để khô. Bạn hãy bỏ thức ăn thừa, làm sạch sơ bộ nếu an toàn và kiểm tra loại nhựa mà nơi thu gom nhận.",
+          "hazardous": "Nếu hộp nhựa đựng đồ ăn mang về có thể dính hóa chất hoặc chất không rõ, bạn đừng tự rửa hay đưa vào dòng tái chế thông thường. Hãy hỏi đơn vị có thẩm quyền.",
+          "unknown": "Nếu chưa rõ hộp nhựa đựng đồ ăn mang về đã dính chất gì, bạn hãy giữ riêng và xác minh trước khi xử lý."
+        },
+        "practical_steps": [
+          {
+            "label": "Kiểm tra",
+            "text": "Bạn hãy xác nhận chất liệu, tình trạng và mức bẩn của hộp nhựa đựng đồ ăn mang về."
+          },
+          {
+            "label": "Xử lý",
+            "text": "Bạn hãy bỏ thức ăn thừa, làm sạch sơ bộ nếu an toàn và kiểm tra loại nhựa mà nơi thu gom nhận."
+          },
+          {
+            "label": "Xác minh",
+            "text": "Bạn hãy hỏi nơi thu gom tại địa phương có tiếp nhận đúng loại vật này không."
+          }
+        ],
+        "safety": {
+          "Nếu có vật sắc, hóa chất, mốc nặng hoặc chất bẩn không rõ": "Nếu hộp nhựa đựng đồ ăn mang về có dấu hiệu nguy hiểm hoặc chất bẩn không rõ, bạn hãy dừng thao tác và hỏi đơn vị có thẩm quyền.",
+          "Vì sao cần lưu ý": "Hộp dính dầu mỡ hoặc làm từ nhiều lớp vật liệu có thể cần tuyến xử lý khác.",
+          "Tuyệt đối tránh / Không tự suy diễn": "Bạn đừng mặc định mọi hộp đồ ăn đều được tái chế.",
+          "Phạm vi": "Đây là hướng dẫn chung; chưa xác minh điểm tiếp nhận tại địa phương."
+        },
+        "reduce_waste": "Bạn có thể giảm phát sinh hộp nhựa đựng đồ ăn mang về bằng cách chọn đồ dùng bền hoặc dùng lượng vừa đủ khi có thể.",
+        "no_collection": "Nếu nơi thu gom không nhận hộp nhựa đựng đồ ăn mang về, bạn hãy hỏi đơn vị quản lý chất thải tại địa phương về tuyến phù hợp; đừng tự khẳng định món đồ được tái chế.",
+        "source_limit": "Các nguồn chỉ hỗ trợ nguyên tắc chung; địa phương có thể áp dụng cách thu gom khác."
+      },
+      "human_review_requirement": "required_before_public_release"
+    },
+    {
+      "id": "plastic_cutlery",
+      "name_vi": "Muỗng, nĩa nhựa dùng một lần",
+      "category_id": "plastic",
+      "aliases_vi": [
+        "thìa nhựa",
+        "dĩa nhựa"
+      ],
+      "default_stream": "residual",
+      "question_ids": [
+        "contamination"
+      ],
+      "risk_profile": "ordinary_conditional",
+      "response_policy": "xử lý theo tình trạng thực tế; xác minh nơi tiếp nhận địa phương",
+      "source_ids": [
+        "EPA-R",
+        "VN"
+      ],
+      "evidence_status": "general_guidance_requires_local_verification",
+      "review_status": "pending_human_review",
+      "guidance": {
+        "headline": "Bạn đang xem hướng dẫn cho muỗng, nĩa nhựa dùng một lần",
+        "assessment": "Mình sẽ giúp bạn xem cách xử lý muỗng, nĩa nhựa dùng một lần theo tình trạng thực tế. Vật nhỏ và dính thức ăn thường khó được tiếp nhận cùng chai, hộp nhựa; bạn nên hỏi chương trình thu gom cụ thể.",
+        "default_action": "Bạn hãy gạt sạch thức ăn còn bám và làm theo hướng dẫn rác còn lại tại địa phương nếu không có nơi nhận riêng.",
+        "end_of_use": "Khi không còn sử dụng muỗng, nĩa nhựa dùng một lần, bạn hãy giữ riêng món đồ và xác minh tuyến tiếp nhận tại địa phương.",
+        "why": "Mình gợi ý như vậy vì vật liệu, mức bẩn và cách thu gom của muỗng, nĩa nhựa dùng một lần có thể khác nhau giữa các nơi. Vật nhỏ và dính thức ăn thường khó được tiếp nhận cùng chai, hộp nhựa; bạn nên hỏi chương trình thu gom cụ thể.",
+        "explanation": "Vật nhỏ và dính thức ăn thường khó được tiếp nhận cùng chai, hộp nhựa; bạn nên hỏi chương trình thu gom cụ thể.",
+        "default_caution": "Bạn đừng tự bỏ muỗng nhựa vào dòng chai nhựa tái chế.",
+        "condition_responses": {},
+        "contamination_responses": {
+          "clean": "Bạn cho biết muỗng, nĩa nhựa dùng một lần không dính chất lạ. Bạn hãy gạt sạch thức ăn còn bám và làm theo hướng dẫn rác còn lại tại địa phương nếu không có nơi nhận riêng.",
+          "food": "Nếu muỗng, nĩa nhựa dùng một lần còn dính thức ăn, bạn hãy loại bỏ phần bám nhìn thấy được khi có thể làm vậy an toàn và để khô. Bạn hãy gạt sạch thức ăn còn bám và làm theo hướng dẫn rác còn lại tại địa phương nếu không có nơi nhận riêng.",
+          "hazardous": "Nếu muỗng, nĩa nhựa dùng một lần có thể dính hóa chất hoặc chất không rõ, bạn đừng tự rửa hay đưa vào dòng tái chế thông thường. Hãy hỏi đơn vị có thẩm quyền.",
+          "unknown": "Nếu chưa rõ muỗng, nĩa nhựa dùng một lần đã dính chất gì, bạn hãy giữ riêng và xác minh trước khi xử lý."
+        },
+        "practical_steps": [
+          {
+            "label": "Kiểm tra",
+            "text": "Bạn hãy xác nhận chất liệu, tình trạng và mức bẩn của muỗng, nĩa nhựa dùng một lần."
+          },
+          {
+            "label": "Xử lý",
+            "text": "Bạn hãy gạt sạch thức ăn còn bám và làm theo hướng dẫn rác còn lại tại địa phương nếu không có nơi nhận riêng."
+          },
+          {
+            "label": "Xác minh",
+            "text": "Bạn hãy hỏi nơi thu gom tại địa phương có tiếp nhận đúng loại vật này không."
+          }
+        ],
+        "safety": {
+          "Nếu có vật sắc, hóa chất, mốc nặng hoặc chất bẩn không rõ": "Nếu muỗng, nĩa nhựa dùng một lần có dấu hiệu nguy hiểm hoặc chất bẩn không rõ, bạn hãy dừng thao tác và hỏi đơn vị có thẩm quyền.",
+          "Vì sao cần lưu ý": "Vật nhỏ và dính thức ăn thường khó được tiếp nhận cùng chai, hộp nhựa; bạn nên hỏi chương trình thu gom cụ thể.",
+          "Tuyệt đối tránh / Không tự suy diễn": "Bạn đừng tự bỏ muỗng nhựa vào dòng chai nhựa tái chế.",
+          "Phạm vi": "Đây là hướng dẫn chung; chưa xác minh điểm tiếp nhận tại địa phương."
+        },
+        "reduce_waste": "Bạn có thể giảm phát sinh muỗng, nĩa nhựa dùng một lần bằng cách chọn đồ dùng bền hoặc dùng lượng vừa đủ khi có thể.",
+        "no_collection": "Nếu nơi thu gom không nhận muỗng, nĩa nhựa dùng một lần, bạn hãy hỏi đơn vị quản lý chất thải tại địa phương về tuyến phù hợp; đừng tự khẳng định món đồ được tái chế.",
+        "source_limit": "Các nguồn chỉ hỗ trợ nguyên tắc chung; địa phương có thể áp dụng cách thu gom khác."
+      },
+      "human_review_requirement": "required_before_public_release"
+    },
+    {
+      "id": "zip_bag",
+      "name_vi": "Túi nhựa có khóa kéo",
+      "category_id": "plastic",
+      "aliases_vi": [
+        "túi zip",
+        "túi zipper"
+      ],
+      "default_stream": "special_collection",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "risk_profile": "ordinary_conditional",
+      "response_policy": "xử lý theo tình trạng thực tế; xác minh nơi tiếp nhận địa phương",
+      "source_ids": [
+        "EPA-R",
+        "VN"
+      ],
+      "evidence_status": "general_guidance_requires_local_verification",
+      "review_status": "pending_human_review",
+      "guidance": {
+        "headline": "Bạn đang xem hướng dẫn cho túi nhựa có khóa kéo",
+        "assessment": "Mình sẽ giúp bạn xem cách xử lý túi nhựa có khóa kéo theo tình trạng thực tế. Khóa kéo có thể làm quy trình thu hồi khác màng nhựa thông thường.",
+        "default_action": "Bạn hãy làm rỗng và để túi khô; nếu còn sạch, bạn có thể dùng lại hoặc hỏi điểm nhận màng nhựa.",
+        "end_of_use": "Khi không còn sử dụng túi nhựa có khóa kéo, bạn hãy giữ riêng món đồ và xác minh tuyến tiếp nhận tại địa phương.",
+        "why": "Mình gợi ý như vậy vì vật liệu, mức bẩn và cách thu gom của túi nhựa có khóa kéo có thể khác nhau giữa các nơi. Khóa kéo có thể làm quy trình thu hồi khác màng nhựa thông thường.",
+        "explanation": "Khóa kéo có thể làm quy trình thu hồi khác màng nhựa thông thường.",
+        "default_caution": "Bạn đừng trộn túi nhựa mềm vào thùng thu gom chai, hộp nhựa khi nơi nhận không cho phép.",
+        "condition_responses": {
+          "usable": "Nếu túi nhựa có khóa kéo vẫn còn dùng tốt và an toàn, bạn có thể tiếp tục sử dụng trước khi cân nhắc bỏ đi. Bạn hãy làm rỗng và để túi khô; nếu còn sạch, bạn có thể dùng lại hoặc hỏi điểm nhận màng nhựa.",
+          "damaged": "Nếu túi nhựa có khóa kéo đã hỏng hoặc mất an toàn khi sử dụng, bạn nên ngừng dùng và không cho tặng như đồ còn tốt. Bạn hãy làm rỗng và để túi khô; nếu còn sạch, bạn có thể dùng lại hoặc hỏi điểm nhận màng nhựa.",
+          "unknown": "Nếu bạn chưa rõ tình trạng của túi nhựa có khóa kéo, hãy kiểm tra trước khi quyết định xử lý. Khóa kéo có thể làm quy trình thu hồi khác màng nhựa thông thường."
+        },
+        "contamination_responses": {
+          "clean": "Bạn cho biết túi nhựa có khóa kéo không dính chất lạ. Bạn hãy làm rỗng và để túi khô; nếu còn sạch, bạn có thể dùng lại hoặc hỏi điểm nhận màng nhựa.",
+          "food": "Nếu túi nhựa có khóa kéo còn dính thức ăn, bạn hãy loại bỏ phần bám nhìn thấy được khi có thể làm vậy an toàn và để khô. Bạn hãy làm rỗng và để túi khô; nếu còn sạch, bạn có thể dùng lại hoặc hỏi điểm nhận màng nhựa.",
+          "hazardous": "Nếu túi nhựa có khóa kéo có thể dính hóa chất hoặc chất không rõ, bạn đừng tự rửa hay đưa vào dòng tái chế thông thường. Hãy hỏi đơn vị có thẩm quyền.",
+          "unknown": "Nếu chưa rõ túi nhựa có khóa kéo đã dính chất gì, bạn hãy giữ riêng và xác minh trước khi xử lý."
+        },
+        "practical_steps": [
+          {
+            "label": "Kiểm tra",
+            "text": "Bạn hãy xác nhận chất liệu, tình trạng và mức bẩn của túi nhựa có khóa kéo."
+          },
+          {
+            "label": "Xử lý",
+            "text": "Bạn hãy làm rỗng và để túi khô; nếu còn sạch, bạn có thể dùng lại hoặc hỏi điểm nhận màng nhựa."
+          },
+          {
+            "label": "Xác minh",
+            "text": "Bạn hãy hỏi nơi thu gom tại địa phương có tiếp nhận đúng loại vật này không."
+          }
+        ],
+        "safety": {
+          "Nếu có vật sắc, hóa chất, mốc nặng hoặc chất bẩn không rõ": "Nếu túi nhựa có khóa kéo có dấu hiệu nguy hiểm hoặc chất bẩn không rõ, bạn hãy dừng thao tác và hỏi đơn vị có thẩm quyền.",
+          "Vì sao cần lưu ý": "Khóa kéo có thể làm quy trình thu hồi khác màng nhựa thông thường.",
+          "Tuyệt đối tránh / Không tự suy diễn": "Bạn đừng trộn túi nhựa mềm vào thùng thu gom chai, hộp nhựa khi nơi nhận không cho phép.",
+          "Phạm vi": "Đây là hướng dẫn chung; chưa xác minh điểm tiếp nhận tại địa phương."
+        },
+        "reduce_waste": "Nếu túi nhựa có khóa kéo còn sạch và an toàn để dùng lại, bạn có thể kéo dài thời gian sử dụng trước khi bỏ đi.",
+        "no_collection": "Nếu nơi thu gom không nhận túi nhựa có khóa kéo, bạn hãy hỏi đơn vị quản lý chất thải tại địa phương về tuyến phù hợp; đừng tự khẳng định món đồ được tái chế.",
+        "source_limit": "Các nguồn chỉ hỗ trợ nguyên tắc chung; địa phương có thể áp dụng cách thu gom khác."
+      },
+      "human_review_requirement": "required_before_public_release"
+    },
+    {
+      "id": "plastic_cup_lid",
+      "name_vi": "Nắp ly nhựa mang đi",
+      "category_id": "plastic",
+      "aliases_vi": [
+        "nắp cốc nhựa"
+      ],
+      "default_stream": "special_collection",
+      "question_ids": [
+        "contamination"
+      ],
+      "risk_profile": "ordinary_conditional",
+      "response_policy": "xử lý theo tình trạng thực tế; xác minh nơi tiếp nhận địa phương",
+      "source_ids": [
+        "EPA-R",
+        "VN"
+      ],
+      "evidence_status": "general_guidance_requires_local_verification",
+      "review_status": "pending_human_review",
+      "guidance": {
+        "headline": "Bạn đang xem hướng dẫn cho nắp ly nhựa mang đi",
+        "assessment": "Mình sẽ giúp bạn xem cách xử lý nắp ly nhựa mang đi theo tình trạng thực tế. Nhựa của nắp và lớp phủ của ly có thể cần cách phân loại khác nhau.",
+        "default_action": "Bạn hãy tách nắp khỏi ly, bỏ phần đồ uống còn sót và hỏi nơi nhận có thu gom loại nắp này không.",
+        "end_of_use": "Khi không còn sử dụng nắp ly nhựa mang đi, bạn hãy giữ riêng món đồ và xác minh tuyến tiếp nhận tại địa phương.",
+        "why": "Mình gợi ý như vậy vì vật liệu, mức bẩn và cách thu gom của nắp ly nhựa mang đi có thể khác nhau giữa các nơi. Nhựa của nắp và lớp phủ của ly có thể cần cách phân loại khác nhau.",
+        "explanation": "Nhựa của nắp và lớp phủ của ly có thể cần cách phân loại khác nhau.",
+        "default_caution": "Bạn đừng coi nắp ly là cùng vật liệu với phần thân ly giấy.",
+        "condition_responses": {},
+        "contamination_responses": {
+          "clean": "Bạn cho biết nắp ly nhựa mang đi không dính chất lạ. Bạn hãy tách nắp khỏi ly, bỏ phần đồ uống còn sót và hỏi nơi nhận có thu gom loại nắp này không.",
+          "food": "Nếu nắp ly nhựa mang đi còn dính thức ăn, bạn hãy loại bỏ phần bám nhìn thấy được khi có thể làm vậy an toàn và để khô. Bạn hãy tách nắp khỏi ly, bỏ phần đồ uống còn sót và hỏi nơi nhận có thu gom loại nắp này không.",
+          "hazardous": "Nếu nắp ly nhựa mang đi có thể dính hóa chất hoặc chất không rõ, bạn đừng tự rửa hay đưa vào dòng tái chế thông thường. Hãy hỏi đơn vị có thẩm quyền.",
+          "unknown": "Nếu chưa rõ nắp ly nhựa mang đi đã dính chất gì, bạn hãy giữ riêng và xác minh trước khi xử lý."
+        },
+        "practical_steps": [
+          {
+            "label": "Kiểm tra",
+            "text": "Bạn hãy xác nhận chất liệu, tình trạng và mức bẩn của nắp ly nhựa mang đi."
+          },
+          {
+            "label": "Xử lý",
+            "text": "Bạn hãy tách nắp khỏi ly, bỏ phần đồ uống còn sót và hỏi nơi nhận có thu gom loại nắp này không."
+          },
+          {
+            "label": "Xác minh",
+            "text": "Bạn hãy hỏi nơi thu gom tại địa phương có tiếp nhận đúng loại vật này không."
+          }
+        ],
+        "safety": {
+          "Nếu có vật sắc, hóa chất, mốc nặng hoặc chất bẩn không rõ": "Nếu nắp ly nhựa mang đi có dấu hiệu nguy hiểm hoặc chất bẩn không rõ, bạn hãy dừng thao tác và hỏi đơn vị có thẩm quyền.",
+          "Vì sao cần lưu ý": "Nhựa của nắp và lớp phủ của ly có thể cần cách phân loại khác nhau.",
+          "Tuyệt đối tránh / Không tự suy diễn": "Bạn đừng coi nắp ly là cùng vật liệu với phần thân ly giấy.",
+          "Phạm vi": "Đây là hướng dẫn chung; chưa xác minh điểm tiếp nhận tại địa phương."
+        },
+        "reduce_waste": "Bạn có thể giảm phát sinh nắp ly nhựa mang đi bằng cách chọn đồ dùng bền hoặc dùng lượng vừa đủ khi có thể.",
+        "no_collection": "Nếu nơi thu gom không nhận nắp ly nhựa mang đi, bạn hãy hỏi đơn vị quản lý chất thải tại địa phương về tuyến phù hợp; đừng tự khẳng định món đồ được tái chế.",
+        "source_limit": "Các nguồn chỉ hỗ trợ nguyên tắc chung; địa phương có thể áp dụng cách thu gom khác."
+      },
+      "human_review_requirement": "required_before_public_release"
+    },
+    {
+      "id": "plastic_bottle_label",
+      "name_vi": "Màng nhãn chai nhựa",
+      "category_id": "plastic",
+      "aliases_vi": [
+        "nhãn co chai",
+        "tem chai nhựa"
+      ],
+      "default_stream": "special_collection",
+      "question_ids": [
+        "contamination"
+      ],
+      "risk_profile": "ordinary_conditional",
+      "response_policy": "xử lý theo tình trạng thực tế; xác minh nơi tiếp nhận địa phương",
+      "source_ids": [
+        "EPA-R",
+        "VN"
+      ],
+      "evidence_status": "general_guidance_requires_local_verification",
+      "review_status": "pending_human_review",
+      "guidance": {
+        "headline": "Bạn đang xem hướng dẫn cho màng nhãn chai nhựa",
+        "assessment": "Mình sẽ giúp bạn xem cách xử lý màng nhãn chai nhựa theo tình trạng thực tế. Nhãn co nhiệt và keo dán có thể khác vật liệu thân chai.",
+        "default_action": "Bạn hãy giữ hoặc tách nhãn theo đúng yêu cầu của nơi thu gom chai; nếu không rõ, bạn cứ để nguyên chai và hỏi trước.",
+        "end_of_use": "Khi không còn sử dụng màng nhãn chai nhựa, bạn hãy giữ riêng món đồ và xác minh tuyến tiếp nhận tại địa phương.",
+        "why": "Mình gợi ý như vậy vì vật liệu, mức bẩn và cách thu gom của màng nhãn chai nhựa có thể khác nhau giữa các nơi. Nhãn co nhiệt và keo dán có thể khác vật liệu thân chai.",
+        "explanation": "Nhãn co nhiệt và keo dán có thể khác vật liệu thân chai.",
+        "default_caution": "Bạn đừng tự khẳng định màng nhãn được nhận cùng chai chỉ vì nó cũng là nhựa.",
+        "condition_responses": {},
+        "contamination_responses": {
+          "clean": "Bạn cho biết màng nhãn chai nhựa không dính chất lạ. Bạn hãy giữ hoặc tách nhãn theo đúng yêu cầu của nơi thu gom chai; nếu không rõ, bạn cứ để nguyên chai và hỏi trước.",
+          "food": "Nếu màng nhãn chai nhựa còn dính thức ăn, bạn hãy loại bỏ phần bám nhìn thấy được khi có thể làm vậy an toàn và để khô. Bạn hãy giữ hoặc tách nhãn theo đúng yêu cầu của nơi thu gom chai; nếu không rõ, bạn cứ để nguyên chai và hỏi trước.",
+          "hazardous": "Nếu màng nhãn chai nhựa có thể dính hóa chất hoặc chất không rõ, bạn đừng tự rửa hay đưa vào dòng tái chế thông thường. Hãy hỏi đơn vị có thẩm quyền.",
+          "unknown": "Nếu chưa rõ màng nhãn chai nhựa đã dính chất gì, bạn hãy giữ riêng và xác minh trước khi xử lý."
+        },
+        "practical_steps": [
+          {
+            "label": "Kiểm tra",
+            "text": "Bạn hãy xác nhận chất liệu, tình trạng và mức bẩn của màng nhãn chai nhựa."
+          },
+          {
+            "label": "Xử lý",
+            "text": "Bạn hãy giữ hoặc tách nhãn theo đúng yêu cầu của nơi thu gom chai; nếu không rõ, bạn cứ để nguyên chai và hỏi trước."
+          },
+          {
+            "label": "Xác minh",
+            "text": "Bạn hãy hỏi nơi thu gom tại địa phương có tiếp nhận đúng loại vật này không."
+          }
+        ],
+        "safety": {
+          "Nếu có vật sắc, hóa chất, mốc nặng hoặc chất bẩn không rõ": "Nếu màng nhãn chai nhựa có dấu hiệu nguy hiểm hoặc chất bẩn không rõ, bạn hãy dừng thao tác và hỏi đơn vị có thẩm quyền.",
+          "Vì sao cần lưu ý": "Nhãn co nhiệt và keo dán có thể khác vật liệu thân chai.",
+          "Tuyệt đối tránh / Không tự suy diễn": "Bạn đừng tự khẳng định màng nhãn được nhận cùng chai chỉ vì nó cũng là nhựa.",
+          "Phạm vi": "Đây là hướng dẫn chung; chưa xác minh điểm tiếp nhận tại địa phương."
+        },
+        "reduce_waste": "Bạn có thể giảm phát sinh màng nhãn chai nhựa bằng cách chọn đồ dùng bền hoặc dùng lượng vừa đủ khi có thể.",
+        "no_collection": "Nếu nơi thu gom không nhận màng nhãn chai nhựa, bạn hãy hỏi đơn vị quản lý chất thải tại địa phương về tuyến phù hợp; đừng tự khẳng định món đồ được tái chế.",
+        "source_limit": "Các nguồn chỉ hỗ trợ nguyên tắc chung; địa phương có thể áp dụng cách thu gom khác."
+      },
+      "human_review_requirement": "required_before_public_release"
+    },
+    {
+      "id": "plastic_sauce_bottle",
+      "name_vi": "Chai nhựa đựng nước sốt",
+      "category_id": "plastic",
+      "aliases_vi": [
+        "chai tương ớt",
+        "chai nước mắm nhựa"
+      ],
+      "default_stream": "special_collection",
+      "question_ids": [
+        "contamination"
+      ],
+      "risk_profile": "ordinary_conditional",
+      "response_policy": "xử lý theo tình trạng thực tế; xác minh nơi tiếp nhận địa phương",
+      "source_ids": [
+        "EPA-R",
+        "VN"
+      ],
+      "evidence_status": "general_guidance_requires_local_verification",
+      "review_status": "pending_human_review",
+      "guidance": {
+        "headline": "Bạn đang xem hướng dẫn cho chai nhựa đựng nước sốt",
+        "assessment": "Mình sẽ giúp bạn xem cách xử lý chai nhựa đựng nước sốt theo tình trạng thực tế. Nếu chai từng chứa hóa chất khác hoặc có mùi lạ, bạn hãy giữ riêng và xác minh trước khi rửa.",
+        "default_action": "Bạn hãy làm rỗng, loại bỏ phần nước sốt nhìn thấy được nếu an toàn rồi hỏi nơi thu gom có nhận chai không.",
+        "end_of_use": "Khi không còn sử dụng chai nhựa đựng nước sốt, bạn hãy giữ riêng món đồ và xác minh tuyến tiếp nhận tại địa phương.",
+        "why": "Mình gợi ý như vậy vì vật liệu, mức bẩn và cách thu gom của chai nhựa đựng nước sốt có thể khác nhau giữa các nơi. Nếu chai từng chứa hóa chất khác hoặc có mùi lạ, bạn hãy giữ riêng và xác minh trước khi rửa.",
+        "explanation": "Nếu chai từng chứa hóa chất khác hoặc có mùi lạ, bạn hãy giữ riêng và xác minh trước khi rửa.",
+        "default_caution": "Bạn đừng đưa chai còn nhiều nước sốt vào dòng nhựa sạch.",
+        "condition_responses": {},
+        "contamination_responses": {
+          "clean": "Bạn cho biết chai nhựa đựng nước sốt không dính chất lạ. Bạn hãy làm rỗng, loại bỏ phần nước sốt nhìn thấy được nếu an toàn rồi hỏi nơi thu gom có nhận chai không.",
+          "food": "Nếu chai nhựa đựng nước sốt còn dính thức ăn, bạn hãy loại bỏ phần bám nhìn thấy được khi có thể làm vậy an toàn và để khô. Bạn hãy làm rỗng, loại bỏ phần nước sốt nhìn thấy được nếu an toàn rồi hỏi nơi thu gom có nhận chai không.",
+          "hazardous": "Nếu chai nhựa đựng nước sốt có thể dính hóa chất hoặc chất không rõ, bạn đừng tự rửa hay đưa vào dòng tái chế thông thường. Hãy hỏi đơn vị có thẩm quyền.",
+          "unknown": "Nếu chưa rõ chai nhựa đựng nước sốt đã dính chất gì, bạn hãy giữ riêng và xác minh trước khi xử lý."
+        },
+        "practical_steps": [
+          {
+            "label": "Kiểm tra",
+            "text": "Bạn hãy xác nhận chất liệu, tình trạng và mức bẩn của chai nhựa đựng nước sốt."
+          },
+          {
+            "label": "Xử lý",
+            "text": "Bạn hãy làm rỗng, loại bỏ phần nước sốt nhìn thấy được nếu an toàn rồi hỏi nơi thu gom có nhận chai không."
+          },
+          {
+            "label": "Xác minh",
+            "text": "Bạn hãy hỏi nơi thu gom tại địa phương có tiếp nhận đúng loại vật này không."
+          }
+        ],
+        "safety": {
+          "Nếu có vật sắc, hóa chất, mốc nặng hoặc chất bẩn không rõ": "Nếu chai nhựa đựng nước sốt có dấu hiệu nguy hiểm hoặc chất bẩn không rõ, bạn hãy dừng thao tác và hỏi đơn vị có thẩm quyền.",
+          "Vì sao cần lưu ý": "Nếu chai từng chứa hóa chất khác hoặc có mùi lạ, bạn hãy giữ riêng và xác minh trước khi rửa.",
+          "Tuyệt đối tránh / Không tự suy diễn": "Bạn đừng đưa chai còn nhiều nước sốt vào dòng nhựa sạch.",
+          "Phạm vi": "Đây là hướng dẫn chung; chưa xác minh điểm tiếp nhận tại địa phương."
+        },
+        "reduce_waste": "Bạn có thể giảm phát sinh chai nhựa đựng nước sốt bằng cách chọn đồ dùng bền hoặc dùng lượng vừa đủ khi có thể.",
+        "no_collection": "Nếu nơi thu gom không nhận chai nhựa đựng nước sốt, bạn hãy hỏi đơn vị quản lý chất thải tại địa phương về tuyến phù hợp; đừng tự khẳng định món đồ được tái chế.",
+        "source_limit": "Các nguồn chỉ hỗ trợ nguyên tắc chung; địa phương có thể áp dụng cách thu gom khác."
+      },
+      "human_review_requirement": "required_before_public_release"
+    },
+    {
+      "id": "cereal_box",
+      "name_vi": "Hộp giấy đựng ngũ cốc",
+      "category_id": "paper",
+      "aliases_vi": [
+        "hộp ngũ cốc"
+      ],
+      "default_stream": "recyclable",
+      "question_ids": [
+        "contamination"
+      ],
+      "risk_profile": "ordinary_conditional",
+      "response_policy": "xử lý theo tình trạng thực tế; xác minh nơi tiếp nhận địa phương",
+      "source_ids": [
+        "EPA-R",
+        "VN"
+      ],
+      "evidence_status": "general_guidance_requires_local_verification",
+      "review_status": "pending_human_review",
+      "guidance": {
+        "headline": "Bạn đang xem hướng dẫn cho hộp giấy đựng ngũ cốc",
+        "assessment": "Mình sẽ giúp bạn xem cách xử lý hộp giấy đựng ngũ cốc theo tình trạng thực tế. Nếu hộp bị ướt hoặc dính nhiều thức ăn, bạn cần hỏi nơi thu gom trước khi đưa vào giấy sạch.",
+        "default_action": "Bạn hãy lấy túi lót bên trong ra, giữ hộp giấy khô và gấp gọn nếu nơi thu gom nhận giấy bìa.",
+        "end_of_use": "Khi không còn sử dụng hộp giấy đựng ngũ cốc, bạn hãy giữ riêng món đồ và xác minh tuyến tiếp nhận tại địa phương.",
+        "why": "Mình gợi ý như vậy vì vật liệu, mức bẩn và cách thu gom của hộp giấy đựng ngũ cốc có thể khác nhau giữa các nơi. Nếu hộp bị ướt hoặc dính nhiều thức ăn, bạn cần hỏi nơi thu gom trước khi đưa vào giấy sạch.",
+        "explanation": "Nếu hộp bị ướt hoặc dính nhiều thức ăn, bạn cần hỏi nơi thu gom trước khi đưa vào giấy sạch.",
+        "default_caution": "Bạn đừng trộn túi lót nhựa với phần hộp giấy.",
+        "condition_responses": {},
+        "contamination_responses": {
+          "clean": "Bạn cho biết hộp giấy đựng ngũ cốc không dính chất lạ. Bạn hãy lấy túi lót bên trong ra, giữ hộp giấy khô và gấp gọn nếu nơi thu gom nhận giấy bìa.",
+          "food": "Nếu hộp giấy đựng ngũ cốc còn dính thức ăn, bạn hãy loại bỏ phần bám nhìn thấy được khi có thể làm vậy an toàn và để khô. Bạn hãy lấy túi lót bên trong ra, giữ hộp giấy khô và gấp gọn nếu nơi thu gom nhận giấy bìa.",
+          "hazardous": "Nếu hộp giấy đựng ngũ cốc có thể dính hóa chất hoặc chất không rõ, bạn đừng tự rửa hay đưa vào dòng tái chế thông thường. Hãy hỏi đơn vị có thẩm quyền.",
+          "unknown": "Nếu chưa rõ hộp giấy đựng ngũ cốc đã dính chất gì, bạn hãy giữ riêng và xác minh trước khi xử lý."
+        },
+        "practical_steps": [
+          {
+            "label": "Kiểm tra",
+            "text": "Bạn hãy xác nhận chất liệu, tình trạng và mức bẩn của hộp giấy đựng ngũ cốc."
+          },
+          {
+            "label": "Xử lý",
+            "text": "Bạn hãy lấy túi lót bên trong ra, giữ hộp giấy khô và gấp gọn nếu nơi thu gom nhận giấy bìa."
+          },
+          {
+            "label": "Xác minh",
+            "text": "Bạn hãy hỏi nơi thu gom tại địa phương có tiếp nhận đúng loại vật này không."
+          }
+        ],
+        "safety": {
+          "Nếu có vật sắc, hóa chất, mốc nặng hoặc chất bẩn không rõ": "Nếu hộp giấy đựng ngũ cốc có dấu hiệu nguy hiểm hoặc chất bẩn không rõ, bạn hãy dừng thao tác và hỏi đơn vị có thẩm quyền.",
+          "Vì sao cần lưu ý": "Nếu hộp bị ướt hoặc dính nhiều thức ăn, bạn cần hỏi nơi thu gom trước khi đưa vào giấy sạch.",
+          "Tuyệt đối tránh / Không tự suy diễn": "Bạn đừng trộn túi lót nhựa với phần hộp giấy.",
+          "Phạm vi": "Đây là hướng dẫn chung; chưa xác minh điểm tiếp nhận tại địa phương."
+        },
+        "reduce_waste": "Bạn có thể giảm phát sinh hộp giấy đựng ngũ cốc bằng cách chọn đồ dùng bền hoặc dùng lượng vừa đủ khi có thể.",
+        "no_collection": "Nếu nơi thu gom không nhận hộp giấy đựng ngũ cốc, bạn hãy hỏi đơn vị quản lý chất thải tại địa phương về tuyến phù hợp; đừng tự khẳng định món đồ được tái chế.",
+        "source_limit": "Các nguồn chỉ hỗ trợ nguyên tắc chung; địa phương có thể áp dụng cách thu gom khác."
+      },
+      "human_review_requirement": "required_before_public_release"
+    },
+    {
+      "id": "shoebox",
+      "name_vi": "Hộp giày bằng bìa giấy",
+      "category_id": "paper",
+      "aliases_vi": [
+        "hộp đựng giày"
+      ],
+      "default_stream": "recyclable",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "risk_profile": "ordinary_conditional",
+      "response_policy": "xử lý theo tình trạng thực tế; xác minh nơi tiếp nhận địa phương",
+      "source_ids": [
+        "EPA-R",
+        "VN"
+      ],
+      "evidence_status": "general_guidance_requires_local_verification",
+      "review_status": "pending_human_review",
+      "guidance": {
+        "headline": "Bạn đang xem hướng dẫn cho hộp giày bằng bìa giấy",
+        "assessment": "Mình sẽ giúp bạn xem cách xử lý hộp giày bằng bìa giấy theo tình trạng thực tế. Hộp có phủ nhựa hoặc dính bẩn cần được nơi thu gom xác nhận trước.",
+        "default_action": "Bạn có thể dùng lại hộp còn tốt; nếu bỏ đi, hãy lấy vật lót ra và gấp gọn hộp giấy khô.",
+        "end_of_use": "Khi không còn sử dụng hộp giày bằng bìa giấy, bạn hãy giữ riêng món đồ và xác minh tuyến tiếp nhận tại địa phương.",
+        "why": "Mình gợi ý như vậy vì vật liệu, mức bẩn và cách thu gom của hộp giày bằng bìa giấy có thể khác nhau giữa các nơi. Hộp có phủ nhựa hoặc dính bẩn cần được nơi thu gom xác nhận trước.",
+        "explanation": "Hộp có phủ nhựa hoặc dính bẩn cần được nơi thu gom xác nhận trước.",
+        "default_caution": "Bạn đừng bỏ xốp lót hoặc túi nhựa vào cùng dòng giấy bìa.",
+        "condition_responses": {
+          "usable": "Nếu hộp giày bằng bìa giấy vẫn còn dùng tốt và an toàn, bạn có thể tiếp tục sử dụng trước khi cân nhắc bỏ đi. Bạn có thể dùng lại hộp còn tốt; nếu bỏ đi, hãy lấy vật lót ra và gấp gọn hộp giấy khô.",
+          "damaged": "Nếu hộp giày bằng bìa giấy đã hỏng hoặc mất an toàn khi sử dụng, bạn nên ngừng dùng và không cho tặng như đồ còn tốt. Bạn có thể dùng lại hộp còn tốt; nếu bỏ đi, hãy lấy vật lót ra và gấp gọn hộp giấy khô.",
+          "unknown": "Nếu bạn chưa rõ tình trạng của hộp giày bằng bìa giấy, hãy kiểm tra trước khi quyết định xử lý. Hộp có phủ nhựa hoặc dính bẩn cần được nơi thu gom xác nhận trước."
+        },
+        "contamination_responses": {
+          "clean": "Bạn cho biết hộp giày bằng bìa giấy không dính chất lạ. Bạn có thể dùng lại hộp còn tốt; nếu bỏ đi, hãy lấy vật lót ra và gấp gọn hộp giấy khô.",
+          "food": "Nếu hộp giày bằng bìa giấy còn dính thức ăn, bạn hãy loại bỏ phần bám nhìn thấy được khi có thể làm vậy an toàn và để khô. Bạn có thể dùng lại hộp còn tốt; nếu bỏ đi, hãy lấy vật lót ra và gấp gọn hộp giấy khô.",
+          "hazardous": "Nếu hộp giày bằng bìa giấy có thể dính hóa chất hoặc chất không rõ, bạn đừng tự rửa hay đưa vào dòng tái chế thông thường. Hãy hỏi đơn vị có thẩm quyền.",
+          "unknown": "Nếu chưa rõ hộp giày bằng bìa giấy đã dính chất gì, bạn hãy giữ riêng và xác minh trước khi xử lý."
+        },
+        "practical_steps": [
+          {
+            "label": "Kiểm tra",
+            "text": "Bạn hãy xác nhận chất liệu, tình trạng và mức bẩn của hộp giày bằng bìa giấy."
+          },
+          {
+            "label": "Xử lý",
+            "text": "Bạn có thể dùng lại hộp còn tốt; nếu bỏ đi, hãy lấy vật lót ra và gấp gọn hộp giấy khô."
+          },
+          {
+            "label": "Xác minh",
+            "text": "Bạn hãy hỏi nơi thu gom tại địa phương có tiếp nhận đúng loại vật này không."
+          }
+        ],
+        "safety": {
+          "Nếu có vật sắc, hóa chất, mốc nặng hoặc chất bẩn không rõ": "Nếu hộp giày bằng bìa giấy có dấu hiệu nguy hiểm hoặc chất bẩn không rõ, bạn hãy dừng thao tác và hỏi đơn vị có thẩm quyền.",
+          "Vì sao cần lưu ý": "Hộp có phủ nhựa hoặc dính bẩn cần được nơi thu gom xác nhận trước.",
+          "Tuyệt đối tránh / Không tự suy diễn": "Bạn đừng bỏ xốp lót hoặc túi nhựa vào cùng dòng giấy bìa.",
+          "Phạm vi": "Đây là hướng dẫn chung; chưa xác minh điểm tiếp nhận tại địa phương."
+        },
+        "reduce_waste": "Nếu hộp giày bằng bìa giấy còn sạch và an toàn để dùng lại, bạn có thể kéo dài thời gian sử dụng trước khi bỏ đi.",
+        "no_collection": "Nếu nơi thu gom không nhận hộp giày bằng bìa giấy, bạn hãy hỏi đơn vị quản lý chất thải tại địa phương về tuyến phù hợp; đừng tự khẳng định món đồ được tái chế.",
+        "source_limit": "Các nguồn chỉ hỗ trợ nguyên tắc chung; địa phương có thể áp dụng cách thu gom khác."
+      },
+      "human_review_requirement": "required_before_public_release"
+    },
+    {
+      "id": "paper_folder",
+      "name_vi": "Bìa hồ sơ giấy",
+      "category_id": "paper",
+      "aliases_vi": [
+        "bìa kẹp giấy",
+        "folder giấy"
+      ],
+      "default_stream": "recyclable",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "risk_profile": "ordinary_conditional",
+      "response_policy": "xử lý theo tình trạng thực tế; xác minh nơi tiếp nhận địa phương",
+      "source_ids": [
+        "EPA-R",
+        "VN"
+      ],
+      "evidence_status": "general_guidance_requires_local_verification",
+      "review_status": "pending_human_review",
+      "guidance": {
+        "headline": "Bạn đang xem hướng dẫn cho bìa hồ sơ giấy",
+        "assessment": "Mình sẽ giúp bạn xem cách xử lý bìa hồ sơ giấy theo tình trạng thực tế. Nếu bìa có nhiều lớp dán chặt, bạn hãy hỏi nơi thu gom về khả năng tiếp nhận.",
+        "default_action": "Bạn hãy giữ bìa giấy khô và tách các kẹp kim loại hoặc màng nhựa dễ tháo trước khi bàn giao.",
+        "end_of_use": "Khi không còn sử dụng bìa hồ sơ giấy, bạn hãy giữ riêng món đồ và xác minh tuyến tiếp nhận tại địa phương.",
+        "why": "Mình gợi ý như vậy vì vật liệu, mức bẩn và cách thu gom của bìa hồ sơ giấy có thể khác nhau giữa các nơi. Nếu bìa có nhiều lớp dán chặt, bạn hãy hỏi nơi thu gom về khả năng tiếp nhận.",
+        "explanation": "Nếu bìa có nhiều lớp dán chặt, bạn hãy hỏi nơi thu gom về khả năng tiếp nhận.",
+        "default_caution": "Bạn đừng coi toàn bộ bìa có lớp phủ nhựa là giấy tái chế thông thường.",
+        "condition_responses": {
+          "usable": "Nếu bìa hồ sơ giấy vẫn còn dùng tốt và an toàn, bạn có thể tiếp tục sử dụng trước khi cân nhắc bỏ đi. Bạn hãy giữ bìa giấy khô và tách các kẹp kim loại hoặc màng nhựa dễ tháo trước khi bàn giao.",
+          "damaged": "Nếu bìa hồ sơ giấy đã hỏng hoặc mất an toàn khi sử dụng, bạn nên ngừng dùng và không cho tặng như đồ còn tốt. Bạn hãy giữ bìa giấy khô và tách các kẹp kim loại hoặc màng nhựa dễ tháo trước khi bàn giao.",
+          "unknown": "Nếu bạn chưa rõ tình trạng của bìa hồ sơ giấy, hãy kiểm tra trước khi quyết định xử lý. Nếu bìa có nhiều lớp dán chặt, bạn hãy hỏi nơi thu gom về khả năng tiếp nhận."
+        },
+        "contamination_responses": {
+          "clean": "Bạn cho biết bìa hồ sơ giấy không dính chất lạ. Bạn hãy giữ bìa giấy khô và tách các kẹp kim loại hoặc màng nhựa dễ tháo trước khi bàn giao.",
+          "food": "Nếu bìa hồ sơ giấy còn dính thức ăn, bạn hãy loại bỏ phần bám nhìn thấy được khi có thể làm vậy an toàn và để khô. Bạn hãy giữ bìa giấy khô và tách các kẹp kim loại hoặc màng nhựa dễ tháo trước khi bàn giao.",
+          "hazardous": "Nếu bìa hồ sơ giấy có thể dính hóa chất hoặc chất không rõ, bạn đừng tự rửa hay đưa vào dòng tái chế thông thường. Hãy hỏi đơn vị có thẩm quyền.",
+          "unknown": "Nếu chưa rõ bìa hồ sơ giấy đã dính chất gì, bạn hãy giữ riêng và xác minh trước khi xử lý."
+        },
+        "practical_steps": [
+          {
+            "label": "Kiểm tra",
+            "text": "Bạn hãy xác nhận chất liệu, tình trạng và mức bẩn của bìa hồ sơ giấy."
+          },
+          {
+            "label": "Xử lý",
+            "text": "Bạn hãy giữ bìa giấy khô và tách các kẹp kim loại hoặc màng nhựa dễ tháo trước khi bàn giao."
+          },
+          {
+            "label": "Xác minh",
+            "text": "Bạn hãy hỏi nơi thu gom tại địa phương có tiếp nhận đúng loại vật này không."
+          }
+        ],
+        "safety": {
+          "Nếu có vật sắc, hóa chất, mốc nặng hoặc chất bẩn không rõ": "Nếu bìa hồ sơ giấy có dấu hiệu nguy hiểm hoặc chất bẩn không rõ, bạn hãy dừng thao tác và hỏi đơn vị có thẩm quyền.",
+          "Vì sao cần lưu ý": "Nếu bìa có nhiều lớp dán chặt, bạn hãy hỏi nơi thu gom về khả năng tiếp nhận.",
+          "Tuyệt đối tránh / Không tự suy diễn": "Bạn đừng coi toàn bộ bìa có lớp phủ nhựa là giấy tái chế thông thường.",
+          "Phạm vi": "Đây là hướng dẫn chung; chưa xác minh điểm tiếp nhận tại địa phương."
+        },
+        "reduce_waste": "Nếu bìa hồ sơ giấy còn sạch và an toàn để dùng lại, bạn có thể kéo dài thời gian sử dụng trước khi bỏ đi.",
+        "no_collection": "Nếu nơi thu gom không nhận bìa hồ sơ giấy, bạn hãy hỏi đơn vị quản lý chất thải tại địa phương về tuyến phù hợp; đừng tự khẳng định món đồ được tái chế.",
+        "source_limit": "Các nguồn chỉ hỗ trợ nguyên tắc chung; địa phương có thể áp dụng cách thu gom khác."
+      },
+      "human_review_requirement": "required_before_public_release"
+    },
+    {
+      "id": "sticky_notes",
+      "name_vi": "Giấy ghi chú có keo",
+      "category_id": "paper",
+      "aliases_vi": [
+        "giấy note",
+        "giấy nhớ"
+      ],
+      "default_stream": "special_collection",
+      "question_ids": [
+        "contamination"
+      ],
+      "risk_profile": "ordinary_conditional",
+      "response_policy": "xử lý theo tình trạng thực tế; xác minh nơi tiếp nhận địa phương",
+      "source_ids": [
+        "EPA-R",
+        "VN"
+      ],
+      "evidence_status": "general_guidance_requires_local_verification",
+      "review_status": "pending_human_review",
+      "guidance": {
+        "headline": "Bạn đang xem hướng dẫn cho giấy ghi chú có keo",
+        "assessment": "Mình sẽ giúp bạn xem cách xử lý giấy ghi chú có keo theo tình trạng thực tế. Lớp keo và màu phủ khác nhau tùy sản phẩm nên khả năng thu hồi phụ thuộc nơi nhận.",
+        "default_action": "Bạn hãy gom giấy ghi chú khô và hỏi nơi thu gom có nhận giấy dính keo hay không.",
+        "end_of_use": "Khi không còn sử dụng giấy ghi chú có keo, bạn hãy giữ riêng món đồ và xác minh tuyến tiếp nhận tại địa phương.",
+        "why": "Mình gợi ý như vậy vì vật liệu, mức bẩn và cách thu gom của giấy ghi chú có keo có thể khác nhau giữa các nơi. Lớp keo và màu phủ khác nhau tùy sản phẩm nên khả năng thu hồi phụ thuộc nơi nhận.",
+        "explanation": "Lớp keo và màu phủ khác nhau tùy sản phẩm nên khả năng thu hồi phụ thuộc nơi nhận.",
+        "default_caution": "Bạn đừng tự khẳng định mọi loại giấy có keo đều đi cùng giấy văn phòng.",
+        "condition_responses": {},
+        "contamination_responses": {
+          "clean": "Bạn cho biết giấy ghi chú có keo không dính chất lạ. Bạn hãy gom giấy ghi chú khô và hỏi nơi thu gom có nhận giấy dính keo hay không.",
+          "food": "Nếu giấy ghi chú có keo còn dính thức ăn, bạn hãy loại bỏ phần bám nhìn thấy được khi có thể làm vậy an toàn và để khô. Bạn hãy gom giấy ghi chú khô và hỏi nơi thu gom có nhận giấy dính keo hay không.",
+          "hazardous": "Nếu giấy ghi chú có keo có thể dính hóa chất hoặc chất không rõ, bạn đừng tự rửa hay đưa vào dòng tái chế thông thường. Hãy hỏi đơn vị có thẩm quyền.",
+          "unknown": "Nếu chưa rõ giấy ghi chú có keo đã dính chất gì, bạn hãy giữ riêng và xác minh trước khi xử lý."
+        },
+        "practical_steps": [
+          {
+            "label": "Kiểm tra",
+            "text": "Bạn hãy xác nhận chất liệu, tình trạng và mức bẩn của giấy ghi chú có keo."
+          },
+          {
+            "label": "Xử lý",
+            "text": "Bạn hãy gom giấy ghi chú khô và hỏi nơi thu gom có nhận giấy dính keo hay không."
+          },
+          {
+            "label": "Xác minh",
+            "text": "Bạn hãy hỏi nơi thu gom tại địa phương có tiếp nhận đúng loại vật này không."
+          }
+        ],
+        "safety": {
+          "Nếu có vật sắc, hóa chất, mốc nặng hoặc chất bẩn không rõ": "Nếu giấy ghi chú có keo có dấu hiệu nguy hiểm hoặc chất bẩn không rõ, bạn hãy dừng thao tác và hỏi đơn vị có thẩm quyền.",
+          "Vì sao cần lưu ý": "Lớp keo và màu phủ khác nhau tùy sản phẩm nên khả năng thu hồi phụ thuộc nơi nhận.",
+          "Tuyệt đối tránh / Không tự suy diễn": "Bạn đừng tự khẳng định mọi loại giấy có keo đều đi cùng giấy văn phòng.",
+          "Phạm vi": "Đây là hướng dẫn chung; chưa xác minh điểm tiếp nhận tại địa phương."
+        },
+        "reduce_waste": "Bạn có thể giảm phát sinh giấy ghi chú có keo bằng cách chọn đồ dùng bền hoặc dùng lượng vừa đủ khi có thể.",
+        "no_collection": "Nếu nơi thu gom không nhận giấy ghi chú có keo, bạn hãy hỏi đơn vị quản lý chất thải tại địa phương về tuyến phù hợp; đừng tự khẳng định món đồ được tái chế.",
+        "source_limit": "Các nguồn chỉ hỗ trợ nguyên tắc chung; địa phương có thể áp dụng cách thu gom khác."
+      },
+      "human_review_requirement": "required_before_public_release"
+    },
+    {
+      "id": "greeting_card",
+      "name_vi": "Thiệp chúc mừng bằng giấy",
+      "category_id": "paper",
+      "aliases_vi": [
+        "thiệp sinh nhật",
+        "thiệp giấy"
+      ],
+      "default_stream": "special_collection",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "risk_profile": "ordinary_conditional",
+      "response_policy": "xử lý theo tình trạng thực tế; xác minh nơi tiếp nhận địa phương",
+      "source_ids": [
+        "EPA-R",
+        "VN"
+      ],
+      "evidence_status": "general_guidance_requires_local_verification",
+      "review_status": "pending_human_review",
+      "guidance": {
+        "headline": "Bạn đang xem hướng dẫn cho thiệp chúc mừng bằng giấy",
+        "assessment": "Mình sẽ giúp bạn xem cách xử lý thiệp chúc mừng bằng giấy theo tình trạng thực tế. Thiệp phủ nhũ, ép màng hoặc có linh kiện cần được phân loại theo thành phần thực tế.",
+        "default_action": "Bạn có thể giữ lại thiệp còn tốt; khi bỏ đi, hãy tách phụ kiện nhựa, pin hoặc kim tuyến nếu có thể làm an toàn.",
+        "end_of_use": "Khi không còn sử dụng thiệp chúc mừng bằng giấy, bạn hãy giữ riêng món đồ và xác minh tuyến tiếp nhận tại địa phương.",
+        "why": "Mình gợi ý như vậy vì vật liệu, mức bẩn và cách thu gom của thiệp chúc mừng bằng giấy có thể khác nhau giữa các nơi. Thiệp phủ nhũ, ép màng hoặc có linh kiện cần được phân loại theo thành phần thực tế.",
+        "explanation": "Thiệp phủ nhũ, ép màng hoặc có linh kiện cần được phân loại theo thành phần thực tế.",
+        "default_caution": "Bạn đừng đưa thiệp có nhạc điện tử hoặc pin vào giấy thuần.",
+        "condition_responses": {
+          "usable": "Nếu thiệp chúc mừng bằng giấy vẫn còn dùng tốt và an toàn, bạn có thể tiếp tục sử dụng trước khi cân nhắc bỏ đi. Bạn có thể giữ lại thiệp còn tốt; khi bỏ đi, hãy tách phụ kiện nhựa, pin hoặc kim tuyến nếu có thể làm an toàn.",
+          "damaged": "Nếu thiệp chúc mừng bằng giấy đã hỏng hoặc mất an toàn khi sử dụng, bạn nên ngừng dùng và không cho tặng như đồ còn tốt. Bạn có thể giữ lại thiệp còn tốt; khi bỏ đi, hãy tách phụ kiện nhựa, pin hoặc kim tuyến nếu có thể làm an toàn.",
+          "unknown": "Nếu bạn chưa rõ tình trạng của thiệp chúc mừng bằng giấy, hãy kiểm tra trước khi quyết định xử lý. Thiệp phủ nhũ, ép màng hoặc có linh kiện cần được phân loại theo thành phần thực tế."
+        },
+        "contamination_responses": {
+          "clean": "Bạn cho biết thiệp chúc mừng bằng giấy không dính chất lạ. Bạn có thể giữ lại thiệp còn tốt; khi bỏ đi, hãy tách phụ kiện nhựa, pin hoặc kim tuyến nếu có thể làm an toàn.",
+          "food": "Nếu thiệp chúc mừng bằng giấy còn dính thức ăn, bạn hãy loại bỏ phần bám nhìn thấy được khi có thể làm vậy an toàn và để khô. Bạn có thể giữ lại thiệp còn tốt; khi bỏ đi, hãy tách phụ kiện nhựa, pin hoặc kim tuyến nếu có thể làm an toàn.",
+          "hazardous": "Nếu thiệp chúc mừng bằng giấy có thể dính hóa chất hoặc chất không rõ, bạn đừng tự rửa hay đưa vào dòng tái chế thông thường. Hãy hỏi đơn vị có thẩm quyền.",
+          "unknown": "Nếu chưa rõ thiệp chúc mừng bằng giấy đã dính chất gì, bạn hãy giữ riêng và xác minh trước khi xử lý."
+        },
+        "practical_steps": [
+          {
+            "label": "Kiểm tra",
+            "text": "Bạn hãy xác nhận chất liệu, tình trạng và mức bẩn của thiệp chúc mừng bằng giấy."
+          },
+          {
+            "label": "Xử lý",
+            "text": "Bạn có thể giữ lại thiệp còn tốt; khi bỏ đi, hãy tách phụ kiện nhựa, pin hoặc kim tuyến nếu có thể làm an toàn."
+          },
+          {
+            "label": "Xác minh",
+            "text": "Bạn hãy hỏi nơi thu gom tại địa phương có tiếp nhận đúng loại vật này không."
+          }
+        ],
+        "safety": {
+          "Nếu có vật sắc, hóa chất, mốc nặng hoặc chất bẩn không rõ": "Nếu thiệp chúc mừng bằng giấy có dấu hiệu nguy hiểm hoặc chất bẩn không rõ, bạn hãy dừng thao tác và hỏi đơn vị có thẩm quyền.",
+          "Vì sao cần lưu ý": "Thiệp phủ nhũ, ép màng hoặc có linh kiện cần được phân loại theo thành phần thực tế.",
+          "Tuyệt đối tránh / Không tự suy diễn": "Bạn đừng đưa thiệp có nhạc điện tử hoặc pin vào giấy thuần.",
+          "Phạm vi": "Đây là hướng dẫn chung; chưa xác minh điểm tiếp nhận tại địa phương."
+        },
+        "reduce_waste": "Nếu thiệp chúc mừng bằng giấy còn sạch và an toàn để dùng lại, bạn có thể kéo dài thời gian sử dụng trước khi bỏ đi.",
+        "no_collection": "Nếu nơi thu gom không nhận thiệp chúc mừng bằng giấy, bạn hãy hỏi đơn vị quản lý chất thải tại địa phương về tuyến phù hợp; đừng tự khẳng định món đồ được tái chế.",
+        "source_limit": "Các nguồn chỉ hỗ trợ nguyên tắc chung; địa phương có thể áp dụng cách thu gom khác."
+      },
+      "human_review_requirement": "required_before_public_release"
+    },
+    {
+      "id": "cardboard_sleeve",
+      "name_vi": "Vỏ bọc giấy của ly mang đi",
+      "category_id": "paper",
+      "aliases_vi": [
+        "áo giấy ly cà phê"
+      ],
+      "default_stream": "recyclable",
+      "question_ids": [
+        "contamination"
+      ],
+      "risk_profile": "ordinary_conditional",
+      "response_policy": "xử lý theo tình trạng thực tế; xác minh nơi tiếp nhận địa phương",
+      "source_ids": [
+        "EPA-R",
+        "VN"
+      ],
+      "evidence_status": "general_guidance_requires_local_verification",
+      "review_status": "pending_human_review",
+      "guidance": {
+        "headline": "Bạn đang xem hướng dẫn cho vỏ bọc giấy của ly mang đi",
+        "assessment": "Mình sẽ giúp bạn xem cách xử lý vỏ bọc giấy của ly mang đi theo tình trạng thực tế. Vỏ bọc và thân ly có thể đi theo hai tuyến xử lý khác nhau.",
+        "default_action": "Bạn hãy tháo vỏ bọc khỏi ly, giữ khô và hỏi nơi nhận có thu gom giấy bìa này không.",
+        "end_of_use": "Khi không còn sử dụng vỏ bọc giấy của ly mang đi, bạn hãy giữ riêng món đồ và xác minh tuyến tiếp nhận tại địa phương.",
+        "why": "Mình gợi ý như vậy vì vật liệu, mức bẩn và cách thu gom của vỏ bọc giấy của ly mang đi có thể khác nhau giữa các nơi. Vỏ bọc và thân ly có thể đi theo hai tuyến xử lý khác nhau.",
+        "explanation": "Vỏ bọc và thân ly có thể đi theo hai tuyến xử lý khác nhau.",
+        "default_caution": "Bạn đừng bỏ cả ly tráng phủ vào cùng vỏ bọc giấy.",
+        "condition_responses": {},
+        "contamination_responses": {
+          "clean": "Bạn cho biết vỏ bọc giấy của ly mang đi không dính chất lạ. Bạn hãy tháo vỏ bọc khỏi ly, giữ khô và hỏi nơi nhận có thu gom giấy bìa này không.",
+          "food": "Nếu vỏ bọc giấy của ly mang đi còn dính thức ăn, bạn hãy loại bỏ phần bám nhìn thấy được khi có thể làm vậy an toàn và để khô. Bạn hãy tháo vỏ bọc khỏi ly, giữ khô và hỏi nơi nhận có thu gom giấy bìa này không.",
+          "hazardous": "Nếu vỏ bọc giấy của ly mang đi có thể dính hóa chất hoặc chất không rõ, bạn đừng tự rửa hay đưa vào dòng tái chế thông thường. Hãy hỏi đơn vị có thẩm quyền.",
+          "unknown": "Nếu chưa rõ vỏ bọc giấy của ly mang đi đã dính chất gì, bạn hãy giữ riêng và xác minh trước khi xử lý."
+        },
+        "practical_steps": [
+          {
+            "label": "Kiểm tra",
+            "text": "Bạn hãy xác nhận chất liệu, tình trạng và mức bẩn của vỏ bọc giấy của ly mang đi."
+          },
+          {
+            "label": "Xử lý",
+            "text": "Bạn hãy tháo vỏ bọc khỏi ly, giữ khô và hỏi nơi nhận có thu gom giấy bìa này không."
+          },
+          {
+            "label": "Xác minh",
+            "text": "Bạn hãy hỏi nơi thu gom tại địa phương có tiếp nhận đúng loại vật này không."
+          }
+        ],
+        "safety": {
+          "Nếu có vật sắc, hóa chất, mốc nặng hoặc chất bẩn không rõ": "Nếu vỏ bọc giấy của ly mang đi có dấu hiệu nguy hiểm hoặc chất bẩn không rõ, bạn hãy dừng thao tác và hỏi đơn vị có thẩm quyền.",
+          "Vì sao cần lưu ý": "Vỏ bọc và thân ly có thể đi theo hai tuyến xử lý khác nhau.",
+          "Tuyệt đối tránh / Không tự suy diễn": "Bạn đừng bỏ cả ly tráng phủ vào cùng vỏ bọc giấy.",
+          "Phạm vi": "Đây là hướng dẫn chung; chưa xác minh điểm tiếp nhận tại địa phương."
+        },
+        "reduce_waste": "Bạn có thể giảm phát sinh vỏ bọc giấy của ly mang đi bằng cách chọn đồ dùng bền hoặc dùng lượng vừa đủ khi có thể.",
+        "no_collection": "Nếu nơi thu gom không nhận vỏ bọc giấy của ly mang đi, bạn hãy hỏi đơn vị quản lý chất thải tại địa phương về tuyến phù hợp; đừng tự khẳng định món đồ được tái chế.",
+        "source_limit": "Các nguồn chỉ hỗ trợ nguyên tắc chung; địa phương có thể áp dụng cách thu gom khác."
+      },
+      "human_review_requirement": "required_before_public_release"
+    },
+    {
+      "id": "paper_plate",
+      "name_vi": "Đĩa giấy dùng một lần",
+      "category_id": "paper",
+      "aliases_vi": [
+        "dĩa giấy"
+      ],
+      "default_stream": "special_collection",
+      "question_ids": [
+        "contamination"
+      ],
+      "risk_profile": "ordinary_conditional",
+      "response_policy": "xử lý theo tình trạng thực tế; xác minh nơi tiếp nhận địa phương",
+      "source_ids": [
+        "EPA-R",
+        "VN"
+      ],
+      "evidence_status": "general_guidance_requires_local_verification",
+      "review_status": "pending_human_review",
+      "guidance": {
+        "headline": "Bạn đang xem hướng dẫn cho đĩa giấy dùng một lần",
+        "assessment": "Mình sẽ giúp bạn xem cách xử lý đĩa giấy dùng một lần theo tình trạng thực tế. Loại phủ nhựa và mức bẩn quyết định khả năng tiếp nhận; ảnh chụp không đủ để xác nhận.",
+        "default_action": "Bạn hãy bỏ thức ăn thừa và kiểm tra đĩa có lớp phủ chống thấm trước khi hỏi nơi thu gom.",
+        "end_of_use": "Khi không còn sử dụng đĩa giấy dùng một lần, bạn hãy giữ riêng món đồ và xác minh tuyến tiếp nhận tại địa phương.",
+        "why": "Mình gợi ý như vậy vì vật liệu, mức bẩn và cách thu gom của đĩa giấy dùng một lần có thể khác nhau giữa các nơi. Loại phủ nhựa và mức bẩn quyết định khả năng tiếp nhận; ảnh chụp không đủ để xác nhận.",
+        "explanation": "Loại phủ nhựa và mức bẩn quyết định khả năng tiếp nhận; ảnh chụp không đủ để xác nhận.",
+        "default_caution": "Bạn đừng mặc định đĩa giấy dính dầu mỡ là giấy sạch có thể tái chế.",
+        "condition_responses": {},
+        "contamination_responses": {
+          "clean": "Bạn cho biết đĩa giấy dùng một lần không dính chất lạ. Bạn hãy bỏ thức ăn thừa và kiểm tra đĩa có lớp phủ chống thấm trước khi hỏi nơi thu gom.",
+          "food": "Nếu đĩa giấy dùng một lần còn dính thức ăn, bạn hãy loại bỏ phần bám nhìn thấy được khi có thể làm vậy an toàn và để khô. Bạn hãy bỏ thức ăn thừa và kiểm tra đĩa có lớp phủ chống thấm trước khi hỏi nơi thu gom.",
+          "hazardous": "Nếu đĩa giấy dùng một lần có thể dính hóa chất hoặc chất không rõ, bạn đừng tự rửa hay đưa vào dòng tái chế thông thường. Hãy hỏi đơn vị có thẩm quyền.",
+          "unknown": "Nếu chưa rõ đĩa giấy dùng một lần đã dính chất gì, bạn hãy giữ riêng và xác minh trước khi xử lý."
+        },
+        "practical_steps": [
+          {
+            "label": "Kiểm tra",
+            "text": "Bạn hãy xác nhận chất liệu, tình trạng và mức bẩn của đĩa giấy dùng một lần."
+          },
+          {
+            "label": "Xử lý",
+            "text": "Bạn hãy bỏ thức ăn thừa và kiểm tra đĩa có lớp phủ chống thấm trước khi hỏi nơi thu gom."
+          },
+          {
+            "label": "Xác minh",
+            "text": "Bạn hãy hỏi nơi thu gom tại địa phương có tiếp nhận đúng loại vật này không."
+          }
+        ],
+        "safety": {
+          "Nếu có vật sắc, hóa chất, mốc nặng hoặc chất bẩn không rõ": "Nếu đĩa giấy dùng một lần có dấu hiệu nguy hiểm hoặc chất bẩn không rõ, bạn hãy dừng thao tác và hỏi đơn vị có thẩm quyền.",
+          "Vì sao cần lưu ý": "Loại phủ nhựa và mức bẩn quyết định khả năng tiếp nhận; ảnh chụp không đủ để xác nhận.",
+          "Tuyệt đối tránh / Không tự suy diễn": "Bạn đừng mặc định đĩa giấy dính dầu mỡ là giấy sạch có thể tái chế.",
+          "Phạm vi": "Đây là hướng dẫn chung; chưa xác minh điểm tiếp nhận tại địa phương."
+        },
+        "reduce_waste": "Bạn có thể giảm phát sinh đĩa giấy dùng một lần bằng cách chọn đồ dùng bền hoặc dùng lượng vừa đủ khi có thể.",
+        "no_collection": "Nếu nơi thu gom không nhận đĩa giấy dùng một lần, bạn hãy hỏi đơn vị quản lý chất thải tại địa phương về tuyến phù hợp; đừng tự khẳng định món đồ được tái chế.",
+        "source_limit": "Các nguồn chỉ hỗ trợ nguyên tắc chung; địa phương có thể áp dụng cách thu gom khác."
+      },
+      "human_review_requirement": "required_before_public_release"
+    },
+    {
+      "id": "paper_coffee_filter",
+      "name_vi": "Giấy lọc cà phê đã dùng",
+      "category_id": "paper",
+      "aliases_vi": [
+        "phin giấy cà phê"
+      ],
+      "default_stream": "special_collection",
+      "question_ids": [
+        "contamination"
+      ],
+      "risk_profile": "ordinary_conditional",
+      "response_policy": "xử lý theo tình trạng thực tế; xác minh nơi tiếp nhận địa phương",
+      "source_ids": [
+        "EPA-R",
+        "VN"
+      ],
+      "evidence_status": "general_guidance_requires_local_verification",
+      "review_status": "pending_human_review",
+      "guidance": {
+        "headline": "Bạn đang xem hướng dẫn cho giấy lọc cà phê đã dùng",
+        "assessment": "Mình sẽ giúp bạn xem cách xử lý giấy lọc cà phê đã dùng theo tình trạng thực tế. Giấy lọc có thể được xử lý khác nhau tùy chất liệu và hệ thống ủ phân địa phương.",
+        "default_action": "Bạn hãy tách bã cà phê và hỏi nơi nhận hữu cơ hoặc chương trình ủ phân có chấp nhận giấy lọc này không.",
+        "end_of_use": "Khi không còn sử dụng giấy lọc cà phê đã dùng, bạn hãy giữ riêng món đồ và xác minh tuyến tiếp nhận tại địa phương.",
+        "why": "Mình gợi ý như vậy vì vật liệu, mức bẩn và cách thu gom của giấy lọc cà phê đã dùng có thể khác nhau giữa các nơi. Giấy lọc có thể được xử lý khác nhau tùy chất liệu và hệ thống ủ phân địa phương.",
+        "explanation": "Giấy lọc có thể được xử lý khác nhau tùy chất liệu và hệ thống ủ phân địa phương.",
+        "default_caution": "Bạn đừng bỏ giấy lọc ướt vào giấy tái chế khô.",
+        "condition_responses": {},
+        "contamination_responses": {
+          "clean": "Bạn cho biết giấy lọc cà phê đã dùng không dính chất lạ. Bạn hãy tách bã cà phê và hỏi nơi nhận hữu cơ hoặc chương trình ủ phân có chấp nhận giấy lọc này không.",
+          "food": "Nếu giấy lọc cà phê đã dùng còn dính thức ăn, bạn hãy loại bỏ phần bám nhìn thấy được khi có thể làm vậy an toàn và để khô. Bạn hãy tách bã cà phê và hỏi nơi nhận hữu cơ hoặc chương trình ủ phân có chấp nhận giấy lọc này không.",
+          "hazardous": "Nếu giấy lọc cà phê đã dùng có thể dính hóa chất hoặc chất không rõ, bạn đừng tự rửa hay đưa vào dòng tái chế thông thường. Hãy hỏi đơn vị có thẩm quyền.",
+          "unknown": "Nếu chưa rõ giấy lọc cà phê đã dùng đã dính chất gì, bạn hãy giữ riêng và xác minh trước khi xử lý."
+        },
+        "practical_steps": [
+          {
+            "label": "Kiểm tra",
+            "text": "Bạn hãy xác nhận chất liệu, tình trạng và mức bẩn của giấy lọc cà phê đã dùng."
+          },
+          {
+            "label": "Xử lý",
+            "text": "Bạn hãy tách bã cà phê và hỏi nơi nhận hữu cơ hoặc chương trình ủ phân có chấp nhận giấy lọc này không."
+          },
+          {
+            "label": "Xác minh",
+            "text": "Bạn hãy hỏi nơi thu gom tại địa phương có tiếp nhận đúng loại vật này không."
+          }
+        ],
+        "safety": {
+          "Nếu có vật sắc, hóa chất, mốc nặng hoặc chất bẩn không rõ": "Nếu giấy lọc cà phê đã dùng có dấu hiệu nguy hiểm hoặc chất bẩn không rõ, bạn hãy dừng thao tác và hỏi đơn vị có thẩm quyền.",
+          "Vì sao cần lưu ý": "Giấy lọc có thể được xử lý khác nhau tùy chất liệu và hệ thống ủ phân địa phương.",
+          "Tuyệt đối tránh / Không tự suy diễn": "Bạn đừng bỏ giấy lọc ướt vào giấy tái chế khô.",
+          "Phạm vi": "Đây là hướng dẫn chung; chưa xác minh điểm tiếp nhận tại địa phương."
+        },
+        "reduce_waste": "Bạn có thể giảm phát sinh giấy lọc cà phê đã dùng bằng cách chọn đồ dùng bền hoặc dùng lượng vừa đủ khi có thể.",
+        "no_collection": "Nếu nơi thu gom không nhận giấy lọc cà phê đã dùng, bạn hãy hỏi đơn vị quản lý chất thải tại địa phương về tuyến phù hợp; đừng tự khẳng định món đồ được tái chế.",
+        "source_limit": "Các nguồn chỉ hỗ trợ nguyên tắc chung; địa phương có thể áp dụng cách thu gom khác."
+      },
+      "human_review_requirement": "required_before_public_release"
+    },
+    {
+      "id": "metal_bottle_cap",
+      "name_vi": "Nắp chai kim loại",
+      "category_id": "metal",
+      "aliases_vi": [
+        "nắp bia",
+        "nắp chai sắt"
+      ],
+      "default_stream": "recyclable",
+      "question_ids": [
+        "contamination"
+      ],
+      "risk_profile": "ordinary_conditional",
+      "response_policy": "xử lý theo tình trạng thực tế; xác minh nơi tiếp nhận địa phương",
+      "source_ids": [
+        "EPA-R",
+        "VN"
+      ],
+      "evidence_status": "general_guidance_requires_local_verification",
+      "review_status": "pending_human_review",
+      "guidance": {
+        "headline": "Bạn đang xem hướng dẫn cho nắp chai kim loại",
+        "assessment": "Mình sẽ giúp bạn xem cách xử lý nắp chai kim loại theo tình trạng thực tế. Vì nắp rất nhỏ, một số nơi có thể yêu cầu gom trong hộp kim loại lớn hơn.",
+        "default_action": "Bạn hãy tách nắp khỏi chai, giữ khô và hỏi nơi nhận kim loại cách thu gom vật nhỏ.",
+        "end_of_use": "Khi không còn sử dụng nắp chai kim loại, bạn hãy giữ riêng món đồ và xác minh tuyến tiếp nhận tại địa phương.",
+        "why": "Mình gợi ý như vậy vì vật liệu, mức bẩn và cách thu gom của nắp chai kim loại có thể khác nhau giữa các nơi. Vì nắp rất nhỏ, một số nơi có thể yêu cầu gom trong hộp kim loại lớn hơn.",
+        "explanation": "Vì nắp rất nhỏ, một số nơi có thể yêu cầu gom trong hộp kim loại lớn hơn.",
+        "default_caution": "Bạn đừng để nắp sắc nhọn rời trong túi mềm có người phải cầm bằng tay.",
+        "condition_responses": {},
+        "contamination_responses": {
+          "clean": "Bạn cho biết nắp chai kim loại không dính chất lạ. Bạn hãy tách nắp khỏi chai, giữ khô và hỏi nơi nhận kim loại cách thu gom vật nhỏ.",
+          "food": "Nếu nắp chai kim loại còn dính thức ăn, bạn hãy loại bỏ phần bám nhìn thấy được khi có thể làm vậy an toàn và để khô. Bạn hãy tách nắp khỏi chai, giữ khô và hỏi nơi nhận kim loại cách thu gom vật nhỏ.",
+          "hazardous": "Nếu nắp chai kim loại có thể dính hóa chất hoặc chất không rõ, bạn đừng tự rửa hay đưa vào dòng tái chế thông thường. Hãy hỏi đơn vị có thẩm quyền.",
+          "unknown": "Nếu chưa rõ nắp chai kim loại đã dính chất gì, bạn hãy giữ riêng và xác minh trước khi xử lý."
+        },
+        "practical_steps": [
+          {
+            "label": "Kiểm tra",
+            "text": "Bạn hãy xác nhận chất liệu, tình trạng và mức bẩn của nắp chai kim loại."
+          },
+          {
+            "label": "Xử lý",
+            "text": "Bạn hãy tách nắp khỏi chai, giữ khô và hỏi nơi nhận kim loại cách thu gom vật nhỏ."
+          },
+          {
+            "label": "Xác minh",
+            "text": "Bạn hãy hỏi nơi thu gom tại địa phương có tiếp nhận đúng loại vật này không."
+          }
+        ],
+        "safety": {
+          "Nếu có vật sắc, hóa chất, mốc nặng hoặc chất bẩn không rõ": "Nếu nắp chai kim loại có dấu hiệu nguy hiểm hoặc chất bẩn không rõ, bạn hãy dừng thao tác và hỏi đơn vị có thẩm quyền.",
+          "Vì sao cần lưu ý": "Vì nắp rất nhỏ, một số nơi có thể yêu cầu gom trong hộp kim loại lớn hơn.",
+          "Tuyệt đối tránh / Không tự suy diễn": "Bạn đừng để nắp sắc nhọn rời trong túi mềm có người phải cầm bằng tay.",
+          "Phạm vi": "Đây là hướng dẫn chung; chưa xác minh điểm tiếp nhận tại địa phương."
+        },
+        "reduce_waste": "Bạn có thể giảm phát sinh nắp chai kim loại bằng cách chọn đồ dùng bền hoặc dùng lượng vừa đủ khi có thể.",
+        "no_collection": "Nếu nơi thu gom không nhận nắp chai kim loại, bạn hãy hỏi đơn vị quản lý chất thải tại địa phương về tuyến phù hợp; đừng tự khẳng định món đồ được tái chế.",
+        "source_limit": "Các nguồn chỉ hỗ trợ nguyên tắc chung; địa phương có thể áp dụng cách thu gom khác."
+      },
+      "human_review_requirement": "required_before_public_release"
+    },
+    {
+      "id": "biscuit_tin",
+      "name_vi": "Hộp bánh quy bằng kim loại",
+      "category_id": "metal",
+      "aliases_vi": [
+        "hộp bánh sắt"
+      ],
+      "default_stream": "recyclable",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "risk_profile": "ordinary_conditional",
+      "response_policy": "xử lý theo tình trạng thực tế; xác minh nơi tiếp nhận địa phương",
+      "source_ids": [
+        "EPA-R",
+        "VN"
+      ],
+      "evidence_status": "general_guidance_requires_local_verification",
+      "review_status": "pending_human_review",
+      "guidance": {
+        "headline": "Bạn đang xem hướng dẫn cho hộp bánh quy bằng kim loại",
+        "assessment": "Mình sẽ giúp bạn xem cách xử lý hộp bánh quy bằng kim loại theo tình trạng thực tế. Lớp sơn và chi tiết nhựa trên hộp có thể ảnh hưởng yêu cầu của nơi nhận.",
+        "default_action": "Bạn có thể dùng lại hộp còn tốt; nếu bỏ đi, hãy làm rỗng và giữ khô trước khi hỏi nơi thu gom kim loại.",
+        "end_of_use": "Khi không còn sử dụng hộp bánh quy bằng kim loại, bạn hãy giữ riêng món đồ và xác minh tuyến tiếp nhận tại địa phương.",
+        "why": "Mình gợi ý như vậy vì vật liệu, mức bẩn và cách thu gom của hộp bánh quy bằng kim loại có thể khác nhau giữa các nơi. Lớp sơn và chi tiết nhựa trên hộp có thể ảnh hưởng yêu cầu của nơi nhận.",
+        "explanation": "Lớp sơn và chi tiết nhựa trên hộp có thể ảnh hưởng yêu cầu của nơi nhận.",
+        "default_caution": "Bạn đừng để bánh vụn hoặc vật khác bên trong khi bàn giao.",
+        "condition_responses": {
+          "usable": "Nếu hộp bánh quy bằng kim loại vẫn còn dùng tốt và an toàn, bạn có thể tiếp tục sử dụng trước khi cân nhắc bỏ đi. Bạn có thể dùng lại hộp còn tốt; nếu bỏ đi, hãy làm rỗng và giữ khô trước khi hỏi nơi thu gom kim loại.",
+          "damaged": "Nếu hộp bánh quy bằng kim loại đã hỏng hoặc mất an toàn khi sử dụng, bạn nên ngừng dùng và không cho tặng như đồ còn tốt. Bạn có thể dùng lại hộp còn tốt; nếu bỏ đi, hãy làm rỗng và giữ khô trước khi hỏi nơi thu gom kim loại.",
+          "unknown": "Nếu bạn chưa rõ tình trạng của hộp bánh quy bằng kim loại, hãy kiểm tra trước khi quyết định xử lý. Lớp sơn và chi tiết nhựa trên hộp có thể ảnh hưởng yêu cầu của nơi nhận."
+        },
+        "contamination_responses": {
+          "clean": "Bạn cho biết hộp bánh quy bằng kim loại không dính chất lạ. Bạn có thể dùng lại hộp còn tốt; nếu bỏ đi, hãy làm rỗng và giữ khô trước khi hỏi nơi thu gom kim loại.",
+          "food": "Nếu hộp bánh quy bằng kim loại còn dính thức ăn, bạn hãy loại bỏ phần bám nhìn thấy được khi có thể làm vậy an toàn và để khô. Bạn có thể dùng lại hộp còn tốt; nếu bỏ đi, hãy làm rỗng và giữ khô trước khi hỏi nơi thu gom kim loại.",
+          "hazardous": "Nếu hộp bánh quy bằng kim loại có thể dính hóa chất hoặc chất không rõ, bạn đừng tự rửa hay đưa vào dòng tái chế thông thường. Hãy hỏi đơn vị có thẩm quyền.",
+          "unknown": "Nếu chưa rõ hộp bánh quy bằng kim loại đã dính chất gì, bạn hãy giữ riêng và xác minh trước khi xử lý."
+        },
+        "practical_steps": [
+          {
+            "label": "Kiểm tra",
+            "text": "Bạn hãy xác nhận chất liệu, tình trạng và mức bẩn của hộp bánh quy bằng kim loại."
+          },
+          {
+            "label": "Xử lý",
+            "text": "Bạn có thể dùng lại hộp còn tốt; nếu bỏ đi, hãy làm rỗng và giữ khô trước khi hỏi nơi thu gom kim loại."
+          },
+          {
+            "label": "Xác minh",
+            "text": "Bạn hãy hỏi nơi thu gom tại địa phương có tiếp nhận đúng loại vật này không."
+          }
+        ],
+        "safety": {
+          "Nếu có vật sắc, hóa chất, mốc nặng hoặc chất bẩn không rõ": "Nếu hộp bánh quy bằng kim loại có dấu hiệu nguy hiểm hoặc chất bẩn không rõ, bạn hãy dừng thao tác và hỏi đơn vị có thẩm quyền.",
+          "Vì sao cần lưu ý": "Lớp sơn và chi tiết nhựa trên hộp có thể ảnh hưởng yêu cầu của nơi nhận.",
+          "Tuyệt đối tránh / Không tự suy diễn": "Bạn đừng để bánh vụn hoặc vật khác bên trong khi bàn giao.",
+          "Phạm vi": "Đây là hướng dẫn chung; chưa xác minh điểm tiếp nhận tại địa phương."
+        },
+        "reduce_waste": "Nếu hộp bánh quy bằng kim loại còn sạch và an toàn để dùng lại, bạn có thể kéo dài thời gian sử dụng trước khi bỏ đi.",
+        "no_collection": "Nếu nơi thu gom không nhận hộp bánh quy bằng kim loại, bạn hãy hỏi đơn vị quản lý chất thải tại địa phương về tuyến phù hợp; đừng tự khẳng định món đồ được tái chế.",
+        "source_limit": "Các nguồn chỉ hỗ trợ nguyên tắc chung; địa phương có thể áp dụng cách thu gom khác."
+      },
+      "human_review_requirement": "required_before_public_release"
+    },
+    {
+      "id": "aluminum_food_tray",
+      "name_vi": "Khay nhôm đựng thực phẩm",
+      "category_id": "metal",
+      "aliases_vi": [
+        "khay nhôm nướng"
+      ],
+      "default_stream": "special_collection",
+      "question_ids": [
+        "contamination"
+      ],
+      "risk_profile": "ordinary_conditional",
+      "response_policy": "xử lý theo tình trạng thực tế; xác minh nơi tiếp nhận địa phương",
+      "source_ids": [
+        "EPA-R",
+        "VN"
+      ],
+      "evidence_status": "general_guidance_requires_local_verification",
+      "review_status": "pending_human_review",
+      "guidance": {
+        "headline": "Bạn đang xem hướng dẫn cho khay nhôm đựng thực phẩm",
+        "assessment": "Mình sẽ giúp bạn xem cách xử lý khay nhôm đựng thực phẩm theo tình trạng thực tế. Khay rất mỏng hoặc phủ vật liệu khác có thể không được thu gom như lon nhôm.",
+        "default_action": "Bạn hãy gạt sạch phần thức ăn nhìn thấy được nếu làm vậy an toàn, rồi hỏi nơi nhận nhôm có tiếp nhận khay không.",
+        "end_of_use": "Khi không còn sử dụng khay nhôm đựng thực phẩm, bạn hãy giữ riêng món đồ và xác minh tuyến tiếp nhận tại địa phương.",
+        "why": "Mình gợi ý như vậy vì vật liệu, mức bẩn và cách thu gom của khay nhôm đựng thực phẩm có thể khác nhau giữa các nơi. Khay rất mỏng hoặc phủ vật liệu khác có thể không được thu gom như lon nhôm.",
+        "explanation": "Khay rất mỏng hoặc phủ vật liệu khác có thể không được thu gom như lon nhôm.",
+        "default_caution": "Bạn đừng đưa khay dính nhiều dầu mỡ vào dòng kim loại sạch.",
+        "condition_responses": {},
+        "contamination_responses": {
+          "clean": "Bạn cho biết khay nhôm đựng thực phẩm không dính chất lạ. Bạn hãy gạt sạch phần thức ăn nhìn thấy được nếu làm vậy an toàn, rồi hỏi nơi nhận nhôm có tiếp nhận khay không.",
+          "food": "Nếu khay nhôm đựng thực phẩm còn dính thức ăn, bạn hãy loại bỏ phần bám nhìn thấy được khi có thể làm vậy an toàn và để khô. Bạn hãy gạt sạch phần thức ăn nhìn thấy được nếu làm vậy an toàn, rồi hỏi nơi nhận nhôm có tiếp nhận khay không.",
+          "hazardous": "Nếu khay nhôm đựng thực phẩm có thể dính hóa chất hoặc chất không rõ, bạn đừng tự rửa hay đưa vào dòng tái chế thông thường. Hãy hỏi đơn vị có thẩm quyền.",
+          "unknown": "Nếu chưa rõ khay nhôm đựng thực phẩm đã dính chất gì, bạn hãy giữ riêng và xác minh trước khi xử lý."
+        },
+        "practical_steps": [
+          {
+            "label": "Kiểm tra",
+            "text": "Bạn hãy xác nhận chất liệu, tình trạng và mức bẩn của khay nhôm đựng thực phẩm."
+          },
+          {
+            "label": "Xử lý",
+            "text": "Bạn hãy gạt sạch phần thức ăn nhìn thấy được nếu làm vậy an toàn, rồi hỏi nơi nhận nhôm có tiếp nhận khay không."
+          },
+          {
+            "label": "Xác minh",
+            "text": "Bạn hãy hỏi nơi thu gom tại địa phương có tiếp nhận đúng loại vật này không."
+          }
+        ],
+        "safety": {
+          "Nếu có vật sắc, hóa chất, mốc nặng hoặc chất bẩn không rõ": "Nếu khay nhôm đựng thực phẩm có dấu hiệu nguy hiểm hoặc chất bẩn không rõ, bạn hãy dừng thao tác và hỏi đơn vị có thẩm quyền.",
+          "Vì sao cần lưu ý": "Khay rất mỏng hoặc phủ vật liệu khác có thể không được thu gom như lon nhôm.",
+          "Tuyệt đối tránh / Không tự suy diễn": "Bạn đừng đưa khay dính nhiều dầu mỡ vào dòng kim loại sạch.",
+          "Phạm vi": "Đây là hướng dẫn chung; chưa xác minh điểm tiếp nhận tại địa phương."
+        },
+        "reduce_waste": "Bạn có thể giảm phát sinh khay nhôm đựng thực phẩm bằng cách chọn đồ dùng bền hoặc dùng lượng vừa đủ khi có thể.",
+        "no_collection": "Nếu nơi thu gom không nhận khay nhôm đựng thực phẩm, bạn hãy hỏi đơn vị quản lý chất thải tại địa phương về tuyến phù hợp; đừng tự khẳng định món đồ được tái chế.",
+        "source_limit": "Các nguồn chỉ hỗ trợ nguyên tắc chung; địa phương có thể áp dụng cách thu gom khác."
+      },
+      "human_review_requirement": "required_before_public_release"
+    },
+    {
+      "id": "metal_hanger",
+      "name_vi": "Móc áo bằng kim loại",
+      "category_id": "metal",
+      "aliases_vi": [
+        "móc áo sắt"
+      ],
+      "default_stream": "special_collection",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "risk_profile": "ordinary_conditional",
+      "response_policy": "xử lý theo tình trạng thực tế; xác minh nơi tiếp nhận địa phương",
+      "source_ids": [
+        "EPA-R",
+        "VN"
+      ],
+      "evidence_status": "general_guidance_requires_local_verification",
+      "review_status": "pending_human_review",
+      "guidance": {
+        "headline": "Bạn đang xem hướng dẫn cho móc áo bằng kim loại",
+        "assessment": "Mình sẽ giúp bạn xem cách xử lý móc áo bằng kim loại theo tình trạng thực tế. Móc có lớp nhựa hoặc nhiều vật liệu nên cần xác minh trước khi phân loại.",
+        "default_action": "Bạn có thể dùng lại móc còn chắc; nếu hỏng, hãy gom riêng và hỏi nơi nhận kim loại hoặc tiệm giặt là có tiếp nhận không.",
+        "end_of_use": "Khi không còn sử dụng móc áo bằng kim loại, bạn hãy giữ riêng món đồ và xác minh tuyến tiếp nhận tại địa phương.",
+        "why": "Mình gợi ý như vậy vì vật liệu, mức bẩn và cách thu gom của móc áo bằng kim loại có thể khác nhau giữa các nơi. Móc có lớp nhựa hoặc nhiều vật liệu nên cần xác minh trước khi phân loại.",
+        "explanation": "Móc có lớp nhựa hoặc nhiều vật liệu nên cần xác minh trước khi phân loại.",
+        "default_caution": "Bạn đừng để đầu dây nhọn lộ ra ngoài túi thu gom.",
+        "condition_responses": {
+          "usable": "Nếu móc áo bằng kim loại vẫn còn dùng tốt và an toàn, bạn có thể tiếp tục sử dụng trước khi cân nhắc bỏ đi. Bạn có thể dùng lại móc còn chắc; nếu hỏng, hãy gom riêng và hỏi nơi nhận kim loại hoặc tiệm giặt là có tiếp nhận không.",
+          "damaged": "Nếu móc áo bằng kim loại đã hỏng hoặc mất an toàn khi sử dụng, bạn nên ngừng dùng và không cho tặng như đồ còn tốt. Bạn có thể dùng lại móc còn chắc; nếu hỏng, hãy gom riêng và hỏi nơi nhận kim loại hoặc tiệm giặt là có tiếp nhận không.",
+          "unknown": "Nếu bạn chưa rõ tình trạng của móc áo bằng kim loại, hãy kiểm tra trước khi quyết định xử lý. Móc có lớp nhựa hoặc nhiều vật liệu nên cần xác minh trước khi phân loại."
+        },
+        "contamination_responses": {
+          "clean": "Bạn cho biết móc áo bằng kim loại không dính chất lạ. Bạn có thể dùng lại móc còn chắc; nếu hỏng, hãy gom riêng và hỏi nơi nhận kim loại hoặc tiệm giặt là có tiếp nhận không.",
+          "food": "Nếu móc áo bằng kim loại còn dính thức ăn, bạn hãy loại bỏ phần bám nhìn thấy được khi có thể làm vậy an toàn và để khô. Bạn có thể dùng lại móc còn chắc; nếu hỏng, hãy gom riêng và hỏi nơi nhận kim loại hoặc tiệm giặt là có tiếp nhận không.",
+          "hazardous": "Nếu móc áo bằng kim loại có thể dính hóa chất hoặc chất không rõ, bạn đừng tự rửa hay đưa vào dòng tái chế thông thường. Hãy hỏi đơn vị có thẩm quyền.",
+          "unknown": "Nếu chưa rõ móc áo bằng kim loại đã dính chất gì, bạn hãy giữ riêng và xác minh trước khi xử lý."
+        },
+        "practical_steps": [
+          {
+            "label": "Kiểm tra",
+            "text": "Bạn hãy xác nhận chất liệu, tình trạng và mức bẩn của móc áo bằng kim loại."
+          },
+          {
+            "label": "Xử lý",
+            "text": "Bạn có thể dùng lại móc còn chắc; nếu hỏng, hãy gom riêng và hỏi nơi nhận kim loại hoặc tiệm giặt là có tiếp nhận không."
+          },
+          {
+            "label": "Xác minh",
+            "text": "Bạn hãy hỏi nơi thu gom tại địa phương có tiếp nhận đúng loại vật này không."
+          }
+        ],
+        "safety": {
+          "Nếu có vật sắc, hóa chất, mốc nặng hoặc chất bẩn không rõ": "Nếu móc áo bằng kim loại có dấu hiệu nguy hiểm hoặc chất bẩn không rõ, bạn hãy dừng thao tác và hỏi đơn vị có thẩm quyền.",
+          "Vì sao cần lưu ý": "Móc có lớp nhựa hoặc nhiều vật liệu nên cần xác minh trước khi phân loại.",
+          "Tuyệt đối tránh / Không tự suy diễn": "Bạn đừng để đầu dây nhọn lộ ra ngoài túi thu gom.",
+          "Phạm vi": "Đây là hướng dẫn chung; chưa xác minh điểm tiếp nhận tại địa phương."
+        },
+        "reduce_waste": "Nếu móc áo bằng kim loại còn sạch và an toàn để dùng lại, bạn có thể kéo dài thời gian sử dụng trước khi bỏ đi.",
+        "no_collection": "Nếu nơi thu gom không nhận móc áo bằng kim loại, bạn hãy hỏi đơn vị quản lý chất thải tại địa phương về tuyến phù hợp; đừng tự khẳng định món đồ được tái chế.",
+        "source_limit": "Các nguồn chỉ hỗ trợ nguyên tắc chung; địa phương có thể áp dụng cách thu gom khác."
+      },
+      "human_review_requirement": "required_before_public_release"
+    },
+    {
+      "id": "tea_tin",
+      "name_vi": "Hộp trà bằng kim loại",
+      "category_id": "metal",
+      "aliases_vi": [
+        "lon trà"
+      ],
+      "default_stream": "recyclable",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "risk_profile": "ordinary_conditional",
+      "response_policy": "xử lý theo tình trạng thực tế; xác minh nơi tiếp nhận địa phương",
+      "source_ids": [
+        "EPA-R",
+        "VN"
+      ],
+      "evidence_status": "general_guidance_requires_local_verification",
+      "review_status": "pending_human_review",
+      "guidance": {
+        "headline": "Bạn đang xem hướng dẫn cho hộp trà bằng kim loại",
+        "assessment": "Mình sẽ giúp bạn xem cách xử lý hộp trà bằng kim loại theo tình trạng thực tế. Nắp nhựa và thân kim loại có thể cần tách riêng theo yêu cầu nơi nhận.",
+        "default_action": "Bạn hãy làm rỗng hộp, giữ khô và hỏi nơi thu gom kim loại có nhận loại hộp này không.",
+        "end_of_use": "Khi không còn sử dụng hộp trà bằng kim loại, bạn hãy giữ riêng món đồ và xác minh tuyến tiếp nhận tại địa phương.",
+        "why": "Mình gợi ý như vậy vì vật liệu, mức bẩn và cách thu gom của hộp trà bằng kim loại có thể khác nhau giữa các nơi. Nắp nhựa và thân kim loại có thể cần tách riêng theo yêu cầu nơi nhận.",
+        "explanation": "Nắp nhựa và thân kim loại có thể cần tách riêng theo yêu cầu nơi nhận.",
+        "default_caution": "Bạn đừng để túi trà hoặc gói hút ẩm trong hộp khi bàn giao.",
+        "condition_responses": {
+          "usable": "Nếu hộp trà bằng kim loại vẫn còn dùng tốt và an toàn, bạn có thể tiếp tục sử dụng trước khi cân nhắc bỏ đi. Bạn hãy làm rỗng hộp, giữ khô và hỏi nơi thu gom kim loại có nhận loại hộp này không.",
+          "damaged": "Nếu hộp trà bằng kim loại đã hỏng hoặc mất an toàn khi sử dụng, bạn nên ngừng dùng và không cho tặng như đồ còn tốt. Bạn hãy làm rỗng hộp, giữ khô và hỏi nơi thu gom kim loại có nhận loại hộp này không.",
+          "unknown": "Nếu bạn chưa rõ tình trạng của hộp trà bằng kim loại, hãy kiểm tra trước khi quyết định xử lý. Nắp nhựa và thân kim loại có thể cần tách riêng theo yêu cầu nơi nhận."
+        },
+        "contamination_responses": {
+          "clean": "Bạn cho biết hộp trà bằng kim loại không dính chất lạ. Bạn hãy làm rỗng hộp, giữ khô và hỏi nơi thu gom kim loại có nhận loại hộp này không.",
+          "food": "Nếu hộp trà bằng kim loại còn dính thức ăn, bạn hãy loại bỏ phần bám nhìn thấy được khi có thể làm vậy an toàn và để khô. Bạn hãy làm rỗng hộp, giữ khô và hỏi nơi thu gom kim loại có nhận loại hộp này không.",
+          "hazardous": "Nếu hộp trà bằng kim loại có thể dính hóa chất hoặc chất không rõ, bạn đừng tự rửa hay đưa vào dòng tái chế thông thường. Hãy hỏi đơn vị có thẩm quyền.",
+          "unknown": "Nếu chưa rõ hộp trà bằng kim loại đã dính chất gì, bạn hãy giữ riêng và xác minh trước khi xử lý."
+        },
+        "practical_steps": [
+          {
+            "label": "Kiểm tra",
+            "text": "Bạn hãy xác nhận chất liệu, tình trạng và mức bẩn của hộp trà bằng kim loại."
+          },
+          {
+            "label": "Xử lý",
+            "text": "Bạn hãy làm rỗng hộp, giữ khô và hỏi nơi thu gom kim loại có nhận loại hộp này không."
+          },
+          {
+            "label": "Xác minh",
+            "text": "Bạn hãy hỏi nơi thu gom tại địa phương có tiếp nhận đúng loại vật này không."
+          }
+        ],
+        "safety": {
+          "Nếu có vật sắc, hóa chất, mốc nặng hoặc chất bẩn không rõ": "Nếu hộp trà bằng kim loại có dấu hiệu nguy hiểm hoặc chất bẩn không rõ, bạn hãy dừng thao tác và hỏi đơn vị có thẩm quyền.",
+          "Vì sao cần lưu ý": "Nắp nhựa và thân kim loại có thể cần tách riêng theo yêu cầu nơi nhận.",
+          "Tuyệt đối tránh / Không tự suy diễn": "Bạn đừng để túi trà hoặc gói hút ẩm trong hộp khi bàn giao.",
+          "Phạm vi": "Đây là hướng dẫn chung; chưa xác minh điểm tiếp nhận tại địa phương."
+        },
+        "reduce_waste": "Nếu hộp trà bằng kim loại còn sạch và an toàn để dùng lại, bạn có thể kéo dài thời gian sử dụng trước khi bỏ đi.",
+        "no_collection": "Nếu nơi thu gom không nhận hộp trà bằng kim loại, bạn hãy hỏi đơn vị quản lý chất thải tại địa phương về tuyến phù hợp; đừng tự khẳng định món đồ được tái chế.",
+        "source_limit": "Các nguồn chỉ hỗ trợ nguyên tắc chung; địa phương có thể áp dụng cách thu gom khác."
+      },
+      "human_review_requirement": "required_before_public_release"
+    },
+    {
+      "id": "glass_sauce_bottle",
+      "name_vi": "Chai thủy tinh đựng nước sốt",
+      "category_id": "glass",
+      "aliases_vi": [
+        "chai nước mắm thủy tinh",
+        "chai tương thủy tinh"
+      ],
+      "default_stream": "special_collection",
+      "question_ids": [
+        "contamination"
+      ],
+      "risk_profile": "ordinary_conditional",
+      "response_policy": "xử lý theo tình trạng thực tế; xác minh nơi tiếp nhận địa phương",
+      "source_ids": [
+        "EPA-R",
+        "VN"
+      ],
+      "evidence_status": "general_guidance_requires_local_verification",
+      "review_status": "pending_human_review",
+      "guidance": {
+        "headline": "Bạn đang xem hướng dẫn cho chai thủy tinh đựng nước sốt",
+        "assessment": "Mình sẽ giúp bạn xem cách xử lý chai thủy tinh đựng nước sốt theo tình trạng thực tế. Nếu chai có cạnh sắc hoặc từng chứa chất lạ, bạn cần chuyển sang hướng dẫn an toàn phù hợp.",
+        "default_action": "Bạn hãy làm rỗng chai, giữ nguyên vẹn và hỏi nơi thu gom thủy tinh có nhận loại chai này không.",
+        "end_of_use": "Khi không còn sử dụng chai thủy tinh đựng nước sốt, bạn hãy giữ riêng món đồ và xác minh tuyến tiếp nhận tại địa phương.",
+        "why": "Mình gợi ý như vậy vì vật liệu, mức bẩn và cách thu gom của chai thủy tinh đựng nước sốt có thể khác nhau giữa các nơi. Nếu chai có cạnh sắc hoặc từng chứa chất lạ, bạn cần chuyển sang hướng dẫn an toàn phù hợp.",
+        "explanation": "Nếu chai có cạnh sắc hoặc từng chứa chất lạ, bạn cần chuyển sang hướng dẫn an toàn phù hợp.",
+        "default_caution": "Bạn đừng bỏ chai nứt vỡ vào cùng chai nguyên vẹn.",
+        "condition_responses": {},
+        "contamination_responses": {
+          "clean": "Bạn cho biết chai thủy tinh đựng nước sốt không dính chất lạ. Bạn hãy làm rỗng chai, giữ nguyên vẹn và hỏi nơi thu gom thủy tinh có nhận loại chai này không.",
+          "food": "Nếu chai thủy tinh đựng nước sốt còn dính thức ăn, bạn hãy loại bỏ phần bám nhìn thấy được khi có thể làm vậy an toàn và để khô. Bạn hãy làm rỗng chai, giữ nguyên vẹn và hỏi nơi thu gom thủy tinh có nhận loại chai này không.",
+          "hazardous": "Nếu chai thủy tinh đựng nước sốt có thể dính hóa chất hoặc chất không rõ, bạn đừng tự rửa hay đưa vào dòng tái chế thông thường. Hãy hỏi đơn vị có thẩm quyền.",
+          "unknown": "Nếu chưa rõ chai thủy tinh đựng nước sốt đã dính chất gì, bạn hãy giữ riêng và xác minh trước khi xử lý."
+        },
+        "practical_steps": [
+          {
+            "label": "Kiểm tra",
+            "text": "Bạn hãy xác nhận chất liệu, tình trạng và mức bẩn của chai thủy tinh đựng nước sốt."
+          },
+          {
+            "label": "Xử lý",
+            "text": "Bạn hãy làm rỗng chai, giữ nguyên vẹn và hỏi nơi thu gom thủy tinh có nhận loại chai này không."
+          },
+          {
+            "label": "Xác minh",
+            "text": "Bạn hãy hỏi nơi thu gom tại địa phương có tiếp nhận đúng loại vật này không."
+          }
+        ],
+        "safety": {
+          "Nếu có vật sắc, hóa chất, mốc nặng hoặc chất bẩn không rõ": "Nếu chai thủy tinh đựng nước sốt có dấu hiệu nguy hiểm hoặc chất bẩn không rõ, bạn hãy dừng thao tác và hỏi đơn vị có thẩm quyền.",
+          "Vì sao cần lưu ý": "Nếu chai có cạnh sắc hoặc từng chứa chất lạ, bạn cần chuyển sang hướng dẫn an toàn phù hợp.",
+          "Tuyệt đối tránh / Không tự suy diễn": "Bạn đừng bỏ chai nứt vỡ vào cùng chai nguyên vẹn.",
+          "Phạm vi": "Đây là hướng dẫn chung; chưa xác minh điểm tiếp nhận tại địa phương."
+        },
+        "reduce_waste": "Bạn có thể giảm phát sinh chai thủy tinh đựng nước sốt bằng cách chọn đồ dùng bền hoặc dùng lượng vừa đủ khi có thể.",
+        "no_collection": "Nếu nơi thu gom không nhận chai thủy tinh đựng nước sốt, bạn hãy hỏi đơn vị quản lý chất thải tại địa phương về tuyến phù hợp; đừng tự khẳng định món đồ được tái chế.",
+        "source_limit": "Các nguồn chỉ hỗ trợ nguyên tắc chung; địa phương có thể áp dụng cách thu gom khác."
+      },
+      "human_review_requirement": "required_before_public_release"
+    },
+    {
+      "id": "candle_jar",
+      "name_vi": "Hũ thủy tinh đựng nến",
+      "category_id": "glass",
+      "aliases_vi": [
+        "lọ nến thơm"
+      ],
+      "default_stream": "special_collection",
+      "question_ids": [
+        "contamination"
+      ],
+      "risk_profile": "ordinary_conditional",
+      "response_policy": "xử lý theo tình trạng thực tế; xác minh nơi tiếp nhận địa phương",
+      "source_ids": [
+        "EPA-R",
+        "VN"
+      ],
+      "evidence_status": "general_guidance_requires_local_verification",
+      "review_status": "pending_human_review",
+      "guidance": {
+        "headline": "Bạn đang xem hướng dẫn cho hũ thủy tinh đựng nến",
+        "assessment": "Mình sẽ giúp bạn xem cách xử lý hũ thủy tinh đựng nến theo tình trạng thực tế. Sáp, bấc và lớp phủ trên hũ có thể khiến nơi thu gom từ chối tiếp nhận.",
+        "default_action": "Bạn hãy để hũ nguội hoàn toàn, giữ nguyên vẹn và hỏi nơi nhận thủy tinh cách xử lý phần sáp còn lại.",
+        "end_of_use": "Khi không còn sử dụng hũ thủy tinh đựng nến, bạn hãy giữ riêng món đồ và xác minh tuyến tiếp nhận tại địa phương.",
+        "why": "Mình gợi ý như vậy vì vật liệu, mức bẩn và cách thu gom của hũ thủy tinh đựng nến có thể khác nhau giữa các nơi. Sáp, bấc và lớp phủ trên hũ có thể khiến nơi thu gom từ chối tiếp nhận.",
+        "explanation": "Sáp, bấc và lớp phủ trên hũ có thể khiến nơi thu gom từ chối tiếp nhận.",
+        "default_caution": "Bạn đừng đổ sáp nóng xuống cống hoặc cố cạy hũ đang nứt.",
+        "condition_responses": {},
+        "contamination_responses": {
+          "clean": "Bạn cho biết hũ thủy tinh đựng nến không dính chất lạ. Bạn hãy để hũ nguội hoàn toàn, giữ nguyên vẹn và hỏi nơi nhận thủy tinh cách xử lý phần sáp còn lại.",
+          "food": "Nếu hũ thủy tinh đựng nến còn dính thức ăn, bạn hãy loại bỏ phần bám nhìn thấy được khi có thể làm vậy an toàn và để khô. Bạn hãy để hũ nguội hoàn toàn, giữ nguyên vẹn và hỏi nơi nhận thủy tinh cách xử lý phần sáp còn lại.",
+          "hazardous": "Nếu hũ thủy tinh đựng nến có thể dính hóa chất hoặc chất không rõ, bạn đừng tự rửa hay đưa vào dòng tái chế thông thường. Hãy hỏi đơn vị có thẩm quyền.",
+          "unknown": "Nếu chưa rõ hũ thủy tinh đựng nến đã dính chất gì, bạn hãy giữ riêng và xác minh trước khi xử lý."
+        },
+        "practical_steps": [
+          {
+            "label": "Kiểm tra",
+            "text": "Bạn hãy xác nhận chất liệu, tình trạng và mức bẩn của hũ thủy tinh đựng nến."
+          },
+          {
+            "label": "Xử lý",
+            "text": "Bạn hãy để hũ nguội hoàn toàn, giữ nguyên vẹn và hỏi nơi nhận thủy tinh cách xử lý phần sáp còn lại."
+          },
+          {
+            "label": "Xác minh",
+            "text": "Bạn hãy hỏi nơi thu gom tại địa phương có tiếp nhận đúng loại vật này không."
+          }
+        ],
+        "safety": {
+          "Nếu có vật sắc, hóa chất, mốc nặng hoặc chất bẩn không rõ": "Nếu hũ thủy tinh đựng nến có dấu hiệu nguy hiểm hoặc chất bẩn không rõ, bạn hãy dừng thao tác và hỏi đơn vị có thẩm quyền.",
+          "Vì sao cần lưu ý": "Sáp, bấc và lớp phủ trên hũ có thể khiến nơi thu gom từ chối tiếp nhận.",
+          "Tuyệt đối tránh / Không tự suy diễn": "Bạn đừng đổ sáp nóng xuống cống hoặc cố cạy hũ đang nứt.",
+          "Phạm vi": "Đây là hướng dẫn chung; chưa xác minh điểm tiếp nhận tại địa phương."
+        },
+        "reduce_waste": "Bạn có thể giảm phát sinh hũ thủy tinh đựng nến bằng cách chọn đồ dùng bền hoặc dùng lượng vừa đủ khi có thể.",
+        "no_collection": "Nếu nơi thu gom không nhận hũ thủy tinh đựng nến, bạn hãy hỏi đơn vị quản lý chất thải tại địa phương về tuyến phù hợp; đừng tự khẳng định món đồ được tái chế.",
+        "source_limit": "Các nguồn chỉ hỗ trợ nguyên tắc chung; địa phương có thể áp dụng cách thu gom khác."
+      },
+      "human_review_requirement": "required_before_public_release"
+    },
+    {
+      "id": "glass_vase",
+      "name_vi": "Bình hoa thủy tinh",
+      "category_id": "glass",
+      "aliases_vi": [
+        "lọ hoa thủy tinh"
+      ],
+      "default_stream": "special_collection",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "risk_profile": "ordinary_conditional",
+      "response_policy": "xử lý theo tình trạng thực tế; xác minh nơi tiếp nhận địa phương",
+      "source_ids": [
+        "EPA-R",
+        "VN"
+      ],
+      "evidence_status": "general_guidance_requires_local_verification",
+      "review_status": "pending_human_review",
+      "guidance": {
+        "headline": "Bạn đang xem hướng dẫn cho bình hoa thủy tinh",
+        "assessment": "Mình sẽ giúp bạn xem cách xử lý bình hoa thủy tinh theo tình trạng thực tế. Loại thủy tinh gia dụng có thể khác dòng chai lọ được thu gom; cần xác nhận tại địa phương.",
+        "default_action": "Bạn có thể dùng lại bình còn nguyên; nếu bỏ đi, hãy làm rỗng, giữ riêng và hỏi nơi nhận thủy tinh gia dụng.",
+        "end_of_use": "Khi không còn sử dụng bình hoa thủy tinh, bạn hãy giữ riêng món đồ và xác minh tuyến tiếp nhận tại địa phương.",
+        "why": "Mình gợi ý như vậy vì vật liệu, mức bẩn và cách thu gom của bình hoa thủy tinh có thể khác nhau giữa các nơi. Loại thủy tinh gia dụng có thể khác dòng chai lọ được thu gom; cần xác nhận tại địa phương.",
+        "explanation": "Loại thủy tinh gia dụng có thể khác dòng chai lọ được thu gom; cần xác nhận tại địa phương.",
+        "default_caution": "Bạn đừng trộn bình hoa nứt vỡ với chai lọ nguyên vẹn.",
+        "condition_responses": {
+          "usable": "Nếu bình hoa thủy tinh vẫn còn dùng tốt và an toàn, bạn có thể tiếp tục sử dụng trước khi cân nhắc bỏ đi. Bạn có thể dùng lại bình còn nguyên; nếu bỏ đi, hãy làm rỗng, giữ riêng và hỏi nơi nhận thủy tinh gia dụng.",
+          "damaged": "Nếu bình hoa thủy tinh đã hỏng hoặc mất an toàn khi sử dụng, bạn nên ngừng dùng và không cho tặng như đồ còn tốt. Bạn có thể dùng lại bình còn nguyên; nếu bỏ đi, hãy làm rỗng, giữ riêng và hỏi nơi nhận thủy tinh gia dụng.",
+          "unknown": "Nếu bạn chưa rõ tình trạng của bình hoa thủy tinh, hãy kiểm tra trước khi quyết định xử lý. Loại thủy tinh gia dụng có thể khác dòng chai lọ được thu gom; cần xác nhận tại địa phương."
+        },
+        "contamination_responses": {
+          "clean": "Bạn cho biết bình hoa thủy tinh không dính chất lạ. Bạn có thể dùng lại bình còn nguyên; nếu bỏ đi, hãy làm rỗng, giữ riêng và hỏi nơi nhận thủy tinh gia dụng.",
+          "food": "Nếu bình hoa thủy tinh còn dính thức ăn, bạn hãy loại bỏ phần bám nhìn thấy được khi có thể làm vậy an toàn và để khô. Bạn có thể dùng lại bình còn nguyên; nếu bỏ đi, hãy làm rỗng, giữ riêng và hỏi nơi nhận thủy tinh gia dụng.",
+          "hazardous": "Nếu bình hoa thủy tinh có thể dính hóa chất hoặc chất không rõ, bạn đừng tự rửa hay đưa vào dòng tái chế thông thường. Hãy hỏi đơn vị có thẩm quyền.",
+          "unknown": "Nếu chưa rõ bình hoa thủy tinh đã dính chất gì, bạn hãy giữ riêng và xác minh trước khi xử lý."
+        },
+        "practical_steps": [
+          {
+            "label": "Kiểm tra",
+            "text": "Bạn hãy xác nhận chất liệu, tình trạng và mức bẩn của bình hoa thủy tinh."
+          },
+          {
+            "label": "Xử lý",
+            "text": "Bạn có thể dùng lại bình còn nguyên; nếu bỏ đi, hãy làm rỗng, giữ riêng và hỏi nơi nhận thủy tinh gia dụng."
+          },
+          {
+            "label": "Xác minh",
+            "text": "Bạn hãy hỏi nơi thu gom tại địa phương có tiếp nhận đúng loại vật này không."
+          }
+        ],
+        "safety": {
+          "Nếu có vật sắc, hóa chất, mốc nặng hoặc chất bẩn không rõ": "Nếu bình hoa thủy tinh có dấu hiệu nguy hiểm hoặc chất bẩn không rõ, bạn hãy dừng thao tác và hỏi đơn vị có thẩm quyền.",
+          "Vì sao cần lưu ý": "Loại thủy tinh gia dụng có thể khác dòng chai lọ được thu gom; cần xác nhận tại địa phương.",
+          "Tuyệt đối tránh / Không tự suy diễn": "Bạn đừng trộn bình hoa nứt vỡ với chai lọ nguyên vẹn.",
+          "Phạm vi": "Đây là hướng dẫn chung; chưa xác minh điểm tiếp nhận tại địa phương."
+        },
+        "reduce_waste": "Nếu bình hoa thủy tinh còn sạch và an toàn để dùng lại, bạn có thể kéo dài thời gian sử dụng trước khi bỏ đi.",
+        "no_collection": "Nếu nơi thu gom không nhận bình hoa thủy tinh, bạn hãy hỏi đơn vị quản lý chất thải tại địa phương về tuyến phù hợp; đừng tự khẳng định món đồ được tái chế.",
+        "source_limit": "Các nguồn chỉ hỗ trợ nguyên tắc chung; địa phương có thể áp dụng cách thu gom khác."
+      },
+      "human_review_requirement": "required_before_public_release"
+    },
+    {
+      "id": "onion_skin",
+      "name_vi": "Vỏ hành, vỏ tỏi",
+      "category_id": "organic",
+      "aliases_vi": [
+        "vỏ tỏi"
+      ],
+      "default_stream": "organic",
+      "question_ids": [
+        "contamination"
+      ],
+      "risk_profile": "ordinary_conditional",
+      "response_policy": "xử lý theo tình trạng thực tế; xác minh nơi tiếp nhận địa phương",
+      "source_ids": [
+        "EPA-C",
+        "VN"
+      ],
+      "evidence_status": "general_guidance_requires_local_verification",
+      "review_status": "pending_human_review",
+      "guidance": {
+        "headline": "Bạn đang xem hướng dẫn cho vỏ hành, vỏ tỏi",
+        "assessment": "Mình sẽ giúp bạn xem cách xử lý vỏ hành, vỏ tỏi theo tình trạng thực tế. Nếu vỏ dính hóa chất không rõ, bạn hãy giữ riêng và xác minh trước khi ủ.",
+        "default_action": "Bạn hãy để vỏ hành tỏi riêng khỏi bao bì và hỏi chương trình thu gom hữu cơ hoặc nơi ủ phân có nhận không.",
+        "end_of_use": "Khi không còn sử dụng vỏ hành, vỏ tỏi, bạn hãy giữ riêng món đồ và xác minh tuyến tiếp nhận tại địa phương.",
+        "why": "Mình gợi ý như vậy vì vật liệu, mức bẩn và cách thu gom của vỏ hành, vỏ tỏi có thể khác nhau giữa các nơi. Nếu vỏ dính hóa chất không rõ, bạn hãy giữ riêng và xác minh trước khi ủ.",
+        "explanation": "Nếu vỏ dính hóa chất không rõ, bạn hãy giữ riêng và xác minh trước khi ủ.",
+        "default_caution": "Bạn đừng trộn vỏ rau củ với túi nilon rồi đưa vào dòng hữu cơ.",
+        "condition_responses": {},
+        "contamination_responses": {
+          "clean": "Bạn cho biết vỏ hành, vỏ tỏi không dính chất lạ. Bạn hãy để vỏ hành tỏi riêng khỏi bao bì và hỏi chương trình thu gom hữu cơ hoặc nơi ủ phân có nhận không.",
+          "food": "Nếu vỏ hành, vỏ tỏi lẫn thức ăn hoặc bao bì, bạn hãy tách phần không phải hữu cơ trước khi thu gom. Bạn hãy để vỏ hành tỏi riêng khỏi bao bì và hỏi chương trình thu gom hữu cơ hoặc nơi ủ phân có nhận không.",
+          "hazardous": "Nếu vỏ hành, vỏ tỏi có thể dính hóa chất hoặc chất không rõ, bạn đừng tự rửa hay đưa vào dòng tái chế thông thường. Hãy hỏi đơn vị có thẩm quyền.",
+          "unknown": "Nếu chưa rõ vỏ hành, vỏ tỏi đã dính chất gì, bạn hãy giữ riêng và xác minh trước khi xử lý."
+        },
+        "practical_steps": [
+          {
+            "label": "Kiểm tra",
+            "text": "Bạn hãy xác nhận chất liệu, tình trạng và mức bẩn của vỏ hành, vỏ tỏi."
+          },
+          {
+            "label": "Xử lý",
+            "text": "Bạn hãy để vỏ hành tỏi riêng khỏi bao bì và hỏi chương trình thu gom hữu cơ hoặc nơi ủ phân có nhận không."
+          },
+          {
+            "label": "Xác minh",
+            "text": "Bạn hãy hỏi nơi thu gom tại địa phương có tiếp nhận đúng loại vật này không."
+          }
+        ],
+        "safety": {
+          "Nếu có vật sắc, hóa chất, mốc nặng hoặc chất bẩn không rõ": "Nếu vỏ hành, vỏ tỏi có dấu hiệu nguy hiểm hoặc chất bẩn không rõ, bạn hãy dừng thao tác và hỏi đơn vị có thẩm quyền.",
+          "Vì sao cần lưu ý": "Nếu vỏ dính hóa chất không rõ, bạn hãy giữ riêng và xác minh trước khi ủ.",
+          "Tuyệt đối tránh / Không tự suy diễn": "Bạn đừng trộn vỏ rau củ với túi nilon rồi đưa vào dòng hữu cơ.",
+          "Phạm vi": "Đây là hướng dẫn chung; chưa xác minh điểm tiếp nhận tại địa phương."
+        },
+        "reduce_waste": "Bạn có thể giảm lượng rác hữu cơ bằng cách dùng vừa đủ thực phẩm và tách phần còn lại cho tuyến thu gom hữu cơ phù hợp.",
+        "no_collection": "Nếu nơi thu gom không nhận vỏ hành, vỏ tỏi, bạn hãy hỏi đơn vị quản lý chất thải tại địa phương về tuyến phù hợp; đừng tự khẳng định món đồ được tái chế.",
+        "source_limit": "Các nguồn chỉ hỗ trợ nguyên tắc chung; địa phương có thể áp dụng cách thu gom khác."
+      },
+      "human_review_requirement": "required_before_public_release"
+    },
+    {
+      "id": "watermelon_rind",
+      "name_vi": "Vỏ dưa hấu",
+      "category_id": "organic",
+      "aliases_vi": [
+        "cùi dưa hấu"
+      ],
+      "default_stream": "organic",
+      "question_ids": [
+        "contamination"
+      ],
+      "risk_profile": "ordinary_conditional",
+      "response_policy": "xử lý theo tình trạng thực tế; xác minh nơi tiếp nhận địa phương",
+      "source_ids": [
+        "EPA-C",
+        "VN"
+      ],
+      "evidence_status": "general_guidance_requires_local_verification",
+      "review_status": "pending_human_review",
+      "guidance": {
+        "headline": "Bạn đang xem hướng dẫn cho vỏ dưa hấu",
+        "assessment": "Mình sẽ giúp bạn xem cách xử lý vỏ dưa hấu theo tình trạng thực tế. Khối lượng và độ ẩm lớn có thể gây mùi nếu lưu trữ không phù hợp.",
+        "default_action": "Bạn hãy cắt nhỏ nếu cần, để ráo và đưa vào dòng hữu cơ khi nơi thu gom hoặc hệ thống ủ phân chấp nhận.",
+        "end_of_use": "Khi không còn sử dụng vỏ dưa hấu, bạn hãy giữ riêng món đồ và xác minh tuyến tiếp nhận tại địa phương.",
+        "why": "Mình gợi ý như vậy vì vật liệu, mức bẩn và cách thu gom của vỏ dưa hấu có thể khác nhau giữa các nơi. Khối lượng và độ ẩm lớn có thể gây mùi nếu lưu trữ không phù hợp.",
+        "explanation": "Khối lượng và độ ẩm lớn có thể gây mùi nếu lưu trữ không phù hợp.",
+        "default_caution": "Bạn đừng để vỏ ướt lẫn bao bì nhựa trong thời gian dài.",
+        "condition_responses": {},
+        "contamination_responses": {
+          "clean": "Bạn cho biết vỏ dưa hấu không dính chất lạ. Bạn hãy cắt nhỏ nếu cần, để ráo và đưa vào dòng hữu cơ khi nơi thu gom hoặc hệ thống ủ phân chấp nhận.",
+          "food": "Nếu vỏ dưa hấu lẫn thức ăn hoặc bao bì, bạn hãy tách phần không phải hữu cơ trước khi thu gom. Bạn hãy cắt nhỏ nếu cần, để ráo và đưa vào dòng hữu cơ khi nơi thu gom hoặc hệ thống ủ phân chấp nhận.",
+          "hazardous": "Nếu vỏ dưa hấu có thể dính hóa chất hoặc chất không rõ, bạn đừng tự rửa hay đưa vào dòng tái chế thông thường. Hãy hỏi đơn vị có thẩm quyền.",
+          "unknown": "Nếu chưa rõ vỏ dưa hấu đã dính chất gì, bạn hãy giữ riêng và xác minh trước khi xử lý."
+        },
+        "practical_steps": [
+          {
+            "label": "Kiểm tra",
+            "text": "Bạn hãy xác nhận chất liệu, tình trạng và mức bẩn của vỏ dưa hấu."
+          },
+          {
+            "label": "Xử lý",
+            "text": "Bạn hãy cắt nhỏ nếu cần, để ráo và đưa vào dòng hữu cơ khi nơi thu gom hoặc hệ thống ủ phân chấp nhận."
+          },
+          {
+            "label": "Xác minh",
+            "text": "Bạn hãy hỏi nơi thu gom tại địa phương có tiếp nhận đúng loại vật này không."
+          }
+        ],
+        "safety": {
+          "Nếu có vật sắc, hóa chất, mốc nặng hoặc chất bẩn không rõ": "Nếu vỏ dưa hấu có dấu hiệu nguy hiểm hoặc chất bẩn không rõ, bạn hãy dừng thao tác và hỏi đơn vị có thẩm quyền.",
+          "Vì sao cần lưu ý": "Khối lượng và độ ẩm lớn có thể gây mùi nếu lưu trữ không phù hợp.",
+          "Tuyệt đối tránh / Không tự suy diễn": "Bạn đừng để vỏ ướt lẫn bao bì nhựa trong thời gian dài.",
+          "Phạm vi": "Đây là hướng dẫn chung; chưa xác minh điểm tiếp nhận tại địa phương."
+        },
+        "reduce_waste": "Bạn có thể giảm lượng rác hữu cơ bằng cách dùng vừa đủ thực phẩm và tách phần còn lại cho tuyến thu gom hữu cơ phù hợp.",
+        "no_collection": "Nếu nơi thu gom không nhận vỏ dưa hấu, bạn hãy hỏi đơn vị quản lý chất thải tại địa phương về tuyến phù hợp; đừng tự khẳng định món đồ được tái chế.",
+        "source_limit": "Các nguồn chỉ hỗ trợ nguyên tắc chung; địa phương có thể áp dụng cách thu gom khác."
+      },
+      "human_review_requirement": "required_before_public_release"
+    },
+    {
+      "id": "avocado_pit",
+      "name_vi": "Hạt bơ",
+      "category_id": "organic",
+      "aliases_vi": [
+        "hột bơ"
+      ],
+      "default_stream": "organic",
+      "question_ids": [
+        "contamination"
+      ],
+      "risk_profile": "ordinary_conditional",
+      "response_policy": "xử lý theo tình trạng thực tế; xác minh nơi tiếp nhận địa phương",
+      "source_ids": [
+        "EPA-C",
+        "VN"
+      ],
+      "evidence_status": "general_guidance_requires_local_verification",
+      "review_status": "pending_human_review",
+      "guidance": {
+        "headline": "Bạn đang xem hướng dẫn cho hạt bơ",
+        "assessment": "Mình sẽ giúp bạn xem cách xử lý hạt bơ theo tình trạng thực tế. Nếu nơi thu gom không nhận, bạn cần làm theo hướng dẫn rác còn lại của địa phương.",
+        "default_action": "Bạn hãy tách hạt khỏi bao bì, kiểm tra nơi ủ phân có nhận vật hữu cơ phân hủy chậm như hạt bơ không.",
+        "end_of_use": "Khi không còn sử dụng hạt bơ, bạn hãy giữ riêng món đồ và xác minh tuyến tiếp nhận tại địa phương.",
+        "why": "Mình gợi ý như vậy vì vật liệu, mức bẩn và cách thu gom của hạt bơ có thể khác nhau giữa các nơi. Nếu nơi thu gom không nhận, bạn cần làm theo hướng dẫn rác còn lại của địa phương.",
+        "explanation": "Nếu nơi thu gom không nhận, bạn cần làm theo hướng dẫn rác còn lại của địa phương.",
+        "default_caution": "Bạn đừng cho rằng hạt lớn sẽ phân hủy nhanh trong mọi hệ thống ủ tại nhà.",
+        "condition_responses": {},
+        "contamination_responses": {
+          "clean": "Bạn cho biết hạt bơ không dính chất lạ. Bạn hãy tách hạt khỏi bao bì, kiểm tra nơi ủ phân có nhận vật hữu cơ phân hủy chậm như hạt bơ không.",
+          "food": "Nếu hạt bơ lẫn thức ăn hoặc bao bì, bạn hãy tách phần không phải hữu cơ trước khi thu gom. Bạn hãy tách hạt khỏi bao bì, kiểm tra nơi ủ phân có nhận vật hữu cơ phân hủy chậm như hạt bơ không.",
+          "hazardous": "Nếu hạt bơ có thể dính hóa chất hoặc chất không rõ, bạn đừng tự rửa hay đưa vào dòng tái chế thông thường. Hãy hỏi đơn vị có thẩm quyền.",
+          "unknown": "Nếu chưa rõ hạt bơ đã dính chất gì, bạn hãy giữ riêng và xác minh trước khi xử lý."
+        },
+        "practical_steps": [
+          {
+            "label": "Kiểm tra",
+            "text": "Bạn hãy xác nhận chất liệu, tình trạng và mức bẩn của hạt bơ."
+          },
+          {
+            "label": "Xử lý",
+            "text": "Bạn hãy tách hạt khỏi bao bì, kiểm tra nơi ủ phân có nhận vật hữu cơ phân hủy chậm như hạt bơ không."
+          },
+          {
+            "label": "Xác minh",
+            "text": "Bạn hãy hỏi nơi thu gom tại địa phương có tiếp nhận đúng loại vật này không."
+          }
+        ],
+        "safety": {
+          "Nếu có vật sắc, hóa chất, mốc nặng hoặc chất bẩn không rõ": "Nếu hạt bơ có dấu hiệu nguy hiểm hoặc chất bẩn không rõ, bạn hãy dừng thao tác và hỏi đơn vị có thẩm quyền.",
+          "Vì sao cần lưu ý": "Nếu nơi thu gom không nhận, bạn cần làm theo hướng dẫn rác còn lại của địa phương.",
+          "Tuyệt đối tránh / Không tự suy diễn": "Bạn đừng cho rằng hạt lớn sẽ phân hủy nhanh trong mọi hệ thống ủ tại nhà.",
+          "Phạm vi": "Đây là hướng dẫn chung; chưa xác minh điểm tiếp nhận tại địa phương."
+        },
+        "reduce_waste": "Bạn có thể giảm lượng rác hữu cơ bằng cách dùng vừa đủ thực phẩm và tách phần còn lại cho tuyến thu gom hữu cơ phù hợp.",
+        "no_collection": "Nếu nơi thu gom không nhận hạt bơ, bạn hãy hỏi đơn vị quản lý chất thải tại địa phương về tuyến phù hợp; đừng tự khẳng định món đồ được tái chế.",
+        "source_limit": "Các nguồn chỉ hỗ trợ nguyên tắc chung; địa phương có thể áp dụng cách thu gom khác."
+      },
+      "human_review_requirement": "required_before_public_release"
+    },
+    {
+      "id": "grass_clippings",
+      "name_vi": "Cỏ vừa cắt",
+      "category_id": "organic",
+      "aliases_vi": [
+        "cỏ sân vườn"
+      ],
+      "default_stream": "organic",
+      "question_ids": [
+        "contamination"
+      ],
+      "risk_profile": "ordinary_conditional",
+      "response_policy": "xử lý theo tình trạng thực tế; xác minh nơi tiếp nhận địa phương",
+      "source_ids": [
+        "EPA-C",
+        "VN"
+      ],
+      "evidence_status": "general_guidance_requires_local_verification",
+      "review_status": "pending_human_review",
+      "guidance": {
+        "headline": "Bạn đang xem hướng dẫn cho cỏ vừa cắt",
+        "assessment": "Mình sẽ giúp bạn xem cách xử lý cỏ vừa cắt theo tình trạng thực tế. Cỏ ướt chất đống dễ phát sinh mùi; bạn nên xử lý sớm theo hướng dẫn phù hợp.",
+        "default_action": "Bạn hãy giữ cỏ sạch riêng khỏi đất đá và hỏi nơi thu gom rác vườn hoặc hệ thống ủ phân có nhận không.",
+        "end_of_use": "Khi không còn sử dụng cỏ vừa cắt, bạn hãy giữ riêng món đồ và xác minh tuyến tiếp nhận tại địa phương.",
+        "why": "Mình gợi ý như vậy vì vật liệu, mức bẩn và cách thu gom của cỏ vừa cắt có thể khác nhau giữa các nơi. Cỏ ướt chất đống dễ phát sinh mùi; bạn nên xử lý sớm theo hướng dẫn phù hợp.",
+        "explanation": "Cỏ ướt chất đống dễ phát sinh mùi; bạn nên xử lý sớm theo hướng dẫn phù hợp.",
+        "default_caution": "Bạn đừng ủ cỏ có dính thuốc diệt cỏ khi chưa xác minh tính an toàn.",
+        "condition_responses": {},
+        "contamination_responses": {
+          "clean": "Bạn cho biết cỏ vừa cắt không dính chất lạ. Bạn hãy giữ cỏ sạch riêng khỏi đất đá và hỏi nơi thu gom rác vườn hoặc hệ thống ủ phân có nhận không.",
+          "food": "Nếu cỏ vừa cắt lẫn thức ăn hoặc bao bì, bạn hãy tách phần không phải hữu cơ trước khi thu gom. Bạn hãy giữ cỏ sạch riêng khỏi đất đá và hỏi nơi thu gom rác vườn hoặc hệ thống ủ phân có nhận không.",
+          "hazardous": "Nếu cỏ vừa cắt có thể dính hóa chất hoặc chất không rõ, bạn đừng tự rửa hay đưa vào dòng tái chế thông thường. Hãy hỏi đơn vị có thẩm quyền.",
+          "unknown": "Nếu chưa rõ cỏ vừa cắt đã dính chất gì, bạn hãy giữ riêng và xác minh trước khi xử lý."
+        },
+        "practical_steps": [
+          {
+            "label": "Kiểm tra",
+            "text": "Bạn hãy xác nhận chất liệu, tình trạng và mức bẩn của cỏ vừa cắt."
+          },
+          {
+            "label": "Xử lý",
+            "text": "Bạn hãy giữ cỏ sạch riêng khỏi đất đá và hỏi nơi thu gom rác vườn hoặc hệ thống ủ phân có nhận không."
+          },
+          {
+            "label": "Xác minh",
+            "text": "Bạn hãy hỏi nơi thu gom tại địa phương có tiếp nhận đúng loại vật này không."
+          }
+        ],
+        "safety": {
+          "Nếu có vật sắc, hóa chất, mốc nặng hoặc chất bẩn không rõ": "Nếu cỏ vừa cắt có dấu hiệu nguy hiểm hoặc chất bẩn không rõ, bạn hãy dừng thao tác và hỏi đơn vị có thẩm quyền.",
+          "Vì sao cần lưu ý": "Cỏ ướt chất đống dễ phát sinh mùi; bạn nên xử lý sớm theo hướng dẫn phù hợp.",
+          "Tuyệt đối tránh / Không tự suy diễn": "Bạn đừng ủ cỏ có dính thuốc diệt cỏ khi chưa xác minh tính an toàn.",
+          "Phạm vi": "Đây là hướng dẫn chung; chưa xác minh điểm tiếp nhận tại địa phương."
+        },
+        "reduce_waste": "Bạn có thể giảm lượng rác hữu cơ bằng cách dùng vừa đủ thực phẩm và tách phần còn lại cho tuyến thu gom hữu cơ phù hợp.",
+        "no_collection": "Nếu nơi thu gom không nhận cỏ vừa cắt, bạn hãy hỏi đơn vị quản lý chất thải tại địa phương về tuyến phù hợp; đừng tự khẳng định món đồ được tái chế.",
+        "source_limit": "Các nguồn chỉ hỗ trợ nguyên tắc chung; địa phương có thể áp dụng cách thu gom khác."
+      },
+      "human_review_requirement": "required_before_public_release"
+    },
+    {
+      "id": "vegetable_stems",
+      "name_vi": "Cuống rau và lá rau bỏ đi",
+      "category_id": "organic",
+      "aliases_vi": [
+        "gốc rau",
+        "lá rau thừa"
+      ],
+      "default_stream": "organic",
+      "question_ids": [
+        "contamination"
+      ],
+      "risk_profile": "ordinary_conditional",
+      "response_policy": "xử lý theo tình trạng thực tế; xác minh nơi tiếp nhận địa phương",
+      "source_ids": [
+        "EPA-C",
+        "VN"
+      ],
+      "evidence_status": "general_guidance_requires_local_verification",
+      "review_status": "pending_human_review",
+      "guidance": {
+        "headline": "Bạn đang xem hướng dẫn cho cuống rau và lá rau bỏ đi",
+        "assessment": "Mình sẽ giúp bạn xem cách xử lý cuống rau và lá rau bỏ đi theo tình trạng thực tế. Nếu rau dính chất lạ hoặc thuốc bảo vệ thực vật chưa rõ, bạn hãy hỏi đơn vị thu gom trước.",
+        "default_action": "Bạn hãy tách cuống lá rau khỏi dây buộc và bao bì, rồi dùng dòng hữu cơ nếu nơi thu gom chấp nhận.",
+        "end_of_use": "Khi không còn sử dụng cuống rau và lá rau bỏ đi, bạn hãy giữ riêng món đồ và xác minh tuyến tiếp nhận tại địa phương.",
+        "why": "Mình gợi ý như vậy vì vật liệu, mức bẩn và cách thu gom của cuống rau và lá rau bỏ đi có thể khác nhau giữa các nơi. Nếu rau dính chất lạ hoặc thuốc bảo vệ thực vật chưa rõ, bạn hãy hỏi đơn vị thu gom trước.",
+        "explanation": "Nếu rau dính chất lạ hoặc thuốc bảo vệ thực vật chưa rõ, bạn hãy hỏi đơn vị thu gom trước.",
+        "default_caution": "Bạn đừng trộn dây thun và túi nhựa vào phần rau củ để ủ.",
+        "condition_responses": {},
+        "contamination_responses": {
+          "clean": "Bạn cho biết cuống rau và lá rau bỏ đi không dính chất lạ. Bạn hãy tách cuống lá rau khỏi dây buộc và bao bì, rồi dùng dòng hữu cơ nếu nơi thu gom chấp nhận.",
+          "food": "Nếu cuống rau và lá rau bỏ đi lẫn thức ăn hoặc bao bì, bạn hãy tách phần không phải hữu cơ trước khi thu gom. Bạn hãy tách cuống lá rau khỏi dây buộc và bao bì, rồi dùng dòng hữu cơ nếu nơi thu gom chấp nhận.",
+          "hazardous": "Nếu cuống rau và lá rau bỏ đi có thể dính hóa chất hoặc chất không rõ, bạn đừng tự rửa hay đưa vào dòng tái chế thông thường. Hãy hỏi đơn vị có thẩm quyền.",
+          "unknown": "Nếu chưa rõ cuống rau và lá rau bỏ đi đã dính chất gì, bạn hãy giữ riêng và xác minh trước khi xử lý."
+        },
+        "practical_steps": [
+          {
+            "label": "Kiểm tra",
+            "text": "Bạn hãy xác nhận chất liệu, tình trạng và mức bẩn của cuống rau và lá rau bỏ đi."
+          },
+          {
+            "label": "Xử lý",
+            "text": "Bạn hãy tách cuống lá rau khỏi dây buộc và bao bì, rồi dùng dòng hữu cơ nếu nơi thu gom chấp nhận."
+          },
+          {
+            "label": "Xác minh",
+            "text": "Bạn hãy hỏi nơi thu gom tại địa phương có tiếp nhận đúng loại vật này không."
+          }
+        ],
+        "safety": {
+          "Nếu có vật sắc, hóa chất, mốc nặng hoặc chất bẩn không rõ": "Nếu cuống rau và lá rau bỏ đi có dấu hiệu nguy hiểm hoặc chất bẩn không rõ, bạn hãy dừng thao tác và hỏi đơn vị có thẩm quyền.",
+          "Vì sao cần lưu ý": "Nếu rau dính chất lạ hoặc thuốc bảo vệ thực vật chưa rõ, bạn hãy hỏi đơn vị thu gom trước.",
+          "Tuyệt đối tránh / Không tự suy diễn": "Bạn đừng trộn dây thun và túi nhựa vào phần rau củ để ủ.",
+          "Phạm vi": "Đây là hướng dẫn chung; chưa xác minh điểm tiếp nhận tại địa phương."
+        },
+        "reduce_waste": "Bạn có thể giảm lượng rác hữu cơ bằng cách dùng vừa đủ thực phẩm và tách phần còn lại cho tuyến thu gom hữu cơ phù hợp.",
+        "no_collection": "Nếu nơi thu gom không nhận cuống rau và lá rau bỏ đi, bạn hãy hỏi đơn vị quản lý chất thải tại địa phương về tuyến phù hợp; đừng tự khẳng định món đồ được tái chế.",
+        "source_limit": "Các nguồn chỉ hỗ trợ nguyên tắc chung; địa phương có thể áp dụng cách thu gom khác."
+      },
+      "human_review_requirement": "required_before_public_release"
+    },
+    {
+      "id": "old_socks",
+      "name_vi": "Tất, vớ cũ",
+      "category_id": "textile",
+      "aliases_vi": [
+        "vớ cũ"
+      ],
+      "default_stream": "special_collection",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "risk_profile": "ordinary_conditional",
+      "response_policy": "xử lý theo tình trạng thực tế; xác minh nơi tiếp nhận địa phương",
+      "source_ids": [
+        "REUSE",
+        "VN"
+      ],
+      "evidence_status": "general_guidance_requires_local_verification",
+      "review_status": "pending_human_review",
+      "guidance": {
+        "headline": "Bạn đang xem hướng dẫn cho tất, vớ cũ",
+        "assessment": "Mình sẽ giúp bạn xem cách xử lý tất, vớ cũ theo tình trạng thực tế. Khả năng nhận hàng dệt may nhỏ phụ thuộc từng chương trình địa phương.",
+        "default_action": "Bạn hãy giặt và phơi khô đôi tất còn dùng được trước khi hỏi nơi nhận đồ cũ; tất hỏng cần hỏi nơi thu gom vải.",
+        "end_of_use": "Khi không còn sử dụng tất, vớ cũ, bạn hãy giữ riêng món đồ và xác minh tuyến tiếp nhận tại địa phương.",
+        "why": "Mình gợi ý như vậy vì vật liệu, mức bẩn và cách thu gom của tất, vớ cũ có thể khác nhau giữa các nơi. Khả năng nhận hàng dệt may nhỏ phụ thuộc từng chương trình địa phương.",
+        "explanation": "Khả năng nhận hàng dệt may nhỏ phụ thuộc từng chương trình địa phương.",
+        "default_caution": "Bạn đừng cho tặng tất ẩm mốc hoặc bẩn như món đồ còn sử dụng tốt.",
+        "condition_responses": {
+          "usable": "Nếu tất, vớ cũ vẫn còn dùng tốt và an toàn, bạn có thể tiếp tục sử dụng trước khi cân nhắc bỏ đi. Bạn hãy giặt và phơi khô đôi tất còn dùng được trước khi hỏi nơi nhận đồ cũ; tất hỏng cần hỏi nơi thu gom vải.",
+          "damaged": "Nếu tất, vớ cũ đã hỏng hoặc mất an toàn khi sử dụng, bạn nên ngừng dùng và không cho tặng như đồ còn tốt. Bạn hãy giặt và phơi khô đôi tất còn dùng được trước khi hỏi nơi nhận đồ cũ; tất hỏng cần hỏi nơi thu gom vải.",
+          "unknown": "Nếu bạn chưa rõ tình trạng của tất, vớ cũ, hãy kiểm tra trước khi quyết định xử lý. Khả năng nhận hàng dệt may nhỏ phụ thuộc từng chương trình địa phương."
+        },
+        "contamination_responses": {
+          "clean": "Bạn cho biết tất, vớ cũ không dính chất lạ. Bạn hãy giặt và phơi khô đôi tất còn dùng được trước khi hỏi nơi nhận đồ cũ; tất hỏng cần hỏi nơi thu gom vải.",
+          "food": "Nếu tất, vớ cũ dính thức ăn, bạn chỉ nên làm sạch khi việc đó an toàn; sau đó hãy để khô và xác minh nơi tiếp nhận. Bạn hãy giặt và phơi khô đôi tất còn dùng được trước khi hỏi nơi nhận đồ cũ; tất hỏng cần hỏi nơi thu gom vải.",
+          "hazardous": "Nếu tất, vớ cũ có thể dính hóa chất hoặc chất không rõ, bạn đừng tự rửa hay đưa vào dòng tái chế thông thường. Hãy hỏi đơn vị có thẩm quyền.",
+          "unknown": "Nếu chưa rõ tất, vớ cũ đã dính chất gì, bạn hãy giữ riêng và xác minh trước khi xử lý."
+        },
+        "practical_steps": [
+          {
+            "label": "Kiểm tra",
+            "text": "Bạn hãy xác nhận chất liệu, tình trạng và mức bẩn của tất, vớ cũ."
+          },
+          {
+            "label": "Xử lý",
+            "text": "Bạn hãy giặt và phơi khô đôi tất còn dùng được trước khi hỏi nơi nhận đồ cũ; tất hỏng cần hỏi nơi thu gom vải."
+          },
+          {
+            "label": "Xác minh",
+            "text": "Bạn hãy hỏi nơi thu gom tại địa phương có tiếp nhận đúng loại vật này không."
+          }
+        ],
+        "safety": {
+          "Nếu có vật sắc, hóa chất, mốc nặng hoặc chất bẩn không rõ": "Nếu tất, vớ cũ có dấu hiệu nguy hiểm hoặc chất bẩn không rõ, bạn hãy dừng thao tác và hỏi đơn vị có thẩm quyền.",
+          "Vì sao cần lưu ý": "Khả năng nhận hàng dệt may nhỏ phụ thuộc từng chương trình địa phương.",
+          "Tuyệt đối tránh / Không tự suy diễn": "Bạn đừng cho tặng tất ẩm mốc hoặc bẩn như món đồ còn sử dụng tốt.",
+          "Phạm vi": "Đây là hướng dẫn chung; chưa xác minh điểm tiếp nhận tại địa phương."
+        },
+        "reduce_waste": "Nếu tất, vớ cũ còn sạch và an toàn để dùng lại, bạn có thể kéo dài thời gian sử dụng trước khi bỏ đi.",
+        "no_collection": "Nếu nơi thu gom không nhận tất, vớ cũ, bạn hãy hỏi đơn vị quản lý chất thải tại địa phương về tuyến phù hợp; đừng tự khẳng định món đồ được tái chế.",
+        "source_limit": "Các nguồn chỉ hỗ trợ nguyên tắc chung; địa phương có thể áp dụng cách thu gom khác."
+      },
+      "human_review_requirement": "required_before_public_release"
+    },
+    {
+      "id": "denim_jeans",
+      "name_vi": "Quần jean cũ",
+      "category_id": "textile",
+      "aliases_vi": [
+        "quần bò cũ"
+      ],
+      "default_stream": "special_collection",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "risk_profile": "ordinary_conditional",
+      "response_policy": "xử lý theo tình trạng thực tế; xác minh nơi tiếp nhận địa phương",
+      "source_ids": [
+        "REUSE",
+        "VN"
+      ],
+      "evidence_status": "general_guidance_requires_local_verification",
+      "review_status": "pending_human_review",
+      "guidance": {
+        "headline": "Bạn đang xem hướng dẫn cho quần jean cũ",
+        "assessment": "Mình sẽ giúp bạn xem cách xử lý quần jean cũ theo tình trạng thực tế. Khóa kéo và nút kim loại có thể ảnh hưởng cách thu hồi sợi vải.",
+        "default_action": "Bạn có thể sửa hoặc dùng lại quần còn tốt; nếu không, hãy giặt khô và hỏi nơi nhận quần áo cũ.",
+        "end_of_use": "Khi không còn sử dụng quần jean cũ, bạn hãy giữ riêng món đồ và xác minh tuyến tiếp nhận tại địa phương.",
+        "why": "Mình gợi ý như vậy vì vật liệu, mức bẩn và cách thu gom của quần jean cũ có thể khác nhau giữa các nơi. Khóa kéo và nút kim loại có thể ảnh hưởng cách thu hồi sợi vải.",
+        "explanation": "Khóa kéo và nút kim loại có thể ảnh hưởng cách thu hồi sợi vải.",
+        "default_caution": "Bạn đừng đưa quần dính dầu máy hoặc hóa chất vào dòng đồ cho tặng.",
+        "condition_responses": {
+          "usable": "Nếu quần jean cũ vẫn còn dùng tốt và an toàn, bạn có thể tiếp tục sử dụng trước khi cân nhắc bỏ đi. Bạn có thể sửa hoặc dùng lại quần còn tốt; nếu không, hãy giặt khô và hỏi nơi nhận quần áo cũ.",
+          "damaged": "Nếu quần jean cũ đã hỏng hoặc mất an toàn khi sử dụng, bạn nên ngừng dùng và không cho tặng như đồ còn tốt. Bạn có thể sửa hoặc dùng lại quần còn tốt; nếu không, hãy giặt khô và hỏi nơi nhận quần áo cũ.",
+          "unknown": "Nếu bạn chưa rõ tình trạng của quần jean cũ, hãy kiểm tra trước khi quyết định xử lý. Khóa kéo và nút kim loại có thể ảnh hưởng cách thu hồi sợi vải."
+        },
+        "contamination_responses": {
+          "clean": "Bạn cho biết quần jean cũ không dính chất lạ. Bạn có thể sửa hoặc dùng lại quần còn tốt; nếu không, hãy giặt khô và hỏi nơi nhận quần áo cũ.",
+          "food": "Nếu quần jean cũ dính thức ăn, bạn chỉ nên làm sạch khi việc đó an toàn; sau đó hãy để khô và xác minh nơi tiếp nhận. Bạn có thể sửa hoặc dùng lại quần còn tốt; nếu không, hãy giặt khô và hỏi nơi nhận quần áo cũ.",
+          "hazardous": "Nếu quần jean cũ có thể dính hóa chất hoặc chất không rõ, bạn đừng tự rửa hay đưa vào dòng tái chế thông thường. Hãy hỏi đơn vị có thẩm quyền.",
+          "unknown": "Nếu chưa rõ quần jean cũ đã dính chất gì, bạn hãy giữ riêng và xác minh trước khi xử lý."
+        },
+        "practical_steps": [
+          {
+            "label": "Kiểm tra",
+            "text": "Bạn hãy xác nhận chất liệu, tình trạng và mức bẩn của quần jean cũ."
+          },
+          {
+            "label": "Xử lý",
+            "text": "Bạn có thể sửa hoặc dùng lại quần còn tốt; nếu không, hãy giặt khô và hỏi nơi nhận quần áo cũ."
+          },
+          {
+            "label": "Xác minh",
+            "text": "Bạn hãy hỏi nơi thu gom tại địa phương có tiếp nhận đúng loại vật này không."
+          }
+        ],
+        "safety": {
+          "Nếu có vật sắc, hóa chất, mốc nặng hoặc chất bẩn không rõ": "Nếu quần jean cũ có dấu hiệu nguy hiểm hoặc chất bẩn không rõ, bạn hãy dừng thao tác và hỏi đơn vị có thẩm quyền.",
+          "Vì sao cần lưu ý": "Khóa kéo và nút kim loại có thể ảnh hưởng cách thu hồi sợi vải.",
+          "Tuyệt đối tránh / Không tự suy diễn": "Bạn đừng đưa quần dính dầu máy hoặc hóa chất vào dòng đồ cho tặng.",
+          "Phạm vi": "Đây là hướng dẫn chung; chưa xác minh điểm tiếp nhận tại địa phương."
+        },
+        "reduce_waste": "Nếu quần jean cũ còn sạch và an toàn để dùng lại, bạn có thể kéo dài thời gian sử dụng trước khi bỏ đi.",
+        "no_collection": "Nếu nơi thu gom không nhận quần jean cũ, bạn hãy hỏi đơn vị quản lý chất thải tại địa phương về tuyến phù hợp; đừng tự khẳng định món đồ được tái chế.",
+        "source_limit": "Các nguồn chỉ hỗ trợ nguyên tắc chung; địa phương có thể áp dụng cách thu gom khác."
+      },
+      "human_review_requirement": "required_before_public_release"
+    },
+    {
+      "id": "cloth_tote",
+      "name_vi": "Túi vải mua hàng cũ",
+      "category_id": "textile",
+      "aliases_vi": [
+        "túi tote",
+        "túi canvas"
+      ],
+      "default_stream": "special_collection",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "risk_profile": "ordinary_conditional",
+      "response_policy": "xử lý theo tình trạng thực tế; xác minh nơi tiếp nhận địa phương",
+      "source_ids": [
+        "REUSE",
+        "VN"
+      ],
+      "evidence_status": "general_guidance_requires_local_verification",
+      "review_status": "pending_human_review",
+      "guidance": {
+        "headline": "Bạn đang xem hướng dẫn cho túi vải mua hàng cũ",
+        "assessment": "Mình sẽ giúp bạn xem cách xử lý túi vải mua hàng cũ theo tình trạng thực tế. Túi có lớp phủ nhựa có thể không đi cùng vải thuần.",
+        "default_action": "Bạn hãy giặt sạch và dùng lại túi còn chắc; nếu rách hỏng, hãy hỏi chương trình thu gom vải có nhận không.",
+        "end_of_use": "Khi không còn sử dụng túi vải mua hàng cũ, bạn hãy giữ riêng món đồ và xác minh tuyến tiếp nhận tại địa phương.",
+        "why": "Mình gợi ý như vậy vì vật liệu, mức bẩn và cách thu gom của túi vải mua hàng cũ có thể khác nhau giữa các nơi. Túi có lớp phủ nhựa có thể không đi cùng vải thuần.",
+        "explanation": "Túi có lớp phủ nhựa có thể không đi cùng vải thuần.",
+        "default_caution": "Bạn đừng cho tặng túi mốc hoặc dính chất không rõ.",
+        "condition_responses": {
+          "usable": "Nếu túi vải mua hàng cũ vẫn còn dùng tốt và an toàn, bạn có thể tiếp tục sử dụng trước khi cân nhắc bỏ đi. Bạn hãy giặt sạch và dùng lại túi còn chắc; nếu rách hỏng, hãy hỏi chương trình thu gom vải có nhận không.",
+          "damaged": "Nếu túi vải mua hàng cũ đã hỏng hoặc mất an toàn khi sử dụng, bạn nên ngừng dùng và không cho tặng như đồ còn tốt. Bạn hãy giặt sạch và dùng lại túi còn chắc; nếu rách hỏng, hãy hỏi chương trình thu gom vải có nhận không.",
+          "unknown": "Nếu bạn chưa rõ tình trạng của túi vải mua hàng cũ, hãy kiểm tra trước khi quyết định xử lý. Túi có lớp phủ nhựa có thể không đi cùng vải thuần."
+        },
+        "contamination_responses": {
+          "clean": "Bạn cho biết túi vải mua hàng cũ không dính chất lạ. Bạn hãy giặt sạch và dùng lại túi còn chắc; nếu rách hỏng, hãy hỏi chương trình thu gom vải có nhận không.",
+          "food": "Nếu túi vải mua hàng cũ dính thức ăn, bạn chỉ nên làm sạch khi việc đó an toàn; sau đó hãy để khô và xác minh nơi tiếp nhận. Bạn hãy giặt sạch và dùng lại túi còn chắc; nếu rách hỏng, hãy hỏi chương trình thu gom vải có nhận không.",
+          "hazardous": "Nếu túi vải mua hàng cũ có thể dính hóa chất hoặc chất không rõ, bạn đừng tự rửa hay đưa vào dòng tái chế thông thường. Hãy hỏi đơn vị có thẩm quyền.",
+          "unknown": "Nếu chưa rõ túi vải mua hàng cũ đã dính chất gì, bạn hãy giữ riêng và xác minh trước khi xử lý."
+        },
+        "practical_steps": [
+          {
+            "label": "Kiểm tra",
+            "text": "Bạn hãy xác nhận chất liệu, tình trạng và mức bẩn của túi vải mua hàng cũ."
+          },
+          {
+            "label": "Xử lý",
+            "text": "Bạn hãy giặt sạch và dùng lại túi còn chắc; nếu rách hỏng, hãy hỏi chương trình thu gom vải có nhận không."
+          },
+          {
+            "label": "Xác minh",
+            "text": "Bạn hãy hỏi nơi thu gom tại địa phương có tiếp nhận đúng loại vật này không."
+          }
+        ],
+        "safety": {
+          "Nếu có vật sắc, hóa chất, mốc nặng hoặc chất bẩn không rõ": "Nếu túi vải mua hàng cũ có dấu hiệu nguy hiểm hoặc chất bẩn không rõ, bạn hãy dừng thao tác và hỏi đơn vị có thẩm quyền.",
+          "Vì sao cần lưu ý": "Túi có lớp phủ nhựa có thể không đi cùng vải thuần.",
+          "Tuyệt đối tránh / Không tự suy diễn": "Bạn đừng cho tặng túi mốc hoặc dính chất không rõ.",
+          "Phạm vi": "Đây là hướng dẫn chung; chưa xác minh điểm tiếp nhận tại địa phương."
+        },
+        "reduce_waste": "Nếu túi vải mua hàng cũ còn sạch và an toàn để dùng lại, bạn có thể kéo dài thời gian sử dụng trước khi bỏ đi.",
+        "no_collection": "Nếu nơi thu gom không nhận túi vải mua hàng cũ, bạn hãy hỏi đơn vị quản lý chất thải tại địa phương về tuyến phù hợp; đừng tự khẳng định món đồ được tái chế.",
+        "source_limit": "Các nguồn chỉ hỗ trợ nguyên tắc chung; địa phương có thể áp dụng cách thu gom khác."
+      },
+      "human_review_requirement": "required_before_public_release"
+    },
+    {
+      "id": "wooden_cutting_board",
+      "name_vi": "Thớt gỗ cũ",
+      "category_id": "wood",
+      "aliases_vi": [
+        "thớt tre cũ"
+      ],
+      "default_stream": "special_collection",
+      "question_ids": [
+        "condition",
+        "contamination"
+      ],
+      "risk_profile": "ordinary_conditional",
+      "response_policy": "xử lý theo tình trạng thực tế; xác minh nơi tiếp nhận địa phương",
+      "source_ids": [
+        "VN"
+      ],
+      "evidence_status": "general_guidance_requires_local_verification",
+      "review_status": "pending_human_review",
+      "guidance": {
+        "headline": "Bạn đang xem hướng dẫn cho thớt gỗ cũ",
+        "assessment": "Mình sẽ giúp bạn xem cách xử lý thớt gỗ cũ theo tình trạng thực tế. Thớt từng tiếp xúc thực phẩm và có thể có lớp phủ, nên không mặc định phù hợp để ủ phân.",
+        "default_action": "Bạn hãy ngừng dùng thớt nứt sâu hoặc mốc; hãy hỏi nơi nhận đồ gỗ nhỏ cách bàn giao.",
+        "end_of_use": "Khi không còn sử dụng thớt gỗ cũ, bạn hãy giữ riêng món đồ và xác minh tuyến tiếp nhận tại địa phương.",
+        "why": "Mình gợi ý như vậy vì vật liệu, mức bẩn và cách thu gom của thớt gỗ cũ có thể khác nhau giữa các nơi. Thớt từng tiếp xúc thực phẩm và có thể có lớp phủ, nên không mặc định phù hợp để ủ phân.",
+        "explanation": "Thớt từng tiếp xúc thực phẩm và có thể có lớp phủ, nên không mặc định phù hợp để ủ phân.",
+        "default_caution": "Bạn đừng đốt thớt có lớp sơn, keo hoặc chất bảo quản không rõ.",
+        "condition_responses": {
+          "usable": "Nếu thớt gỗ cũ vẫn còn dùng tốt và an toàn, bạn có thể tiếp tục sử dụng trước khi cân nhắc bỏ đi. Bạn hãy ngừng dùng thớt nứt sâu hoặc mốc; hãy hỏi nơi nhận đồ gỗ nhỏ cách bàn giao.",
+          "damaged": "Nếu thớt gỗ cũ đã hỏng hoặc mất an toàn khi sử dụng, bạn nên ngừng dùng và không cho tặng như đồ còn tốt. Bạn hãy ngừng dùng thớt nứt sâu hoặc mốc; hãy hỏi nơi nhận đồ gỗ nhỏ cách bàn giao.",
+          "unknown": "Nếu bạn chưa rõ tình trạng của thớt gỗ cũ, hãy kiểm tra trước khi quyết định xử lý. Thớt từng tiếp xúc thực phẩm và có thể có lớp phủ, nên không mặc định phù hợp để ủ phân."
+        },
+        "contamination_responses": {
+          "clean": "Bạn cho biết thớt gỗ cũ không dính chất lạ. Bạn hãy ngừng dùng thớt nứt sâu hoặc mốc; hãy hỏi nơi nhận đồ gỗ nhỏ cách bàn giao.",
+          "food": "Nếu thớt gỗ cũ dính thức ăn, bạn chỉ nên làm sạch khi việc đó an toàn; sau đó hãy để khô và xác minh nơi tiếp nhận. Bạn hãy ngừng dùng thớt nứt sâu hoặc mốc; hãy hỏi nơi nhận đồ gỗ nhỏ cách bàn giao.",
+          "hazardous": "Nếu thớt gỗ cũ có thể dính hóa chất hoặc chất không rõ, bạn đừng tự rửa hay đưa vào dòng tái chế thông thường. Hãy hỏi đơn vị có thẩm quyền.",
+          "unknown": "Nếu chưa rõ thớt gỗ cũ đã dính chất gì, bạn hãy giữ riêng và xác minh trước khi xử lý."
+        },
+        "practical_steps": [
+          {
+            "label": "Kiểm tra",
+            "text": "Bạn hãy xác nhận chất liệu, tình trạng và mức bẩn của thớt gỗ cũ."
+          },
+          {
+            "label": "Xử lý",
+            "text": "Bạn hãy ngừng dùng thớt nứt sâu hoặc mốc; hãy hỏi nơi nhận đồ gỗ nhỏ cách bàn giao."
+          },
+          {
+            "label": "Xác minh",
+            "text": "Bạn hãy hỏi nơi thu gom tại địa phương có tiếp nhận đúng loại vật này không."
+          }
+        ],
+        "safety": {
+          "Nếu có vật sắc, hóa chất, mốc nặng hoặc chất bẩn không rõ": "Nếu thớt gỗ cũ có dấu hiệu nguy hiểm hoặc chất bẩn không rõ, bạn hãy dừng thao tác và hỏi đơn vị có thẩm quyền.",
+          "Vì sao cần lưu ý": "Thớt từng tiếp xúc thực phẩm và có thể có lớp phủ, nên không mặc định phù hợp để ủ phân.",
+          "Tuyệt đối tránh / Không tự suy diễn": "Bạn đừng đốt thớt có lớp sơn, keo hoặc chất bảo quản không rõ.",
+          "Phạm vi": "Đây là hướng dẫn chung; chưa xác minh điểm tiếp nhận tại địa phương."
+        },
+        "reduce_waste": "Nếu thớt gỗ cũ còn sạch và an toàn để dùng lại, bạn có thể kéo dài thời gian sử dụng trước khi bỏ đi.",
+        "no_collection": "Nếu nơi thu gom không nhận thớt gỗ cũ, bạn hãy hỏi đơn vị quản lý chất thải tại địa phương về tuyến phù hợp; đừng tự khẳng định món đồ được tái chế.",
+        "source_limit": "Các nguồn chỉ hỗ trợ nguyên tắc chung; địa phương có thể áp dụng cách thu gom khác."
+      },
+      "human_review_requirement": "required_before_public_release"
+    },
+    {
+      "id": "popsicle_sticks",
+      "name_vi": "Que kem gỗ đã dùng",
+      "category_id": "wood",
+      "aliases_vi": [
+        "que kem gỗ"
+      ],
+      "default_stream": "special_collection",
+      "question_ids": [
+        "contamination"
+      ],
+      "risk_profile": "ordinary_conditional",
+      "response_policy": "xử lý theo tình trạng thực tế; xác minh nơi tiếp nhận địa phương",
+      "source_ids": [
+        "VN"
+      ],
+      "evidence_status": "general_guidance_requires_local_verification",
+      "review_status": "pending_human_review",
+      "guidance": {
+        "headline": "Bạn đang xem hướng dẫn cho que kem gỗ đã dùng",
+        "assessment": "Mình sẽ giúp bạn xem cách xử lý que kem gỗ đã dùng theo tình trạng thực tế. Gỗ đã phủ màu hoặc keo có thể cần hướng xử lý khác gỗ mộc.",
+        "default_action": "Bạn hãy bỏ phần kem còn dính, giữ que riêng và hỏi nơi thu gom rác hữu cơ có nhận gỗ chưa xử lý không.",
+        "end_of_use": "Khi không còn sử dụng que kem gỗ đã dùng, bạn hãy giữ riêng món đồ và xác minh tuyến tiếp nhận tại địa phương.",
+        "why": "Mình gợi ý như vậy vì vật liệu, mức bẩn và cách thu gom của que kem gỗ đã dùng có thể khác nhau giữa các nơi. Gỗ đã phủ màu hoặc keo có thể cần hướng xử lý khác gỗ mộc.",
+        "explanation": "Gỗ đã phủ màu hoặc keo có thể cần hướng xử lý khác gỗ mộc.",
+        "default_caution": "Bạn đừng tự đưa que có sơn hoặc mực in vào đống ủ tại nhà.",
+        "condition_responses": {},
+        "contamination_responses": {
+          "clean": "Bạn cho biết que kem gỗ đã dùng không dính chất lạ. Bạn hãy bỏ phần kem còn dính, giữ que riêng và hỏi nơi thu gom rác hữu cơ có nhận gỗ chưa xử lý không.",
+          "food": "Nếu que kem gỗ đã dùng dính thức ăn, bạn chỉ nên làm sạch khi việc đó an toàn; sau đó hãy để khô và xác minh nơi tiếp nhận. Bạn hãy bỏ phần kem còn dính, giữ que riêng và hỏi nơi thu gom rác hữu cơ có nhận gỗ chưa xử lý không.",
+          "hazardous": "Nếu que kem gỗ đã dùng có thể dính hóa chất hoặc chất không rõ, bạn đừng tự rửa hay đưa vào dòng tái chế thông thường. Hãy hỏi đơn vị có thẩm quyền.",
+          "unknown": "Nếu chưa rõ que kem gỗ đã dùng đã dính chất gì, bạn hãy giữ riêng và xác minh trước khi xử lý."
+        },
+        "practical_steps": [
+          {
+            "label": "Kiểm tra",
+            "text": "Bạn hãy xác nhận chất liệu, tình trạng và mức bẩn của que kem gỗ đã dùng."
+          },
+          {
+            "label": "Xử lý",
+            "text": "Bạn hãy bỏ phần kem còn dính, giữ que riêng và hỏi nơi thu gom rác hữu cơ có nhận gỗ chưa xử lý không."
+          },
+          {
+            "label": "Xác minh",
+            "text": "Bạn hãy hỏi nơi thu gom tại địa phương có tiếp nhận đúng loại vật này không."
+          }
+        ],
+        "safety": {
+          "Nếu có vật sắc, hóa chất, mốc nặng hoặc chất bẩn không rõ": "Nếu que kem gỗ đã dùng có dấu hiệu nguy hiểm hoặc chất bẩn không rõ, bạn hãy dừng thao tác và hỏi đơn vị có thẩm quyền.",
+          "Vì sao cần lưu ý": "Gỗ đã phủ màu hoặc keo có thể cần hướng xử lý khác gỗ mộc.",
+          "Tuyệt đối tránh / Không tự suy diễn": "Bạn đừng tự đưa que có sơn hoặc mực in vào đống ủ tại nhà.",
+          "Phạm vi": "Đây là hướng dẫn chung; chưa xác minh điểm tiếp nhận tại địa phương."
+        },
+        "reduce_waste": "Bạn có thể giảm phát sinh que kem gỗ đã dùng bằng cách chọn đồ dùng bền hoặc dùng lượng vừa đủ khi có thể.",
+        "no_collection": "Nếu nơi thu gom không nhận que kem gỗ đã dùng, bạn hãy hỏi đơn vị quản lý chất thải tại địa phương về tuyến phù hợp; đừng tự khẳng định món đồ được tái chế.",
+        "source_limit": "Các nguồn chỉ hỗ trợ nguyên tắc chung; địa phương có thể áp dụng cách thu gom khác."
+      },
+      "human_review_requirement": "required_before_public_release"
     }
   ]
 }

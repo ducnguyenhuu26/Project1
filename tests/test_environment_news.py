@@ -79,6 +79,33 @@ def test_news_filter_rejects_unrelated_animal_husbandry():
     assert _topics("Đề xuất lắp camera phát hiện người đổ trộm rác") == ["rác thải"]
 
 
+def test_news_filter_requires_literal_waste_context_in_headline():
+    for headline in (
+        "Tràn lan nhạc rác: Vì sao nội dung phản cảm dễ viral?",
+        "Mưa cuối mùa còn rải rác, Nam Bộ nắng gắt",
+        "Tin rác gây phiền toái cho người dùng điện thoại",
+        "Đổ trộm vật liệu xây dựng ở ven sông",
+    ):
+        assert _topics(headline) == []
+    for headline in (
+        "Đổ rác trộm tràn lan ở TPHCM",
+        "Nhà máy điện rác đầu tiên ở Đồng Nai",
+        "Bãi biển ngổn ngang rác đủ loại sau mưa lớn",
+        "Giảm thiểu chất thải nhựa tại khu du lịch",
+    ):
+        assert 'rác thải' in _topics(headline)
+
+
+def test_news_cache_rechecks_headlines_even_when_summary_mentions_waste():
+    service = EnvironmentNewsService(feeds=())
+    now = datetime.now(timezone.utc).isoformat()
+    items = [
+        {"title": "Tràn lan nhạc rác", "summary": "Bài viết nhắc đến rác thải trong phần tin liên quan", "url": "https://tuoitre.vn/music", "publisher_url": "https://tuoitre.vn", "published_at": now},
+        {"title": "Đổ trộm rác ở khu dân cư", "summary": "Cơ quan chức năng xử lý", "url": "https://tuoitre.vn/waste", "publisher_url": "https://tuoitre.vn", "published_at": now},
+    ]
+    assert [item['title'] for item in service._clean_items(items)] == ["Đổ trộm rác ở khu dân cư"]
+
+
 def test_news_cache_keeps_ten_latest_and_fifteen_older():
     service = EnvironmentNewsService(feeds=())
     now = datetime.now(timezone.utc)
