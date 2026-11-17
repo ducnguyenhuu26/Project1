@@ -17,6 +17,7 @@ import { mergeRegionScan } from './lib/regionScan';
 import type { ChatMessage, Detection, Health, HistoryEntry, Knowledge, Scan } from './types';
 import './style.css';
 import { LanguageProvider, useLanguage } from './lib/language';
+import { quickSamples } from './content/quickSamples';
 
 const allowedTypes=['image/jpeg','image/png','image/webp'];
 const initialChat:ChatMessage[]=[{role:'assistant',text:'Chào bạn! Hỏi mình về nhựa, giấy, kim loại hoặc cách xử lý rác nhé.'}];
@@ -84,11 +85,13 @@ function App(){
       setRegionError(e instanceof Error?e.message:'Không thể nhận diện lại vùng khoanh. Hãy thử lại hoặc tra cứu KB thủ công.');
     }finally{window.clearTimeout(timeout);if(version===requestVersion.current&&regionVersion===regionRequestVersion.current){setRegionBusy(false);regionRequestRef.current=null;}}
   }
-  async function runDemo(){
+  async function runQuickDemo(sampleId='mixed'){
     if(busy||regionBusy)return;
-    document.getElementById('studio')?.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
-    try{const response=await fetch('/sample.png');if(!response.ok)throw new Error();const blob=await response.blob();const demo=new File([blob],'wastewise-sample.png',{type:'image/png'});if(choose(demo))void analyzeFile(demo);}
-    catch{setError(t('Không tải được ảnh minh họa. Hãy chọn một ảnh từ thiết bị.','Could not load the sample image. Choose an image from your device.'));document.getElementById('studio')?.scrollIntoView({behavior:'smooth',block:'start'});}
+    const sample=quickSamples.find(item=>item.id===sampleId)??quickSamples[2];
+    const showPreview=()=>document.getElementById('studio-preview')?.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
+    showPreview();
+    try{const response=await fetch(sample.image);if(!response.ok)throw new Error();const blob=await response.blob();const demo=new File([blob],sample.fileName,{type:'image/jpeg'});if(choose(demo)){await analyzeFile(demo);window.requestAnimationFrame(showPreview);}}
+    catch{setError(t('Không tải được ảnh minh họa. Hãy chọn một ảnh từ thiết bị.','Could not load the sample image. Choose an image from your device.'));window.requestAnimationFrame(showPreview);}
   }
   function updateHistory(ids:string[]){if(!scanId)return;setHistory(previous=>{const next=previous.map(item=>item.id===scanId?{...item,final:ids,corrected:ids.slice().sort().join('|')!==(item.detected??[]).slice().sort().join('|')}:item);saveHistory(next);return next;});}
   function correctObject(d:Detection,id:string){const next={...corrections,[d.id]:id};setCorrections(next);setSelected(d.id);if(scan)setScan({...scan,summary:currentSummary(scan.detections,next,excluded,manual,scan.summary)});const adjusted=(scan?.detections??[]).filter(item=>!excluded.includes(item.id)).map(item=>next[item.id]??item.category_id).filter((v):v is string=>!!v);updateHistory([...new Set([...adjusted,...manual])]);}
@@ -98,9 +101,9 @@ function App(){
   function clearHistory(){try{localStorage.removeItem('wastewise-history');}catch{/* Local history is optional. */}setHistory([]);}
 
   return <><SiteHeader/><main id="main-content">
-    <Hero onSample={runDemo} supportedCount={supportedIds.length}/>
+    <Hero onSample={()=>void runQuickDemo()} supportedCount={supportedIds.length}/>
     <StorySection/><MissionSection/>
-    <ScanStudio file={file} preview={preview} scan={scan} scanContextKey={scanId} materials={materials} supportedIds={supportedIds} busy={busy} error={error} regionBusy={regionBusy} regionError={regionError} onRegion={analyzeRegion} onChoose={choose} onAnalyze={analyze} onDemo={runDemo} onCorrect={correctObject} onExclude={excludeObject} onSelect={setSelected} selected={selected} onManual={toggleManual} active={active} manual={manual} corrections={corrections} excluded={excluded}/>
+    <ScanStudio file={file} preview={preview} scan={scan} scanContextKey={scanId} materials={materials} supportedIds={supportedIds} busy={busy} error={error} regionBusy={regionBusy} regionError={regionError} onRegion={analyzeRegion} onChoose={choose} onAnalyze={analyze} onDemo={()=>void runQuickDemo()} onQuickDemo={id=>void runQuickDemo(id)} onCorrect={correctObject} onExclude={excludeObject} onSelect={setSelected} selected={selected} onManual={toggleManual} active={active} manual={manual} corrections={corrections} excluded={excluded}/>
     {libraryError&&<p className="connection-notice" role="status">{t('Không tải được thư viện kiến thức từ API. Hãy kiểm tra kết nối để tra cứu.','Could not load the knowledge library from the API. Check your connection to browse it.')}</p>}
     <TechnologySection health={healthError?null:health} scan={scan} supportedIds={supportedIds}/>
     <KnowledgeSections knowledge={knowledge} supportedIds={supportedIds}/><TeamSection/><ClosingSection/>

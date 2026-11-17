@@ -1,16 +1,19 @@
 import { ArrowUpRight, Menu, X } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { siteContent } from '../content/siteContent';
 import { useLanguage } from '../lib/language';
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const progressRef=useRef<HTMLSpanElement>(null);
   const { language, setLanguage, t } = useLanguage();
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    onScroll(); window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    let frame=0;
+    const update=()=>{frame=0;setScrolled(window.scrollY>20);const max=document.documentElement.scrollHeight-window.innerHeight;const progress=max>0?Math.min(1,window.scrollY/max):0;if(progressRef.current)progressRef.current.style.transform=`scaleX(${progress})`;};
+    const onScroll=()=>{if(!frame)frame=window.requestAnimationFrame(update);};
+    update();window.addEventListener('scroll',onScroll,{passive:true});window.addEventListener('resize',onScroll);
+    return()=>{window.removeEventListener('scroll',onScroll);window.removeEventListener('resize',onScroll);if(frame)window.cancelAnimationFrame(frame);};
   }, []);
   const close = () => setOpen(false);
   return <header className={`topbar${scrolled ? ' scrolled' : ''}`}>
@@ -22,6 +25,6 @@ export function SiteHeader() {
         <button className="language-toggle" onClick={() => setLanguage(language === 'vi' ? 'en' : 'vi')} aria-label={t('Chuyển sang tiếng Anh','Switch to Vietnamese')}>{language === 'vi' ? 'VI' : 'EN'} <span>{language === 'vi' ? 'EN' : 'VI'}</span></button>
         <a className="nav-cta" onClick={close} href="#studio">{t('Thử ngay','Try it')} <ArrowUpRight size={15}/></a>
       </nav>
-    </div>
+    </div><span className="page-progress" ref={progressRef} aria-hidden="true"/>
   </header>;
 }

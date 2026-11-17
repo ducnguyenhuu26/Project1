@@ -16,14 +16,27 @@ import { ScanStudio } from './ScanStudio';
 const materials: Material[] = ['plastic', 'textile', 'paper'].map(id => ({ id, name: id, ai_class: null, examples: [], do: [], avoid: [], caution: '', description: '', vn_tip: '' }));
 const detection = (id: string, category_id: string): Detection => ({ id, class_id: 0, category_id, label: category_id, material_id: category_id, confidence: .8, bbox_xyxy: [10, 10, 80, 80], origin: 'ai', status: 'detected', model_version: 'yolo26s' });
 const scan = (detections: Detection[]): Scan => ({ mode: 'real', model_version: 'yolo26s', taxonomy_version: '1', supported_category_ids: ['plastic'], image_width: 200, image_height: 200, detections, summary: [], advice: [], warnings: [] });
-function Harness({detections, initial = 'det-a', mode = 'real', scanId = 'scan-1', onRegion = () => {}}: { detections: Detection[]; initial?: string; mode?: string; scanId?: string; onRegion?: (box:[number,number,number,number])=>void }) {
+function Harness({detections, initial = 'det-a', mode = 'real', scanId = 'scan-1', onRegion = () => {}, onQuickDemo = () => {}}: { detections: Detection[]; initial?: string; mode?: string; scanId?: string; onRegion?: (box:[number,number,number,number])=>void; onQuickDemo?: (id:string)=>void }) {
   const [selected, setSelected] = useState<string | null>(initial);
   const [corrections, setCorrections] = useState<Record<string,string>>({});
   const [excluded, setExcluded] = useState<string[]>([]);
-  return <ScanStudio file={null} preview="image.png" scan={{...scan(detections),mode}} scanContextKey={scanId} materials={materials} supportedIds={['plastic']} busy={false} error="" regionBusy={false} regionError="" onRegion={onRegion} onChoose={() => {}} onAnalyze={() => {}} onDemo={() => {}} onCorrect={(d,id) => {setCorrections(p => ({...p,[d.id]:id}));setSelected(d.id);}} onExclude={id => {setExcluded(p => [...p,id]);setSelected('manual');}} onSelect={setSelected} selected={selected} onManual={() => setSelected('manual')} active={[]} manual={[]} corrections={corrections} excluded={excluded}/>;
+  return <ScanStudio file={null} preview="image.png" scan={{...scan(detections),mode}} scanContextKey={scanId} materials={materials} supportedIds={['plastic']} busy={false} error="" regionBusy={false} regionError="" onRegion={onRegion} onChoose={() => {}} onAnalyze={() => {}} onDemo={() => {}} onQuickDemo={onQuickDemo} onCorrect={(d,id) => {setCorrections(p => ({...p,[d.id]:id}));setSelected(d.id);}} onExclude={id => {setExcluded(p => [...p,id]);setSelected('manual');}} onSelect={setSelected} selected={selected} onManual={() => setSelected('manual')} active={[]} manual={[]} corrections={corrections} excluded={excluded}/>;
 }
 afterEach(cleanup);
 describe('per detection scan flow', () => {
+  it('runs the chosen quick scenario through the provided API flow', () => {
+    const onQuickDemo=vi.fn();
+    render(<Harness detections={[]} onQuickDemo={onQuickDemo}/>);
+    fireEvent.click(screen.getByRole('button',{name:/Nhiều vật thể/}));
+    expect(onQuickDemo).toHaveBeenCalledWith('mixed');
+  });
+  it('replays the result reveal without duplicating the image or detection overlay', () => {
+    render(<Harness detections={[detection('det-a','plastic')]}/>);
+    fireEvent.click(screen.getByRole('button',{name:'Xem lại màn quét'}));
+    fireEvent.click(screen.getByRole('button',{name:'Xem lại màn quét'}));
+    expect(screen.getAllByRole('img',{name:/Ảnh cần phân loại/})).toHaveLength(1);
+    expect(screen.getAllByRole('img',{name:'1 bounding box từ API'})).toHaveLength(1);
+  });
   it('selects two identical classes independently by card and keyboard box', () => {
     render(<Harness detections={[detection('det-a','plastic'), detection('det-b','plastic')]}/>);
     fireEvent.click(screen.getByText('Complete item'));
